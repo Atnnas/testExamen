@@ -661,9 +661,9 @@ export const kataQuestions = [
     "section": "Sección 3: Puntuación y Criterios de Evaluación",
     "text": "En las sillas de ruedas, durante la competición de Para-Karate no se puede colocar publicidad en el respaldo.",
     "text_en": "In wheelchairs, during Para-Karate competition advertising cannot be placed on the backrest.",
-    "answer": false,
-    "ref": "122225_parakarate_commission.pdf (Reglas de Silla de Ruedas).,",
-    "justification": "El reglamento de Para-Karate de la WKF sí permite colocar parches publicitarios de los patrocinadores en el respaldo de la silla de ruedas, sujeto a la previa verificación de medidas y logos aprobados."
+    "answer": true,
+    "ref": "122225_parakarate_commission.pdf (Reglas de Silla de Ruedas / Reglamento de Para-Karate de la WKF).",
+    "justification": "De acuerdo con las normas de equipamiento de Para-Karate de la WKF (Clase K30 de Silla de Ruedas), la silla de ruedas se considera parte del equipamiento de competición oficial del atleta. Al igual que el Karate-gi, está estrictamente prohibido colocar cualquier tipo de publicidad comercial, logotipos de patrocinadores personales o parches promocionales en el respaldo de la silla de ruedas durante el torneo. Únicamente se permiten las identificaciones estándar del fabricante dentro de las medidas reglamentadas por la WKF y el Comité Paralímpico Internacional (IPC)."
   },
   {
     "id": 75,
