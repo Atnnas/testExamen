@@ -1005,23 +1005,95 @@ body {
 
 /* Responsive adjustment */
 @media (max-width: 480px) {
-  .welcome-card, .results-card {
-    padding: 30px 15px;
+  .main-content {
+    padding: 15px 10px;
   }
+  
+  .welcome-card, .results-card {
+    padding: 25px 15px;
+  }
+  
+  .welcome-title {
+    font-size: 1.6rem;
+  }
+  
+  .modality-option {
+    padding: 12px;
+    font-size: 1rem;
+  }
+  
   .quantity-selector {
     grid-template-columns: repeat(2, 1fr);
   }
-  .welcome-title {
-    font-size: 1.8rem;
-  }
+  
+  /* Stack mascot and speech bubble */
   .bubble-container {
     flex-direction: column;
     align-items: center;
+    gap: 12px;
   }
+  
+  .bubble-content {
+    width: 100%;
+  }
+  
+  /* Make speech bubble triangle point UP to the mascot instead of left */
   .bubble-content::before {
-    display: none; /* remove triangle on mobile stack layout */
+    display: block;
+    left: 50%;
+    top: -9px;
+    margin-left: -8px;
+    border-left: 2px solid var(--color-border);
+    border-top: 2px solid var(--color-border);
+    border-bottom: none;
+    transform: rotate(45deg);
   }
+  
   .mascot-container {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+  }
+  
+  .kumite-success-wide {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .question-text {
+    font-size: 1.1rem;
+  }
+
+  .question-text-en {
+    font-size: 0.95rem;
+  }
+  
+  .btn-3d {
+    font-size: 1rem;
+    padding: 14px 20px;
+  }
+  
+  .score-badge {
+    font-size: 2.2rem;
+  }
+  
+  .review-item {
+    padding: 12px;
+  }
+  
+  .review-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .feedback-footer {
+    padding: 20px 15px;
+  }
+  
+  .feedback-title {
+    font-size: 1.25rem;
+  }
+  
+  .feedback-message {
+    font-size: 0.95rem;
   }
 }

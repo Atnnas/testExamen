@@ -167,7 +167,7 @@ export default function Home() {
 
               <h2 className="options-title">Elige la cantidad de preguntas:</h2>
               <div className="quantity-selector">
-                {[5, 10, 15, 20].map((num) => (
+                {[10, 25, 50, 100].map((num) => (
                   <button
                     key={num}
                     className={`quantity-option ${questionLimit === num ? 'selected' : ''}`}
@@ -177,7 +177,7 @@ export default function Home() {
                   </button>
                 ))}
                 <button
-                  style={{ gridColumn: 'span 4' }}
+                  style={{ gridColumn: '1 / -1' }}
                   className={`quantity-option ${questionLimit === 'all' ? 'selected' : ''}`}
                   onClick={() => setQuestionLimit('all')}
                 >
