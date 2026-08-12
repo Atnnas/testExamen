@@ -103,10 +103,12 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
               <path d="M 80,150 L 75,195 L 95,195 L 95,160 Z" fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
               <path d="M 73,195 Q 63,195 63,201 L 95,201 L 95,195 Z" fill="#e9c46a" stroke="#333" strokeWidth="4" />
               
-              {/* Kicking right leg (extended high to the right) */}
-              <path d="M 100,150 L 160,85 L 170,95 L 115,155 Z" fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
+              {/* Kicking right leg (Mawashi Geri / High Kick) */}
+              <path d="M 100,150 L 135,130 L 170,85 L 180,95 L 145,145 L 115,155 Z" fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
               {/* Kicking foot */}
-              <path d="M 160,85 L 175,78 L 178,88 L 170,95 Z" fill="#e9c46a" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
+              <path d="M 170,85 L 175,70 L 185,75 L 180,95 Z" fill="#e9c46a" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
+              {/* Action lines for kick impact */}
+              <path d="M 185,65 L 205,55 M 192,80 L 210,75 M 188,95 L 200,105" fill="none" stroke="#ff4b4b" strokeWidth="3" strokeLinecap="round" />
             </>
           ) : isKataSuccess ? (
             <>
@@ -124,8 +126,10 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
             </>
           )}
 
-          {/* Karate Gi Torso */}
-          <path d={isKumiteSuccess ? "M 65,110 L 135,110 L 125,155 L 75,155 Z" : "M 65,110 L 135,110 L 125,160 L 75,160 Z"} fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
+          {/* Upper Body (Leans back during high kick) */}
+          <g className="mascot-upper-body" style={{ transform: isKumiteSuccess ? 'rotate(-25deg)' : 'none', transformOrigin: '100px 150px', transition: 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}>
+            {/* Karate Gi Torso */}
+            <path d={isKumiteSuccess ? "M 65,110 L 135,110 L 125,155 L 75,155 Z" : "M 65,110 L 135,110 L 125,160 L 75,160 Z"} fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
           
           {/* Gi Lapels (V neck) */}
           <path d="M 85,110 L 100,145 L 115,110" fill="none" stroke="#333" strokeWidth="4" strokeLinecap="round" />
@@ -270,6 +274,7 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
             {state === 'failure' && (
               <path d="M 132,58 C 132,58 138,62 136,68 C 134,72 128,72 128,68 C 128,64 132,58 132,58 Z" fill="#64b5f6" className="sweat-drop" />
             )}
+          </g>
           </g>
         </g>
       </svg>
