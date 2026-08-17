@@ -1012,9 +1012,9 @@ export const kumiteQuestions = [
     "section": "Sección 3: Reglas de Ejecución de Combates y Puntuaciones",
     "text": "Se permiten técnicas de patada contra un oponente derribado que esté acostado plano sobre el suelo.",
     "text_en": "Kicking techniques against a downed opponent who is lying flat on the floor is permitted.",
-    "answer": true,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 8.6 (Pág. 22) / Artículo 11.2.4 (Pág. 32).",
-    "justification": "Técnicamente, golpear o patear a un oponente que ha caído plano al suelo está permitido bajo las reglas de la WKF y se premia con Ippon (3 puntos), siempre y cuando la técnica se ejecute de manera limpia, sin retraso desmedido, de forma totalmente controlada y sin causar lesión o contacto excesivo."
+    "answer": false,
+    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 9.1.1, Inciso 16 (Pág. 24).",
+    "justification": "El reglamento oficial de Kumite de la WKF para el ciclo de 2026 prohíbe de forma explícita en su Artículo 9.1.1, Inciso 16, cualquier técnica de patada contra un oponente derribado que se encuentre acostado plano sobre el tatami (lying flat on the floor). Por lo tanto, tales técnicas no están permitidas y constituyen un comportamiento prohibido, haciendo que el enunciado sea Falso."
   },
   {
     "id": 114,
