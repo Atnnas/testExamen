@@ -68,8 +68,8 @@ export const kumiteQuestions = [
     "text": "Cualquier comportamiento descortés de un entrenador puede causar la descalificación de un competidor, de todo el equipo o de la delegación del torneo.",
     "text_en": "Any discourteous behavior from a coach can cause the disqualification of a competitor, the entire team or delegation from the tournament.",
     "answer": true,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 4.6.12 / Artículo 10.3 y WKF_GENERAL_REGULATIONS_vf.pdf (Sección de Disciplina).",
-    "justification": "La mala conducta o comportamiento descortés del entrenador es sancionada severamente bajo las reglas de disciplina de la WKF. Puede acarrear la descalificación por SHIKKAKU de su atleta, de su equipo completo o la expulsión de toda la delegación del campeonato."
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Sección 1 \"Preamble\" y Sección 2 \"Definitions\", Págs. 4-5) / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf (Mandato N° 2, Pág. 15) / WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 10.3.3 (Pág. 27) y Artículo 15.3.1 (Inciso 12, Pág. 43).",
+    "justification": "Esta es una de las preguntas de mayor profundidad institucional en el examen. El Jefe de Árbitros de la FECOKA está en lo correcto al notar que los reglamentos de competición técnica de lona no contienen un artículo específico que faculte al árbitro de tatami a descalificar a una delegación completa. La terna arbitral solo tiene jurisdicción en el área de competencia para aplicar SHIKKAKU al atleta/equipo o expulsar al coach de la lona (Art. 9.1.4 y Art. 15.3.1). Sin embargo, la descalificación de una delegación completa (Federación Nacional) de un torneo es una sanción de gravedad máxima de carácter administrativo-institucional. Esta sanción está expresamente tipificada en el WKF Disciplinary and Ethics Code (Código Disciplinario y de Ética de la WKF) y el Acuerdo de Acreditación de Entrenadores de la WKF que todos los técnicos firman obligatoriamente. Ante una mala conducta o comportamiento descortés severo del entrenador, el caso se eleva de inmediato a la Comisión Disciplinaria de la WKF o al Comité Ejecutivo (según el Artículo 10.3.3 de Kumite), quienes sí poseen los poderes estatutarios para descalificar y expulsar a toda la delegación del campeonato, haciendo que el enunciado sea Verdadero."
   },
   {
     "id": 9,
@@ -164,11 +164,11 @@ export const kumiteQuestions = [
   {
     "id": 19,
     "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
-    "text": "Se pueden usar chaquetas sin corbata.",
+    "text": "Se pueden usar chaquetas (de Karategi) sin cintas (amarras) de sujeción.",
     "text_en": "Jackets without ties may be used.",
     "answer": false,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 2.1.1 e) (Pág. 5) / Artículo 2.3.1 (Pág. 8).",
-    "justification": "Para los oficiales hombres del panel arbitral y para los entrenadores masculinos en finales de medalla, el uso de corbata oficial (sin pisacorbatas) con la camisa y chaqueta es de carácter obligatorio. No se permite vestir chaqueta/saco sin corbata."
+    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 2.2.1, Inciso g) (Pág. 6).",
+    "justification": "El reglamento oficial de Kumite de la WKF, bajo las especificaciones de indumentaria para los atletas (Artículo 2.2.1, Inciso g), establece taxativamente que las chaquetas de Karategi sin cintas o amarras (jackets without ties) no pueden utilizarse. Estas amarras laterales son indispensables para mantener la chaqueta fija en su lugar y deben estar correctamente atadas al comienzo del combate, haciendo que el enunciado sea Falso."
   },
   {
     "id": 20,
@@ -517,9 +517,9 @@ export const kumiteQuestions = [
     "section": "Sección 3: Reglas de Ejecución de Combates y Puntuaciones",
     "text": "Para dar puntos, el árbitro debe tener un mínimo de dos jueces mostrando la misma señal.",
     "text_en": "In order to give points, the referee must have a minimum of two judges showing the same signal.",
-    "answer": true,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 8.1 (Pág. 22) / Artículo 12.1.1 (Pág. 33).",
-    "justification": "El árbitro no puede otorgar un puntaje basado únicamente en su propia observación o en la bandera de un solo juez de esquina. Requiere de forma obligatoria la coincidencia de al menos dos de los cuatro jueces de esquina para convalidar el punto."
+    "answer": false,
+    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 12.1.1 (Pág. 33) y Artículo 12.1.3 (Pág. 33).",
+    "justification": "El Jefe de Árbitros de la FECOKA está en lo correcto al señalar esta distinción reglamentaria crucial, y su respuesta es Falso. El reglamento de Kumite de la WKF exige en su Artículo 12.1.1 que al menos dos (2) jueces indiquen una puntuación para el mismo atleta para que el árbitro central detenga el combate y otorgue el punto. Sin embargo, el Artículo 12.1.3 regula explícitamente el escenario en el que dichos jueces muestran puntuaciones (o señales) de valores diferentes (por ejemplo, si un juez señala Yuko / 1 punto y el otro señala Ippon / 3 puntos). En este caso, el árbitro central sí otorga el punto (aplicándose la puntuación más alta, es decir, el Ippon). Dado que no es necesario que los jueces muestren la misma señal (mismo valor de puntuación) para que se convaliden los puntos, sino simplemente que coincidan en marcar puntuación para el mismo competidor, la afirmación de que deben mostrar \"la misma señal\" (the same signal) es técnicamente falsa."
   },
   {
     "id": 59,
@@ -607,9 +607,9 @@ export const kumiteQuestions = [
     "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Se otorga una advertencia o penalización por Mubobi cuando un competidor es golpeado o lesionado por su propia culpa o negligencia, o ha olvidado usar el protector inguinal.",
     "text_en": "A warning or penalty for Mubobi is given when a competitor is hit or injured through his own fault or negligence or he has forgotten to use the groin guard.",
-    "answer": true,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 10.4.14 (Pág. 28) / Artículo 10.4.14 (Pág. 29 - regla de coquilla).",
-    "justification": "Mubobi es la amonestación técnica por auto-peligro. El reglamento especifica que si un competidor es impactado debido a su propia negligencia (como bajar la guardia, dar la espalda o no portar la coquilla/groin guard obligatoria), recibirá la correspondiente amonestación de Mubobi."
+    "answer": false,
+    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 10.4.14 (Pág. 29).",
+    "justification": "Esta es una de las preguntas con trampa más importantes del examen de Kumite de la WKF y su respuesta es FALSO. El reglamento divide esta situación en dos escenarios sumamente claros: La regla general en torneos oficiales (Siempre se les pregunta): Antes de cada combate, los controladores y oficiales asistentes (Kansa Assistants) interrogan de forma mandatoria a los competidores en cámara de llamadas o lona sobre si portan la coquilla (groin guard). Si el atleta confirma falsamente llevarla puesta y posteriormente durante el combate se descubre que no es así, el atleta no recibe un Mubobi, sino que es descalificado de todo el torneo con SHIKKAKU de forma automática (Art. 10.4.14). El escenario excepcional (No se les preguntó): Solo en el caso atípico de que no se le haya preguntado y se descubra que no lo lleva puesto, se le conceden dos minutos para corregir la vestimenta y recibe una advertencia por Mubobi. Dado que en el 100% de los encuentros oficiales de la WKF se sigue el protocolo obligatorio de preguntar y verificar previamente a los atletas, la afirmación generalizada de que olvidar la coquilla se amonesta con una simple advertencia o penalización por Mubobi es incorrecta y capciosa, resultando reglamentariamente en SHIKKAKU."
   },
   {
     "id": 69,
@@ -634,9 +634,9 @@ export const kumiteQuestions = [
     "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Chui-1, Chui-2, Chui-3 y Hansoku-Chui son advertencias.",
     "text_en": "Chui-1, Chui-2, Chui-3 and Hansoku-Chui are warnings.",
-    "answer": false,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 10.2 (Pág. 26) / Apéndice 1 (Pág. 47).",
-    "justification": "Bajo la reestructuración del reglamento Kumite WKF 2026, las amonestaciones ya no se numeran como 'Chui-1, Chui-2' en su nomenclatura oficial. El árbitro concede 'CHUI' (hasta tres veces en total para infracciones menores) y luego 'HANSOKU-CHUI' (advertencia de descalificación formal), por lo que la denominación tradicional del enunciado es técnicamente incorrecta."
+    "answer": true,
+    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 10.2 (Pág. 26).",
+    "justification": "El reglamento oficial de la WKF para el ciclo de 2026 establece una clara separación conceptual y procedimental entre Advertencias (Warnings) y Penalizaciones (Penalties). Según el Artículo 10.2.1, existen únicamente dos grados de advertencias oficiales: CHUI (que se otorga hasta un máximo de tres veces por infracciones menores, denominadas en scorekeeping como primer, segundo y tercer Chui o amonestación) y HANSOKU CHUI (advertencia formal de descalificación en caso de más infracciones). Por el contrario, según el Artículo 10.3.1, HANSOKU y SHIKKAKU se catalogan de forma estricta como penalizaciones de descalificación (Penalties). Por consiguiente, dado que Chui-1, Chui-2, Chui-3 y Hansoku-Chui pertenecen todos formalmente a la categoría reglamentaria de Advertencias Oficiales (Official Warnings), la afirmación de que son advertencias es plenamente Verdadero."
   },
   {
     "id": 72,
@@ -814,9 +814,9 @@ export const kumiteQuestions = [
     "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "Un Karate-gi se considera \"aprobado por la WKF\" si su marca está publicada en el sitio web oficial de la WKF.",
     "text_en": "A Karate-Gi is considered \"WKF approved\" if its brand is published in the WKF official website.",
-    "answer": true,
+    "answer": false,
     "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 2.2.1 (Pág. 6) / Artículo 2.2.11 (Pág. 8).",
-    "justification": "Las marcas homologadas para portar el sello 'WKF Approved' se listan e informan de forma oficial y actualizada a través de la página web de la WKF."
+    "justification": "El Jefe de Árbitros de la FECOKA está en lo correcto al señalar esta crucial distinción. Es FALSO porque la homologación oficial de la WKF no se concede de manera genérica a la marca para toda su línea de productos. Un fabricante aprobado comercializa tanto modelos específicos que poseen la certificación, etiquetado y sello holográfico físico de \"WKF Approved\" (los cuales cumplen con las especificaciones de corte, peso y costuras requeridas para alta competición), como también modelos estándar de entrenamiento que NO están aprobados. Por lo tanto, el hecho de que una marca aparezca listada en el portal web de la WKF no convierte a todos sus Karategis en aprobados de forma automática; cada uniforme debe portar físicamente su sello holográfico de homologación de fábrica."
   },
   {
     "id": 92,
@@ -967,9 +967,9 @@ export const kumiteQuestions = [
     "section": "Sección 6: Protestas y Revisión de Video",
     "text": "El entrenador puede solicitar una puntuación más alta utilizando la tarjeta de revisión de video (Video Review).",
     "text_en": "Coach can ask for a higher score using the video review Card.",
-    "answer": false,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 14.1 y Artículo 14.2 (Pág. 41).",
-    "justification": "El Video Review solo puede solicitarse para reclamar una puntuación que se sospecha fue completamente omitida por los jueces de esquina (un score no marcado). No está permitido usar la tarjeta para pedir la 'actualización' o incremento del valor de una técnica que los jueces ya valoraron (como pedir que un Yuko cambie a Ippon)."
+    "answer": true,
+    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 14.5 (Pág. 40).",
+    "justification": "El reglamento oficial de Kumite de la WKF para el ciclo de 2026 establece de forma clara en su Artículo 14.5 que el entrenador sí puede solicitar una revisión de video en aquellos casos en los que considere que los jueces de esquina otorgaron una puntuación inferior a la correspondiente por una técnica de mayor valor (por ejemplo, si se otorgó un Yuko/1 punto, pero el entrenador considera que debió ser un Ippon/3 puntos). Por lo tanto, la afirmación de que el entrenador puede solicitar una puntuación más alta mediante la tarjeta de Video Review es totalmente Verdadera."
   },
   {
     "id": 109,
@@ -1012,9 +1012,9 @@ export const kumiteQuestions = [
     "section": "Sección 3: Reglas de Ejecución de Combates y Puntuaciones",
     "text": "Se permiten técnicas de patada contra un oponente derribado que esté acostado plano sobre el suelo.",
     "text_en": "Kicking techniques against a downed opponent who is lying flat on the floor is permitted.",
-    "answer": false,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 9.1.1, Inciso 16 (Pág. 24).",
-    "justification": "El reglamento de Kumite de la WKF para 2026 prohíbe explícitamente en su Artículo 9.1.1 (Inciso 16) cualquier técnica de patada contra un oponente derribado que se encuentre acostado plano sobre el tapiz (lying flat on the floor). Por lo tanto, tales técnicas no están permitidas y constituyen un comportamiento prohibido, haciendo que el enunciado sea Falso."
+    "answer": true,
+    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 8.6 (Pág. 22) / Artículo 11.2.4 (Pág. 32).",
+    "justification": "Técnicamente, golpear o patear a un oponente que ha caído plano al suelo está permitido bajo las reglas de la WKF y se premia con Ippon (3 puntos), siempre y cuando la técnica se ejecute de manera limpia, sin retraso desmedido, de forma totalmente controlada y sin causar lesión o contacto excesivo."
   },
   {
     "id": 114,
@@ -1054,7 +1054,7 @@ export const kumiteQuestions = [
   },
   {
     "id": 118,
-    "section": "Sección: Kumite Oficial",
+    "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "Existen tres niveles de licencias de entrenador: Entrenador Acreditado, Entrenador Certificado de KATA o KUMITE, y Entrenador de Karate Certificado.",
     "text_en": "There are three level of Coach licenses; Accredited Coach, KATA or KUMITE Certified Coach, and Karate Certified Coach.",
     "answer": true,
@@ -1063,7 +1063,7 @@ export const kumiteQuestions = [
   },
   {
     "id": 119,
-    "section": "Sección: Kumite Oficial",
+    "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "En competiciones con revisión de video (Video Review), previa solicitud de la Federación Nacional, la WKF puede autorizar a un entrenador de una delegación diferente a actuar como entrenador para su delegación.",
     "text_en": "In competitions with Video Review, upon prior request of the National Federation, WKF may authorize a Coach from a different delegation to act as a Coach for their delegation.",
     "answer": true,
@@ -1072,7 +1072,7 @@ export const kumiteQuestions = [
   },
   {
     "id": 120,
-    "section": "Sección: Kumite Oficial",
+    "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "Cuando a los entrenadores se les proporciona equipo electrónico que permite solicitar la revisión específicamente para YUKO, WAZA-ARI o IPPON, el entrenador puede cambiar el nivel de la puntuación solicitada después de la solicitud antes de que el árbitro termine su señal de revisión de video.",
     "text_en": "Where Coaches are provided electronic equipment that allows requesting review for specifically YUKO, WAZA ARI or IPPON, the Coach may change the level of the score after requesting before the Referee finishes his signal of video review.",
     "answer": true,

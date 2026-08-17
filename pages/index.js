@@ -208,8 +208,8 @@ export default function Home() {
                 <span className="question-badge">
                   {currentQuestion.section.split(':')[0]} {/* e.g. "Sección 1" */}
                 </span>
-                <p className="question-text">{currentQuestion.id}. {currentQuestion.text}</p>
-                {currentQuestion.text_en && <p className="question-text-en">{currentQuestion.id}. {currentQuestion.text_en}</p>}
+                <p className="question-text"><span className="flag-icon">🇪🇸</span> {currentQuestion.id}. {currentQuestion.text}</p>
+                {currentQuestion.text_en && <p className="question-text-en"><span className="flag-icon">🇬🇧</span> {currentQuestion.id}. {currentQuestion.text_en}</p>}
               </div>
             </div>
 
@@ -313,8 +313,8 @@ export default function Home() {
                         {answer.isCorrect ? 'Correcta' : 'Incorrecta'}
                       </span>
                     </div>
-                    <p className="review-q-text">{answer.questionId}. {answer.text}</p>
-                    {answer.text_en && <p className="review-q-text-en">{answer.questionId}. {answer.text_en}</p>}
+                    <p className="review-q-text"><span className="flag-icon">🇪🇸</span> {answer.questionId}. {answer.text}</p>
+                    {answer.text_en && <p className="review-q-text-en"><span className="flag-icon">🇬🇧</span> {answer.questionId}. {answer.text_en}</p>}
                     <div className="review-answers">
                       <strong>Tu respuesta:</strong> {answer.userAnswer ? 'Verdadero' : 'Falso'}{' '}
                       | <strong>Correcta:</strong> {answer.correctAnswer ? 'Verdadero' : 'Falso'}

@@ -28,7 +28,7 @@ export const kataQuestions = [
   },
   {
     "id": 4,
-    "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
+    "section": "Sección 9: Normativa Antidopaje - Reglas AMA/WADA",
     "text": "El entrenador debe conocer y comprender las reglas Antidopaje.",
     "text_en": "The coach must know and understand the Anti-Doping rules.",
     "answer": true,
@@ -68,8 +68,8 @@ export const kataQuestions = [
     "text": "Cualquier comportamiento descortés de un entrenador puede causar la descalificación de un competidor, de todo el equipo o de la delegación del torneo.",
     "text_en": "Any discourteous behavior from a coach can cause the disqualification of a competitor, the entire team, or delegation from the tournament.",
     "answer": true,
-    "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 11 (Pág. 18) y WKF_GENERAL_REGULATIONS_vf.pdf (Sección de Disciplina).",
-    "justification": "La conducta indisciplinada o descortés de un entrenador es catalogada como mala conducta (misconduct) y faculta al árbitro principal o Tatami Manager, previa consulta (Shugo), a aplicar la sanción de descalificación por SHIKKAKU al atleta o al equipo completo, pudiendo elevarse el caso a la Comisión Disciplinaria de la WKF para sanciones mayores a la delegación nacional. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 5 v5.0 - Español"
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Sección 1 \"Preamble\" y Sección 2 \"Definitions\", Págs. 4-5) / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf (Mandato N° 2, Pág. 15) / WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8 (Inciso 11, Pág. 18) y WKF Disciplinary and Ethics Code.",
+    "justification": "Esta es una de las preguntas de mayor profundidad institucional en el examen. El Jefe de Árbitros de la FECOKA está en lo correcto al notar que los reglamentos de competición técnica de lona no contienen un artículo específico que faculte al árbitro de tatami a descalificar a una delegación completa. La terna arbitral solo tiene jurisdicción en el área de competencia para aplicar SHIKKAKU al atleta/equipo o expulsar al coach de la lona (Art. 5.8 en Kata). Sin embargo, la descalificación de una delegación completa (Federación Nacional) de un torneo es una sanción de gravedad máxima de carácter administrativo-institucional. Esta sanción está expresamente tipificada en el WKF Disciplinary and Ethics Code (Código Disciplinario y de Ética de la WKF) y el Acuerdo de Acreditación de Entrenadores de la WKF que todos los técnicos firman obligatoriamente. Ante una mala conducta o comportamiento descortés severo del entrenador, el caso se eleva de inmediato a la Comisión Disciplinaria de la WKF o al Comité Ejecutivo, quienes sí poseen los poderes estatutarios para descalificar y expulsar a toda la delegación del campeonato, haciendo que el enunciado sea Verdadero."
   },
   {
     "id": 9,
@@ -173,11 +173,11 @@ export const kataQuestions = [
   {
     "id": 20,
     "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
-    "text": "Se pueden usar chaquetas sin corbata.",
+    "text": "Se pueden usar chaquetas (de Karategi) sin cintas (amarras) de sujeción.",
     "text_en": "Jackets without ties may be used.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso i) (Pág. 6).",
-    "justification": "La regla señala de manera clara que: \"Jackets without ties cannot be used.\" (No se pueden usar chaquetas sin amarras o cintas de sujeción). Las amarras laterales de la chaqueta del Karategi deben estar correctamente atadas al inicio de la presentación para mantener la prenda fija en su sitio."
+    "justification": "El reglamento oficial de Kata establece explícitamente en el Artículo 2.2.1 (Inciso i) que las chaquetas sin cintas o amarras de sujeción (jackets without ties) no pueden ser utilizadas. Estas amarras (cordones de sujeción de la chaqueta del Karategi) son obligatorias para mantener la prenda en su sitio y deben estar debidamente atadas al inicio de la presentación, haciendo que el enunciado sea Falso."
   },
   {
     "id": 21,
@@ -190,7 +190,7 @@ export const kataQuestions = [
   },
   {
     "id": 22,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "El competidor puede usar jeans (pantalones de mezclilla) y camiseta en la ceremonia de premiación.",
     "text_en": "The competitor can wear jeans and t-shirt at the prize ceremony.",
     "answer": false,
@@ -199,7 +199,7 @@ export const kataQuestions = [
   },
   {
     "id": 23,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "La WKF se adhiere a los principios de la Carta Olímpica.",
     "text_en": "The WKF adheres to the principles of the Olympic Charter.",
     "answer": true,
@@ -208,7 +208,7 @@ export const kataQuestions = [
   },
   {
     "id": 24,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "Si un competidor llega al Tatami con equipamiento o Karate-gi no reglamentario, se le dan cinco (5) minutos para corregir el asunto.",
     "text_en": "If a competitor arrives at the Tatami with unregulated equipment or Karate-Gi, he/she is given five (5) minutes to correct matters.",
     "answer": false,
@@ -217,7 +217,7 @@ export const kataQuestions = [
   },
   {
     "id": 25,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "No es responsabilidad del entrenador si el Karate-gi del atleta no cumple con las reglas.",
     "text_en": "It is not the responsibility of the coach if the athlete´s Karate-gi is not according to the rules.",
     "answer": false,
@@ -226,7 +226,7 @@ export const kataQuestions = [
   },
   {
     "id": 26,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "El pañuelo negro para la cabeza homologado por la WKF no puede cubrir el cuello ni el área de la garganta.",
     "text_en": "The WKF homologated black head scarf cannot cover the neck or the throat area.",
     "answer": true,
@@ -235,7 +235,7 @@ export const kataQuestions = [
   },
   {
     "id": 27,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "Un entrenador de Kumite puede dirigir a un competidor de Kata desde la cabina (box).",
     "text_en": "A Kumite coach can direct a Kata competitor from the box.",
     "answer": false,
@@ -244,7 +244,7 @@ export const kataQuestions = [
   },
   {
     "id": 28,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Si hay alguna discrepancia entre el número y el nombre del KATA registrado, prevalecerá el número del KATA en la lista oficial de KATA de la WKF.",
     "text_en": "If there are any discrepancy between the number and the name of the KATA registered, the number of the KATA in the official WKF KATA list will prevail.",
     "answer": true,
@@ -253,7 +253,7 @@ export const kataQuestions = [
   },
   {
     "id": 29,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "El uso de karate-gi con marcas bordadas en los hombros en rojo y azul es obligatorio en todas las competiciones oficiales de la WKF.",
     "text_en": "The use of karate-gi with embroidery brands on the shoulders in red and blue is mandatory in all the WKF Official competitions.",
     "answer": true,
@@ -262,7 +262,7 @@ export const kataQuestions = [
   },
   {
     "id": 30,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "El comportamiento de los atletas es muy importante y forma parte de los valores y el espíritu del deporte del Karate, así como de la reputación de su Federación Nacional y de la WKF.",
     "text_en": "The behavior of the athletes is very important, and is part of the values and spirit of the sport of Karate, as well as the reputation of their NF and the WKF.",
     "answer": true,
@@ -271,7 +271,7 @@ export const kataQuestions = [
   },
   {
     "id": 31,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "El uso de vendajes, almohadillado o soportes debido a una lesión debe ser aprobado por el árbitro y realizado o aprobado por el médico del torneo.",
     "text_en": "The wearing of bandages, padding, or supports because of injury must be approved by the referee and done or approved by the tournament doctor.",
     "answer": true,
@@ -280,7 +280,7 @@ export const kataQuestions = [
   },
   {
     "id": 32,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "Se permiten cintas, cuentas y otras decoraciones.",
     "text_en": "Ribbons, beads and other decorations are allowed.",
     "answer": false,
@@ -289,7 +289,7 @@ export const kataQuestions = [
   },
   {
     "id": 33,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 8: Reglamento Médico y Conmoción Cerebral",
     "text": "La ETC (Encefalopatía Traumática Crónica) es una enfermedad degenerativa progresiva del cerebro que se encuentra en atletas con antecedentes de trauma cerebral repetitivo y otros impactos fuertes en la cabeza. Generalmente, sus efectos aparecen en pacientes de 70 y 80 años.",
     "text_en": "CTE (Chronic Traumatic Encephalopathy) is a progressive degenerative disease of the brain found in athletes with a history of repetitive brain trauma and other strong hits to the head. Generally, its effects appear in patients in their 70´s and 80´s.",
     "answer": false,
@@ -298,7 +298,7 @@ export const kataQuestions = [
   },
   {
     "id": 34,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 9: Normativa Antidopaje - Reglas AMA/WADA",
     "text": "La WKF sigue el programa y las regulaciones antidopaje de la AMA (WADA).",
     "text_en": "WKF follows the WADA Anti-Doping program and regulations.",
     "answer": true,
@@ -307,7 +307,7 @@ export const kataQuestions = [
   },
   {
     "id": 35,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 9: Normativa Antidopaje - Reglas AMA/WADA",
     "text": "La AMA (WADA) tiene un sitio de aprendizaje electrónico (e-learning) sobre Antidopaje que brinda educación y recursos en múltiples idiomas dirigidos a diferentes públicos llamado ADel.",
     "text_en": "WADA has an Anti-Doping e-learning site that provides education and resources in multiple languages targeted at different audiences called ADel.",
     "answer": true,
@@ -316,7 +316,7 @@ export const kataQuestions = [
   },
   {
     "id": 36,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 9: Normativa Antidopaje - Reglas AMA/WADA",
     "text": "Los entrenadores deben cooperar con los programas de pruebas de los atletas solo si les resulta conveniente.",
     "text_en": "Coaches should cooperate with athlete testing programs only if it is convenient for them.",
     "answer": false,
@@ -325,7 +325,7 @@ export const kataQuestions = [
   },
   {
     "id": 37,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 9: Normativa Antidopaje - Reglas AMA/WADA",
     "text": "La lista de sustancias prohibidas solo menciona sustancias que están prohibidas fuera de competición.",
     "text_en": "The list of prohibited substances only mentions substances that are prohibited out of competition.",
     "answer": false,
@@ -334,7 +334,7 @@ export const kataQuestions = [
   },
   {
     "id": 38,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 9: Normativa Antidopaje - Reglas AMA/WADA",
     "text": "Las AUT (Autorizaciones de Uso Terapéutico) aseguran que puedas obtener tratamiento para una condición médica legítima, incluso si ese tratamiento requiere una sustancia o método prohibido.",
     "text_en": "TUEs (Therapeutic Use Exemptions) ensure that you can obtain treatment for a legitimate medical condition— even if that treatment requires a prohibited substance or method.",
     "answer": true,
@@ -343,7 +343,7 @@ export const kataQuestions = [
   },
   {
     "id": 39,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 9: Normativa Antidopaje - Reglas AMA/WADA",
     "text": "Una solicitud de AUT (Autorización de Uso Terapéutico) debe realizarse al menos 30 días antes de participar en un evento.",
     "text_en": "A TUE (Therapeutic Use Exemption) application must be made at least 30 days before taking part in an event.",
     "answer": true,
@@ -352,7 +352,7 @@ export const kataQuestions = [
   },
   {
     "id": 40,
-    "section": "Sección 2: Organización y Ejecución del Kata",
+    "section": "Sección 7: Reglamento Safe Sport de la WKF",
     "text": "Puedes reportar incidentes y sospechas de Safe Sport (Deporte Seguro) a través de 2 métodos: el formulario oficial de quejas de la WKF, o en competiciones de la WKF, puedes hablar directamente con el oficial de salvaguarda (safeguarding officer) del evento.",
     "text_en": "You can report Safe Sport incidents and suspicions via 2 methods: the official WKF complaint form, or at WKF competitions, you can speak directly to the event safeguarding officer.",
     "answer": true,
@@ -361,7 +361,7 @@ export const kataQuestions = [
   },
   {
     "id": 41,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 7: Reglamento Safe Sport de la WKF",
     "text": "En la Política de Safe Sport, las 5 categorías de cualquier violencia no accidental que serán toleradas son el abuso psicológico, físico, sexual, el acoso sexual y la negligencia.",
     "text_en": "In Safe Sport Policy, the 5 categories of any non-accidental violence that will be tolerated is Psychological, physical, sexual abuse, sexual harassment and neglect.",
     "answer": false,
@@ -370,7 +370,7 @@ export const kataQuestions = [
   },
   {
     "id": 42,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 7: Reglamento Safe Sport de la WKF",
     "text": "Las rutinas de iniciación humillantes están bien si unen al equipo.",
     "text_en": "Humiliating initiation routines are okay if it brings the team together.",
     "answer": false,
@@ -379,7 +379,7 @@ export const kataQuestions = [
   },
   {
     "id": 43,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 7: Reglamento Safe Sport de la WKF",
     "text": "Los entrenadores tienen el deber de diligencia (duty of care) de crear el entorno deportivo más seguro posible. Esto significa comprender tanto sus propias responsabilidades como las de sus atletas en el marco de Safe Sport.",
     "text_en": "Coaches have a duty of care to create the safest possible sport environment. This means understanding both their own and their athletes’ responsibilities in the Safe Sport framework.",
     "answer": true,
@@ -388,7 +388,7 @@ export const kataQuestions = [
   },
   {
     "id": 44,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 7: Reglamento Safe Sport de la WKF",
     "text": "La política de Safe Sport de la WKF protege a sus miembros del acoso, el abuso y las acusaciones falsas tanto dentro como fuera de la competición, manteniendo al mismo tiempo una sticta confidencialidad.",
     "text_en": "WKF safe sport policy protects its members from harassment, abuse and false allegations both in and out of competition while maintaining strict confidentiality.",
     "answer": true,
@@ -397,7 +397,7 @@ export const kataQuestions = [
   },
   {
     "id": 45,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 8: Reglamento Médico y Conmoción Cerebral",
     "text": "El número dorsal (back number) es obligatorio para Karate 1 – Premier League, Campeonatos Mundiales de Karate y Copa Mundial de Karate.",
     "text_en": "The back number is mandatory for Karate 1 – Premier League, Karate World Championships and Karate World Cup.",
     "answer": true,
@@ -406,7 +406,7 @@ export const kataQuestions = [
   },
   {
     "id": 46,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 8: Reglamento Médico y Conmoción Cerebral",
     "text": "Una conmoción cerebral no es grave porque no se puede ver en una herramienta de diagnóstico por imagen clínica como una resonancia magnética (RMN).",
     "text_en": "A concussion is not serious because you cannot see it on a clinical imaging tool like an MRI.",
     "answer": false,
@@ -415,7 +415,7 @@ export const kataQuestions = [
   },
   {
     "id": 47,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 8: Reglamento Médico y Conmoción Cerebral",
     "text": "Si un atleta sufre una conmoción cerebral, debe ser identificado y abandonar la competición, ya que pueden ocurrir conmociones repetidas incluso con golpes menos graves y existe el riesgo de sufrir el síndrome del segundo impacto, que tiene una tasa de mortalidad del 50%.",
     "text_en": "If an athlete suffers a concussion, he/she needs to be identified and leave the competition as repeated concussion can occur even with less severe blows and the potential of suffering from second impact syndrome, which has a death rate of 50%.",
     "answer": true,
@@ -424,7 +424,7 @@ export const kataQuestions = [
   },
   {
     "id": 48,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 8: Reglamento Médico y Conmoción Cerebral",
     "text": "Si el atleta no pierde el conocimiento, no se trata de una conmoción cerebral.",
     "text_en": "If the athlete does not lose consciousness, it is not a concussion.",
     "answer": false,
@@ -433,7 +433,7 @@ export const kataQuestions = [
   },
   {
     "id": 49,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 8: Reglamento Médico y Conmoción Cerebral",
     "text": "Después de una conmoción cerebral, se recomienda aplicar un protocolo de retorno gradual al juego (RTP), donde el atleta pasará progresivamente por diferentes etapas mientras se mantiene asintomático.",
     "text_en": "After a concussion, it is recommended to apply a gradual return to play (RTP) protocol where the athlete will progressively go through different stages while remaining asymptomatic.",
     "answer": true,
@@ -442,7 +442,7 @@ export const kataQuestions = [
   },
   {
     "id": 50,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 4: Ejecución y Reglas de Bunkai",
     "text": "Está permitido realizar una técnica de derribo de tijera en la zona del cuello únicamente en el Bunkai de la ronda final.",
     "text_en": "Performing a scissor takedown technique to the neck area is allowed only in the (Bunkai) in the final bout.",
     "answer": false,
@@ -451,7 +451,7 @@ export const kataQuestions = [
   },
   {
     "id": 51,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 4: Ejecución y Reglas de Bunkai",
     "text": "En la ejecución de Bunkai, los movimientos de transición y el control forman parte de la presentación.",
     "text_en": "In Bunkai performance, transitional movements and control are part of the performance.",
     "answer": true,
@@ -460,7 +460,7 @@ export const kataQuestions = [
   },
   {
     "id": 52,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 4: Ejecución y Reglas de Bunkai",
     "text": "En la ejecución de Bunkai, el equilibrio, la sincronización (timing) y la velocidad no forman parte de la presentación.",
     "text_en": "In Bunkai performance; balance, timing and speed are not part of the performance.",
     "answer": false,
@@ -469,7 +469,7 @@ export const kataQuestions = [
   },
   {
     "id": 53,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 4: Ejecución y Reglas de Bunkai",
     "text": "Se le debe dar la misma importancia al Bunkai que al propio Kata.",
     "text_en": "Bunkai is to be given equal importance as the Kata itself.",
     "answer": true,
@@ -478,7 +478,7 @@ export const kataQuestions = [
   },
   {
     "id": 54,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "La fuerza, la velocidad, el equilibrio y el enfoque (focus) son parte de la ejecución del Kata.",
     "text_en": "Strength, speed, balance and focus are part of the Kata performance.",
     "answer": true,
@@ -487,7 +487,7 @@ export const kataQuestions = [
   },
   {
     "id": 55,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "Si el cinturón del competidor se cae durante la ejecución del Kata, el competidor será descalificado.",
     "text_en": "If the competitor’s belt falls off during the performance of Kata the competitor will be disqualified.",
     "answer": true,
@@ -496,7 +496,7 @@ export const kataQuestions = [
   },
   {
     "id": 56,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 4: Ejecución y Reglas de Bunkai",
     "text": "Causar una lesión por falta de control técnico durante el Bunkai no se considera una falta.",
     "text_en": "Causing injury by lack of controlled technique during Bunkai is not considered a foul.",
     "answer": false,
@@ -505,7 +505,7 @@ export const kataQuestions = [
   },
   {
     "id": 57,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "La pérdida de tiempo, incluyendo la marcha prolongada, el saludo excesivo o una pausa prolongada antes de comenzar la presentación, se considera una falta.",
     "text_en": "Time wasting, including prolonged marching, excessive bowing or prolonged pause before starting the performance is considered a foul.",
     "answer": true,
@@ -514,7 +514,7 @@ export const kataQuestions = [
   },
   {
     "id": 58,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "El Karate-gi no debe ser alterado ni manipulado para cambiar su forma.",
     "text_en": "The Karate-gi must not be altered or manipulated to change its shape.",
     "answer": true,
@@ -523,7 +523,7 @@ export const kataQuestions = [
   },
   {
     "id": 59,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "Dar pisotones en el suelo, golpearse el pecho, los brazos o el karate-gi son indicaciones audibles (audible cues).",
     "text_en": "Stamping the feet, slapping the chest, arms or karate-gi, are audible cues.",
     "answer": false,
@@ -532,7 +532,7 @@ export const kataQuestions = [
   },
   {
     "id": 60,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Es responsabilidad del Presidente de la Federación Nacional asegurarse de que el Kata notificado a la mesa de anotación sea el adecuado para esa ronda en particular.",
     "text_en": "It is the responsibility of the President of the National Federation to ensure that the Kata as notified to the score table is appropriate for that particular round.",
     "answer": false,
@@ -541,7 +541,7 @@ export const kataQuestions = [
   },
   {
     "id": 61,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "La ejecución del Kata debe demostrar fuerza, potencia y velocidad, así como gracia, ritmo y equilibrio.",
     "text_en": "Kata performance must demonstrate strength, power, and speed, as well as grace, rhythm, and balance.",
     "answer": true,
@@ -550,7 +550,7 @@ export const kataQuestions = [
   },
   {
     "id": 62,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 4: Ejecución y Reglas de Bunkai",
     "text": "En los encuentros por medallas en la competición de Kata por equipos, los equipos realizarán una demostración del significado del Kata (Bunkai).",
     "text_en": "In the bouts for medals in team Kata competition, teams will perform a demonstration of the meaning of the Kata (Bunkai).",
     "answer": true,
@@ -559,7 +559,7 @@ export const kataQuestions = [
   },
   {
     "id": 63,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "Los tres criterios principales son: conformidad (conformance), rendimiento técnico y rendimiento atlético.",
     "text_en": "The three major criteria are: conformance, technical performance and athletic performance.",
     "answer": false,
@@ -568,7 +568,7 @@ export const kataQuestions = [
   },
   {
     "id": 64,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "Los competidores pueden seleccionar cualquier Kata de la lista oficial de Kata.",
     "text_en": "The competitors can select any Kata from the official Kata list.",
     "answer": true,
@@ -577,7 +577,7 @@ export const kataQuestions = [
   },
   {
     "id": 65,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "El lanzamiento de moneda (coin toss) es el último criterio para resolver un empate al final de la ronda de todos contra todos (round robin) en la competición individual.",
     "text_en": "Coin toss is the last criteria to resolve the tie at the end of round robin in individual competition.",
     "answer": false,
@@ -586,7 +586,7 @@ export const kataQuestions = [
   },
   {
     "id": 66,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "En los Campeonatos Mundiales, se permite que los entrenadores de Kata que forman parte de la delegación de una Federación Nacional dirijan los encuentros de sus competidores sin tener el nivel de certificación de entrenador requerido.",
     "text_en": "In World Championships, it is permitted for Kata coaches who are part of a National Federation delegation to coach their Competitors bouts without having the required Coach Certification level.",
     "answer": false,
@@ -595,7 +595,7 @@ export const kataQuestions = [
   },
   {
     "id": 67,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "No anunciar el nombre del KATA es solo una falta.",
     "text_en": "Not announcing the KATA name is just a foul.",
     "answer": false,
@@ -604,7 +604,7 @@ export const kataQuestions = [
   },
   {
     "id": 68,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Para los encuentros por medallas en Kata por equipos, un Cronometrador (Time Keeper) llevará el registro del tiempo máximo de ejecución.",
     "text_en": "For medal bouts in team Kata, a Time Keeper will keep track of the maximum performance time.",
     "answer": true,
@@ -613,7 +613,7 @@ export const kataQuestions = [
   },
   {
     "id": 69,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Un Kata solo se puede repetir cuando se utiliza como desempate.",
     "text_en": "A Kata can only be repeated when it is used as tiebreaker.",
     "answer": false,
@@ -622,7 +622,7 @@ export const kataQuestions = [
   },
   {
     "id": 70,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 4: Ejecución y Reglas de Bunkai",
     "text": "En la ejecución de Bunkai: la fuerza, la sincronización (timing) y las técnicas son parte de la presentación.",
     "text_en": "In Bunkai performance: strength, timing and techniques are part of the performance.",
     "answer": true,
@@ -631,7 +631,7 @@ export const kataQuestions = [
   },
   {
     "id": 71,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "Existen tres categorías generales en las competiciones de Para-Karate: Discapacidad Visual, Discapacidad Intelectual y Usuarios de Silla de Ruedas.",
     "text_en": "There are three general Categories in Para-Karate competitions: Visually Impaired, Intellectually Impaired and Wheelchair Users.",
     "answer": true,
@@ -640,7 +640,7 @@ export const kataQuestions = [
   },
   {
     "id": 72,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "La repetición persistente y obvia de gesticulaciones teatrales como dar pisotones o golpearse el pecho es motivo de descalificación.",
     "text_en": "Persistent and obvious repetition of theatrics such as Stamping the Feet or Slapping the Chest is reason for disqualification.",
     "answer": true,
@@ -649,7 +649,7 @@ export const kataQuestions = [
   },
   {
     "id": 73,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "En los Campeonatos Mundiales de Para-Karate, los entrenadores deben poseer al menos la licencia de Entrenador Certificado de Kata de la WKF (WKF Certified Kata Coach License).",
     "text_en": "At World Championships in Para-Karate, coaches need to have at least the WKF Certified Kata Coach License.",
     "answer": true,
@@ -658,7 +658,7 @@ export const kataQuestions = [
   },
   {
     "id": 74,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "En las sillas de ruedas, durante la competición de Para-Karate no se puede colocar publicidad en el respaldo.",
     "text_en": "In wheelchairs, during Para-Karate competition advertising cannot be placed on the backrest.",
     "answer": true,
@@ -667,7 +667,7 @@ export const kataQuestions = [
   },
   {
     "id": 75,
-    "section": "Sección 3: Puntuación y Criterios de Evaluación",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "En caso de evacuación de emergencia durante las competiciones de Para-Karate, los entrenadores nacionales son directamente responsables del desalojo seguro de los atletas.",
     "text_en": "In case of emergency evacuation during Para-Karate competitions, the national coaches are directly responsible for the safe removal of the Athletes.",
     "answer": true,
@@ -676,7 +676,7 @@ export const kataQuestions = [
   },
   {
     "id": 76,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "Durante la sesión de clasificación en Para-Karate, el entrenador del competidor no tiene que estar presente con el atleta en todo momento.",
     "text_en": "During the Classification Session in Para-Karate, the competitor’s coach doesn’t have to be present with the Athlete at all times.",
     "answer": false,
@@ -685,7 +685,7 @@ export const kataQuestions = [
   },
   {
     "id": 77,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "En la competición por equipos, el tiempo total permitido para el Kata y el Bunkai es de cinco (5) minutos.",
     "text_en": "In Team competition, the total time allowed for Kata and Bunkai is five (5) minutes.",
     "answer": true,
@@ -694,7 +694,7 @@ export const kataQuestions = [
   },
   {
     "id": 78,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 6: Protestas, Fallos Administrativos y Revisión de Video",
     "text": "En caso de una protesta, el entrenador debe pedir ayuda a un árbitro.",
     "text_en": "In case of a protest, the coach should ask a referee for help.",
     "answer": false,
@@ -703,7 +703,7 @@ export const kataQuestions = [
   },
   {
     "id": 79,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 6: Protestas, Fallos Administrativos y Revisión de Video",
     "text": "Los jueces no pueden explicar el resultado de un encuentro a un entrenador o competidor.",
     "text_en": "The judges cannot explain the outcome of a bout to a coach or competitor.",
     "answer": true,
@@ -712,7 +712,7 @@ export const kataQuestions = [
   },
   {
     "id": 80,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 6: Protestas, Fallos Administrativos y Revisión de Video",
     "text": "La revisión de vídeo (video review) también se aplica en la competición de Kata.",
     "text_en": "Video review applies also for Kata Competition.",
     "answer": false,
@@ -721,7 +721,7 @@ export const kataQuestions = [
   },
   {
     "id": 81,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 6: Protestas, Fallos Administrativos y Revisión de Video",
     "text": "Si ocurre un fallo administrativo, el entrenador puede notificar directamente al Tatami Manager.",
     "text_en": "If there is an administrative malfunction, the Coach can notify the Tatami Manager directly.",
     "answer": true,
@@ -730,7 +730,7 @@ export const kataQuestions = [
   },
   {
     "id": 82,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 6: Protestas, Fallos Administrativos y Revisión de Video",
     "text": "El Tatami Manager puede recomendar al entrenador que redacte una protesta.",
     "text_en": "The Tatami Manager can recommend the coach to write a protest.",
     "answer": false,
@@ -739,7 +739,7 @@ export const kataQuestions = [
   },
   {
     "id": 83,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 6: Protestas, Fallos Administrativos y Revisión de Video",
     "text": "Si un procedimiento arbitral parece contravenir las reglas, el entrenador del competidor no tiene permitido realizar una protesta por escrito en las competiciones de KATA.",
     "text_en": "If a refereeing procedure appears to contravene the rules, the Competitor’s Coach is not allowed to make a written protest in KATA Competitions.",
     "answer": false,
@@ -748,7 +748,7 @@ export const kataQuestions = [
   },
   {
     "id": 84,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 6: Protestas, Fallos Administrativos y Revisión de Video",
     "text": "Los competidores tienen que seguir las instrucciones de los controladores con respecto al Karate-gi y al cinturón.",
     "text_en": "The competitors have to follow the instructions of the controllers regarding the Karate-gi and the belt.",
     "answer": true,
@@ -757,7 +757,7 @@ export const kataQuestions = [
   },
   {
     "id": 85,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Para categorías menores de 14 años, solo se requieren cuatro KATA.",
     "text_en": "For categories under 14 years of age only four KATA is required.",
     "answer": true,
@@ -766,7 +766,7 @@ export const kataQuestions = [
   },
   {
     "id": 86,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Dado que los atletas de Kata no necesitan pasar el control de pesaje, su acreditación puede recogerse sin mostrar su pasaporte.",
     "text_en": "The accreditation of a Kata athlete as they do not need to pass the weighing control, they can be collected without showing their passport.",
     "answer": false,
@@ -775,7 +775,7 @@ export const kataQuestions = [
   },
   {
     "id": 87,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "In senior world championships, Kata can be repeated after performing five different kata but cannot be repeated twice in a row.",
     "text_en": "In senior world championships, Kata can be repeated after performing five different kata but cannot be repeated twice in a row.",
     "answer": true,
@@ -784,7 +784,7 @@ export const kataQuestions = [
   },
   {
     "id": 88,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Se permite la celebración excesiva después de ganar el combate por la medalla.",
     "text_en": "Excessive celebration after winning the medal bout is permitted.",
     "answer": false,
@@ -793,7 +793,7 @@ export const kataQuestions = [
   },
   {
     "id": 89,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "Todos los miembros de un equipo de Kata deben llevar la misma marca de fábrica en los hombros.",
     "text_en": "Kata Team members must all wear the same brand mark on the shoulders.",
     "answer": false,
@@ -802,7 +802,7 @@ export const kataQuestions = [
   },
   {
     "id": 90,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "Si un competidor llega al Tatami con un equipamiento o Karate-gi no reglamentario, se le dan dos (2) minutos para corregir el asunto.",
     "text_en": "If a competitor arrives at the Tatami with unregulated equipment or Karate-gi, he/she is given two (2) minutes to correct matters.",
     "answer": false,
@@ -811,7 +811,7 @@ export const kataQuestions = [
   },
   {
     "id": 91,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "La ejecución de un Kata extra es el último criterio para resolver un empate en la ronda de todos contra todos (round robin) individual.",
     "text_en": "Performance of an extra Kata is the last criteria to resolve the tie in individual round robin.",
     "answer": true,
@@ -820,7 +820,7 @@ export const kataQuestions = [
   },
   {
     "id": 92,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 4: Ejecución y Reglas de Bunkai",
     "text": "La inconsciencia simulada no se considera una falta en caso de una buena ejecución de BUNKAI.",
     "text_en": "Simulated unconsciousness is not considered a foul in case of good BUNKAI performance.",
     "answer": false,
@@ -829,7 +829,7 @@ export const kataQuestions = [
   },
   {
     "id": 93,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Es responsabilidad del jefe de delegación asegurarse de que el kata notificado al encargado de mesa (runner) sea el kata adecuado para esa ronda en particular.",
     "text_en": "It is the responsibility of the head of delegation to ensure that the kata being notified to the runner is the appropriate kata for that particular round.",
     "answer": false,
@@ -838,7 +838,7 @@ export const kataQuestions = [
   },
   {
     "id": 94,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "Tener que dar un paso correctivo para recuperarse de una pérdida total del equilibrio o sufrir una caída se considera una falta.",
     "text_en": "Having to take a corrective step to recover from a total loss of balance or have a fall is a foul.",
     "answer": false,
@@ -847,7 +847,7 @@ export const kataQuestions = [
   },
   {
     "id": 95,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "En las competiciones de Para-Karate, los atletas de la Clase de Discapacidad Visual (K10) deben usar antifaces que bloqueen completamente la visión, incluyendo los antifaces opacos aprobados por la Federación Internacional de Deportes para Ciegos (IBSA) para deportes de personas ciegas.",
     "text_en": "In Para-Karate Competitions, Athletes of the Visually Impaired Class (K10) are required to wear blindfolds that fully block vision including International Blind Sports Federation (IBSA) approved black-out blindfolds for blind sports.",
     "answer": true,
@@ -856,7 +856,7 @@ export const kataQuestions = [
   },
   {
     "id": 96,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "En las competiciones de Para-Karate, se permitirá a los atletas con más de un tipo de discapacidad competir en más de una clase deportiva durante los campeonatos.",
     "text_en": "In Para-Karate Competitions, Athletes with more than one type of impairment will be allowed to compete in more than one sport class during the championships.",
     "answer": false,
@@ -865,7 +865,7 @@ export const kataQuestions = [
   },
   {
     "id": 97,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "En las competiciones de Para-Karate, los competidores de la categoría de Discapacidad Intelectual (Clases Deportivas K21 y K22) pueden realizar el mismo Kata en cada ronda.",
     "text_en": "In Para-Karate Competitions, Competitors from the Intellectually Impaired category (Sport Classes K21 and K22) may perform the same Kata in each round.",
     "answer": true,
@@ -874,7 +874,7 @@ export const kataQuestions = [
   },
   {
     "id": 98,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "En los Campeonatos Mundiales de Para-Karate, los entrenadores deben formar parte de la delegación de una Federación Nacional y poseer la licencia de Kata requerida.",
     "text_en": "In Para-Karate World Championships, coaches need to be part of a National Federation delegation and have the required Kata license.",
     "answer": true,
@@ -883,7 +883,7 @@ export const kataQuestions = [
   },
   {
     "id": 99,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "En Para-Karate, las instrucciones del entrenador o la guía externa deliberada durante la ejecución del kata, como indicaciones habladas o señales visibles después del inicio de la presentación, son motivo de descalificación.",
     "text_en": "In Para-Karate, Coach instructions or deliberate external guidance during the kata performance, such as spoken directions or visible signals after the start of the performance, is reason for disqualification.",
     "answer": true,
@@ -892,16 +892,16 @@ export const kataQuestions = [
   },
   {
     "id": 100,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "Un Karate-gi se considera \"aprobado por la WKF\" si su marca está publicada en el sitio web oficial de la WKF.",
     "text_en": "A Karate-gi is considered \"WKF approved\" if its brand is published in the WKF official website.",
-    "answer": true,
+    "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1 y Artículo 2.2.10 (Pág. 7).",
-    "justification": "Las marcas autorizadas a llevar el sello 'WKF Approved' son únicamente aquellas homologadas por el Comité Ejecutivo de la WKF. El listado oficial y vigente se mantiene publicado y actualizado en el sitio web oficial de la WKF para consulta de todos los atletas y entrenadores."
+    "justification": "El Jefe de Árbitros de la FECOKA está en lo correcto al señalar esta crucial distinción. Es FALSO porque la homologación oficial de la WKF no se concede de manera genérica a la marca para toda su línea de productos. Un fabricante aprobado comercializa tanto modelos específicos que poseen la certificación, etiquetado y sello holográfico físico de \"WKF Approved\" (los cuales cumplen con las especificaciones de corte, peso y costuras requeridas para alta competición), como también modelos estándar de entrenamiento que NO están aprobados. Por lo tanto, el hecho de que una marca aparezca listada en el portal web de la WKF no convierte a todos sus Karategis en aprobados de forma automática; cada uniforme debe portar físicamente su sello holográfico de homologación de fábrica."
   },
   {
     "id": 101,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "Se permite el uso de karate-gi con marcas bordadas en blanco en los hombros en todas las competiciones oficiales de la WKF.",
     "text_en": "The use of karate-gi with embroidery brands on the shoulders in white is allowed in all the WKF Official competitions.",
     "answer": false,
@@ -910,7 +910,7 @@ export const kataQuestions = [
   },
   {
     "id": 102,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "Está permitido que el entrenador tenga dispositivos de comunicación electrónica mientras dirige.",
     "text_en": "It is permitted for the coach to have electronic communication devices while coaching.",
     "answer": false,
@@ -919,7 +919,7 @@ export const kataQuestions = [
   },
   {
     "id": 103,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "Está permitido que el entrenador use sandalias o cualquier otro calzado con los dedos descubiertos mientras dirige los encuentros de medallas.",
     "text_en": "It is permitted for the coach to wear Sandals, or any other open-toe shoe while coaching medal bouts.",
     "answer": false,
@@ -928,7 +928,7 @@ export const kataQuestions = [
   },
   {
     "id": 104,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Un entrenador puede estar sujeto a la suspensión de su licencia de dirección por un período de hasta 6 meses si su competidor se presenta en el área de competición con equipamiento no autorizado o un Karate-gi irregular.",
     "text_en": "A coach may subject to have his/her coaching license suspended for a period up to 6 months if his Competitor appear at the competition area with unauthorized equipment or irregular Karate-gi.",
     "answer": true,
@@ -937,7 +937,7 @@ export const kataQuestions = [
   },
   {
     "id": 105,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Para los Campeonatos Mundiales Individuales de la WKF - Fase 2, y Karate 1 - Premier League, se siembran (seed) los ocho competidores presentes en la competición mejor clasificados en el ranking.",
     "text_en": "For WKF World Individual Championships - Phase 2, and Karate 1 - Premier League, the eight highest ranked Competitors present at the competition are seeded.",
     "answer": false,
@@ -946,7 +946,7 @@ export const kataQuestions = [
   },
   {
     "id": 106,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 4: Ejecución y Reglas de Bunkai",
     "text": "Está permitido realizar un derribo de tijera al cuerpo o a las piernas.",
     "text_en": "A scissor takedown to the body or legs is permitted.",
     "answer": true,
@@ -955,7 +955,7 @@ export const kataQuestions = [
   },
   {
     "id": 107,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "Una pérdida menor del equilibrio se considera descalificación.",
     "text_en": "Minor loss of balance is considered a disqualification.",
     "answer": false,
@@ -964,7 +964,7 @@ export const kataQuestions = [
   },
   {
     "id": 108,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "Se permite omitir o añadir movimientos en los combates por medallas.",
     "text_en": "Omitting or adding movements is allowed in medal bouts.",
     "answer": false,
@@ -973,7 +973,7 @@ export const kataQuestions = [
   },
   {
     "id": 109,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "Que los antifaces se muevan de su posición correcta, de modo que descubran parcial o totalmente uno o ambos ojos durante la presentación, es motivo de descalificación.",
     "text_en": "Blindfolds moving out of the correct position, so that they partially or fully uncover one or both eyes during the performance is reason for disqualification.",
     "answer": true,
@@ -982,7 +982,7 @@ export const kataQuestions = [
   },
   {
     "id": 110,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "Las correas utilizadas durante la competición deben ser del mismo tipo y configuración que las utilizadas en la Sesión de Clasificación.",
     "text_en": "Straps used during competition must be the same type and configuration as those used in the Classification Session",
     "answer": true,
@@ -991,7 +991,7 @@ export const kataQuestions = [
   },
   {
     "id": 111,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "Que el cinturón se afloje hasta el punto de salirse de las caderas durante la presentación se considera una falta.",
     "text_en": "Belt coming loose to the extent that it is coming off the hips during the performance is a foul.",
     "answer": true,
@@ -1000,7 +1000,7 @@ export const kataQuestions = [
   },
   {
     "id": 112,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 10: Reglamento de Para-Karate",
     "text": "La tergiversación intencionada de una discapacidad no es motivo de descalificación.",
     "text_en": "Intentional misrepresentation of impairment is not a reason for disqualification.",
     "answer": false,
@@ -1009,7 +1009,7 @@ export const kataQuestions = [
   },
   {
     "id": 113,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "Para decidir el ganador de un encuentro de kata, la decisión se basa en la mayoría de votos de los jueces.",
     "text_en": "To decide the winner of kata bout, Decision is based on the majority of votes by the judges.",
     "answer": true,
@@ -1018,7 +1018,7 @@ export const kataQuestions = [
   },
   {
     "id": 114,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 3: Reglas de Ejecución de Kata y Criterios de Evaluación",
     "text": "El KIAI debe ser corto, concentrado y simultáneo con la técnica; de lo contrario, se considerará una falta.",
     "text_en": "KIAI must be short, concentrated and simultaneously with the technique, otherwise it will be considered as foul.",
     "answer": true,
@@ -1027,11 +1027,11 @@ export const kataQuestions = [
   },
   {
     "id": 115,
-    "section": "Sección 4: Reglas Safe Sport y Disciplina Médica",
+    "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "Se pueden usar gafas deportivas graduadas o lentes de contacto blandas bajo el propio riesgo del atleta.",
     "text_en": "Prescription sport-glasses soft contact lenses can be worn at the athlete's own risk.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.4 (Pág. 6).",
-    "justification": "El uso de gafas convencionales está prohibido por seguridad, pero se permite de manera expresa que los atletas usen gafas deportivas graduadas especiales o lentes de contacto blandas bajo su propia responsabilidad: \"Glasses are forbidden. Prescription sport-glasses or soft contact lenses can be worn at the Athlete's own risk.\" --- 3. REGLAS DE EJECUCIÓN DE KATA Y CRITERIOS DE EVALUACIÓN"
+    "justification": "El uso de gafas convencionales está prohibido por seguridad, pero se permite de manera expresa que los atletas usen gafas deportivas graduadas especiales o lentes de contacto blandas bajo su propia responsabilidad: \"Glasses are forbidden. Prescription sport-glasses or soft contact lenses can be worn at the Athlete's own risk.\" --- 3. REGLAS DE EJECUCIÓN DE KATA Y CRITERIOS DE EVALUACIÓN 3. REGLAS DE EJECUCIÓN DE KATA Y CRITERIOS DE EVALUACIÓN"
   }
 ];
