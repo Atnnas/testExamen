@@ -776,7 +776,7 @@ export const kataQuestions = [
   {
     "id": 87,
     "section": "Sección 5: Organización, Sorteos y Categorías",
-    "text": "In senior world championships, Kata can be repeated after performing five different kata but cannot be repeated twice in a row.",
+    "text": "En los campeonatos mundiales sénior, el Kata se puede repetir después de realizar cinco Kata diferentes, pero no se puede repetir dos veces seguidas.",
     "text_en": "In senior world championships, Kata can be repeated after performing five different kata but cannot be repeated twice in a row.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.1 (Pág. 13-14).",
