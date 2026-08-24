@@ -8,6 +8,10 @@ export default function Home() {
   const [gameState, setGameState] = useState('welcome'); // welcome, quiz, results
   const [modality, setModality] = useState('kata'); // kata or kumite
   const [questionLimit, setQuestionLimit] = useState(10);
+  const [orderMode, setOrderMode] = useState('random'); // 'random' (aleatorio) or 'asc' (orden ascendente)
+  const [jumpIdInput, setJumpIdInput] = useState('');
+  const [jumpError, setJumpError] = useState('');
+
   const [activeQuestions, setActiveQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null); // true, false, null
@@ -16,6 +20,8 @@ export default function Home() {
   const [userAnswers, setUserAnswers] = useState([]);
   const [mascotState, setMascotState] = useState('idle'); // idle, thinking, success, failure
   const [shakeActive, setShakeActive] = useState(false);
+
+  const currentPool = modality === 'kata' ? kataQuestions : kumiteQuestions;
 
   // Set initial mascot state on welcome screen
   useEffect(() => {
@@ -34,19 +40,75 @@ export default function Home() {
     return arr;
   };
 
-  const startQuiz = (limit) => {
+  const startQuiz = (limit = questionLimit, targetId = null, selectedOrder = orderMode) => {
     const pool = modality === 'kata' ? kataQuestions : kumiteQuestions;
-    const shuffled = shuffleArray(pool);
-    const selected = limit === 'all' ? shuffled : shuffled.slice(0, Math.min(limit, shuffled.length));
-    
+    let orderedPool = [...pool];
+
+    if (selectedOrder === 'asc') {
+      orderedPool.sort((a, b) => a.id - b.id);
+    } else {
+      orderedPool = shuffleArray(orderedPool);
+    }
+
+    let selected = limit === 'all' ? orderedPool : orderedPool.slice(0, Math.min(limit, orderedPool.length));
+
+    let startIndex = 0;
+    if (targetId !== null) {
+      const foundIdx = orderedPool.findIndex(q => q.id === targetId);
+      if (foundIdx !== -1) {
+        selected = orderedPool;
+        startIndex = foundIdx;
+      }
+    }
+
     setActiveQuestions(selected);
-    setCurrentQuestionIndex(0);
+    setCurrentQuestionIndex(startIndex);
     setScore(0);
     setUserAnswers([]);
     setSelectedAnswer(null);
     setIsSubmitted(false);
     setGameState('quiz');
     setMascotState('thinking');
+    setJumpError('');
+  };
+
+  const handleJumpToId = (idToFind) => {
+    const pool = modality === 'kata' ? kataQuestions : kumiteQuestions;
+    const num = parseInt(idToFind, 10);
+
+    if (isNaN(num) || num <= 0) {
+      setJumpError('Por favor ingresa un número de ID válido.');
+      return false;
+    }
+
+    const targetQuestion = pool.find(q => q.id === num);
+    if (!targetQuestion) {
+      setJumpError(`⚠️ No existe la pregunta #${num} en ${modality.toUpperCase()} (rango disponible: 1 a ${pool.length}).`);
+      return false;
+    }
+
+    setJumpError('');
+
+    if (gameState === 'quiz') {
+      const inActiveIdx = activeQuestions.findIndex(q => q.id === num);
+      if (inActiveIdx !== -1) {
+        setCurrentQuestionIndex(inActiveIdx);
+        setSelectedAnswer(null);
+        setIsSubmitted(false);
+        setMascotState('thinking');
+      } else {
+        startQuiz('all', num);
+      }
+    } else {
+      startQuiz('all', num);
+    }
+    return true;
+  };
+
+  const handleJumpFormSubmit = (e) => {
+    e.preventDefault();
+    if (!jumpIdInput) return;
+    handleJumpToId(jumpIdInput);
   };
 
   const handleAnswerSelect = (answer) => {
@@ -130,6 +192,8 @@ export default function Home() {
           current={currentQuestionIndex + (isSubmitted ? 1 : 0)} 
           total={activeQuestions.length} 
           onExit={exitQuiz}
+          onJumpToId={handleJumpToId}
+          maxId={currentPool.length}
         />
       )}
 
@@ -150,18 +214,46 @@ export default function Home() {
               <h2 className="options-title">Elige la modalidad:</h2>
               <div className="modality-selector">
                 <button
+                  type="button"
                   className={`modality-option ${modality === 'kata' ? 'selected' : ''}`}
-                  onClick={() => setModality('kata')}
+                  onClick={() => {
+                    setModality('kata');
+                    setJumpError('');
+                  }}
                 >
                   <span className="modality-icon">🥋</span>
                   <span>KATA</span>
                 </button>
                 <button
+                  type="button"
                   className={`modality-option ${modality === 'kumite' ? 'selected' : ''}`}
-                  onClick={() => setModality('kumite')}
+                  onClick={() => {
+                    setModality('kumite');
+                    setJumpError('');
+                  }}
                 >
                   <span className="modality-icon">🥊</span>
                   <span>KUMITE</span>
+                </button>
+              </div>
+
+              <h2 className="options-title">Orden de las preguntas:</h2>
+              <div className="order-selector">
+                <button
+                  type="button"
+                  className={`order-option ${orderMode === 'random' ? 'selected' : ''}`}
+                  onClick={() => setOrderMode('random')}
+                >
+                  <span className="order-icon">🔀</span>
+                  <span>Aleatorio</span>
+                </button>
+                <button
+                  type="button"
+                  className={`order-option ${orderMode === 'asc' ? 'selected' : ''}`}
+                  onClick={() => setOrderMode('asc')}
+                >
+                  <span className="order-icon">🔢</span>
+                  <span>Ascendente</span>
                 </button>
               </div>
 
@@ -170,6 +262,7 @@ export default function Home() {
                 {[10, 25, 50, 100].map((num) => (
                   <button
                     key={num}
+                    type="button"
                     className={`quantity-option ${questionLimit === num ? 'selected' : ''}`}
                     onClick={() => setQuestionLimit(num)}
                   >
@@ -177,20 +270,48 @@ export default function Home() {
                   </button>
                 ))}
                 <button
+                  type="button"
                   style={{ gridColumn: '1 / -1' }}
                   className={`quantity-option ${questionLimit === 'all' ? 'selected' : ''}`}
                   onClick={() => setQuestionLimit('all')}
                 >
-                  Todas ({modality === 'kata' ? kataQuestions.length : kumiteQuestions.length} preguntas)
+                  Todas ({currentPool.length} preguntas)
                 </button>
               </div>
 
               <button
+                type="button"
                 className="btn-3d btn-green"
                 onClick={() => startQuiz(questionLimit)}
               >
                 ¡Comenzar práctica!
               </button>
+
+              {/* Direct Jump to Specific Question ID Box */}
+              <div className="jump-id-card">
+                <h3 className="jump-id-title">🎯 Ir directamente a una pregunta por ID:</h3>
+                <form onSubmit={handleJumpFormSubmit} className="jump-id-form">
+                  <div className="jump-id-input-group">
+                    <span className="jump-id-hashtag">#</span>
+                    <input
+                      type="number"
+                      min="1"
+                      max={currentPool.length}
+                      placeholder={`ID (1 - ${currentPool.length})`}
+                      value={jumpIdInput}
+                      onChange={(e) => {
+                        setJumpIdInput(e.target.value);
+                        setJumpError('');
+                      }}
+                      className="jump-id-input"
+                    />
+                  </div>
+                  <button type="submit" className="btn-3d btn-blue jump-id-submit-btn">
+                    Ir a pregunta
+                  </button>
+                </form>
+                {jumpError && <div className="jump-id-error-msg">{jumpError}</div>}
+              </div>
             </div>
           </div>
         )}
