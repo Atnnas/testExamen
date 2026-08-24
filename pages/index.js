@@ -289,7 +289,9 @@ export default function Home() {
 
               {/* Direct Jump to Specific Question ID Box */}
               <div className="jump-id-card">
-                <h3 className="jump-id-title">🎯 Ir directamente a una pregunta por ID:</h3>
+                <h3 className="jump-id-title">
+                  🎯 Ir directamente a una pregunta por ID <span style={{ color: 'var(--color-blue)', fontWeight: 800 }}>({modality === 'kata' ? '🥋 KATA' : '🥊 KUMITE'})</span>:
+                </h3>
                 <form onSubmit={handleJumpFormSubmit} className="jump-id-form">
                   <div className="jump-id-input-group">
                     <span className="jump-id-hashtag">#</span>
@@ -327,7 +329,7 @@ export default function Home() {
               </div>
               <div className="bubble-content">
                 <span className="question-badge">
-                  {currentQuestion.section.split(':')[0]} {/* e.g. "Sección 1" */}
+                  {modality === 'kata' ? '🥋 KATA' : '🥊 KUMITE'} • {currentQuestion.section.split(':')[0]}
                 </span>
                 <p className="question-text"><span className="flag-icon">🇪🇸</span> {currentQuestion.id}. {currentQuestion.text}</p>
                 {currentQuestion.text_en && <p className="question-text-en"><span className="flag-icon">🇬🇧</span> {currentQuestion.id}. {currentQuestion.text_en}</p>}
