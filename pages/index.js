@@ -44,7 +44,12 @@ export default function Home() {
     const pool = modality === 'kata' ? kataQuestions : kumiteQuestions;
     let orderedPool = [...pool];
 
-    if (selectedOrder === 'asc') {
+    const effectiveOrder = targetId !== null ? 'asc' : selectedOrder;
+    if (targetId !== null) {
+      setOrderMode('asc');
+    }
+
+    if (effectiveOrder === 'asc') {
       orderedPool.sort((a, b) => a.id - b.id);
     } else {
       orderedPool = shuffleArray(orderedPool);
@@ -88,19 +93,20 @@ export default function Home() {
     }
 
     setJumpError('');
+    setOrderMode('asc');
 
     if (gameState === 'quiz') {
-      const inActiveIdx = activeQuestions.findIndex(q => q.id === num);
-      if (inActiveIdx !== -1) {
-        setCurrentQuestionIndex(inActiveIdx);
+      const sortedPool = [...pool].sort((a, b) => a.id - b.id);
+      const foundIdx = sortedPool.findIndex(q => q.id === num);
+      if (foundIdx !== -1) {
+        setActiveQuestions(sortedPool);
+        setCurrentQuestionIndex(foundIdx);
         setSelectedAnswer(null);
         setIsSubmitted(false);
         setMascotState('thinking');
-      } else {
-        startQuiz('all', num);
       }
     } else {
-      startQuiz('all', num);
+      startQuiz('all', num, 'asc');
     }
     return true;
   };
