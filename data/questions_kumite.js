@@ -616,9 +616,9 @@ export const kumiteQuestions = [
     "section": "Sección 5: Organización, Sorteos y Categorías",
     "text": "Cuando el árbitro anuncia WAKARATE y uno de los competidores ha salido del área de competición, se impondrá una advertencia de JOGAI.",
     "text_en": "When referee announces WAKARATE and one of the competitors has exit the competition area a JOGAI warning will be imposed.",
-    "answer": false,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 8.11 b) (Pág. 23) / Artículo 10.1.2 y 10.1.5 (Pág. 26).",
-    "justification": "WAKARETE es una orden de separación de clinch con el reloj en marcha. En cuanto se emite la orden verbal, los competidores deben detener sus acciones y separarse. Una salida física del tatami derivada del movimiento natural de separación ordenado no se amonesta con Jogai."
+    "answer": true,
+    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 10.1.2 (\"Informal Warnings - WAKARETE\", Pág. 26) y Artículo 10.4.13 (\"Exiting the competition area: JOGAI\", Pág. 29).",
+    "justification": "En total coincidencia con la aclaración técnica del Jefe de Árbitros de la FECOKA, la respuesta oficial a este reactivo es VERDADERO. De acuerdo con el Artículo 10.1.2 de la WKF, la orden verbal de separación (Wakarete) detiene provisionalmente las acciones de combate, pero el reloj del cronómetro sigue corriendo en marcha (without stopping the clock), por lo que la pelea se mantiene técnicamente activa. El Artículo 10.4.13, que regula de forma estricta las infracciones de salida de lona (Jogai), establece únicamente dos excepciones en las que no se impondrá penalización por salir del Tatami (ser empujado físicamente por el rival o salir inmediatamente tras marcar un punto). Al no ser la orden de separación verbal (Wakarete) una excepción reglamentaria en el Artículo 10.4.13, cualquier salida de lona efectuada por un atleta durante esta fase se considera voluntaria o negligente, por lo que el árbitro central debe imponer obligatoriamente la advertencia de JOGAI."
   },
   {
     "id": 70,
