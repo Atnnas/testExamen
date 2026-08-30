@@ -1,3 +1,9 @@
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+import { kataQuestions, kumiteQuestions } from '../data/questions';
+import KaratecaMascot from '../components/KaratecaMascot';
+import ProgressBar from '../components/ProgressBar';
+
 // =========================================================================
 // MODO MANTENIMIENTO / OFFLINE
 // =========================================================================
