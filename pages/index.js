@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Head from 'next/head';
-import { kataQuestions, kumiteQuestions } from '../data/questions';
-import KaratecaMascot from '../components/KaratecaMascot';
-import ProgressBar from '../components/ProgressBar';
+// =========================================================================
+// MODO MANTENIMIENTO / OFFLINE
+// =========================================================================
+// Set to `true` to show the maintenance/offline card in production.
+// Set to `false` to put the app back online instantly!
+export const MAINTENANCE_MODE = true;
+// =========================================================================
 
 export default function Home() {
   const [gameState, setGameState] = useState('welcome'); // welcome, quiz, results
@@ -18,7 +20,7 @@ export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [mascotState, setMascotState] = useState('idle'); // idle, thinking, success, failure
+  const [mascotState, setMascotState] = useState('idle'); // idle, thinking, success, failure, rei
   const [shakeActive, setShakeActive] = useState(false);
 
   const currentPool = modality === 'kata' ? kataQuestions : kumiteQuestions;
@@ -187,13 +189,13 @@ export default function Home() {
   return (
     <div className="app-container">
       <Head>
-        <title>Examen Entrenador WKF 2026 - Práctica de {modality === 'kata' ? 'Kata' : 'Kumite'}</title>
+        <title>Examen Entrenador WKF 2026 - {MAINTENANCE_MODE ? 'Próximamente' : `Práctica de ${modality === 'kata' ? 'Kata' : 'Kumite'}`}</title>
         <meta name="description" content="Practica con el banco de preguntas oficial de la WKF 2026. ¡Aprende con animaciones y justificaciones en español!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* Header bar only if in Quiz Mode */}
-      {gameState === 'quiz' && (
+      {/* Header bar only if in Quiz Mode and not in maintenance mode */}
+      {!MAINTENANCE_MODE && gameState === 'quiz' && (
         <ProgressBar 
           current={currentQuestionIndex + (isSubmitted ? 1 : 0)} 
           total={activeQuestions.length} 
@@ -204,9 +206,36 @@ export default function Home() {
       )}
 
       <main className="main-content">
-        {/* ================= PANTALLA DE BIENVENIDA ================= */}
-        {gameState === 'welcome' && (
-          <div className="welcome-card">
+        {/* ================= PANTALLA DE MANTENIMIENTO / OFFLINE ================= */}
+        {MAINTENANCE_MODE ? (
+          <div className="maintenance-card">
+            <span className="maintenance-badge">
+              <span>🥋</span> Próximamente la Gran Evolución
+            </span>
+
+            <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '10px' }}>
+              <KaratecaMascot state="rei" modality="kumite" />
+            </div>
+
+            <h1 className="maintenance-title">¡Volveremos pronto!</h1>
+            <p className="maintenance-subtitle">
+              Estamos preparando la siguiente versión evolucionada de la plataforma.
+            </p>
+
+            <div className="maintenance-box">
+              <p className="maintenance-message">
+                "Volveremos pronto, gracias por toda la ayuda probando esta aplicación. Fue de grandísima ayuda, y ayudas a que el karate en CR crezca."
+              </p>
+              <div className="maintenance-flag-row">
+                <span>🇨🇷</span> Sensei Chibi & Árbitro WKF <span>🥋</span>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <>
+            {/* ================= PANTALLA DE BIENVENIDA ================= */}
+            {gameState === 'welcome' && (
+              <div className="welcome-card">
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <KaratecaMascot state={mascotState} modality={modality} />
             </div>
@@ -464,6 +493,8 @@ export default function Home() {
               Volver a jugar
             </button>
           </div>
+        )}
+        </>
         )}
       </main>
 

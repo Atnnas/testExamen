@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
-  // state can be: 'idle', 'thinking', 'success', 'failure'
+  // state can be: 'idle', 'thinking', 'success', 'failure', 'rei'
   // modality can be: 'kata', 'kumite'
   
   const leftFistColor = modality === 'kumite' ? '#ff4b4b' : '#fcd5b4';
@@ -9,23 +9,25 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
   
   const isKumiteSuccess = state === 'success' && modality === 'kumite';
   const isKataSuccess = state === 'success' && modality === 'kata';
-  const svgViewBox = isKumiteSuccess ? "0 0 320 230" : "0 0 200 220";
+  const isRei = state === 'rei';
+  const isWide = isKumiteSuccess || isRei;
+  const svgViewBox = isWide ? "0 0 320 230" : "0 0 200 220";
   
   return (
-    <div className={`mascot-container mascot-state-${state} mascot-modality-${modality} ${isKumiteSuccess ? 'kumite-success-wide' : ''}`}>
+    <div className={`mascot-container mascot-state-${state} mascot-modality-${modality} ${isWide ? 'kumite-success-wide' : ''}`}>
       <svg
         viewBox={svgViewBox}
         className="karateca-svg"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* ========= WKF REFEREE (only in Kumite Success) ========= */}
-        {isKumiteSuccess && (
-          <g className="wkf-referee">
+        {/* ========= WKF REFEREE (only in Kumite Success or REI state) ========= */}
+        {(isKumiteSuccess || isRei) && (
+          <g className={`wkf-referee ${isRei ? 'referee-rei' : ''}`}>
             {/* Referee Shadow */}
             <ellipse cx="60" cy="210" rx="30" ry="6" fill="rgba(0,0,0,0.12)" />
 
             {/* Referee Body */}
-            <g className="referee-body-group">
+            <g className="referee-body-group" style={isRei ? { transform: 'rotate(18deg)', transformOrigin: '60px 190px' } : undefined}>
               {/* Pants (dark navy) */}
               <path d="M 43,160 L 38,200 L 52,200 L 55,172 L 65,172 L 68,200 L 82,200 L 77,160 Z" fill="#1a2744" stroke="#111" strokeWidth="3" strokeLinejoin="round" />
               {/* Shoes */}
@@ -39,37 +41,60 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
               {/* Red tie */}
               <path d="M 58,114 L 56,142 L 60,145 L 64,142 L 62,114 Z" fill="#e74c3c" stroke="#c0392b" strokeWidth="1.5" />
 
-              {/* Left Arm (down, relaxed) */}
-              <g className="referee-left-arm">
-                <path d="M 38,112 L 20,130 L 26,142 L 40,126 Z" fill="#1a2744" stroke="#111" strokeWidth="3" strokeLinejoin="round" />
-                <circle cx="22" cy="136" r="7" fill="#fcd5b4" stroke="#333" strokeWidth="3" />
-              </g>
+              {isRei ? (
+                /* Arms resting respectfully along sides for REI bow */
+                <g className="referee-arms-rei">
+                  <path d="M 38,112 L 32,152 L 44,154 L 50,122 Z" fill="#1a2744" stroke="#111" strokeWidth="3" strokeLinejoin="round" />
+                  <circle cx="36" cy="156" r="6" fill="#fcd5b4" stroke="#333" strokeWidth="2.5" />
+                  <path d="M 82,112 L 88,152 L 76,154 L 70,122 Z" fill="#1a2744" stroke="#111" strokeWidth="3" strokeLinejoin="round" />
+                  <circle cx="84" cy="156" r="6" fill="#fcd5b4" stroke="#333" strokeWidth="2.5" />
+                </g>
+              ) : (
+                <>
+                  {/* Left Arm (down, relaxed) */}
+                  <g className="referee-left-arm">
+                    <path d="M 38,112 L 20,130 L 26,142 L 40,126 Z" fill="#1a2744" stroke="#111" strokeWidth="3" strokeLinejoin="round" />
+                    <circle cx="22" cy="136" r="7" fill="#fcd5b4" stroke="#333" strokeWidth="3" />
+                  </g>
 
-              {/* Right Arm (raised high for IPPON!) */}
-              <g className="referee-right-arm">
-                <path d="M 82,112 L 94,80 L 86,74 L 78,108 Z" fill="#1a2744" stroke="#111" strokeWidth="3" strokeLinejoin="round" />
-                {/* Hand raised */}
-                <circle cx="90" cy="72" r="7" fill="#fcd5b4" stroke="#333" strokeWidth="3" />
-                {/* Flag / signal marker (red) */}
-                <rect x="86" y="42" width="8" height="30" rx="2" fill="#e74c3c" stroke="#c0392b" strokeWidth="2" />
-                <path d="M 94,42 L 114,36 L 114,52 L 94,48 Z" fill="#e74c3c" stroke="#c0392b" strokeWidth="1.5" />
-              </g>
+                  {/* Right Arm (raised high for IPPON!) */}
+                  <g className="referee-right-arm">
+                    <path d="M 82,112 L 94,80 L 86,74 L 78,108 Z" fill="#1a2744" stroke="#111" strokeWidth="3" strokeLinejoin="round" />
+                    {/* Hand raised */}
+                    <circle cx="90" cy="72" r="7" fill="#fcd5b4" stroke="#333" strokeWidth="3" />
+                    {/* Flag / signal marker (red) */}
+                    <rect x="86" y="42" width="8" height="30" rx="2" fill="#e74c3c" stroke="#c0392b" strokeWidth="2" />
+                    <path d="M 94,42 L 114,36 L 114,52 L 94,48 Z" fill="#e74c3c" stroke="#c0392b" strokeWidth="1.5" />
+                  </g>
+                </>
+              )}
 
               {/* Referee Head */}
               <rect x="54" y="100" width="12" height="12" fill="#fcd5b4" stroke="#333" strokeWidth="3" />
               <circle cx="60" cy="80" r="25" fill="#fcd5b4" stroke="#333" strokeWidth="3" />
               {/* Hair (short, dark, neat) */}
               <path d="M 38,68 Q 60,48 82,68 Q 72,58 60,58 Q 48,58 38,68 Z" fill="#2d3748" />
-              {/* Eyes (serious / focused) */}
-              <circle cx="52" cy="78" r="3" fill="#2d3748" />
-              <circle cx="68" cy="78" r="3" fill="#2d3748" />
-              <circle cx="51" cy="77" r="1" fill="#fff" />
-              <circle cx="67" cy="77" r="1" fill="#fff" />
-              {/* Eyebrows (stern) */}
-              <path d="M 46,72 L 56,73" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 64,73 L 74,72" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
-              {/* Mouth (serious thin line) */}
-              <line x1="55" y1="86" x2="65" y2="86" stroke="#2d3748" strokeWidth="2.5" strokeLinecap="round" />
+              {/* Eyes */}
+              {isRei ? (
+                <>
+                  {/* Closed respectful eyes in Rei ^ ^ */}
+                  <path d="M 48,78 Q 54,72 60,78" fill="none" stroke="#2d3748" strokeWidth="3" strokeLinecap="round" />
+                  <path d="M 62,78 Q 68,72 74,78" fill="none" stroke="#2d3748" strokeWidth="3" strokeLinecap="round" />
+                  <path d="M 54,86 Q 60,90 66,86" fill="none" stroke="#2d3748" strokeWidth="2.5" strokeLinecap="round" />
+                </>
+              ) : (
+                <>
+                  <circle cx="52" cy="78" r="3" fill="#2d3748" />
+                  <circle cx="68" cy="78" r="3" fill="#2d3748" />
+                  <circle cx="51" cy="77" r="1" fill="#fff" />
+                  <circle cx="67" cy="77" r="1" fill="#fff" />
+                  {/* Eyebrows (stern) */}
+                  <path d="M 46,72 L 56,73" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M 64,73 L 74,72" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
+                  {/* Mouth (serious thin line) */}
+                  <line x1="55" y1="86" x2="65" y2="86" stroke="#2d3748" strokeWidth="2.5" strokeLinecap="round" />
+                </>
+              )}
             </g>
           </g>
         )}
@@ -90,13 +115,21 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
           </g>
         )}
 
+        {/* ========= REI / 礼 Banner (only in REI state) ========= */}
+        {isRei && (
+          <g className="kiai-banner">
+            <rect x="90" y="5" width="140" height="38" rx="14" fill="#1cb0f6" stroke="#1899d6" strokeWidth="3" />
+            <text x="160" y="30" textAnchor="middle" fontFamily="Outfit, sans-serif" fontWeight="800" fontSize="18" fill="#fff" style={{ letterSpacing: '2px' }}>¡REI! 礼</text>
+          </g>
+        )}
+
         {/* Shadow */}
-        <ellipse cx={isKumiteSuccess ? 220 : 100} cy={isKumiteSuccess ? 210 : 205} rx="45" ry="8" fill="rgba(0,0,0,0.15)" className="mascot-shadow" />
+        <ellipse cx={isWide ? 220 : 100} cy={isWide ? 210 : 205} rx="45" ry="8" fill="rgba(0,0,0,0.15)" className="mascot-shadow" />
 
         {/* Mascot Body Group */}
-        <g className="mascot-body-group" transform={isKumiteSuccess ? "translate(120, 0)" : undefined}>
+        <g className="mascot-body-group" transform={isWide ? "translate(120, 0)" : undefined}>
           
-          {/* === LEGS: Normal or High Kick === */}
+          {/* === LEGS === */}
           {isKumiteSuccess ? (
             <>
               {/* Supporting left leg (slightly bent) */}
@@ -126,8 +159,8 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
             </>
           )}
 
-          {/* Upper Body (Leans back during high kick) */}
-          <g className="mascot-upper-body" style={{ transform: isKumiteSuccess ? 'rotate(-25deg)' : 'none', transformOrigin: '100px 150px', transition: 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}>
+          {/* Upper Body (Leans back during high kick, leans forward during Rei bow) */}
+          <g className="mascot-upper-body" style={{ transform: isKumiteSuccess ? 'rotate(-25deg)' : isRei ? 'rotate(20deg)' : 'none', transformOrigin: '100px 150px', transition: 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}>
             {/* Karate Gi Torso */}
             <path d={isKumiteSuccess ? "M 65,110 L 135,110 L 125,155 L 75,155 Z" : "M 65,110 L 135,110 L 125,160 L 75,160 Z"} fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
           
@@ -144,23 +177,43 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
 
           {/* Left Arm */}
           <g className="mascot-left-arm">
-            {/* Gi sleeve */}
-            <path d="M 65,112 L 40,125 L 48,140 L 68,125 Z" fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
-            {/* Chibi Fist - Aka Glove (Red) in Kumite */}
-            <circle cx="38" cy="132" r="10" fill={leftFistColor} stroke="#333" strokeWidth="4" />
-            {modality === 'kumite' && (
-              <rect x="33" y="128" width="10" height="4" fill="#ffffff" rx="1.5" stroke="#333" strokeWidth="2.5" />
+            {isRei ? (
+              /* Arm straight down along thigh in Ritsurei bow */
+              <>
+                <path d="M 65,112 L 52,150 L 64,152 L 72,122 Z" fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
+                <circle cx="56" cy="154" r="8" fill="#fcd5b4" stroke="#333" strokeWidth="3" />
+              </>
+            ) : (
+              <>
+                {/* Gi sleeve */}
+                <path d="M 65,112 L 40,125 L 48,140 L 68,125 Z" fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
+                {/* Chibi Fist - Aka Glove (Red) in Kumite */}
+                <circle cx="38" cy="132" r="10" fill={leftFistColor} stroke="#333" strokeWidth="4" />
+                {modality === 'kumite' && (
+                  <rect x="33" y="128" width="10" height="4" fill="#ffffff" rx="1.5" stroke="#333" strokeWidth="2.5" />
+                )}
+              </>
             )}
           </g>
 
           {/* Right Arm */}
           <g className="mascot-right-arm">
-            {/* Gi sleeve */}
-            <path d="M 135,112 L 160,125 L 152,140 L 132,125 Z" fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
-            {/* Chibi Fist - Ao Glove (Blue) in Kumite */}
-            <circle cx="162" cy="132" r="10" fill={rightFistColor} stroke="#333" strokeWidth="4" />
-            {modality === 'kumite' && (
-              <rect x="157" y="128" width="10" height="4" fill="#ffffff" rx="1.5" stroke="#333" strokeWidth="2.5" />
+            {isRei ? (
+              /* Arm straight down along thigh in Ritsurei bow */
+              <>
+                <path d="M 135,112 L 148,150 L 136,152 L 128,122 Z" fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
+                <circle cx="144" cy="154" r="8" fill="#fcd5b4" stroke="#333" strokeWidth="3" />
+              </>
+            ) : (
+              <>
+                {/* Gi sleeve */}
+                <path d="M 135,112 L 160,125 L 152,140 L 132,125 Z" fill="#ffffff" stroke="#333" strokeWidth="4" strokeLinejoin="round" />
+                {/* Chibi Fist - Ao Glove (Blue) in Kumite */}
+                <circle cx="162" cy="132" r="10" fill={rightFistColor} stroke="#333" strokeWidth="4" />
+                {modality === 'kumite' && (
+                  <rect x="157" y="128" width="10" height="4" fill="#ffffff" rx="1.5" stroke="#333" strokeWidth="2.5" />
+                )}
+              </>
             )}
           </g>
 
@@ -207,7 +260,7 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
                   <circle cx="117" cy="68.5" r="1.5" fill="#ffffff" />
                 </>
               )}
-              {state === 'success' && (
+              {(state === 'success' || state === 'rei') && (
                 <>
                   {/* Happy closed arched eyes ^ ^ */}
                   <path d="M 77,74 Q 85,64 93,74" fill="none" stroke="#2d3748" strokeWidth="5" strokeLinecap="round" />
@@ -237,7 +290,7 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
                   <path d="M 123,63 Q 115,59 107,61" fill="none" stroke="#333" strokeWidth="3" strokeLinecap="round" />
                 </>
               )}
-              {state === 'success' && (
+              {(state === 'success' || state === 'rei') && (
                 <>
                   <path d="M 74,58 Q 84,54 92,60" fill="none" stroke="#333" strokeWidth="3" strokeLinecap="round" />
                   <path d="M 126,58 Q 116,54 108,60" fill="none" stroke="#333" strokeWidth="3" strokeLinecap="round" />
@@ -263,6 +316,10 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
               {state === 'success' && (
                 // Happy open mouth (smiling)
                 <path d="M 90,82 Q 100,96 110,82 Z" fill="#e76f51" stroke="#2d3748" strokeWidth="3" strokeLinejoin="round" />
+              )}
+              {state === 'rei' && (
+                // Gentle peaceful smile
+                <path d="M 94,84 Q 100,90 106,84" fill="none" stroke="#2d3748" strokeWidth="3" strokeLinecap="round" />
               )}
               {state === 'failure' && (
                 // Sad mouth curve

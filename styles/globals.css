@@ -339,6 +339,108 @@ body {
   100% { transform: translate(1px, 1px); }
 }
 
+/* ===== 5.2 REI Bowing Animation ===== */
+.mascot-state-rei .mascot-body-group {
+  animation: rei-bow 3.5s ease-in-out infinite alternate;
+}
+
+.mascot-state-rei .referee-body-group {
+  animation: referee-rei-bow 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes rei-bow {
+  0% {
+    transform: translate(120px, 0) rotate(12deg);
+  }
+  100% {
+    transform: translate(120px, 0) rotate(24deg);
+  }
+}
+
+@keyframes referee-rei-bow {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+/* ===== Maintenance Mode Card ===== */
+.maintenance-card {
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 28px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  width: 100%;
+  animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.maintenance-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  background-color: var(--color-blue-light);
+  padding: 6px 14px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.maintenance-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-top: 10px;
+  line-height: 1.2;
+}
+
+.maintenance-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+.maintenance-box {
+  background: linear-gradient(135deg, #ffffff 0%, #f7f9fa 100%);
+  border: 2px solid var(--color-border);
+  border-radius: 20px;
+  padding: 22px 20px;
+  margin-top: 15px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.maintenance-message {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--color-black);
+}
+
+.maintenance-flag-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--color-blue);
+}
+
 /* Referee animations */
 .wkf-referee {
   animation: referee-enter 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
