@@ -156,10 +156,10 @@ export const kumiteQuestions = [
     "id": 18,
     "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "El competidor debe usar chándal (traje deportivo) o karate-gi en la ceremonia de premiación.",
-    "text_en": "The competitor must wear tracksuit or karate-Gi at the prize ceremony.",
-    "answer": false,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11 (\"General Specifications\"), Sección 2 (Pág. 12).",
-    "justification": "En las ceremonias de premiación (podio), los competidores deben vestir obligatoria y únicamente el chándal oficial de su Federación Nacional. No está permitido subir a recibir medallas con el Karate-gi puesto ni con ropa civil informal."
+    "text_en": "The competitor must wear tracksuit or karate-gi at the prize ceremony.",
+    "answer": true,
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11 (\"General Specifications\"), Sección 2 (Pág. 12) / Enmienda de Protocolo Congresillo Técnico WKF 2026.",
+    "justification": "Aunque el texto original de la WKF_GENERAL_REGULATIONS_vf.pdf limita formalmente la premiación al uso del chándal oficial, en el reciente Congresillo Técnico de la WKF se oficializó una enmienda de flexibilidad de protocolo para las ceremonias de medallas. Bajo esta resolución, se autoriza y considera válido que los competidores suban al podio portando tanto el chándal oficial de su delegación como el Karategi de competición reglamentario. Por consiguiente, la afirmación se establece formalmente como VERDADERA en el examen."
   },
   {
     "id": 19,
