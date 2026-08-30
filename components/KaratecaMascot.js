@@ -117,7 +117,7 @@ export default function KaratecaMascot({ state = 'idle', modality = 'kata' }) {
 
         {/* ========= REI / 礼 Banner (only in REI state) ========= */}
         {isRei && (
-          <g className="kiai-banner">
+          <g className="rei-banner">
             <rect x="90" y="5" width="140" height="38" rx="14" fill="#1cb0f6" stroke="#1899d6" strokeWidth="3" />
             <text x="160" y="30" textAnchor="middle" fontFamily="Outfit, sans-serif" fontWeight="800" fontSize="18" fill="#fff" style={{ letterSpacing: '2px' }}>¡REI! 礼</text>
           </g>

@@ -215,18 +215,11 @@ export default function Home() {
         {/* ================= PANTALLA DE MANTENIMIENTO / OFFLINE ================= */}
         {MAINTENANCE_MODE ? (
           <div className="maintenance-card">
-            <span className="maintenance-badge">
-              <span>🥋</span> Próximamente la Gran Evolución
-            </span>
-
             <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '10px' }}>
               <KaratecaMascot state="rei" modality="kumite" />
             </div>
 
             <h1 className="maintenance-title">¡Volveremos pronto!</h1>
-            <p className="maintenance-subtitle">
-              Estamos preparando la siguiente versión evolucionada de la plataforma.
-            </p>
 
             <div className="maintenance-box">
               <p className="maintenance-message">

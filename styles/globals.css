@@ -339,30 +339,62 @@ body {
   100% { transform: translate(1px, 1px); }
 }
 
-/* ===== 5.2 REI Bowing Animation ===== */
+/* ===== 5.2 Classic Karate REI Bowing Animation & Synchronized Banner ===== */
 .mascot-state-rei .mascot-body-group {
-  animation: rei-bow 3.5s ease-in-out infinite alternate;
+  animation: classic-karate-rei 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 200px 190px;
 }
 
 .mascot-state-rei .referee-body-group {
-  animation: referee-rei-bow 3.5s ease-in-out infinite alternate;
+  animation: classic-referee-rei 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: 60px 190px;
 }
 
-@keyframes rei-bow {
-  0% {
-    transform: translate(120px, 0) rotate(12deg);
+.mascot-state-rei .rei-banner {
+  animation: rei-banner-pop 3.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+  transform-origin: 160px 24px;
+}
+
+@keyframes classic-karate-rei {
+  0%, 12% {
+    transform: translate(120px, 0) rotate(0deg);
   }
-  100% {
-    transform: translate(120px, 0) rotate(24deg);
+  40%, 65% {
+    transform: translate(120px, 0) rotate(30deg);
+  }
+  90%, 100% {
+    transform: translate(120px, 0) rotate(0deg);
   }
 }
 
-@keyframes referee-rei-bow {
-  0% {
-    transform: rotate(10deg);
+@keyframes classic-referee-rei {
+  0%, 12% {
+    transform: rotate(0deg);
   }
-  100% {
-    transform: rotate(20deg);
+  40%, 65% {
+    transform: rotate(25deg);
+  }
+  90%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rei-banner-pop {
+  0%, 36% {
+    opacity: 0;
+    transform: scale(0.2) translateY(15px);
+  }
+  43% {
+    opacity: 1;
+    transform: scale(1.15) translateY(-3px);
+  }
+  47%, 63% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  70%, 100% {
+    opacity: 0;
+    transform: scale(0.2) translateY(10px);
   }
 }
 
