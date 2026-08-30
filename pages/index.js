@@ -216,7 +216,7 @@ export default function Home() {
         {MAINTENANCE_MODE ? (
           <div className="maintenance-card">
             <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '10px' }}>
-              <KaratecaMascot state="rei" modality="kumite" />
+              <KaratecaMascot state="bye" modality="kumite" />
             </div>
 
             <h1 className="maintenance-title">¡Volveremos pronto!</h1>
