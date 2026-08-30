@@ -67,9 +67,9 @@ export const kumiteQuestions = [
     "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "Cualquier comportamiento descortés de un entrenador puede causar la descalificación de un competidor, de todo el equipo o de la delegación del torneo.",
     "text_en": "Any discourteous behavior from a coach can cause the disqualification of a competitor, the entire team or delegation from the tournament.",
-    "answer": false,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Sección 7, \"COACH SUSPENSION\", Pág. 10) / WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf (Artículo 9.1.4 y Artículo 9.1.5, Págs. 24-25).",
-    "justification": "En total consonancia con el análisis técnico y los acuerdos de la Comisión de Arbitraje de la FECOKA, esta afirmación es Falsa. Las penalizaciones por comportamiento descortés, protestas desmedidas o violaciones de etiqueta del entrenador se aplican de manera directa e individual sobre el técnico, retirando su credencial de acreditación o expulsándolo del Tatami. El competidor, el equipo o la delegación no sufren una descalificación del torneo debido a la conducta inapropiada del entrenador, ya que la responsabilidad de lona no es transferible en este escenario. El árbitro o Tatami Manager quita directamente la credencial al coach infractor, quedando el atleta habilitado para continuar su combate."
+    "answer": true,
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Sección 1 \"Preamble\" y Sección 2 \"Definitions\", Págs. 4-5) / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf (Mandato N° 2, Pág. 15) / WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 10.3.3 (Pág. 27) y Artículo 15.3.1 (Inciso 12, Pág. 43).",
+    "justification": "Aunque el árbitro de tatami solo sanciona en el área de competencia, ante un comportamiento descortés grave de un entrenador se viola el Acuerdo de Acreditación (Mandato Nº 2) y el Código de Ética de la WKF. Esto faculta a la Comisión Disciplinaria de la WKF o al Comité Ejecutivo (según el Artículo 10.3.3 de Kumite y las Regulaciones Generales) a aplicar sanciones institucionales mayores, incluyendo la expulsión y descalificación de la delegación nacional completa del torneo."
   },
   {
     "id": 9,
