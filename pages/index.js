@@ -9,7 +9,7 @@ import ProgressBar from '../components/ProgressBar';
 // =========================================================================
 // Set to `true` to show the maintenance/offline card in production.
 // Set to `false` to put the app back online instantly!
-export const MAINTENANCE_MODE = true;
+export const MAINTENANCE_MODE = false;
 // =========================================================================
 
 export default function Home() {
