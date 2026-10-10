@@ -1417,3 +1417,437 @@ body {
     font-size: 0.95rem;
   }
 }
+
+/* =========================================================================
+   PORTAL / SELECCIÓN DE ROL (COACH VS ÁRBITRO)
+   ========================================================================= */
+.portal-card {
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 24px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  width: 100%;
+  animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.portal-mascots-duo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.portal-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-top: 10px;
+  line-height: 1.2;
+}
+
+.portal-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin-top: 8px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.role-card-btn {
+  background: #fff;
+  border: 2px solid var(--color-border);
+  border-radius: 20px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-thick) var(--color-border);
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.2s, background-color 0.2s;
+  position: relative;
+  font-family: inherit;
+}
+
+.role-card-btn:active {
+  transform: translateY(4px);
+}
+
+.role-card-btn.coach-role:hover {
+  border-color: var(--color-green-border);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 0 0 var(--color-green-border);
+}
+
+.role-card-btn.coach-role:active {
+  box-shadow: var(--shadow-thick-pressed) var(--color-green-border);
+}
+
+.role-card-btn.referee-role:hover {
+  border-color: var(--color-yellow-border);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 0 0 var(--color-yellow-border);
+}
+
+.role-card-btn.referee-role:active {
+  box-shadow: var(--shadow-thick-pressed) var(--color-yellow-border);
+}
+
+.role-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.role-badge-active {
+  background-color: var(--color-green-light);
+  color: var(--color-green-text);
+  border: 1px solid var(--color-green-border);
+}
+
+.role-badge-construction {
+  background-color: var(--color-yellow-light);
+  color: #b45309;
+  border: 1px solid var(--color-yellow-border);
+}
+
+.role-icon-box {
+  font-size: 2.8rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.role-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 8px;
+}
+
+.role-description {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.role-action-label {
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.role-action-coach {
+  background-color: var(--color-green);
+  color: #fff;
+  border: 2px solid var(--color-green-border);
+}
+
+.role-action-referee {
+  background-color: #f8fafc;
+  color: #64748b;
+  border: 2px dashed #cbd5e1;
+}
+
+/* =========================================================================
+   PANTALLA DE ÁRBITRO EN CONSTRUCCIÓN
+   ========================================================================= */
+.construction-card {
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 24px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  width: 100%;
+  animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.construction-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-yellow-light);
+  border: 2px solid var(--color-yellow-border);
+  color: #92400e;
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 8px 18px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 18px;
+}
+
+.construction-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+.construction-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+.construction-features-box {
+  background-color: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.construction-features-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #334155;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.construction-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.construction-features-list li {
+  font-size: 0.92rem;
+  color: #475569;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.construction-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.back-nav-btn {
+  background: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-blue-border);
+  cursor: pointer;
+  margin-bottom: 12px;
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 10px;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.back-nav-btn:hover {
+  background-color: var(--color-blue-light);
+  transform: translateX(-3px);
+}
+
+/* Referee Mascot SVG Styling */
+.referee-mascot-container {
+  width: 170px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.referee-small {
+  width: 100px;
+  height: 110px;
+}
+
+.referee-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.referee-state-idle .referee-main-group {
+  animation: breathing 2.4s ease-in-out infinite alternate;
+}
+
+.referee-state-idle .referee-shadow {
+  animation: shadow-breath 2.4s ease-in-out infinite alternate;
+}
+
+.referee-state-idle .referee-right-arm {
+  transform-origin: 148px 110px;
+  animation: flag-sway 3s ease-in-out infinite alternate;
+}
+
+@keyframes flag-sway {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+@media (max-width: 580px) {
+  .roles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================================
+   BARRA DE AUTENTICACIÓN GOOGLE (UserAuthBar)
+   ========================================================================= */
+.auth-bar-wrapper {
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 10px 0 10px;
+  margin: 0 auto;
+}
+
+.auth-bar-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.google-signin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  color: #374151;
+  border: 1.5px solid #e5e7eb;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.google-signin-btn:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.09);
+  transform: translateY(-1px);
+}
+
+.google-signin-btn:active {
+  transform: translateY(1px);
+}
+
+.google-icon {
+  flex-shrink: 0;
+}
+
+.auth-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 5px 12px 5px 6px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+.auth-user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--color-blue);
+}
+
+.auth-user-avatar-placeholder {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-blue);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-user-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.auth-user-name {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+.auth-user-email {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  line-height: 1.1;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auth-signout-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-family: var(--font-family);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.auth-signout-btn:hover {
+  color: var(--color-red);
+  border-color: var(--color-red-border);
+  background-color: var(--color-red-light);
+}
+
+.auth-loading-text {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}

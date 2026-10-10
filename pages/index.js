@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { kataQuestions, kumiteQuestions } from '../data/questions';
 import KaratecaMascot from '../components/KaratecaMascot';
+import RefereeMascot from '../components/RefereeMascot';
 import ProgressBar from '../components/ProgressBar';
+import UserAuthBar from '../components/UserAuthBar';
 
 // =========================================================================
 // MODO MANTENIMIENTO / OFFLINE
 // =========================================================================
 // Set to `true` to show the maintenance/offline card in production.
 // Set to `false` to put the app back online instantly!
-export const MAINTENANCE_MODE = false;
+const MAINTENANCE_MODE = false;
 // =========================================================================
 
 export default function Home() {
+  const [selectedRole, setSelectedRole] = useState(null); // null (selección de examen), 'coach', 'referee'
   const [gameState, setGameState] = useState('welcome'); // welcome, quiz, results
   const [modality, setModality] = useState('kata'); // kata or kumite
   const [questionLimit, setQuestionLimit] = useState(10);
@@ -195,13 +198,28 @@ export default function Home() {
   return (
     <div className="app-container">
       <Head>
-        <title>Examen Entrenador WKF 2026 - {MAINTENANCE_MODE ? 'Próximamente' : `Práctica de ${modality === 'kata' ? 'Kata' : 'Kumite'}`}</title>
+        <title>
+          {MAINTENANCE_MODE
+            ? 'Examen WKF 2026 - Próximamente'
+            : selectedRole === null
+            ? 'Exámenes Oficiales WKF 2026 - Portal de Estudio'
+            : selectedRole === 'referee'
+            ? 'Examen de Árbitro WKF 2026 - En Construcción'
+            : `Examen Entrenador WKF 2026 - Práctica de ${modality === 'kata' ? 'Kata' : 'Kumite'}`}
+        </title>
         <meta name="description" content="Practica con el banco de preguntas oficial de la WKF 2026. ¡Aprende con animaciones y justificaciones en español!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/* Barra de perfil y autenticación con Google */}
+      {!MAINTENANCE_MODE && gameState !== 'quiz' && (
+        <div className="auth-bar-wrapper">
+          <UserAuthBar />
+        </div>
+      )}
+
       {/* Header bar only if in Quiz Mode and not in maintenance mode */}
-      {!MAINTENANCE_MODE && gameState === 'quiz' && (
+      {!MAINTENANCE_MODE && selectedRole === 'coach' && gameState === 'quiz' && (
         <ProgressBar 
           current={currentQuestionIndex + (isSubmitted ? 1 : 0)} 
           total={activeQuestions.length} 
@@ -230,19 +248,143 @@ export default function Home() {
               </div>
             </div>
           </div>
+        ) : selectedRole === null ? (
+          /* ================= PORTAL PRINCIPAL: SELECCIÓN DE EXAMEN ================= */
+          <div className="portal-card">
+            <div className="portal-mascots-duo">
+              <KaratecaMascot state="idle" modality="kata" />
+              <RefereeMascot state="idle" size="small" />
+            </div>
+
+            <h1 className="portal-title">Exámenes Oficiales WKF 2026</h1>
+            <p className="portal-subtitle">
+              Elige el examen oficial que deseas practicar según tu rol federativo:
+            </p>
+
+            <div className="roles-grid">
+              {/* Tarjeta: Examen de Coach */}
+              <button
+                type="button"
+                className="role-card-btn coach-role"
+                onClick={() => setSelectedRole('coach')}
+              >
+                <span className="role-badge role-badge-active">Disponible • Oficial 2026</span>
+                <div className="role-icon-box">🥋</div>
+                <h2 className="role-title">Examen de Coach</h2>
+                <p className="role-description">
+                  Banco completo de 230 preguntas para Entrenadores WKF en Kata y Kumite, con práctica interactiva y explicaciones oficiales.
+                </p>
+                <span className="role-action-label role-action-coach">
+                  Ingresar a examen ➔
+                </span>
+              </button>
+
+              {/* Tarjeta: Examen de Árbitro */}
+              <button
+                type="button"
+                className="role-card-btn referee-role"
+                onClick={() => setSelectedRole('referee')}
+              >
+                <span className="role-badge role-badge-construction">🚧 En Construcción</span>
+                <div className="role-icon-box">⚖️</div>
+                <h2 className="role-title">Examen de Árbitro</h2>
+                <p className="role-description">
+                  Reglamento de arbitraje para Jueces y Árbitros WKF. Criterios de señalización, banderas y faltas reglamentarias.
+                </p>
+                <span className="role-action-label role-action-referee">
+                  Ver detalles (Próximamente) ➔
+                </span>
+              </button>
+            </div>
+          </div>
+        ) : selectedRole === 'referee' ? (
+          /* ================= EXAMEN DE ÁRBITRO: EN CONSTRUCCIÓN ================= */
+          <div className="construction-card">
+            <button
+              type="button"
+              className="back-nav-btn"
+              onClick={() => setSelectedRole(null)}
+            >
+              ← Volver al menú de exámenes
+            </button>
+
+            <RefereeMascot state="idle" />
+
+            <div style={{ marginTop: '12px' }}>
+              <span className="construction-badge">
+                <span>🚧</span> Módulo en Construcción
+              </span>
+            </div>
+
+            <h1 className="construction-title">Examen de Árbitro WKF 2026</h1>
+            <p className="construction-subtitle">
+              Estamos preparando el banco oficial de preguntas y casos de estudio para <strong>Árbitros y Jueces WKF</strong>.
+            </p>
+
+            <div className="construction-features-box">
+              <div className="construction-features-title">
+                <span>📋</span> Próximamente disponible en este módulo:
+              </div>
+              <ul className="construction-features-list">
+                <li>
+                  <span>⚖️</span>
+                  <span><strong>Cuestionario oficial WKF:</strong> Evaluación teórica para Árbitros y Jueces de Kata y Kumite.</span>
+                </li>
+                <li>
+                  <span>🚩</span>
+                  <span><strong>Mecánica de arbitraje y banderas:</strong> Gestos oficiales de señalización (Aka / Ao) y mandos de voz.</span>
+                </li>
+                <li>
+                  <span>⚠️</span>
+                  <span><strong>Faltas y penalizaciones:</strong> Clasificación y aplicaciones de faltas Categoría 1 y 2.</span>
+                </li>
+                <li>
+                  <span>🥋</span>
+                  <span><strong>Criterios de evaluación Kata:</strong> Rendimiento técnico y atlético según las normas 2026.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="construction-actions">
+              <button
+                type="button"
+                className="btn-3d btn-green"
+                onClick={() => setSelectedRole('coach')}
+              >
+                🥋 Ir al Examen de Coach (Disponible)
+              </button>
+              <button
+                type="button"
+                className="btn-3d btn-white"
+                onClick={() => setSelectedRole(null)}
+              >
+                Volver a la selección
+              </button>
+            </div>
+          </div>
         ) : (
+          /* ================= FLUJO DE EXAMEN DE COACH ================= */
           <>
-            {/* ================= PANTALLA DE BIENVENIDA ================= */}
+            {/* ================= PANTALLA DE BIENVENIDA DE COACH ================= */}
             {gameState === 'welcome' && (
               <div className="welcome-card">
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <KaratecaMascot state={mascotState} modality={modality} />
-            </div>
-            
-            <h1 className="welcome-title">Examen de Entrenador WKF 2026</h1>
-            <p className="welcome-subtitle">
-              Practica de forma divertida, interactiva y dinámica. Nuestro Sensei Chibi te guiará en cada pregunta del reglamento oficial.
-            </p>
+                <button
+                  type="button"
+                  className="back-nav-btn"
+                  onClick={() => setSelectedRole(null)}
+                  title="Volver a la selección de examen"
+                >
+                  ← Cambiar de examen
+                </button>
+
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <KaratecaMascot state={mascotState} modality={modality} />
+                </div>
+                
+                <h1 className="welcome-title">Examen de Entrenador (Coach) WKF 2026</h1>
+                <p className="welcome-subtitle">
+                  Practica de forma divertida, interactiva y dinámica. Nuestro Sensei Chibi te guiará en cada pregunta del reglamento oficial.
+                </p>
 
             <div className="options-container">
               <h2 className="options-title">Elige la modalidad:</h2>
@@ -485,12 +627,24 @@ export default function Home() {
               </div>
             </div>
 
-            <button
-              className="btn-3d btn-green"
-              onClick={restartGame}
-            >
-              Volver a jugar
-            </button>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
+              <button
+                className="btn-3d btn-green"
+                onClick={restartGame}
+              >
+                Volver a practicar
+              </button>
+              <button
+                type="button"
+                className="btn-3d btn-white"
+                onClick={() => {
+                  setGameState('welcome');
+                  setSelectedRole(null);
+                }}
+              >
+                ← Cambiar de examen
+              </button>
+            </div>
           </div>
         )}
         </>
