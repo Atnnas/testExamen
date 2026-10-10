@@ -6,7 +6,7 @@ import ExamResult from '../../../models/ExamResult';
 const ADMIN_EMAIL = 'david.artavia.rodriguez@gmail.com'.toLowerCase();
 
 export default async function handler(req, res) {
-  if (req.method !== 'GET') {
+  if (req.method !== 'GET' && req.method !== 'DELETE') {
     return res.status(405).json({ success: false, error: 'Método no permitido' });
   }
 
@@ -24,6 +24,39 @@ export default async function handler(req, res) {
 
     await dbConnect();
 
+    // =========================================================================
+    // BORRADO DE LOGS (INDIVIDUAL O TOTAL)
+    // =========================================================================
+    if (req.method === 'DELETE') {
+      const { examId, clearAll } = req.body || req.query;
+
+      if (clearAll) {
+        const result = await ExamResult.deleteMany({});
+        return res.status(200).json({
+          success: true,
+          message: `Se vació el log de exámenes con éxito (${result.deletedCount} registros eliminados).`,
+          deletedCount: result.deletedCount,
+        });
+      }
+
+      if (examId) {
+        const deleted = await ExamResult.findByIdAndDelete(examId);
+        if (!deleted) {
+          return res.status(404).json({ success: false, error: 'Registro de examen no encontrado' });
+        }
+        return res.status(200).json({
+          success: true,
+          message: 'Intento de examen eliminado con éxito',
+          examId,
+        });
+      }
+
+      return res.status(400).json({ success: false, error: 'Parámetro inválido: examId o clearAll requerido' });
+    }
+
+    // =========================================================================
+    // CONSULTA DE LOGS (GET)
+    // =========================================================================
     const {
       search = '',
       modality = 'all',
@@ -39,7 +72,7 @@ export default async function handler(req, res) {
     // Consultar todos los exámenes más recientes
     const rawExams = await ExamResult.find(filter)
       .sort({ createdAt: -1 })
-      .limit(Number(limit))
+      .limit(Number(limit) || 200)
       .lean();
 
     // Estadísticas globales acumuladas
@@ -132,7 +165,7 @@ export default async function handler(req, res) {
       exams: rawExams,
     });
   } catch (error) {
-    console.error('Error al consultar log de exámenes:', error);
+    console.error('Error al gestionar log de exámenes:', error);
     return res.status(500).json({ success: false, error: error.message || 'Error del servidor' });
   }
 }

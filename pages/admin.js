@@ -196,6 +196,66 @@ export default function AdminPage() {
     showToast('✓ Archivo CSV descargado con éxito');
   };
 
+  // Eliminar un intento de examen específico
+  const handleDeleteExam = async (examId, userName) => {
+    if (
+      !window.confirm(
+        `¿Eliminar permanentemente el intento de examen de "${userName || 'este usuario'}"? Esta acción no se puede deshacer.`
+      )
+    ) {
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/admin/exam-logs', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ examId }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('✓ Intento de examen eliminado');
+        if (selectedExamModal?._id === examId) {
+          setSelectedExamModal(null);
+        }
+        fetchExamLogs();
+      } else {
+        showToast('⚠️ Error: ' + (data.error || 'No se pudo eliminar el examen'));
+      }
+    } catch (err) {
+      showToast('Error de conexión al eliminar');
+    }
+  };
+
+  // Vaciar completamente el log de exámenes y respuestas
+  const handleClearAllLogs = async () => {
+    if (
+      !window.confirm(
+        '⚠️ ATENCIÓN: ¿Estás seguro de que deseas eliminar TODOS los registros de exámenes y respuestas de la base de datos? Esta acción es irreversible.'
+      )
+    ) {
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/admin/exam-logs', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ clearAll: true }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('✓ Todos los registros de exámenes han sido eliminados');
+        setSelectedExamModal(null);
+        fetchExamLogs();
+      } else {
+        showToast('⚠️ Error: ' + (data.error || 'No se pudo vaciar el log'));
+      }
+    } catch (err) {
+      showToast('Error de conexión al vaciar el log');
+    }
+  };
+
   if (status === 'loading') {
     return (
       <div className="admin-loading-screen">
@@ -588,6 +648,14 @@ export default function AdminPage() {
                 >
                   📥 Exportar CSV
                 </button>
+                <button
+                  type="button"
+                  onClick={handleClearAllLogs}
+                  className="btn-action-delete-all"
+                  title="Borrar todo el historial de exámenes y respuestas de MongoDB"
+                >
+                  🗑️ Vaciar Todo el Log
+                </button>
               </div>
             </div>
 
@@ -690,6 +758,7 @@ export default function AdminPage() {
                           <th>Evaluación</th>
                           <th>Resp. Correcta</th>
                           <th>Nota Examen</th>
+                          <th>Acción</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -782,6 +851,18 @@ export default function AdminPage() {
                                     {log.examScore}/{log.examTotal}
                                   </span>
                                 </div>
+                              </td>
+
+                              <td>
+                                <button
+                                  type="button"
+                                  onClick={() => handleDeleteExam(log.examId, log.userName)}
+                                  className="btn-action-delete"
+                                  title="Eliminar este intento de examen"
+                                  style={{ margin: 0 }}
+                                >
+                                  🗑️
+                                </button>
                               </td>
                             </tr>
                           );
@@ -882,13 +963,23 @@ export default function AdminPage() {
                               </td>
 
                               <td>
-                                <button
-                                  type="button"
-                                  onClick={() => setSelectedExamModal(ex)}
-                                  className="btn-action btn-action-view"
-                                >
-                                  👁️ Ver Respuestas
-                                </button>
+                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                                  <button
+                                    type="button"
+                                    onClick={() => setSelectedExamModal(ex)}
+                                    className="btn-action btn-action-view"
+                                  >
+                                    👁️ Ver Respuestas
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleDeleteExam(ex._id, ex.userName)}
+                                    className="btn-action-delete"
+                                    title="Eliminar este intento de examen"
+                                  >
+                                    🗑️
+                                  </button>
+                                </div>
                               </td>
                             </tr>
                           );
@@ -994,7 +1085,14 @@ export default function AdminPage() {
               </div>
             </div>
 
-            <div className="admin-modal-footer">
+            <div className="admin-modal-footer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <button
+                type="button"
+                className="btn-modal-delete"
+                onClick={() => handleDeleteExam(selectedExamModal._id, selectedExamModal.userName)}
+              >
+                🗑️ Eliminar este Intento
+              </button>
               <button
                 type="button"
                 className="btn-3d btn-blue"
