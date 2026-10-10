@@ -8,11 +8,12 @@ const ADMIN_EMAIL = 'david.artavia.rodriguez@gmail.com'.toLowerCase();
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID || '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || 'wkf-2026-auth-secret-production-token-982143',
+  trustHost: true,
   session: {
     strategy: 'jwt',
   },
