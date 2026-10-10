@@ -38,6 +38,7 @@ export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
+  const [currentAttemptId, setCurrentAttemptId] = useState(null);
   const [mascotState, setMascotState] = useState('idle'); // idle, thinking, success, failure, rei
   const [shakeActive, setShakeActive] = useState(false);
 
@@ -90,6 +91,7 @@ export default function Home() {
     setCurrentQuestionIndex(startIndex);
     setScore(0);
     setUserAnswers([]);
+    setCurrentAttemptId(null);
     setSelectedAnswer(null);
     setIsSubmitted(false);
     setGameState('quiz');
@@ -158,22 +160,42 @@ export default function Home() {
       setTimeout(() => setShakeActive(false), 500);
     }
 
-    setUserAnswers(prev => [
-      ...prev,
-      {
-        questionId: currentQuestion.id,
-        text: currentQuestion.text,
-        text_en: currentQuestion.text_en,
-        userAnswer: selectedAnswer,
-        correctAnswer: currentQuestion.answer,
-        isCorrect,
-        justification: currentQuestion.justification,
-        ref: currentQuestion.ref,
-        section: currentQuestion.section
-      }
-    ]);
+    const newAnswerItem = {
+      questionId: currentQuestion.id,
+      text: currentQuestion.text,
+      text_en: currentQuestion.text_en,
+      userAnswer: selectedAnswer,
+      correctAnswer: currentQuestion.answer,
+      isCorrect,
+      justification: currentQuestion.justification,
+      ref: currentQuestion.ref,
+      section: currentQuestion.section,
+    };
 
+    setUserAnswers(prev => [...prev, newAnswerItem]);
     setIsSubmitted(true);
+
+    // Registrar en MongoDB en tiempo real
+    fetch('/api/exams/record', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        attemptId: currentAttemptId,
+        role: selectedRole || 'coach',
+        modality,
+        totalQuestions: activeQuestions.length,
+        orderMode,
+        answer: newAnswerItem,
+        isFinished: false,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.attemptId && !currentAttemptId) {
+          setCurrentAttemptId(data.attemptId);
+        }
+      })
+      .catch((err) => console.error('Error al registrar respuesta en base de datos:', err));
   };
 
   const nextQuestion = () => {
@@ -181,8 +203,26 @@ export default function Home() {
     
     if (isLast) {
       setGameState('results');
-      const ratio = (score + (selectedAnswer === activeQuestions[currentQuestionIndex].answer ? 1 : 0)) / activeQuestions.length;
+      const finalScore = score + (selectedAnswer === activeQuestions[currentQuestionIndex].answer ? 1 : 0);
+      const ratio = finalScore / activeQuestions.length;
       setMascotState(ratio >= 0.8 ? 'success' : 'idle');
+
+      // Finalizar intento en MongoDB con nota y calificación obtenida
+      fetch('/api/exams/record', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          attemptId: currentAttemptId,
+          role: selectedRole || 'coach',
+          modality,
+          totalQuestions: activeQuestions.length,
+          orderMode,
+          finalScore,
+          percentage: Math.round(ratio * 100),
+          passed: ratio >= 0.8,
+          isFinished: true,
+        }),
+      }).catch((err) => console.error('Error al guardar nota final en base de datos:', err));
     } else {
       setSelectedAnswer(null);
       setIsSubmitted(false);
