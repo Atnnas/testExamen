@@ -757,7 +757,7 @@ export default function Home() {
               <div className="review-list">
                 {userAnswers.map((answer, index) => (
                   <div 
-                    key={index} 
+                    key={answer.questionId || index} 
                     className={`review-item ${answer.isCorrect ? 'correct' : 'incorrect'}`}
                   >
                     <div className="review-header-row">
@@ -783,6 +783,7 @@ export default function Home() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
               <button
+                type="button"
                 className="btn-3d btn-green"
                 onClick={restartGame}
               >

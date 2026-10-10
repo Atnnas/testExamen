@@ -107,6 +107,19 @@ export default function AdminPage() {
     return () => clearTimeout(timeout);
   }, [logSearch]);
 
+  // Accesibilidad: cerrar modal con tecla Escape
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedExamModal(null);
+      }
+    };
+    if (selectedExamModal) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [selectedExamModal]);
+
   const handleUpdateUser = async (userId, newFields) => {
     try {
       setActionLoading(userId);
@@ -239,6 +252,18 @@ export default function AdminPage() {
 
   const pendingCount = users.filter((u) => u.status === 'pendiente').length;
   const approvedCount = users.filter((u) => u.status === 'aprobado').length;
+
+  // Filtrado reactivo de exámenes para vista por intento
+  const filteredExams = rawExams.filter((ex) => {
+    const matchesModality = logModality === 'all' || ex.modality === logModality;
+    const query = logSearch.toLowerCase().trim();
+    if (!query) return matchesModality;
+    return (
+      matchesModality &&
+      (ex.userName?.toLowerCase().includes(query) ||
+        ex.userEmail?.toLowerCase().includes(query))
+    );
+  });
 
   return (
     <div className="admin-page-container">
@@ -767,9 +792,9 @@ export default function AdminPage() {
                 )
               ) : (
                 /* VISTA AGRUPADA POR EXAMEN / INTENTO */
-                rawExams.length === 0 ? (
+                filteredExams.length === 0 ? (
                   <div className="admin-empty-box">
-                    <p>No se han registrado intentos de examen todavía.</p>
+                    <p>No se encontraron intentos de examen con los filtros seleccionados.</p>
                   </div>
                 ) : (
                   <div className="admin-table-responsive">
@@ -788,7 +813,7 @@ export default function AdminPage() {
                         </tr>
                       </thead>
                       <tbody>
-                        {rawExams.map((ex) => {
+                        {filteredExams.map((ex) => {
                           const dateObj = new Date(ex.createdAt);
                           const dateStr = dateObj.toLocaleDateString('es-ES', {
                             day: '2-digit',
@@ -881,10 +906,16 @@ export default function AdminPage() {
       {/* Modal para ver el desglose completo de un examen */}
       {selectedExamModal && (
         <div className="admin-modal-backdrop" onClick={() => setSelectedExamModal(null)}>
-          <div className="admin-modal-card" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="admin-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-exam-title"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="admin-modal-header">
               <div>
-                <h2 className="admin-modal-title">
+                <h2 id="modal-exam-title" className="admin-modal-title">
                   Desglose de Examen ({selectedExamModal.modality?.toUpperCase()})
                 </h2>
                 <p className="admin-modal-subtitle">
@@ -894,6 +925,7 @@ export default function AdminPage() {
               <button
                 type="button"
                 className="admin-modal-close"
+                aria-label="Cerrar ventana"
                 onClick={() => setSelectedExamModal(null)}
               >
                 ✕

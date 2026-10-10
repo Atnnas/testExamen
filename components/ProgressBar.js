@@ -22,7 +22,7 @@ export default function ProgressBar({ current, total, onExit, onJumpToId, maxId 
   return (
     <div className="progress-bar-container">
       {onExit && (
-        <button className="progress-bar-exit-btn" onClick={onExit} aria-label="Salir" title="Salir de la práctica">
+        <button type="button" className="progress-bar-exit-btn" onClick={onExit} aria-label="Salir" title="Salir de la práctica">
           ✕
         </button>
       )}
