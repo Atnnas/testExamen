@@ -1,5 +1,9 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
+import dbConnect from '../../../lib/mongodb';
+import User from '../../../models/User';
+
+const ADMIN_EMAIL = 'david.artavia.rodriguez@gmail.com'.toLowerCase();
 
 export const authOptions = {
   providers: [
@@ -9,18 +13,89 @@ export const authOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: 'jwt',
+  },
   callbacks: {
-    async session({ session, token }) {
-      if (session?.user) {
-        session.user.id = token.sub;
+    async signIn({ user, account, profile }) {
+      if (!user?.email) return false;
+
+      try {
+        await dbConnect();
+        const userEmail = user.email.toLowerCase();
+        const isAdmin = userEmail === ADMIN_EMAIL;
+
+        let existingUser = await User.findOne({ email: userEmail });
+
+        if (!existingUser) {
+          // Crear nuevo registro de usuario
+          await User.create({
+            name: user.name || 'Usuario',
+            email: userEmail,
+            image: user.image || '',
+            role: isAdmin ? 'admin' : 'visitante',
+            status: isAdmin ? 'aprobado' : 'pendiente',
+            lastLogin: new Date(),
+          });
+        } else {
+          // Actualizar datos de perfil y último acceso
+          existingUser.name = user.name || existingUser.name;
+          existingUser.image = user.image || existingUser.image;
+          existingUser.lastLogin = new Date();
+
+          // Asegurar que el correo del administrador siempre mantenga rol admin y activo
+          if (isAdmin) {
+            existingUser.role = 'admin';
+            existingUser.status = 'aprobado';
+          }
+
+          await existingUser.save();
+        }
+
+        return true;
+      } catch (error) {
+        console.error('Error al sincronizar usuario con MongoDB en signIn:', error);
+        // Permitir inicio de sesión incluso si hay un fallo temporal en la sincronización
+        return true;
       }
-      return session;
     },
+
     async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
+      if (token?.email) {
+        try {
+          await dbConnect();
+          const userEmail = token.email.toLowerCase();
+          const dbUser = await User.findOne({ email: userEmail });
+
+          if (dbUser) {
+            token.id = dbUser._id.toString();
+            token.role = dbUser.role;
+            token.status = dbUser.status;
+          } else if (userEmail === ADMIN_EMAIL) {
+            token.role = 'admin';
+            token.status = 'aprobado';
+          } else {
+            token.role = token.role || 'visitante';
+            token.status = token.status || 'pendiente';
+          }
+        } catch (error) {
+          console.error('Error al consultar usuario en jwt callback:', error);
+          if (token.email.toLowerCase() === ADMIN_EMAIL) {
+            token.role = 'admin';
+            token.status = 'aprobado';
+          }
+        }
       }
       return token;
+    },
+
+    async session({ session, token }) {
+      if (session?.user) {
+        session.user.id = token.id;
+        session.user.role = token.role || (session.user.email?.toLowerCase() === ADMIN_EMAIL ? 'admin' : 'visitante');
+        session.user.status = token.status || (session.user.email?.toLowerCase() === ADMIN_EMAIL ? 'aprobado' : 'pendiente');
+      }
+      return session;
     },
   },
 };
