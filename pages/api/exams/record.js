@@ -28,22 +28,34 @@ export default async function handler(req, res) {
       passed,
     } = req.body;
 
-    // Obtener datos del usuario autenticado o fallback
-    let userEmail = session?.user?.email?.toLowerCase();
-    let userName = session?.user?.name;
-    let userImage = session?.user?.image || '';
+    // Validación indispensable: Requiere sesión activa de Google
+    if (!session?.user?.email) {
+      return res.status(401).json({
+        success: false,
+        error: 'Acceso denegado: Es indispensable iniciar sesión con Google para acceder o registrar exámenes.',
+      });
+    }
+
+    const userEmail = session.user.email.toLowerCase();
+    let userName = session.user.name || 'Usuario Registrado';
+    let userImage = session.user.image || '';
     let userId = null;
 
-    if (userEmail) {
-      const userDoc = await User.findOne({ email: userEmail });
-      if (userDoc) {
-        userId = userDoc._id;
-        userName = userDoc.name || userName;
-        userImage = userDoc.image || userImage;
-      }
-    } else {
-      userEmail = req.body.userEmail?.toLowerCase() || 'invitado@wkf.local';
-      userName = req.body.userName || 'Usuario Invitado';
+    const isSuperAdmin = userEmail === 'david.artavia.rodriguez@gmail.com';
+    const userDoc = await User.findOne({ email: userEmail });
+
+    if (userDoc) {
+      userId = userDoc._id;
+      userName = userDoc.name || userName;
+      userImage = userDoc.image || userImage;
+    }
+
+    const isAuthorized = isSuperAdmin || userDoc?.role === 'admin' || userDoc?.status === 'aprobado';
+    if (!isAuthorized) {
+      return res.status(403).json({
+        success: false,
+        error: 'Acceso pendiente: Tu cuenta requiere aprobación del administrador para registrar exámenes.',
+      });
     }
 
     let examDoc;
