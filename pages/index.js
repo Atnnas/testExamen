@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
@@ -41,10 +41,123 @@ export default function Home() {
   const [currentAttemptId, setCurrentAttemptId] = useState(null);
   const [mascotState, setMascotState] = useState('idle'); // idle, thinking, success, failure, rei
   const [shakeActive, setShakeActive] = useState(false);
+  const [timerEnabled, setTimerEnabled] = useState(false); // false = Sin límite, true = 30s Contrarreloj
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeoutToast, setTimeoutToast] = useState('');
+
+  // Referencias mutables para evitar cierres obsoletos (stale closures) dentro del temporizador
+  const selectedAnswerRef = useRef(selectedAnswer);
+  selectedAnswerRef.current = selectedAnswer;
+
+  const currentQuestionIndexRef = useRef(currentQuestionIndex);
+  currentQuestionIndexRef.current = currentQuestionIndex;
+
+  const activeQuestionsRef = useRef(activeQuestions);
+  activeQuestionsRef.current = activeQuestions;
+
+  const userAnswersRef = useRef(userAnswers);
+  userAnswersRef.current = userAnswers;
+
+  const scoreRef = useRef(score);
+  scoreRef.current = score;
+
+  const timerEnabledRef = useRef(timerEnabled);
+  timerEnabledRef.current = timerEnabled;
 
   const currentPool = selectedRole === 'referee'
     ? refereeQuestions
     : (modality === 'kata' ? kataQuestions : modality === 'kumite' ? kumiteQuestions : refereeQuestions);
+
+  // Manejo de expiración de tiempo (30 segundos por pregunta)
+  const handleTimeExpired = () => {
+    const questions = activeQuestionsRef.current;
+    const currIdx = currentQuestionIndexRef.current;
+    const currentQ = questions[currIdx];
+    if (!currentQ) return;
+
+    const chosenAnswer = selectedAnswerRef.current;
+    const hasChosen = chosenAnswer !== null;
+    const isCorrect = hasChosen ? chosenAnswer === currentQ.answer : false;
+
+    if (isCorrect) {
+      setScore((prev) => prev + 1);
+    }
+
+    const newAnswerItem = {
+      questionId: currentQ.id,
+      text: currentQ.text,
+      text_en: currentQ.text_en,
+      userAnswer: chosenAnswer,
+      correctAnswer: currentQ.answer,
+      isCorrect,
+      justification: currentQ.justification,
+      ref: currentQ.ref,
+      section: currentQ.section,
+    };
+
+    const updatedAnswers = [...userAnswersRef.current, newAnswerItem];
+    setUserAnswers(updatedAnswers);
+
+    const isLast = currIdx === questions.length - 1;
+
+    if (isLast) {
+      setGameState('results');
+      const totalQ = questions.length;
+      const correctCount = updatedAnswers.filter((a) => a.isCorrect).length;
+      const correctPct = Math.round((correctCount / totalQ) * 100);
+      const incorrectPct = Math.max(0, 100 - correctPct);
+      const isPassed = correctPct >= 80;
+
+      setMascotState(isPassed ? 'success' : 'idle');
+
+      fetch('/api/exams/record', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          role: selectedRole || 'coach',
+          modality: selectedRole === 'referee' || modality === 'reglamento' ? 'arbitro' : modality,
+          totalQuestions: totalQ,
+          orderMode,
+          timerMode: '30s',
+          userAnswers: updatedAnswers,
+          finalScore: correctCount,
+          percentage: correctPct,
+          correctPercentage: correctPct,
+          incorrectPercentage: incorrectPct,
+          passed: isPassed,
+          isFinished: true,
+        }),
+      }).catch((err) => console.error('Error al guardar nota final en base de datos:', err));
+    } else {
+      setTimeoutToast('⏱️ ¡Tiempo agotado (30s)! Pregunta registrada automáticamente.');
+      setTimeout(() => setTimeoutToast(''), 2500);
+      setSelectedAnswer(null);
+      setIsSubmitted(false);
+      setTimeLeft(30);
+      setCurrentQuestionIndex((prev) => prev + 1);
+      setMascotState('thinking');
+    }
+  };
+
+  // Efecto del temporizador de 30 segundos
+  useEffect(() => {
+    if (!timerEnabled || gameState !== 'quiz' || isSubmitted) return;
+
+    setTimeLeft(30);
+
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          handleTimeExpired();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [gameState, currentQuestionIndex, isSubmitted, timerEnabled]);
 
   // Set initial mascot state on welcome screen
   useEffect(() => {
@@ -98,6 +211,8 @@ export default function Home() {
     setCurrentAttemptId(null);
     setSelectedAnswer(null);
     setIsSubmitted(false);
+    setTimeLeft(30);
+    setTimeoutToast('');
     setGameState('quiz');
     setMascotState('thinking');
     setJumpError('');
@@ -132,6 +247,8 @@ export default function Home() {
         setCurrentQuestionIndex(foundIdx);
         setSelectedAnswer(null);
         setIsSubmitted(false);
+        setTimeLeft(30);
+        setTimeoutToast('');
         setMascotState('thinking');
       }
     } else {
@@ -207,6 +324,7 @@ export default function Home() {
           modality: selectedRole === 'referee' || modality === 'reglamento' ? 'arbitro' : modality,
           totalQuestions: totalQ,
           orderMode,
+          timerMode: timerEnabled ? '30s' : 'off',
           userAnswers: allAnswers,
           finalScore: correctCount,
           percentage: correctPct,
@@ -219,6 +337,7 @@ export default function Home() {
     } else {
       setSelectedAnswer(null);
       setIsSubmitted(false);
+      setTimeLeft(30);
       setCurrentQuestionIndex(prev => prev + 1);
       setMascotState('thinking');
     }
@@ -268,6 +387,9 @@ export default function Home() {
           onExit={exitQuiz}
           onJumpToId={handleJumpToId}
           maxId={currentPool.length}
+          timerEnabled={timerEnabled}
+          timeLeft={timeLeft}
+          isSubmitted={isSubmitted}
         />
       )}
 
@@ -579,6 +701,26 @@ export default function Home() {
                     </button>
                   </div>
 
+                  <h2 className="options-title">⏱️ Temporizador por pregunta:</h2>
+                  <div className="order-selector">
+                    <button
+                      type="button"
+                      className={`order-option ${!timerEnabled ? 'selected' : ''}`}
+                      onClick={() => setTimerEnabled(false)}
+                    >
+                      <span className="order-icon">⏳</span>
+                      <span>Sin límite (A tu ritmo)</span>
+                    </button>
+                    <button
+                      type="button"
+                      className={`order-option ${timerEnabled ? 'selected' : ''}`}
+                      onClick={() => setTimerEnabled(true)}
+                    >
+                      <span className="order-icon">⚡</span>
+                      <span>30s Contrarreloj (Simulador)</span>
+                    </button>
+                  </div>
+
                   <button
                     type="button"
                     className="btn-3d btn-green"
@@ -622,6 +764,25 @@ export default function Home() {
             {gameState === 'quiz' && currentQuestion && (
               <div className={`quiz-section ${shakeActive ? 'shake' : ''}`}>
                 
+                {/* Temporizador barra animada de 30 segundos */}
+                {timerEnabled && (
+                  <div className="question-timer-bar-wrapper">
+                    <div
+                      className={`question-timer-bar-fill ${
+                        timeLeft <= 5 ? 'urgent' : timeLeft <= 10 ? 'warning' : ''
+                      }`}
+                      style={{ width: `${Math.max(0, Math.min(100, (timeLeft / 30) * 100))}%` }}
+                    />
+                  </div>
+                )}
+
+                {/* Aviso visual cuando la pregunta anterior pasó por tiempo agotado */}
+                {timeoutToast && (
+                  <div className="timeout-toast-banner">
+                    {timeoutToast}
+                  </div>
+                )}
+
                 {/* Mascot speech bubble */}
                 <div className="bubble-container">
                   <div style={{ flexShrink: 0 }}>
@@ -713,6 +874,9 @@ export default function Home() {
                   <span className="score-badge">
                     {Math.round((score / activeQuestions.length) * 100)}%
                   </span>
+                  {timerEnabled && (
+                    <span className="timer-badge-active">⚡ Modo Contrarreloj (30s)</span>
+                  )}
                   <p style={{ color: 'var(--color-text-main)', fontWeight: 600, fontSize: '1.1rem' }}>
                     {score >= activeQuestions.length * 0.8
                       ? '¡Excelente trabajo! Has aprobado la práctica.'
@@ -749,7 +913,14 @@ export default function Home() {
                         <p className="review-q-text"><span className="flag-icon">🇪🇸</span> {answer.questionId}. {answer.text}</p>
                         {answer.text_en && <p className="review-q-text-en"><span className="flag-icon">🇬🇧</span> {answer.questionId}. {answer.text_en}</p>}
                         <div className="review-answers">
-                          <strong>Tu respuesta:</strong> {answer.userAnswer ? 'Verdadero' : 'Falso'}{' '}
+                          <strong>Tu respuesta:</strong>{' '}
+                          {answer.userAnswer === null || answer.userAnswer === undefined ? (
+                            <span style={{ color: '#dc2626', fontWeight: 800 }}>⏱️ No respondida (Tiempo agotado)</span>
+                          ) : answer.userAnswer ? (
+                            'Verdadero'
+                          ) : (
+                            'Falso'
+                          )}{' '}
                           | <strong>Correcta:</strong> {answer.correctAnswer ? 'Verdadero' : 'Falso'}
                         </div>
                         <div className="review-justification">

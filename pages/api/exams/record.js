@@ -19,6 +19,7 @@ export default async function handler(req, res) {
       modality = 'kata',
       totalQuestions = 10,
       orderMode = 'random',
+      timerMode = 'off',
       answer, // objeto de respuesta individual
       userAnswers, // array completo de respuestas (si se envían todas juntas al terminar)
       isFinished = false,
@@ -58,7 +59,7 @@ export default async function handler(req, res) {
             questionId: a.questionId,
             questionText: a.text || a.questionText || '',
             questionTextEn: a.text_en || a.questionTextEn || '',
-            userAnswer: Boolean(a.userAnswer),
+            userAnswer: typeof a.userAnswer === 'boolean' ? a.userAnswer : null,
             correctAnswer: Boolean(a.correctAnswer),
             isCorrect: Boolean(a.isCorrect),
             justification: a.justification || '',
@@ -72,7 +73,7 @@ export default async function handler(req, res) {
               questionId: answer.questionId,
               questionText: answer.text || answer.questionText || '',
               questionTextEn: answer.text_en || answer.questionTextEn || '',
-              userAnswer: Boolean(answer.userAnswer),
+              userAnswer: typeof answer.userAnswer === 'boolean' ? answer.userAnswer : null,
               correctAnswer: Boolean(answer.correctAnswer),
               isCorrect: Boolean(answer.isCorrect),
               justification: answer.justification || '',
@@ -119,6 +120,7 @@ export default async function handler(req, res) {
         passed: calcPassed,
         status: isFinished ? 'completado' : 'en_progreso',
         orderMode,
+        timerMode,
         userAnswers: initialAnswers,
       });
     } else {
@@ -133,7 +135,7 @@ export default async function handler(req, res) {
           questionId: answer.questionId,
           questionText: answer.text || answer.questionText || '',
           questionTextEn: answer.text_en || answer.questionTextEn || '',
-          userAnswer: Boolean(answer.userAnswer),
+          userAnswer: typeof answer.userAnswer === 'boolean' ? answer.userAnswer : null,
           correctAnswer: Boolean(answer.correctAnswer),
           isCorrect: Boolean(answer.isCorrect),
           justification: answer.justification || '',
@@ -154,7 +156,7 @@ export default async function handler(req, res) {
           questionId: a.questionId,
           questionText: a.text || a.questionText || '',
           questionTextEn: a.text_en || a.questionTextEn || '',
-          userAnswer: Boolean(a.userAnswer),
+          userAnswer: typeof a.userAnswer === 'boolean' ? a.userAnswer : null,
           correctAnswer: Boolean(a.correctAnswer),
           isCorrect: Boolean(a.isCorrect),
           justification: a.justification || '',

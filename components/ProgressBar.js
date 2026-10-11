@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 
-export default function ProgressBar({ current, total, onExit, onJumpToId, maxId }) {
+export default function ProgressBar({
+  current,
+  total,
+  onExit,
+  onJumpToId,
+  maxId,
+  timerEnabled = false,
+  timeLeft = 30,
+  isSubmitted = false,
+}) {
   const [jumpInput, setJumpInput] = useState('');
   const [hasError, setHasError] = useState(false);
 
@@ -39,6 +48,18 @@ export default function ProgressBar({ current, total, onExit, onJumpToId, maxId 
       <span className="progress-bar-text">
         {current} / {total}
       </span>
+
+      {timerEnabled && (
+        <div
+          className={`quiz-timer-pill ${timeLeft <= 5 ? 'urgent' : timeLeft <= 10 ? 'warning' : ''}`}
+          title="Tiempo restante para responder esta pregunta"
+        >
+          <span className="quiz-timer-icon">⏱️</span>
+          <span className="quiz-timer-seconds">
+            {isSubmitted ? 'Pausado' : `${timeLeft}s`}
+          </span>
+        </div>
+      )}
 
       {onJumpToId && (
         <form onSubmit={handleJumpSubmit} className="quiz-header-jump-form">

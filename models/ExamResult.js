@@ -17,7 +17,8 @@ const AnswerSchema = new mongoose.Schema(
     },
     userAnswer: {
       type: Boolean,
-      required: true,
+      required: false,
+      default: null,
     },
     correctAnswer: {
       type: Boolean,
@@ -120,6 +121,10 @@ const ExamResultSchema = new mongoose.Schema(
     orderMode: {
       type: String,
       default: 'random',
+    },
+    timerMode: {
+      type: String,
+      default: 'off',
     },
     userAnswers: [AnswerSchema],
   },

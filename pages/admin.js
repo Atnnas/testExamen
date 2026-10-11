@@ -936,7 +936,13 @@ export default function AdminPage() {
                     <div className="modal-q-answers-row">
                       <span>
                         Respuesta Alumno:{' '}
-                        <strong>{ans.userAnswer ? 'Verdadero' : 'Falso'}</strong>
+                        <strong>
+                          {ans.userAnswer === null || ans.userAnswer === undefined
+                            ? '⏱️ No respondida (Tiempo agotado)'
+                            : ans.userAnswer
+                            ? 'Verdadero'
+                            : 'Falso'}
+                        </strong>
                       </span>
                       <span>
                         Respuesta Correcta:{' '}
