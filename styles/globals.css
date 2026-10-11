@@ -1027,6 +1027,8 @@ body {
   box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
   transform: translateY(100%);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 85vh;
+  overflow-y: auto;
 }
 
 .feedback-footer.visible {
@@ -1323,18 +1325,100 @@ body {
   background: var(--color-text-muted);
 }
 
-/* Responsive adjustment */
+/* =========================================================================
+   SISTEMA DE DISEÑO RESPONSIVO COMPLETO (MÓVILES, TABLETS Y ESCRITORIO)
+   ========================================================================= */
+
+/* Tablets y Pantallas Medianas (<= 640px) */
+@media (max-width: 640px) {
+  .roles-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .portal-card {
+    padding: 28px 18px;
+  }
+
+  .portal-title {
+    font-size: 1.7rem;
+  }
+
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .admin-search-input {
+    width: 100%;
+  }
+
+  .admin-actions-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Teléfonos Inteligentes (<= 480px) */
 @media (max-width: 480px) {
   .main-content {
     padding: 15px 10px;
   }
   
   .welcome-card, .results-card {
-    padding: 25px 15px;
+    padding: 24px 14px;
   }
   
   .welcome-title {
-    font-size: 1.6rem;
+    font-size: 1.55rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  /* Barra de progreso y temporizador */
+  .progress-bar-container {
+    gap: 8px;
+    padding: 0 6px;
+    margin: 12px auto;
+  }
+
+  .progress-bar-text {
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  .quiz-timer-pill {
+    padding: 4px 8px;
+    font-size: 0.82rem;
+    gap: 4px;
+  }
+
+  .quiz-header-jump-form {
+    padding: 2px 6px;
+    gap: 2px;
+  }
+
+  .quiz-header-jump-label {
+    display: none;
+  }
+
+  .quiz-header-jump-input {
+    width: 38px;
+    padding: 3px 2px;
+    font-size: 0.82rem;
+  }
+
+  .quiz-header-jump-btn {
+    padding: 3px 6px;
+    font-size: 0.78rem;
   }
   
   .modality-option {
@@ -1346,12 +1430,33 @@ body {
     grid-template-columns: 1fr;
     gap: 10px;
   }
+
+  .order-selector {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .order-option {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
   
   .quantity-selector {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .jump-id-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .jump-id-submit-btn {
+    width: 100%;
   }
   
-  /* Stack mascot and speech bubble */
+  /* Mascota y globo de diálogo apilados en móvil */
   .bubble-container {
     flex-direction: column;
     align-items: center;
@@ -1360,9 +1465,9 @@ body {
   
   .bubble-content {
     width: 100%;
+    padding: 16px;
   }
   
-  /* Make speech bubble triangle point UP to the mascot instead of left */
   .bubble-content::before {
     display: block;
     left: 50%;
@@ -1384,16 +1489,16 @@ body {
   }
 
   .question-text {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .question-text-en {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
   
   .btn-3d {
     font-size: 1rem;
-    padding: 14px 20px;
+    padding: 14px 18px;
   }
   
   .score-badge {
@@ -1411,7 +1516,7 @@ body {
   }
   
   .feedback-footer {
-    padding: 20px 15px;
+    padding: 18px 14px;
   }
   
   .feedback-title {
@@ -1419,7 +1524,65 @@ body {
   }
   
   .feedback-message {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    padding: 12px;
+  }
+
+  /* Modal de administración en pantallas móviles */
+  .admin-modal-card {
+    max-height: 94vh;
+    border-radius: 18px;
+  }
+
+  .admin-modal-score-banner {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .modal-score-item {
+    flex: 1 1 calc(50% - 8px);
+    padding: 6px 10px;
+  }
+
+  .admin-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Pantallas Ultra Pequeñas (<= 360px, ej. iPhone SE / Galaxy Fold externo) */
+@media (max-width: 360px) {
+  .welcome-card, .results-card, .portal-card {
+    padding: 18px 10px;
+  }
+
+  .welcome-title {
+    font-size: 1.35rem;
+  }
+
+  .progress-bar-container {
+    gap: 4px;
+    padding: 0 4px;
+  }
+
+  .progress-bar-exit-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
+  }
+
+  .progress-bar-text {
+    font-size: 0.76rem;
+  }
+
+  .quiz-timer-pill {
+    font-size: 0.76rem;
+    padding: 3px 6px;
+  }
+
+  .btn-3d {
+    font-size: 0.92rem;
+    padding: 12px 14px;
   }
 }
 
