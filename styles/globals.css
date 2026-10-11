@@ -1882,6 +1882,14 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  transition: width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.referee-mascot-container.referee-dual-mode,
+.referee-mascot-container.referee-state-success,
+.referee-mascot-container.referee-state-failure {
+  width: 290px;
+  max-width: 100%;
 }
 
 .referee-small {
@@ -1892,8 +1900,10 @@ body {
 .referee-svg {
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
+/* Modo individual en reposo */
 .referee-state-idle .referee-main-group {
   animation: breathing 2.4s ease-in-out infinite alternate;
 }
@@ -1910,6 +1920,216 @@ body {
 @keyframes flag-sway {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(-5deg); }
+}
+
+/* -------------------------------------------------------------------------
+   ANIMACIONES DUALES: Árbitro de Banderas + Árbitro Evaluador (Separados)
+   ------------------------------------------------------------------------- */
+
+/* Entrada del árbitro evaluador */
+.ponytail-enter-group {
+  animation: ponytail-slide-in 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.25) forwards;
+}
+
+@keyframes ponytail-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* REGAÑO (FAILURE): Dedo señalando con vigor como señora enojada */
+.ponytail-finger-scold {
+  transform-origin: 232px 120px;
+  animation: stern-finger-wag 0.45s ease-in-out infinite;
+}
+
+@keyframes stern-finger-wag {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-7px) rotate(-4deg);
+  }
+  40% {
+    transform: translateX(-1px) rotate(1deg);
+  }
+  60% {
+    transform: translateX(-9px) rotate(-5deg);
+  }
+  80% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+/* Vena de ira estilo manga palpitando */
+.anger-vein {
+  transform-origin: 286px 44px;
+  animation: anger-vein-pop 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes anger-vein-pop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Árbitro de banderas encogiéndose y temblando de vergüenza */
+.flag-referee-cower {
+  transform-origin: 75px 180px;
+  animation: flag-referee-cower-tremble 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes flag-referee-cower-tremble {
+  0% {
+    transform: translateY(2px) scale(0.96);
+  }
+  50% {
+    transform: translateY(5px) scale(0.93) rotate(-1.5deg);
+  }
+  100% {
+    transform: translateY(3px) scale(0.95) rotate(1deg);
+  }
+}
+
+/* Gota cómica de sudor frío goteando */
+.referee-sweat-drop {
+  animation: sweat-drip-drop 1.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes sweat-drip-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.6);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(8px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.7);
+  }
+}
+
+/* APROBACIÓN (SUCCESS): Pulgar arriba con aprobación */
+.ponytail-thumbs-up-group {
+  transform-origin: 195px 125px;
+  animation: thumbs-up-bounce 1.0s ease-in-out infinite alternate;
+}
+
+@keyframes thumbs-up-bounce {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(1px) rotate(2deg);
+  }
+}
+
+/* Cola de caballo ondeando con alegría */
+.ponytail-hair-happy {
+  transform-origin: 255px 52px;
+  animation: ponytail-happy-sway 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes ponytail-happy-sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(6deg);
+  }
+}
+
+/* Árbitro de banderas alzando banderas con orgullo y rebotando de felicidad */
+.flag-referee-proud {
+  transform-origin: 88px 180px;
+  animation: flag-referee-proud-bounce 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes flag-referee-proud-bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0.5deg);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Brillos / estrellas de celebración */
+.sparkle-pop {
+  animation: sparkle-twinkle 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle-twinkle {
+  0% {
+    transform: scale(0.75);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Insignias de Aprobado y Regaño flotantes */
+.approval-badge {
+  animation: badge-pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.reprimand-badge {
+  animation: badge-shake-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes badge-pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes badge-shake-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+  }
+  50% {
+    transform: translateY(0) scale(1.06);
+  }
+  75% {
+    transform: translateY(-2px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media (max-width: 580px) {

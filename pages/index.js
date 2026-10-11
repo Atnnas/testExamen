@@ -108,7 +108,7 @@ export default function Home() {
       const incorrectPct = Math.max(0, 100 - correctPct);
       const isPassed = correctPct >= 80;
 
-      setMascotState(isPassed ? 'success' : 'idle');
+      setMascotState(isPassed ? 'success' : 'failure');
 
       fetch('/api/exams/record', {
         method: 'POST',
@@ -313,7 +313,7 @@ export default function Home() {
       const incorrectPct = Math.max(0, 100 - correctPct);
       const isPassed = correctPct >= 80;
 
-      setMascotState(isPassed ? 'success' : 'idle');
+      setMascotState(isPassed ? 'success' : 'failure');
 
       // Guardar una única línea por intento de examen completado en MongoDB
       fetch('/api/exams/record', {
