@@ -662,8 +662,8 @@ body {
 
 .modality-selector {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
   margin-bottom: 25px;
 }
 
@@ -1342,6 +1342,11 @@ body {
     font-size: 1rem;
   }
   
+  .modality-selector {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
   .quantity-selector {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1564,9 +1569,37 @@ body {
 }
 
 .role-action-referee {
-  background-color: #f8fafc;
-  color: #64748b;
-  border: 2px dashed #cbd5e1;
+  background-color: var(--color-blue);
+  color: #fff;
+  border: 2px solid var(--color-blue-border);
+}
+
+.modality-referee-info-box {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 2px solid #93c5fd;
+  border-radius: 16px;
+  padding: 16px 20px;
+  text-align: left;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
+}
+
+.modality-referee-info-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #1e3a8a;
+  margin-bottom: 6px;
+}
+
+.modality-referee-info-desc {
+  font-size: 0.9rem;
+  color: #1d4ed8;
+  margin: 0;
+  line-height: 1.45;
+  font-weight: 500;
 }
 
 /* =========================================================================
@@ -2732,6 +2765,98 @@ body {
   background-color: #f8fafc;
   color: #475569;
   border: 1px dashed #cbd5e1;
+}
+
+.stat-pct-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.modality-referee-info-box {
+  background: #f0f7ff;
+  border: 2px solid #bfdbfe;
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.modality-referee-icon {
+  font-size: 2.2rem;
+  background: #dbeafe;
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modality-referee-badge {
+  display: inline-block;
+  background: #1cb0f6;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.modality-referee-name {
+  margin: 0 0 4px 0;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #1e3a8a;
+}
+
+.modality-referee-desc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.badge-pct {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 900;
+  width: fit-content;
+}
+
+.badge-pct-correct {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.badge-pct-incorrect {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.stat-pct-sub {
+  font-size: 0.74rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.stat-final-grade-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exam-attempt-row:hover {
+  background-color: #f8fafc;
 }
 
 .log-exam-score-box {

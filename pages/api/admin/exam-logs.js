@@ -75,78 +75,69 @@ export default async function handler(req, res) {
       .limit(Number(limit) || 200)
       .lean();
 
-    // Estadísticas globales acumuladas
-    let totalExams = rawExams.length;
+    const searchQuery = search.toLowerCase().trim();
+
+    // Formatear cada intento de examen garantizando porcentajes de aciertos y errores
+    const formattedExams = rawExams.map((exam) => {
+      const answers = exam.userAnswers || [];
+      const totalQ = exam.totalQuestions || answers.length || 1;
+      const calcScore = typeof exam.score === 'number'
+        ? exam.score
+        : answers.filter((a) => a.isCorrect).length;
+
+      const calcPct = typeof exam.percentage === 'number'
+        ? exam.percentage
+        : Math.round((calcScore / totalQ) * 100);
+
+      const correctPct = typeof exam.correctPercentage === 'number'
+        ? exam.correctPercentage
+        : calcPct;
+
+      const incorrectPct = typeof exam.incorrectPercentage === 'number'
+        ? exam.incorrectPercentage
+        : Math.max(0, 100 - correctPct);
+
+      return {
+        ...exam,
+        score: calcScore,
+        totalQuestions: totalQ,
+        percentage: calcPct,
+        correctPercentage: correctPct,
+        incorrectPercentage: incorrectPct,
+        passed: typeof exam.passed === 'boolean' ? exam.passed : calcPct >= 80,
+      };
+    });
+
+    // Filtrar por término de búsqueda si se proporciona (nombre o correo)
+    const filteredExams = searchQuery
+      ? formattedExams.filter((ex) => {
+          return (
+            ex.userName?.toLowerCase().includes(searchQuery) ||
+            ex.userEmail?.toLowerCase().includes(searchQuery)
+          );
+        })
+      : formattedExams;
+
+    // Estadísticas globales sobre los intentos de examen
     let totalCompleted = 0;
     let totalPassed = 0;
     let sumPercentage = 0;
-    let totalQuestionsAnswered = 0;
-    let totalCorrectAnswers = 0;
+    let sumCorrectPct = 0;
+    let sumIncorrectPct = 0;
 
-    // Desglose aplanado de respuestas por pregunta individual
-    const questionLogs = [];
-
-    const searchQuery = search.toLowerCase().trim();
-
-    rawExams.forEach((exam) => {
-      if (exam.status === 'completado') {
-        totalCompleted += 1;
-        if (exam.passed) totalPassed += 1;
-        sumPercentage += exam.percentage || 0;
-      }
-
-      const answers = exam.userAnswers || [];
-      answers.forEach((ans, idx) => {
-        totalQuestionsAnswered += 1;
-        if (ans.isCorrect) totalCorrectAnswers += 1;
-
-        // Filtro por estado de respuesta (correcta / errónea)
-        if (answerStatus === 'correct' && !ans.isCorrect) return;
-        if (answerStatus === 'incorrect' && ans.isCorrect) return;
-
-        // Filtro de búsqueda
-        if (searchQuery) {
-          const matchUser = exam.userName?.toLowerCase().includes(searchQuery);
-          const matchEmail = exam.userEmail?.toLowerCase().includes(searchQuery);
-          const matchQId = String(ans.questionId) === searchQuery || `#${ans.questionId}` === searchQuery;
-          const matchText = ans.questionText?.toLowerCase().includes(searchQuery);
-
-          if (!matchUser && !matchEmail && !matchQId && !matchText) {
-            return;
-          }
-        }
-
-        questionLogs.push({
-          rowId: `${exam._id}_${ans.questionId}_${idx}`,
-          examId: exam._id,
-          date: ans.answeredAt || exam.createdAt,
-          userName: exam.userName,
-          userEmail: exam.userEmail,
-          userImage: exam.userImage,
-          modality: exam.modality,
-          questionId: ans.questionId,
-          questionText: ans.questionText,
-          questionTextEn: ans.questionTextEn,
-          userAnswer: ans.userAnswer,
-          correctAnswer: ans.correctAnswer,
-          isCorrect: ans.isCorrect,
-          justification: ans.justification,
-          ref: ans.ref,
-          section: ans.section,
-          examScore: exam.score,
-          examTotal: exam.totalQuestions,
-          examPercentage: exam.percentage,
-          examPassed: exam.passed,
-          examStatus: exam.status,
-        });
-      });
+    filteredExams.forEach((exam) => {
+      totalCompleted += 1;
+      if (exam.passed) totalPassed += 1;
+      sumPercentage += exam.percentage || 0;
+      sumCorrectPct += exam.correctPercentage || 0;
+      sumIncorrectPct += exam.incorrectPercentage || 0;
     });
 
-    const avgScore = totalCompleted > 0 ? Math.round(sumPercentage / totalCompleted) : 0;
-    const passRate = totalCompleted > 0 ? Math.round((totalPassed / totalCompleted) * 100) : 0;
-    const accuracy = totalQuestionsAnswered > 0
-      ? Math.round((totalCorrectAnswers / totalQuestionsAnswered) * 100)
-      : 0;
+    const totalExams = filteredExams.length;
+    const avgScore = totalExams > 0 ? Math.round(sumPercentage / totalExams) : 0;
+    const avgCorrectPct = totalExams > 0 ? Math.round(sumCorrectPct / totalExams) : 0;
+    const avgIncorrectPct = totalExams > 0 ? Math.round(sumIncorrectPct / totalExams) : 0;
+    const passRate = totalExams > 0 ? Math.round((totalPassed / totalExams) * 100) : 0;
 
     return res.status(200).json({
       success: true,
@@ -156,13 +147,10 @@ export default async function handler(req, res) {
         totalPassed,
         passRate,
         avgScore,
-        totalQuestionsAnswered,
-        totalCorrectAnswers,
-        totalIncorrectAnswers: totalQuestionsAnswered - totalCorrectAnswers,
-        accuracy,
+        avgCorrectPct,
+        avgIncorrectPct,
       },
-      questionLogs,
-      exams: rawExams,
+      exams: filteredExams,
     });
   } catch (error) {
     console.error('Error al gestionar log de exámenes:', error);

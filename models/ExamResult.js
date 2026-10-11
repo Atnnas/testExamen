@@ -77,7 +77,7 @@ const ExamResultSchema = new mongoose.Schema(
     },
     modality: {
       type: String,
-      enum: ['kata', 'kumite'],
+      enum: ['kata', 'kumite', 'arbitro', 'referee'],
       required: true,
       index: true,
     },
@@ -92,6 +92,16 @@ const ExamResultSchema = new mongoose.Schema(
       default: 10,
     },
     percentage: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    correctPercentage: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    incorrectPercentage: {
       type: Number,
       required: true,
       default: 0,

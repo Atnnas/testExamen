@@ -92,6 +92,14 @@ export default async function handler(req, res) {
         ? percentage
         : Math.round((calculatedScore / calcTotal) * 100);
 
+      const calcCorrectPct = typeof req.body.correctPercentage === 'number'
+        ? req.body.correctPercentage
+        : calcPct;
+
+      const calcIncorrectPct = typeof req.body.incorrectPercentage === 'number'
+        ? req.body.incorrectPercentage
+        : Math.max(0, 100 - calcCorrectPct);
+
       const calcPassed = typeof passed === 'boolean'
         ? passed
         : calcPct >= 80;
@@ -106,6 +114,8 @@ export default async function handler(req, res) {
         score: calculatedScore,
         totalQuestions: calcTotal,
         percentage: calcPct,
+        correctPercentage: calcCorrectPct,
+        incorrectPercentage: calcIncorrectPct,
         passed: calcPassed,
         status: isFinished ? 'completado' : 'en_progreso',
         orderMode,
@@ -163,6 +173,14 @@ export default async function handler(req, res) {
         ? percentage
         : Math.round((calculatedScore / calcTotal) * 100);
 
+      const calcCorrectPct = typeof req.body.correctPercentage === 'number'
+        ? req.body.correctPercentage
+        : calcPct;
+
+      const calcIncorrectPct = typeof req.body.incorrectPercentage === 'number'
+        ? req.body.incorrectPercentage
+        : Math.max(0, 100 - calcCorrectPct);
+
       const calcPassed = typeof passed === 'boolean'
         ? passed
         : calcPct >= 80;
@@ -170,6 +188,8 @@ export default async function handler(req, res) {
       examDoc.score = calculatedScore;
       examDoc.totalQuestions = calcTotal;
       examDoc.percentage = calcPct;
+      examDoc.correctPercentage = calcCorrectPct;
+      examDoc.incorrectPercentage = calcIncorrectPct;
       examDoc.passed = calcPassed;
       if (isFinished) {
         examDoc.status = 'completado';

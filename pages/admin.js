@@ -17,7 +17,7 @@ export default function AdminPage() {
   const [toastMessage, setToastMessage] = useState('');
 
   // Estados de Log de Respuestas y Exámenes
-  const [examLogs, setExamLogs] = useState([]);
+  // Estados de Log de Respuestas y Exámenes (1 línea por intento)
   const [rawExams, setRawExams] = useState([]);
   const [examSummary, setExamSummary] = useState({
     totalExams: 0,
@@ -25,16 +25,12 @@ export default function AdminPage() {
     totalPassed: 0,
     passRate: 0,
     avgScore: 0,
-    totalQuestionsAnswered: 0,
-    totalCorrectAnswers: 0,
-    totalIncorrectAnswers: 0,
-    accuracy: 0,
+    avgCorrectPct: 0,
+    avgIncorrectPct: 0,
   });
   const [logsLoading, setLogsLoading] = useState(false);
-  const [logViewMode, setLogViewMode] = useState('questions'); // 'questions' or 'exams'
   const [logSearch, setLogSearch] = useState('');
   const [logModality, setLogModality] = useState('all');
-  const [logAnswerStatus, setLogAnswerStatus] = useState('all');
   const [selectedExamModal, setSelectedExamModal] = useState(null);
 
   const isAdmin =
@@ -69,13 +65,11 @@ export default function AdminPage() {
       const query = new URLSearchParams({
         search: logSearch,
         modality: logModality,
-        answerStatus: logAnswerStatus,
       }).toString();
 
       const res = await fetch(`/api/admin/exam-logs?${query}`);
       const data = await res.json();
       if (data.success) {
-        setExamLogs(data.questionLogs || []);
         setRawExams(data.exams || []);
         setExamSummary(data.summary || {});
       } else {
@@ -96,7 +90,7 @@ export default function AdminPage() {
         fetchExamLogs();
       }
     }
-  }, [status, isAdmin, activeTab, logModality, logAnswerStatus]);
+  }, [status, isAdmin, activeTab, logModality]);
 
   // Manejo de búsqueda en logs con debounce simple
   useEffect(() => {
@@ -145,51 +139,55 @@ export default function AdminPage() {
     }
   };
 
-  // Descarga y exportación a CSV
+  // Descarga y exportación a CSV (1 línea por intento de examen)
   const handleExportCsv = () => {
-    if (!examLogs.length) {
+    if (!filteredExams.length) {
       showToast('No hay datos disponibles para exportar con los filtros actuales');
       return;
     }
 
     const headers = [
       'Fecha',
+      'Hora',
       'Nombre Alumno',
       'Correo',
       'Modalidad',
-      'ID Pregunta',
-      'Pregunta',
-      'Respuesta Alumno',
+      'Porcentaje Aciertos (%)',
+      'Porcentaje Errores (%)',
+      'Nota Final (%)',
+      'Aciertos (Puntos)',
+      'Errores (Puntos)',
+      'Total Preguntas',
       'Resultado',
-      'Respuesta Correcta',
-      'Nota Examen (%)',
-      'Aciertos Examen',
-      'Total Preguntas Examen',
-      'Estado Examen',
     ];
 
-    const rows = examLogs.map((log) => [
-      `"${new Date(log.date).toLocaleString('es-ES')}"`,
-      `"${log.userName || ''}"`,
-      `"${log.userEmail || ''}"`,
-      `"${log.modality?.toUpperCase() || ''}"`,
-      `"${log.questionId || ''}"`,
-      `"${(log.questionText || '').replace(/"/g, '""')}"`,
-      `"${log.userAnswer ? 'Verdadero' : 'Falso'}"`,
-      `"${log.isCorrect ? 'Correcta' : 'Errónea'}"`,
-      `"${log.correctAnswer ? 'Verdadero' : 'Falso'}"`,
-      `"${log.examPercentage || 0}%"`,
-      `"${log.examScore || 0}"`,
-      `"${log.examTotal || 0}"`,
-      `"${log.examPassed ? 'Aprobado' : 'Reprobado'}"`,
-    ]);
+    const rows = filteredExams.map((ex) => {
+      const d = new Date(ex.createdAt);
+      const totalQ = ex.totalQuestions || (ex.userAnswers?.length || 0);
+      const score = ex.score || 0;
+      const errors = Math.max(0, totalQ - score);
+      return [
+        `"${d.toLocaleDateString('es-ES')}"`,
+        `"${d.toLocaleTimeString('es-ES')}"`,
+        `"${(ex.userName || '').replace(/"/g, '""')}"`,
+        `"${ex.userEmail || ''}"`,
+        `"${ex.modality?.toUpperCase() || ''}"`,
+        `"${ex.correctPercentage ?? 0}%"`,
+        `"${ex.incorrectPercentage ?? 0}%"`,
+        `"${ex.percentage ?? 0}%"`,
+        `"${score}"`,
+        `"${errors}"`,
+        `"${totalQ}"`,
+        `"${ex.passed ? 'Aprobado' : 'Reprobado'}"`,
+      ];
+    });
 
     const csvContent = '\uFEFF' + [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', `log_respuestas_wkf_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute('download', `log_examenes_wkf_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -580,27 +578,27 @@ export default function AdminPage() {
         )}
 
         {/* ========================================================================= */}
-        {/* TAB 2: LOG DE RESPUESTAS Y EXÁMENES                                       */}
+        {/* TAB 2: LOG DE RESPUESTAS Y EXÁMENES (1 LÍNEA POR INTENTO DE EXAMEN)      */}
         {/* ========================================================================= */}
         {activeTab === 'logs' && (
           <>
             {/* Tarjetas de Métricas de Exámenes */}
             <div className="admin-stats-grid admin-stats-grid-5">
               <div className="admin-stat-card">
-                <span className="admin-stat-num">{examSummary.totalQuestionsAnswered || 0}</span>
-                <span className="admin-stat-label">Respuestas Totales</span>
+                <span className="admin-stat-num">{examSummary.totalExams || 0}</span>
+                <span className="admin-stat-label">Exámenes Realizados</span>
               </div>
               <div className="admin-stat-card" style={{ borderColor: 'var(--color-green-border)' }}>
                 <span className="admin-stat-num" style={{ color: 'var(--color-green-text)' }}>
-                  {examSummary.accuracy || 0}%
+                  {examSummary.avgCorrectPct || 0}%
                 </span>
-                <span className="admin-stat-label">
-                  Aciertos ({examSummary.totalCorrectAnswers || 0} de {examSummary.totalQuestionsAnswered || 0})
-                </span>
+                <span className="admin-stat-label">Promedio de Aciertos</span>
               </div>
-              <div className="admin-stat-card">
-                <span className="admin-stat-num">{examSummary.totalExams || 0}</span>
-                <span className="admin-stat-label">Exámenes Iniciados</span>
+              <div className="admin-stat-card" style={{ borderColor: '#fca5a5' }}>
+                <span className="admin-stat-num" style={{ color: '#dc2626' }}>
+                  {examSummary.avgIncorrectPct || 0}%
+                </span>
+                <span className="admin-stat-label">Promedio de Errores</span>
               </div>
               <div className="admin-stat-card" style={{ borderColor: '#bfdbfe' }}>
                 <span className="admin-stat-num" style={{ color: 'var(--color-blue)' }}>
@@ -618,12 +616,12 @@ export default function AdminPage() {
               </div>
             </div>
 
-            {/* Barra de Filtros, Modo de Vista y Exportación */}
+            {/* Barra de Búsqueda, Filtros y Acciones */}
             <div className="admin-toolbar admin-toolbar-split">
               <div className="admin-search-box">
                 <input
                   type="text"
-                  placeholder="Buscar por alumno, correo, o ID (#42)..."
+                  placeholder="Buscar por alumno o correo..."
                   value={logSearch}
                   onChange={(e) => setLogSearch(e.target.value)}
                   className="admin-search-input"
@@ -644,7 +642,7 @@ export default function AdminPage() {
                   type="button"
                   onClick={handleExportCsv}
                   className="btn-action-export"
-                  title="Descargar registro completo en Excel/CSV"
+                  title="Descargar registro en Excel/CSV (1 fila por examen)"
                 >
                   📥 Exportar CSV
                 </button>
@@ -652,7 +650,7 @@ export default function AdminPage() {
                   type="button"
                   onClick={handleClearAllLogs}
                   className="btn-action-delete-all"
-                  title="Borrar todo el historial de exámenes y respuestas de MongoDB"
+                  title="Borrar todo el historial de exámenes de MongoDB"
                 >
                   🗑️ Vaciar Todo el Log
                 </button>
@@ -667,7 +665,7 @@ export default function AdminPage() {
                   className={`admin-filter-pill ${logModality === 'all' ? 'active' : ''}`}
                   onClick={() => setLogModality('all')}
                 >
-                  Todas
+                  Todas ({rawExams.length})
                 </button>
                 <button
                   type="button"
@@ -684,257 +682,102 @@ export default function AdminPage() {
                   🥊 Kumite
                 </button>
               </div>
-
-              {logViewMode === 'questions' && (
-                <div className="admin-filters-group">
-                  <span className="filter-label">Resultado:</span>
-                  <button
-                    type="button"
-                    className={`admin-filter-pill ${logAnswerStatus === 'all' ? 'active' : ''}`}
-                    onClick={() => setLogAnswerStatus('all')}
-                  >
-                    Todas
-                  </button>
-                  <button
-                    type="button"
-                    className={`admin-filter-pill ${logAnswerStatus === 'correct' ? 'active' : ''}`}
-                    onClick={() => setLogAnswerStatus('correct')}
-                  >
-                    ✅ Correctas
-                  </button>
-                  <button
-                    type="button"
-                    className={`admin-filter-pill ${logAnswerStatus === 'incorrect' ? 'active' : ''}`}
-                    onClick={() => setLogAnswerStatus('incorrect')}
-                  >
-                    ❌ Erróneas
-                  </button>
-                </div>
-              )}
-
-              {/* Alternar entre vista por pregunta individual o intento completo */}
-              <div className="admin-view-switcher">
-                <button
-                  type="button"
-                  className={`switcher-btn ${logViewMode === 'questions' ? 'active' : ''}`}
-                  onClick={() => setLogViewMode('questions')}
-                >
-                  📋 Por Pregunta ({examLogs.length})
-                </button>
-                <button
-                  type="button"
-                  className={`switcher-btn ${logViewMode === 'exams' ? 'active' : ''}`}
-                  onClick={() => setLogViewMode('exams')}
-                >
-                  🎓 Por Examen ({rawExams.length})
-                </button>
-              </div>
             </div>
 
-            {/* Contenido Principal de Logs */}
+            {/* TABLA PRINCIPAL: EXACTAMENTE UNA LÍNEA POR INTENTO DE EXAMEN */}
             <div className="admin-table-card">
               {logsLoading ? (
                 <div className="admin-loading-box">
                   <p>Consultando base de datos MongoDB Atlas...</p>
                 </div>
-              ) : logViewMode === 'questions' ? (
-                /* VISTA DETALLADA POR PREGUNTA INDIVIDUAL */
-                examLogs.length === 0 ? (
-                  <div className="admin-empty-box">
-                    <p>No hay respuestas registradas aún que coincidan con la búsqueda.</p>
-                  </div>
-                ) : (
-                  <div className="admin-table-responsive">
-                    <table className="admin-table">
-                      <thead>
-                        <tr>
-                          <th>Fecha y Hora</th>
-                          <th>Alumno</th>
-                          <th>Correo</th>
-                          <th>Mod.</th>
-                          <th>ID Pregunta</th>
-                          <th>Pregunta WKF</th>
-                          <th>Respuesta Alumno</th>
-                          <th>Evaluación</th>
-                          <th>Resp. Correcta</th>
-                          <th>Nota Examen</th>
-                          <th>Acción</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {examLogs.map((log) => {
-                          const dateObj = new Date(log.date);
-                          const dateStr = dateObj.toLocaleDateString('es-ES', {
-                            day: '2-digit',
-                            month: '2-digit',
-                          });
-                          const timeStr = dateObj.toLocaleTimeString('es-ES', {
-                            hour: '2-digit',
-                            minute: '2-digit',
-                          });
-
-                          return (
-                            <tr key={log.rowId} className={`log-row ${log.isCorrect ? 'row-correct' : 'row-incorrect'}`}>
-                              <td className="log-date-cell">
-                                <span className="date-main">{dateStr}</span>
-                                <span className="date-time">{timeStr}</span>
-                              </td>
-
-                              <td>
-                                <div className="user-profile-cell">
-                                  {log.userImage ? (
-                                    <img src={log.userImage} alt={log.userName} className="user-table-avatar" />
-                                  ) : (
-                                    <div className="user-table-avatar-placeholder">
-                                      {(log.userName || 'U').charAt(0).toUpperCase()}
-                                    </div>
-                                  )}
-                                  <span className="user-table-name" style={{ fontSize: '0.9rem' }}>
-                                    {log.userName}
-                                  </span>
-                                </div>
-                              </td>
-
-                              <td className="user-email-cell" style={{ fontSize: '0.82rem' }}>
-                                {log.userEmail}
-                              </td>
-
-                              <td>
-                                <span className={`badge-modality ${log.modality}`}>
-                                  {log.modality === 'kata' ? 'Kata' : 'Kumite'}
-                                </span>
-                              </td>
-
-                              <td>
-                                <span className="badge-qid">#{log.questionId}</span>
-                              </td>
-
-                              <td className="log-question-cell" title={log.justification ? `Justificación: ${log.justification}` : ''}>
-                                <p className="log-question-text">{log.questionText || 'Pregunta oficial WKF'}</p>
-                                {log.ref && <span className="log-question-ref">Ref: {log.ref}</span>}
-                              </td>
-
-                              <td>
-                                <span className={`badge-ans-choice ${log.userAnswer ? 'ans-true' : 'ans-false'}`}>
-                                  {log.userAnswer ? 'Verdadero' : 'Falso'}
-                                </span>
-                              </td>
-
-                              <td>
-                                {log.isCorrect ? (
-                                  <span className="badge-eval badge-eval-correct">
-                                    ✓ Correcta
-                                  </span>
-                                ) : (
-                                  <span className="badge-eval badge-eval-incorrect">
-                                    ✕ Errónea
-                                  </span>
-                                )}
-                              </td>
-
-                              <td>
-                                <span className="badge-ans-correct-expected">
-                                  {log.correctAnswer ? 'Verdadero' : 'Falso'}
-                                </span>
-                              </td>
-
-                              <td>
-                                <div className="log-exam-score-box">
-                                  <span
-                                    className={`badge-exam-score ${
-                                      log.examPassed ? 'score-passed' : 'score-failed'
-                                    }`}
-                                  >
-                                    {log.examPercentage}%
-                                  </span>
-                                  <span className="log-exam-points">
-                                    {log.examScore}/{log.examTotal}
-                                  </span>
-                                </div>
-                              </td>
-
-                              <td>
-                                <button
-                                  type="button"
-                                  onClick={() => handleDeleteExam(log.examId, log.userName)}
-                                  className="btn-action-delete"
-                                  title="Eliminar este intento de examen"
-                                  style={{ margin: 0 }}
-                                >
-                                  🗑️
-                                </button>
-                              </td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
-                )
+              ) : filteredExams.length === 0 ? (
+                <div className="admin-empty-box">
+                  <p>No se encontraron intentos de examen con los filtros seleccionados.</p>
+                </div>
               ) : (
-                /* VISTA AGRUPADA POR EXAMEN / INTENTO */
-                filteredExams.length === 0 ? (
-                  <div className="admin-empty-box">
-                    <p>No se encontraron intentos de examen con los filtros seleccionados.</p>
-                  </div>
-                ) : (
-                  <div className="admin-table-responsive">
-                    <table className="admin-table">
-                      <thead>
-                        <tr>
-                          <th>Fecha</th>
-                          <th>Alumno</th>
-                          <th>Correo</th>
-                          <th>Modalidad</th>
-                          <th>Nota Ganada</th>
-                          <th>Puntos</th>
-                          <th>Resultado</th>
-                          <th>Preguntas Respondidas</th>
-                          <th>Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {filteredExams.map((ex) => {
-                          const dateObj = new Date(ex.createdAt);
-                          const dateStr = dateObj.toLocaleDateString('es-ES', {
-                            day: '2-digit',
-                            month: '2-digit',
-                            year: 'numeric',
-                          });
-                          const timeStr = dateObj.toLocaleTimeString('es-ES', {
-                            hour: '2-digit',
-                            minute: '2-digit',
-                          });
+                <div className="admin-table-responsive">
+                  <table className="admin-table">
+                    <thead>
+                      <tr>
+                        <th>Fecha y Hora</th>
+                        <th>Nombre Completo</th>
+                        <th>Correo</th>
+                        <th>Modalidad</th>
+                        <th>% Aciertos</th>
+                        <th>% Errores</th>
+                        <th>Nota Final</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredExams.map((ex) => {
+                        const dateObj = new Date(ex.createdAt);
+                        const dateStr = dateObj.toLocaleDateString('es-ES', {
+                          day: '2-digit',
+                          month: '2-digit',
+                          year: 'numeric',
+                        });
+                        const timeStr = dateObj.toLocaleTimeString('es-ES', {
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        });
 
-                          return (
-                            <tr key={ex._id}>
-                              <td className="log-date-cell">
-                                <span className="date-main">{dateStr}</span>
-                                <span className="date-time">{timeStr}</span>
-                              </td>
+                        const totalQ = ex.totalQuestions || (ex.userAnswers?.length || 0);
+                        const score = ex.score || 0;
+                        const errorCount = Math.max(0, totalQ - score);
 
-                              <td>
-                                <div className="user-profile-cell">
-                                  {ex.userImage ? (
-                                    <img src={ex.userImage} alt={ex.userName} className="user-table-avatar" />
-                                  ) : (
-                                    <div className="user-table-avatar-placeholder">
-                                      {(ex.userName || 'U').charAt(0).toUpperCase()}
-                                    </div>
-                                  )}
-                                  <span className="user-table-name">{ex.userName}</span>
-                                </div>
-                              </td>
+                        return (
+                          <tr key={ex._id} className="exam-attempt-row">
+                            <td className="log-date-cell">
+                              <span className="date-main">{dateStr}</span>
+                              <span className="date-time">{timeStr}</span>
+                            </td>
 
-                              <td className="user-email-cell">{ex.userEmail}</td>
+                            <td>
+                              <div className="user-profile-cell">
+                                {ex.userImage ? (
+                                  <img src={ex.userImage} alt={ex.userName} className="user-table-avatar" />
+                                ) : (
+                                  <div className="user-table-avatar-placeholder">
+                                    {(ex.userName || 'U').charAt(0).toUpperCase()}
+                                  </div>
+                                )}
+                                <span className="user-table-name">{ex.userName}</span>
+                              </div>
+                            </td>
 
-                              <td>
-                                <span className={`badge-modality ${ex.modality}`}>
-                                  {ex.modality === 'kata' ? 'Kata' : 'Kumite'}
+                            <td className="user-email-cell">{ex.userEmail}</td>
+
+                            <td>
+                              <span className={`badge-modality ${ex.modality}`}>
+                                {ex.modality === 'kata' ? '🥋 Kata' : '🥊 Kumite'}
+                              </span>
+                            </td>
+
+                            <td>
+                              <div className="stat-pct-box">
+                                <span className="badge-pct badge-pct-correct">
+                                  ✓ {ex.correctPercentage ?? 0}%
                                 </span>
-                              </td>
+                                <span className="stat-pct-sub">
+                                  {score} de {totalQ} correctas
+                                </span>
+                              </div>
+                            </td>
 
-                              <td>
+                            <td>
+                              <div className="stat-pct-box">
+                                <span className="badge-pct badge-pct-incorrect">
+                                  ✕ {ex.incorrectPercentage ?? 0}%
+                                </span>
+                                <span className="stat-pct-sub">
+                                  {errorCount} de {totalQ} errores
+                                </span>
+                              </div>
+                            </td>
+
+                            <td>
+                              <div className="stat-final-grade-box">
                                 <span
                                   className={`badge-exam-score score-large ${
                                     ex.passed ? 'score-passed' : 'score-failed'
@@ -942,52 +785,39 @@ export default function AdminPage() {
                                 >
                                   {ex.percentage}%
                                 </span>
-                              </td>
-
-                              <td>
-                                <span className="badge-points">
-                                  {ex.score} de {ex.totalQuestions}
-                                </span>
-                              </td>
-
-                              <td>
                                 <span className={`badge-status ${ex.passed ? 'status-aprobado' : 'status-bloqueado'}`}>
                                   {ex.passed ? '🏆 Aprobado' : '❌ Reprobado'}
                                 </span>
-                              </td>
+                              </div>
+                            </td>
 
-                              <td>
-                                <span className="badge-ans-count">
-                                  {ex.userAnswers?.length || 0} preguntas
-                                </span>
-                              </td>
-
-                              <td>
-                                <div style={{ display: 'flex', alignItems: 'center' }}>
-                                  <button
-                                    type="button"
-                                    onClick={() => setSelectedExamModal(ex)}
-                                    className="btn-action btn-action-view"
-                                  >
-                                    👁️ Ver Respuestas
-                                  </button>
-                                  <button
-                                    type="button"
-                                    onClick={() => handleDeleteExam(ex._id, ex.userName)}
-                                    className="btn-action-delete"
-                                    title="Eliminar este intento de examen"
-                                  >
-                                    🗑️
-                                  </button>
-                                </div>
-                              </td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
-                )
+                            <td>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                <button
+                                  type="button"
+                                  onClick={() => setSelectedExamModal(ex)}
+                                  className="btn-action btn-action-view"
+                                  title="Ver desglose detallado de respuestas de este examen"
+                                >
+                                  👁️ Ver Respuestas
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => handleDeleteExam(ex._id, ex.userName)}
+                                  className="btn-action-delete"
+                                  title="Eliminar este intento de examen"
+                                  style={{ margin: 0 }}
+                                >
+                                  🗑️
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               )}
             </div>
           </>

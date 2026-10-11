@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import { kataQuestions, kumiteQuestions } from '../data/questions';
+import { kataQuestions, kumiteQuestions, refereeQuestions } from '../data/questions';
 import KaratecaMascot from '../components/KaratecaMascot';
 import RefereeMascot from '../components/RefereeMascot';
 import ProgressBar from '../components/ProgressBar';
@@ -42,7 +42,9 @@ export default function Home() {
   const [mascotState, setMascotState] = useState('idle'); // idle, thinking, success, failure, rei
   const [shakeActive, setShakeActive] = useState(false);
 
-  const currentPool = modality === 'kata' ? kataQuestions : kumiteQuestions;
+  const currentPool = selectedRole === 'referee'
+    ? refereeQuestions
+    : (modality === 'kata' ? kataQuestions : modality === 'kumite' ? kumiteQuestions : refereeQuestions);
 
   // Set initial mascot state on welcome screen
   useEffect(() => {
@@ -62,7 +64,9 @@ export default function Home() {
   };
 
   const startQuiz = (limit = questionLimit, targetId = null, selectedOrder = orderMode) => {
-    const pool = modality === 'kata' ? kataQuestions : kumiteQuestions;
+    const pool = selectedRole === 'referee'
+      ? refereeQuestions
+      : (modality === 'kata' ? kataQuestions : modality === 'kumite' ? kumiteQuestions : refereeQuestions);
     let orderedPool = [...pool];
 
     const effectiveOrder = targetId !== null ? 'asc' : selectedOrder;
@@ -100,7 +104,9 @@ export default function Home() {
   };
 
   const handleJumpToId = (idToFind) => {
-    const pool = modality === 'kata' ? kataQuestions : kumiteQuestions;
+    const pool = selectedRole === 'referee'
+      ? refereeQuestions
+      : (modality === 'kata' ? kataQuestions : modality === 'kumite' ? kumiteQuestions : refereeQuestions);
     const num = parseInt(idToFind, 10);
 
     if (isNaN(num) || num <= 0) {
@@ -110,7 +116,8 @@ export default function Home() {
 
     const targetQuestion = pool.find(q => q.id === num);
     if (!targetQuestion) {
-      setJumpError(`⚠️ No existe la pregunta #${num} en ${modality.toUpperCase()} (rango disponible: 1 a ${pool.length}).`);
+      const label = selectedRole === 'referee' || modality === 'reglamento' ? 'ÁRBITRO' : modality.toUpperCase();
+      setJumpError(`⚠️ No existe la pregunta #${num} en ${label} (rango disponible: 1 a ${pool.length}).`);
       return false;
     }
 
@@ -174,28 +181,6 @@ export default function Home() {
 
     setUserAnswers(prev => [...prev, newAnswerItem]);
     setIsSubmitted(true);
-
-    // Registrar en MongoDB en tiempo real
-    fetch('/api/exams/record', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        attemptId: currentAttemptId,
-        role: selectedRole || 'coach',
-        modality,
-        totalQuestions: activeQuestions.length,
-        orderMode,
-        answer: newAnswerItem,
-        isFinished: false,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success && data.attemptId && !currentAttemptId) {
-          setCurrentAttemptId(data.attemptId);
-        }
-      })
-      .catch((err) => console.error('Error al registrar respuesta en base de datos:', err));
   };
 
   const nextQuestion = () => {
@@ -203,23 +188,31 @@ export default function Home() {
     
     if (isLast) {
       setGameState('results');
-      const finalScore = score + (selectedAnswer === activeQuestions[currentQuestionIndex].answer ? 1 : 0);
-      const ratio = finalScore / activeQuestions.length;
-      setMascotState(ratio >= 0.8 ? 'success' : 'idle');
+      const totalQ = activeQuestions.length;
+      const allAnswers = userAnswers;
+      const correctCount = allAnswers.filter((a) => a.isCorrect).length;
+      const incorrectCount = totalQ - correctCount;
+      const correctPct = Math.round((correctCount / totalQ) * 100);
+      const incorrectPct = Math.max(0, 100 - correctPct);
+      const isPassed = correctPct >= 80;
 
-      // Finalizar intento en MongoDB con nota y calificación obtenida
+      setMascotState(isPassed ? 'success' : 'idle');
+
+      // Guardar una única línea por intento de examen completado en MongoDB
       fetch('/api/exams/record', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          attemptId: currentAttemptId,
           role: selectedRole || 'coach',
-          modality,
-          totalQuestions: activeQuestions.length,
+          modality: selectedRole === 'referee' || modality === 'reglamento' ? 'arbitro' : modality,
+          totalQuestions: totalQ,
           orderMode,
-          finalScore,
-          percentage: Math.round(ratio * 100),
-          passed: ratio >= 0.8,
+          userAnswers: allAnswers,
+          finalScore: correctCount,
+          percentage: correctPct,
+          correctPercentage: correctPct,
+          incorrectPercentage: incorrectPct,
+          passed: isPassed,
           isFinished: true,
         }),
       }).catch((err) => console.error('Error al guardar nota final en base de datos:', err));
@@ -252,8 +245,8 @@ export default function Home() {
             ? 'Examen WKF 2026 - Próximamente'
             : selectedRole === null
             ? 'Exámenes Oficiales WKF 2026 - Portal de Estudio'
-            : selectedRole === 'referee'
-            ? 'Examen de Árbitro WKF 2026 - En Construcción'
+            : selectedRole === 'referee' || modality === 'reglamento'
+            ? 'Examen de Árbitro WKF 2026 - Práctica Oficial'
             : `Examen Entrenador WKF 2026 - Práctica de ${modality === 'kata' ? 'Kata' : 'Kumite'}`}
         </title>
         <meta name="description" content="Practica con el banco de preguntas oficial de la WKF 2026. ¡Aprende con animaciones y justificaciones en español!" />
@@ -268,7 +261,7 @@ export default function Home() {
       )}
 
       {/* Header bar only if in Quiz Mode and not in maintenance mode */}
-      {!MAINTENANCE_MODE && selectedRole === 'coach' && gameState === 'quiz' && (
+      {!MAINTENANCE_MODE && (selectedRole === 'coach' || selectedRole === 'referee') && gameState === 'quiz' && (
         <ProgressBar 
           current={currentQuestionIndex + (isSubmitted ? 1 : 0)} 
           total={activeQuestions.length} 
@@ -428,16 +421,24 @@ export default function Home() {
               <button
                 type="button"
                 className="role-card-btn referee-role"
-                onClick={() => setSelectedRole('referee')}
+                onClick={() => {
+                  if (!session) {
+                    signIn('google');
+                    return;
+                  }
+                  setSelectedRole('referee');
+                  setGameState('welcome');
+                  setMascotState('idle');
+                }}
               >
-                <span className="role-badge role-badge-construction">🚧 En Construcción</span>
+                <span className="role-badge role-badge-active">Disponible • Oficial 2026</span>
                 <div className="role-icon-box">⚖️</div>
                 <h2 className="role-title">Examen de Árbitro</h2>
                 <p className="role-description">
-                  Reglamento de arbitraje para Jueces y Árbitros WKF. Criterios de señalización, banderas y faltas reglamentarias.
+                  Banco completo de 246 preguntas oficiales para Árbitros y Jueces WKF, con artículos reglamentarios y justificaciones oficiales.
                 </p>
                 <span className="role-action-label role-action-referee">
-                  Ver detalles (Próximamente) ➔
+                  Ingresar a examen ➔
                 </span>
               </button>
             </div>
@@ -451,75 +452,10 @@ export default function Home() {
               </div>
             )}
           </div>
-        ) : selectedRole === 'referee' ? (
-          /* ================= EXAMEN DE ÁRBITRO: EN CONSTRUCCIÓN ================= */
-          <div className="construction-card">
-            <button
-              type="button"
-              className="back-nav-btn"
-              onClick={() => setSelectedRole(null)}
-            >
-              ← Volver al menú de exámenes
-            </button>
-
-            <RefereeMascot state="idle" />
-
-            <div style={{ marginTop: '12px' }}>
-              <span className="construction-badge">
-                <span>🚧</span> Módulo en Construcción
-              </span>
-            </div>
-
-            <h1 className="construction-title">Examen de Árbitro WKF 2026</h1>
-            <p className="construction-subtitle">
-              Estamos preparando el banco oficial de preguntas y casos de estudio para <strong>Árbitros y Jueces WKF</strong>.
-            </p>
-
-            <div className="construction-features-box">
-              <div className="construction-features-title">
-                <span>📋</span> Próximamente disponible en este módulo:
-              </div>
-              <ul className="construction-features-list">
-                <li>
-                  <span>⚖️</span>
-                  <span><strong>Cuestionario oficial WKF:</strong> Evaluación teórica para Árbitros y Jueces de Kata y Kumite.</span>
-                </li>
-                <li>
-                  <span>🚩</span>
-                  <span><strong>Mecánica de arbitraje y banderas:</strong> Gestos oficiales de señalización (Aka / Ao) y mandos de voz.</span>
-                </li>
-                <li>
-                  <span>⚠️</span>
-                  <span><strong>Faltas y penalizaciones:</strong> Clasificación y aplicaciones de faltas Categoría 1 y 2.</span>
-                </li>
-                <li>
-                  <span>🥋</span>
-                  <span><strong>Criterios de evaluación Kata:</strong> Rendimiento técnico y atlético según las normas 2026.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="construction-actions">
-              <button
-                type="button"
-                className="btn-3d btn-green"
-                onClick={() => setSelectedRole('coach')}
-              >
-                🥋 Ir al Examen de Coach (Disponible)
-              </button>
-              <button
-                type="button"
-                className="btn-3d btn-white"
-                onClick={() => setSelectedRole(null)}
-              >
-                Volver a la selección
-              </button>
-            </div>
-          </div>
         ) : (
-          /* ================= FLUJO DE EXAMEN DE COACH ================= */
+          /* ================= FLUJO DE EXAMEN: COACH Y ÁRBITRO ================= */
           <>
-            {/* ================= PANTALLA DE BIENVENIDA DE COACH ================= */}
+            {/* ================= PANTALLA DE BIENVENIDA ================= */}
             {gameState === 'welcome' && (
               <div className="welcome-card">
                 <button
@@ -532,277 +468,321 @@ export default function Home() {
                 </button>
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <KaratecaMascot state={mascotState} modality={modality} />
+                  {selectedRole === 'referee' ? (
+                    <RefereeMascot state={mascotState} />
+                  ) : (
+                    <KaratecaMascot state={mascotState} modality={modality} />
+                  )}
                 </div>
                 
-                <h1 className="welcome-title">Examen de Entrenador (Coach) WKF 2026</h1>
+                <h1 className="welcome-title">
+                  {selectedRole === 'referee'
+                    ? 'Examen Oficial de Árbitro WKF 2026'
+                    : 'Examen de Entrenador (Coach) WKF 2026'}
+                </h1>
                 <p className="welcome-subtitle">
-                  Practica de forma divertida, interactiva y dinámica. Nuestro Sensei Chibi te guiará en cada pregunta del reglamento oficial.
+                  {selectedRole === 'referee'
+                    ? 'Banco oficial de 246 preguntas del Reglamento de Arbitraje WKF 2026. Nuestro Sensei Árbitro te evaluará con casos reales y referencias a cada artículo oficial.'
+                    : 'Practica de forma divertida, interactiva y dinámica. Nuestro Sensei Chibi te guiará en cada pregunta del reglamento oficial.'}
                 </p>
 
-            <div className="options-container">
-              <h2 className="options-title">Elige la modalidad:</h2>
-              <div className="modality-selector">
-                <button
-                  type="button"
-                  className={`modality-option ${modality === 'kata' ? 'selected' : ''}`}
-                  onClick={() => {
-                    setModality('kata');
-                    setJumpError('');
-                  }}
-                >
-                  <span className="modality-icon">🥋</span>
-                  <span>KATA</span>
-                </button>
-                <button
-                  type="button"
-                  className={`modality-option ${modality === 'kumite' ? 'selected' : ''}`}
-                  onClick={() => {
-                    setModality('kumite');
-                    setJumpError('');
-                  }}
-                >
-                  <span className="modality-icon">🥊</span>
-                  <span>KUMITE</span>
-                </button>
-              </div>
+                <div className="options-container">
+                  {selectedRole === 'referee' ? (
+                    <div className="modality-referee-info-box">
+                      <div className="modality-referee-info-title">
+                        <span>⚖️</span> Banco Oficial de Arbitraje WKF (246 Preguntas)
+                      </div>
+                      <p className="modality-referee-info-desc">
+                        Evaluación integral de 6 secciones del reglamento: Artículos 1 al 15, Video Review y Apéndices con referencias normativas WKF 2026.01.
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      <h2 className="options-title">Elige la modalidad de examen:</h2>
+                      <div className="modality-selector">
+                        <button
+                          type="button"
+                          className={`modality-option ${modality === 'kata' ? 'selected' : ''}`}
+                          onClick={() => {
+                            setModality('kata');
+                            setJumpError('');
+                          }}
+                        >
+                          <span className="modality-icon">🥋</span>
+                          <span>KATA (115)</span>
+                        </button>
+                        <button
+                          type="button"
+                          className={`modality-option ${modality === 'kumite' ? 'selected' : ''}`}
+                          onClick={() => {
+                            setModality('kumite');
+                            setJumpError('');
+                          }}
+                        >
+                          <span className="modality-icon">🥊</span>
+                          <span>KUMITE (120)</span>
+                        </button>
+                        <button
+                          type="button"
+                          className={`modality-option ${modality === 'reglamento' ? 'selected' : ''}`}
+                          onClick={() => {
+                            setModality('reglamento');
+                            setJumpError('');
+                          }}
+                        >
+                          <span className="modality-icon">⚖️</span>
+                          <span>ÁRBITROS (246)</span>
+                        </button>
+                      </div>
+                    </>
+                  )}
 
-              <h2 className="options-title">Orden de las preguntas:</h2>
-              <div className="order-selector">
-                <button
-                  type="button"
-                  className={`order-option ${orderMode === 'random' ? 'selected' : ''}`}
-                  onClick={() => setOrderMode('random')}
-                >
-                  <span className="order-icon">🔀</span>
-                  <span>Aleatorio</span>
-                </button>
-                <button
-                  type="button"
-                  className={`order-option ${orderMode === 'asc' ? 'selected' : ''}`}
-                  onClick={() => setOrderMode('asc')}
-                >
-                  <span className="order-icon">🔢</span>
-                  <span>Ascendente</span>
-                </button>
-              </div>
+                  <h2 className="options-title">Orden de las preguntas:</h2>
+                  <div className="order-selector">
+                    <button
+                      type="button"
+                      className={`order-option ${orderMode === 'random' ? 'selected' : ''}`}
+                      onClick={() => setOrderMode('random')}
+                    >
+                      <span className="order-icon">🔀</span>
+                      <span>Aleatorio</span>
+                    </button>
+                    <button
+                      type="button"
+                      className={`order-option ${orderMode === 'asc' ? 'selected' : ''}`}
+                      onClick={() => setOrderMode('asc')}
+                    >
+                      <span className="order-icon">🔢</span>
+                      <span>Ascendente</span>
+                    </button>
+                  </div>
 
-              <h2 className="options-title">Elige la cantidad de preguntas:</h2>
-              <div className="quantity-selector">
-                {[10, 25, 50, 100].map((num) => (
+                  <h2 className="options-title">Elige la cantidad de preguntas:</h2>
+                  <div className="quantity-selector">
+                    {[10, 25, 50, 100].map((num) => (
+                      <button
+                        key={num}
+                        type="button"
+                        className={`quantity-option ${questionLimit === num ? 'selected' : ''}`}
+                        onClick={() => setQuestionLimit(num)}
+                      >
+                        {num}
+                      </button>
+                    ))}
+                    <button
+                      type="button"
+                      style={{ gridColumn: '1 / -1' }}
+                      className={`quantity-option ${questionLimit === 'all' ? 'selected' : ''}`}
+                      onClick={() => setQuestionLimit('all')}
+                    >
+                      Todas ({currentPool.length} preguntas)
+                    </button>
+                  </div>
+
                   <button
-                    key={num}
                     type="button"
-                    className={`quantity-option ${questionLimit === num ? 'selected' : ''}`}
-                    onClick={() => setQuestionLimit(num)}
+                    className="btn-3d btn-green"
+                    onClick={() => startQuiz(questionLimit)}
                   >
-                    {num}
+                    ¡Comenzar práctica!
                   </button>
-                ))}
-                <button
-                  type="button"
-                  style={{ gridColumn: '1 / -1' }}
-                  className={`quantity-option ${questionLimit === 'all' ? 'selected' : ''}`}
-                  onClick={() => setQuestionLimit('all')}
-                >
-                  Todas ({currentPool.length} preguntas)
-                </button>
-              </div>
 
-              <button
-                type="button"
-                className="btn-3d btn-green"
-                onClick={() => startQuiz(questionLimit)}
-              >
-                ¡Comenzar práctica!
-              </button>
-
-              {/* Direct Jump to Specific Question ID Box */}
-              <div className="jump-id-card">
-                <h3 className="jump-id-title">
-                  🎯 Ir directamente a una pregunta por ID <span style={{ color: 'var(--color-blue)', fontWeight: 800 }}>({modality === 'kata' ? '🥋 KATA' : '🥊 KUMITE'})</span>:
-                </h3>
-                <form onSubmit={handleJumpFormSubmit} className="jump-id-form">
-                  <div className="jump-id-input-group">
-                    <span className="jump-id-hashtag">#</span>
-                    <input
-                      type="number"
-                      min="1"
-                      max={currentPool.length}
-                      placeholder={`ID (1 - ${currentPool.length})`}
-                      value={jumpIdInput}
-                      onChange={(e) => {
-                        setJumpIdInput(e.target.value);
-                        setJumpError('');
-                      }}
-                      className="jump-id-input"
-                    />
+                  {/* Direct Jump to Specific Question ID Box */}
+                  <div className="jump-id-card">
+                    <h3 className="jump-id-title">
+                      🎯 Ir directamente a una pregunta por ID <span style={{ color: 'var(--color-blue)', fontWeight: 800 }}>({selectedRole === 'referee' || modality === 'reglamento' ? '⚖️ ÁRBITRO WKF' : modality === 'kata' ? '🥋 KATA' : '🥊 KUMITE'})</span>:
+                    </h3>
+                    <form onSubmit={handleJumpFormSubmit} className="jump-id-form">
+                      <div className="jump-id-input-group">
+                        <span className="jump-id-hashtag">#</span>
+                        <input
+                          type="number"
+                          min="1"
+                          max={currentPool.length}
+                          placeholder={`ID (1 - ${currentPool.length})`}
+                          value={jumpIdInput}
+                          onChange={(e) => {
+                            setJumpIdInput(e.target.value);
+                            setJumpError('');
+                          }}
+                          className="jump-id-input"
+                        />
+                      </div>
+                      <button type="submit" className="btn-3d btn-blue jump-id-submit-btn">
+                        Ir a pregunta
+                      </button>
+                    </form>
+                    {jumpError && <div className="jump-id-error-msg">{jumpError}</div>}
                   </div>
-                  <button type="submit" className="btn-3d btn-blue jump-id-submit-btn">
-                    Ir a pregunta
-                  </button>
-                </form>
-                {jumpError && <div className="jump-id-error-msg">{jumpError}</div>}
+                </div>
               </div>
-            </div>
-          </div>
-        )}
-
-        {/* ================= PANTALLA DE QUIZ ================= */}
-        {gameState === 'quiz' && currentQuestion && (
-          <div className={`quiz-section ${shakeActive ? 'shake' : ''}`}>
-            
-            {/* Mascot speech bubble */}
-            <div className="bubble-container">
-              <div style={{ flexShrink: 0 }}>
-                <KaratecaMascot state={mascotState} modality={modality} />
-              </div>
-              <div className="bubble-content">
-                <span className="question-badge">
-                  {modality === 'kata' ? '🥋 KATA' : '🥊 KUMITE'} • {currentQuestion.section.split(':')[0]}
-                </span>
-                <p className="question-text"><span className="flag-icon">🇪🇸</span> {currentQuestion.id}. {currentQuestion.text}</p>
-                {currentQuestion.text_en && <p className="question-text-en"><span className="flag-icon">🇬🇧</span> {currentQuestion.id}. {currentQuestion.text_en}</p>}
-              </div>
-            </div>
-
-            {/* Answer Options */}
-            <div className="answer-choices">
-              <button
-                className={`btn-3d ${
-                  selectedAnswer === true
-                    ? 'btn-blue'
-                    : 'btn-white'
-                }`}
-                style={{
-                  opacity: isSubmitted && selectedAnswer !== true ? 0.6 : 1,
-                  pointerEvents: isSubmitted ? 'none' : 'auto',
-                  borderColor: isSubmitted && currentQuestion.answer === true ? 'var(--color-green)' : '',
-                  borderWidth: isSubmitted && currentQuestion.answer === true ? '3px' : '2px',
-                }}
-                onClick={() => handleAnswerSelect(true)}
-              >
-                Verdadero
-              </button>
-              
-              <button
-                className={`btn-3d ${
-                  selectedAnswer === false
-                    ? 'btn-red'
-                    : 'btn-white'
-                }`}
-                style={{
-                  opacity: isSubmitted && selectedAnswer !== false ? 0.6 : 1,
-                  pointerEvents: isSubmitted ? 'none' : 'auto',
-                  borderColor: isSubmitted && currentQuestion.answer === false ? 'var(--color-green)' : '',
-                  borderWidth: isSubmitted && currentQuestion.answer === false ? '3px' : '2px',
-                }}
-                onClick={() => handleAnswerSelect(false)}
-              >
-                Falso
-              </button>
-            </div>
-
-            {/* If not submitted, show checking button at the bottom */}
-            {!isSubmitted && (
-              <button
-                className={`btn-3d ${selectedAnswer !== null ? 'btn-green' : 'btn-white'}`}
-                disabled={selectedAnswer === null}
-                style={{
-                  opacity: selectedAnswer === null ? 0.5 : 1,
-                  cursor: selectedAnswer === null ? 'not-allowed' : 'pointer'
-                }}
-                onClick={submitAnswer}
-              >
-                Comprobar
-              </button>
             )}
-          </div>
-        )}
 
-        {/* ================= PANTALLA DE RESULTADOS ================= */}
-        {gameState === 'results' && (
-          <div className="results-card">
-            <h1 className="welcome-title" style={{ marginTop: 0 }}>¡Práctica Finalizada!</h1>
-            
-            <div className="results-mascot-row">
-              <KaratecaMascot state={mascotState} modality={modality} />
-            </div>
-
-            <div className="score-container">
-              <span className="score-badge">
-                {Math.round((score / activeQuestions.length) * 100)}%
-              </span>
-              <p style={{ color: 'var(--color-text-main)', fontWeight: 600, fontSize: '1.1rem' }}>
-                {score >= activeQuestions.length * 0.8
-                  ? '¡Excelente trabajo! Has aprobado la práctica.'
-                  : 'Sigue estudiando el reglamento para aprobar el examen.'}
-              </p>
-            </div>
-
-            <div className="score-stats">
-              <div className="stat-item">
-                <div className="stat-val good">{score}</div>
-                <div className="stat-lbl">Correctas</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-val bad">{activeQuestions.length - score}</div>
-                <div className="stat-lbl">Incorrectas</div>
-              </div>
-            </div>
-
-            {/* Review list */}
-            <div className="review-section">
-              <h2 className="review-title">Revisión de Preguntas</h2>
-              <div className="review-list">
-                {userAnswers.map((answer, index) => (
-                  <div 
-                    key={answer.questionId || index} 
-                    className={`review-item ${answer.isCorrect ? 'correct' : 'incorrect'}`}
-                  >
-                    <div className="review-header-row">
-                      <span className="review-q-num">Pregunta #{answer.questionId}</span>
-                      <span className="review-badge">
-                        {answer.isCorrect ? 'Correcta' : 'Incorrecta'}
-                      </span>
-                    </div>
-                    <p className="review-q-text"><span className="flag-icon">🇪🇸</span> {answer.questionId}. {answer.text}</p>
-                    {answer.text_en && <p className="review-q-text-en"><span className="flag-icon">🇬🇧</span> {answer.questionId}. {answer.text_en}</p>}
-                    <div className="review-answers">
-                      <strong>Tu respuesta:</strong> {answer.userAnswer ? 'Verdadero' : 'Falso'}{' '}
-                      | <strong>Correcta:</strong> {answer.correctAnswer ? 'Verdadero' : 'Falso'}
-                    </div>
-                    <div className="review-justification">
-                      <strong>Explicación:</strong> {answer.justification}
-                      <span className="review-ref">{answer.ref}</span>
-                    </div>
+            {/* ================= PANTALLA DE QUIZ ================= */}
+            {gameState === 'quiz' && currentQuestion && (
+              <div className={`quiz-section ${shakeActive ? 'shake' : ''}`}>
+                
+                {/* Mascot speech bubble */}
+                <div className="bubble-container">
+                  <div style={{ flexShrink: 0 }}>
+                    {selectedRole === 'referee' || modality === 'reglamento' ? (
+                      <RefereeMascot state={mascotState} />
+                    ) : (
+                      <KaratecaMascot state={mascotState} modality={modality} />
+                    )}
                   </div>
-                ))}
-              </div>
-            </div>
+                  <div className="bubble-content">
+                    <span className="question-badge">
+                      {selectedRole === 'referee' || modality === 'reglamento'
+                        ? `⚖️ ÁRBITRO WKF • ${currentQuestion.section}`
+                        : `${modality === 'kata' ? '🥋 KATA' : '🥊 KUMITE'} • ${currentQuestion.section.split(':')[0]}`}
+                    </span>
+                    <p className="question-text"><span className="flag-icon">🇪🇸</span> {currentQuestion.id}. {currentQuestion.text}</p>
+                    {currentQuestion.text_en && <p className="question-text-en"><span className="flag-icon">🇬🇧</span> {currentQuestion.id}. {currentQuestion.text_en}</p>}
+                  </div>
+                </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
-              <button
-                type="button"
-                className="btn-3d btn-green"
-                onClick={restartGame}
-              >
-                Volver a practicar
-              </button>
-              <button
-                type="button"
-                className="btn-3d btn-white"
-                onClick={() => {
-                  setGameState('welcome');
-                  setSelectedRole(null);
-                }}
-              >
-                ← Cambiar de examen
-              </button>
-            </div>
-          </div>
-        )}
-        </>
+                {/* Answer Options */}
+                <div className="answer-choices">
+                  <button
+                    className={`btn-3d ${
+                      selectedAnswer === true
+                        ? 'btn-blue'
+                        : 'btn-white'
+                    }`}
+                    style={{
+                      opacity: isSubmitted && selectedAnswer !== true ? 0.6 : 1,
+                      pointerEvents: isSubmitted ? 'none' : 'auto',
+                      borderColor: isSubmitted && currentQuestion.answer === true ? 'var(--color-green)' : '',
+                      borderWidth: isSubmitted && currentQuestion.answer === true ? '3px' : '2px',
+                    }}
+                    onClick={() => handleAnswerSelect(true)}
+                  >
+                    Verdadero
+                  </button>
+                  
+                  <button
+                    className={`btn-3d ${
+                      selectedAnswer === false
+                        ? 'btn-red'
+                        : 'btn-white'
+                    }`}
+                    style={{
+                      opacity: isSubmitted && selectedAnswer !== false ? 0.6 : 1,
+                      pointerEvents: isSubmitted ? 'none' : 'auto',
+                      borderColor: isSubmitted && currentQuestion.answer === false ? 'var(--color-green)' : '',
+                      borderWidth: isSubmitted && currentQuestion.answer === false ? '3px' : '2px',
+                    }}
+                    onClick={() => handleAnswerSelect(false)}
+                  >
+                    Falso
+                  </button>
+                </div>
+
+                {/* If not submitted, show checking button at the bottom */}
+                {!isSubmitted && (
+                  <button
+                    className={`btn-3d ${selectedAnswer !== null ? 'btn-green' : 'btn-white'}`}
+                    disabled={selectedAnswer === null}
+                    style={{
+                      opacity: selectedAnswer === null ? 0.5 : 1,
+                      cursor: selectedAnswer === null ? 'not-allowed' : 'pointer'
+                    }}
+                    onClick={submitAnswer}
+                  >
+                    Comprobar
+                  </button>
+                )}
+              </div>
+            )}
+
+            {/* ================= PANTALLA DE RESULTADOS ================= */}
+            {gameState === 'results' && (
+              <div className="results-card">
+                <h1 className="welcome-title" style={{ marginTop: 0 }}>¡Práctica Finalizada!</h1>
+                
+                <div className="results-mascot-row">
+                  {selectedRole === 'referee' || modality === 'reglamento' ? (
+                    <RefereeMascot state={mascotState} />
+                  ) : (
+                    <KaratecaMascot state={mascotState} modality={modality} />
+                  )}
+                </div>
+
+                <div className="score-container">
+                  <span className="score-badge">
+                    {Math.round((score / activeQuestions.length) * 100)}%
+                  </span>
+                  <p style={{ color: 'var(--color-text-main)', fontWeight: 600, fontSize: '1.1rem' }}>
+                    {score >= activeQuestions.length * 0.8
+                      ? '¡Excelente trabajo! Has aprobado la práctica.'
+                      : 'Sigue estudiando el reglamento para aprobar el examen.'}
+                  </p>
+                </div>
+
+                <div className="score-stats">
+                  <div className="stat-item">
+                    <div className="stat-val good">{score}</div>
+                    <div className="stat-lbl">Correctas</div>
+                  </div>
+                  <div className="stat-item">
+                    <div className="stat-val bad">{activeQuestions.length - score}</div>
+                    <div className="stat-lbl">Incorrectas</div>
+                  </div>
+                </div>
+
+                {/* Review list */}
+                <div className="review-section">
+                  <h2 className="review-title">Revisión de Preguntas</h2>
+                  <div className="review-list">
+                    {userAnswers.map((answer, index) => (
+                      <div 
+                        key={answer.questionId || index} 
+                        className={`review-item ${answer.isCorrect ? 'correct' : 'incorrect'}`}
+                      >
+                        <div className="review-header-row">
+                          <span className="review-q-num">Pregunta #{answer.questionId}</span>
+                          <span className="review-badge">
+                            {answer.isCorrect ? 'Correcta' : 'Incorrecta'}
+                          </span>
+                        </div>
+                        <p className="review-q-text"><span className="flag-icon">🇪🇸</span> {answer.questionId}. {answer.text}</p>
+                        {answer.text_en && <p className="review-q-text-en"><span className="flag-icon">🇬🇧</span> {answer.questionId}. {answer.text_en}</p>}
+                        <div className="review-answers">
+                          <strong>Tu respuesta:</strong> {answer.userAnswer ? 'Verdadero' : 'Falso'}{' '}
+                          | <strong>Correcta:</strong> {answer.correctAnswer ? 'Verdadero' : 'Falso'}
+                        </div>
+                        <div className="review-justification">
+                          <strong>Explicación:</strong> {answer.justification}
+                          <span className="review-ref">{answer.ref}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
+                  <button
+                    type="button"
+                    className="btn-3d btn-green"
+                    onClick={restartGame}
+                  >
+                    Volver a practicar
+                  </button>
+                  <button
+                    type="button"
+                    className="btn-3d btn-white"
+                    onClick={() => {
+                      setGameState('welcome');
+                      setSelectedRole(null);
+                    }}
+                  >
+                    ← Cambiar de examen
+                  </button>
+                </div>
+              </div>
+            )}
+          </>
         )}
       </main>
 

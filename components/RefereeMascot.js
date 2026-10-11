@@ -116,23 +116,81 @@ export default function RefereeMascot({ state = 'idle', size = 'normal' }) {
             <ellipse cx="85" cy="82" rx="5" ry="3.5" fill="rgba(244,164,96,0.5)" />
             <ellipse cx="135" cy="82" rx="5" ry="3.5" fill="rgba(244,164,96,0.5)" />
 
-            {/* Ojos */}
-            <circle cx="95" cy="74" r="4.5" fill="#2d3748" />
-            <circle cx="125" cy="74" r="4.5" fill="#2d3748" />
-            <circle cx="93.5" cy="72.5" r="1.5" fill="#ffffff" />
-            <circle cx="123.5" cy="72.5" r="1.5" fill="#ffffff" />
-
-            {/* Cejas */}
-            <path d="M 87,64 Q 96,62 101,66" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
-            <path d="M 133,64 Q 124,62 119,66" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
-
-            {/* Sonrisa amable */}
-            <path d="M 104,86 Q 110,91 116,86" fill="none" stroke="#2d3748" strokeWidth="2.5" strokeLinecap="round" />
+            {/* Ojos y Cejas según el Estado */}
+            {state === 'success' ? (
+              <>
+                {/* Ojos felices en arco (^ ^) */}
+                <path d="M 90,75 Q 95,68 100,75" fill="none" stroke="#2d3748" strokeWidth="3.5" strokeLinecap="round" />
+                <path d="M 120,75 Q 125,68 130,75" fill="none" stroke="#2d3748" strokeWidth="3.5" strokeLinecap="round" />
+                {/* Cejas levantadas felices */}
+                <path d="M 87,62 Q 95,58 101,63" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M 133,62 Q 125,58 119,63" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
+                {/* Sonrisa amplia */}
+                <path d="M 102,84 Q 110,95 118,84 Z" fill="#e74c3c" stroke="#2d3748" strokeWidth="2" />
+              </>
+            ) : state === 'failure' ? (
+              <>
+                {/* Ojos cerrados (> <) o preocupados */}
+                <path d="M 91,72 L 98,77 L 91,82" fill="none" stroke="#2d3748" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M 129,72 L 122,77 L 129,82" fill="none" stroke="#2d3748" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Cejas preocupadas */}
+                <path d="M 87,67 Q 95,61 101,64" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M 133,67 Q 125,61 119,64" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
+                {/* Boca ondulada / preocupada */}
+                <path d="M 104,88 Q 107,85 110,88 Q 113,91 116,88" fill="none" stroke="#2d3748" strokeWidth="2.5" strokeLinecap="round" />
+              </>
+            ) : state === 'thinking' ? (
+              <>
+                {/* Ojos mirando hacia arriba / pensativo */}
+                <circle cx="95" cy="71" r="4.5" fill="#2d3748" />
+                <circle cx="125" cy="71" r="4.5" fill="#2d3748" />
+                <circle cx="96" cy="69.5" r="1.5" fill="#ffffff" />
+                <circle cx="126" cy="69.5" r="1.5" fill="#ffffff" />
+                {/* Una ceja levantada, otra normal */}
+                <path d="M 87,61 Q 96,56 101,61" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M 133,65 Q 124,64 119,67" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
+                {/* Boca curiosa en 'o' pequeña */}
+                <ellipse cx="110" cy="87" rx="3.5" ry="4" fill="#2d3748" />
+              </>
+            ) : (
+              <>
+                {/* Ojos normales */}
+                <circle cx="95" cy="74" r="4.5" fill="#2d3748" />
+                <circle cx="125" cy="74" r="4.5" fill="#2d3748" />
+                <circle cx="93.5" cy="72.5" r="1.5" fill="#ffffff" />
+                <circle cx="123.5" cy="72.5" r="1.5" fill="#ffffff" />
+                {/* Cejas amables */}
+                <path d="M 87,64 Q 96,62 101,66" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M 133,64 Q 124,62 119,66" fill="none" stroke="#333" strokeWidth="2.5" strokeLinecap="round" />
+                {/* Sonrisa amable */}
+                <path d="M 104,86 Q 110,91 116,86" fill="none" stroke="#2d3748" strokeWidth="2.5" strokeLinecap="round" />
+              </>
+            )}
 
             {/* Silbato en el cuello */}
             <path d="M 107,92 L 105,102 L 115,102 L 113,92 Z" fill="#94a3b8" stroke="#475569" strokeWidth="1.5" />
             <circle cx="114" cy="102" r="3" fill="#cbd5e1" stroke="#475569" strokeWidth="1.5" />
           </g>
+
+          {/* Banner de ¡IPPON! / ¡CORRECTO! en Success */}
+          {state === 'success' && (
+            <g className="ippon-banner">
+              <rect x="60" y="8" width="100" height="32" rx="10" fill="#22c55e" stroke="#16a34a" strokeWidth="2.5" />
+              <text x="110" y="29" textAnchor="middle" fontFamily="Outfit, sans-serif" fontWeight="900" fontSize="15" fill="#ffffff" letterSpacing="1">
+                ¡VÁLIDO!
+              </text>
+            </g>
+          )}
+
+          {/* Icono de bombilla / pregunta en Thinking */}
+          {state === 'thinking' && (
+            <g className="thinking-icon">
+              <circle cx="155" cy="38" r="14" fill="#fbbf24" stroke="#d97706" strokeWidth="2" />
+              <text x="155" y="44" textAnchor="middle" fontFamily="Outfit, sans-serif" fontWeight="900" fontSize="16" fill="#78350f">
+                ?
+              </text>
+            </g>
+          )}
         </g>
       </svg>
     </div>
