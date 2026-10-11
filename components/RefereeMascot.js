@@ -1058,12 +1058,12 @@ export default function RefereeMascot({
                       stroke={reviewerStroke}
                       strokeWidth="3.5"
                     />
-                    {/* Rizos / colochos en la frente y contorno superior */}
+                    {/* Rizos / colochos en la frente (elevados para despejar frente y cejas) */}
                     <path
-                      d="M 231,64 Q 237,53 245,59 Q 254,49 265,55 Q 275,49 284,55 Q 292,52 299,63"
+                      d="M 231,58 Q 237,48 245,53 Q 254,44 265,50 Q 275,44 284,50 Q 292,47 299,57"
                       fill="#171717"
                       stroke="#171717"
-                      strokeWidth="2.5"
+                      strokeWidth="2"
                     />
                     {/* Espirales y definición de pelo colocho */}
                     <path
@@ -1131,19 +1131,19 @@ export default function RefereeMascot({
                       strokeWidth="3.5"
                       strokeLinecap="round"
                     />
-                    {/* Cejas amables aprobando */}
+                    {/* Cejas amables aprobando (más finas y estéticas en el árbitro moreno) */}
                     <path
-                      d="M 244,61 Q 252,57 258,62"
+                      d={isCurly ? "M 245,58 Q 251,55 256,59" : "M 244,61 Q 252,57 258,62"}
                       fill="none"
-                      stroke={reviewerStroke}
-                      strokeWidth="2.5"
+                      stroke={isCurly ? "#4a3525" : reviewerStroke}
+                      strokeWidth={isCurly ? "1.8" : "2.2"}
                       strokeLinecap="round"
                     />
                     <path
-                      d="M 288,61 Q 280,57 274,62"
+                      d={isCurly ? "M 285,58 Q 279,55 274,59" : "M 288,61 Q 280,57 274,62"}
                       fill="none"
-                      stroke={reviewerStroke}
-                      strokeWidth="2.5"
+                      stroke={isCurly ? "#4a3525" : reviewerStroke}
+                      strokeWidth={isCurly ? "1.8" : "2.2"}
                       strokeLinecap="round"
                     />
                     {/* Sonrisa cálida de felicitación */}
@@ -1171,17 +1171,17 @@ export default function RefereeMascot({
                   </>
                 ) : (
                   <>
-                    {/* Cejas fruncidas de regaño severo (\ /) */}
+                    {/* Cejas fruncidas de regaño severo (delicadas y no prominentes para el árbitro moreno) */}
                     <path
-                      d="M 243,62 L 256,68"
-                      stroke="#0f172a"
-                      strokeWidth="3.2"
+                      d={isCurly ? "M 245,59 L 256,64" : "M 243,62 L 256,68"}
+                      stroke={isCurly ? "#4a3525" : "#0f172a"}
+                      strokeWidth={isCurly ? "1.8" : "2.6"}
                       strokeLinecap="round"
                     />
                     <path
-                      d="M 287,62 L 274,68"
-                      stroke="#0f172a"
-                      strokeWidth="3.2"
+                      d={isCurly ? "M 285,59 L 274,64" : "M 287,62 L 274,68"}
+                      stroke={isCurly ? "#4a3525" : "#0f172a"}
+                      strokeWidth={isCurly ? "1.8" : "2.6"}
                       strokeLinecap="round"
                     />
                     {/* Ojos mirando severos */}
