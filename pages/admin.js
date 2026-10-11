@@ -204,23 +204,39 @@ export default function AdminPage() {
       return;
     }
 
+    if (!examId) {
+      showToast('⚠️ Error: ID de examen no válido');
+      return;
+    }
+
     try {
-      const res = await fetch('/api/admin/exam-logs', {
+      const url = `/api/admin/exam-logs?examId=${encodeURIComponent(examId)}`;
+      let res = await fetch(url, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ examId }),
+        body: JSON.stringify({ examId, action: 'delete_exam' }),
       });
+
+      if (!res.ok && res.status === 405) {
+        res = await fetch('/api/admin/exam-logs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ examId, action: 'delete_exam' }),
+        });
+      }
+
       const data = await res.json();
       if (data.success) {
         showToast('✓ Intento de examen eliminado');
         if (selectedExamModal?._id === examId) {
           setSelectedExamModal(null);
         }
-        fetchExamLogs();
+        await fetchExamLogs();
       } else {
         showToast('⚠️ Error: ' + (data.error || 'No se pudo eliminar el examen'));
       }
     } catch (err) {
+      console.error('Error al eliminar intento de examen:', err);
       showToast('Error de conexión al eliminar');
     }
   };
@@ -236,20 +252,31 @@ export default function AdminPage() {
     }
 
     try {
-      const res = await fetch('/api/admin/exam-logs', {
+      const url = '/api/admin/exam-logs?clearAll=true';
+      let res = await fetch(url, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ clearAll: true }),
+        body: JSON.stringify({ clearAll: true, action: 'clear_all' }),
       });
+
+      if (!res.ok && res.status === 405) {
+        res = await fetch('/api/admin/exam-logs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ clearAll: true, action: 'clear_all' }),
+        });
+      }
+
       const data = await res.json();
       if (data.success) {
         showToast('✓ Todos los registros de exámenes han sido eliminados');
         setSelectedExamModal(null);
-        fetchExamLogs();
+        await fetchExamLogs();
       } else {
         showToast('⚠️ Error: ' + (data.error || 'No se pudo vaciar el log'));
       }
     } catch (err) {
+      console.error('Error al vaciar log de exámenes:', err);
       showToast('Error de conexión al vaciar el log');
     }
   };

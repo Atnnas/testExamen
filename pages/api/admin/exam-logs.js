@@ -1,12 +1,14 @@
+import mongoose from 'mongoose';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../auth/[...nextauth]';
 import dbConnect from '../../../lib/mongodb';
 import ExamResult from '../../../models/ExamResult';
+import User from '../../../models/User';
 
 const ADMIN_EMAIL = 'david.artavia.rodriguez@gmail.com'.toLowerCase();
 
 export default async function handler(req, res) {
-  if (req.method !== 'GET' && req.method !== 'DELETE') {
+  if (req.method !== 'GET' && req.method !== 'DELETE' && req.method !== 'POST') {
     return res.status(405).json({ success: false, error: 'Método no permitido' });
   }
 
@@ -17,18 +19,56 @@ export default async function handler(req, res) {
       return res.status(401).json({ success: false, error: 'No autenticado' });
     }
 
-    const isSuperAdmin = session.user.email?.toLowerCase() === ADMIN_EMAIL;
-    if (!isSuperAdmin && session.user.role !== 'admin') {
+    await dbConnect();
+
+    const userEmail = (session.user.email || '').toLowerCase().trim();
+    const isSuperAdmin = userEmail === ADMIN_EMAIL;
+    let userIsAdmin = isSuperAdmin || session.user.role === 'admin';
+
+    if (!userIsAdmin && userEmail) {
+      const dbUser = await User.findOne({ email: userEmail });
+      if (dbUser?.role === 'admin') {
+        userIsAdmin = true;
+      }
+    }
+
+    if (!userIsAdmin) {
       return res.status(403).json({ success: false, error: 'Acceso denegado: Se requiere rol de administrador' });
     }
 
-    await dbConnect();
+    // Parse body safely
+    let parsedBody = {};
+    if (typeof req.body === 'string') {
+      try {
+        parsedBody = JSON.parse(req.body);
+      } catch (e) {
+        parsedBody = {};
+      }
+    } else if (req.body && typeof req.body === 'object') {
+      parsedBody = req.body;
+    }
+
+    const isDeleteRequest =
+      req.method === 'DELETE' ||
+      (req.method === 'POST' &&
+        (parsedBody.action === 'delete_exam' ||
+          parsedBody.action === 'clear_all' ||
+          req.query.action === 'delete_exam' ||
+          req.query.action === 'clear_all'));
 
     // =========================================================================
     // BORRADO DE LOGS (INDIVIDUAL O TOTAL)
     // =========================================================================
-    if (req.method === 'DELETE') {
-      const { examId, clearAll } = req.body || req.query;
+    if (isDeleteRequest) {
+      const examId = req.query.examId || parsedBody.examId || req.body?.examId;
+      const clearAll =
+        req.query.clearAll === 'true' ||
+        req.query.clearAll === true ||
+        req.query.clearAll === '1' ||
+        parsedBody.clearAll === true ||
+        parsedBody.clearAll === 'true' ||
+        parsedBody.action === 'clear_all' ||
+        req.query.action === 'clear_all';
 
       if (clearAll) {
         const result = await ExamResult.deleteMany({});
@@ -40,9 +80,15 @@ export default async function handler(req, res) {
       }
 
       if (examId) {
-        const deleted = await ExamResult.findByIdAndDelete(examId);
+        let deleted = null;
+        if (mongoose.Types.ObjectId.isValid(examId)) {
+          deleted = await ExamResult.findByIdAndDelete(examId);
+        }
         if (!deleted) {
-          return res.status(404).json({ success: false, error: 'Registro de examen no encontrado' });
+          deleted = await ExamResult.findOneAndDelete({ _id: examId });
+        }
+        if (!deleted) {
+          return res.status(404).json({ success: false, error: 'Registro de examen no encontrado en la base de datos' });
         }
         return res.status(200).json({
           success: true,
