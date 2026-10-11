@@ -66,7 +66,11 @@ export default async function handler(req, res) {
 
     const filter = {};
     if (modality && modality !== 'all') {
-      filter.modality = modality;
+      if (modality === 'arbitro' || modality === 'referee') {
+        filter.modality = { $in: ['arbitro', 'referee'] };
+      } else {
+        filter.modality = modality;
+      }
     }
 
     // Consultar todos los exámenes más recientes

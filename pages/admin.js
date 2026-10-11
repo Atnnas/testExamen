@@ -171,7 +171,7 @@ export default function AdminPage() {
         `"${d.toLocaleTimeString('es-ES')}"`,
         `"${(ex.userName || '').replace(/"/g, '""')}"`,
         `"${ex.userEmail || ''}"`,
-        `"${ex.modality?.toUpperCase() || ''}"`,
+        `"${ex.modality === 'kata' ? 'Kata' : (ex.modality === 'arbitro' || ex.modality === 'referee') ? 'Árbitro (WKF)' : 'Kumite'}"`,
         `"${ex.correctPercentage ?? 0}%"`,
         `"${ex.incorrectPercentage ?? 0}%"`,
         `"${ex.percentage ?? 0}%"`,
@@ -313,7 +313,11 @@ export default function AdminPage() {
 
   // Filtrado reactivo de exámenes para vista por intento
   const filteredExams = rawExams.filter((ex) => {
-    const matchesModality = logModality === 'all' || ex.modality === logModality;
+    const matchesModality =
+      logModality === 'all' ||
+      (logModality === 'arbitro'
+        ? ex.modality === 'arbitro' || ex.modality === 'referee'
+        : ex.modality === logModality);
     const query = logSearch.toLowerCase().trim();
     if (!query) return matchesModality;
     return (
@@ -672,14 +676,21 @@ export default function AdminPage() {
                   className={`admin-filter-pill ${logModality === 'kata' ? 'active' : ''}`}
                   onClick={() => setLogModality('kata')}
                 >
-                  🥋 Kata
+                  🥋 Kata ({rawExams.filter((e) => e.modality === 'kata').length})
                 </button>
                 <button
                   type="button"
                   className={`admin-filter-pill ${logModality === 'kumite' ? 'active' : ''}`}
                   onClick={() => setLogModality('kumite')}
                 >
-                  🥊 Kumite
+                  🥊 Kumite ({rawExams.filter((e) => e.modality === 'kumite').length})
+                </button>
+                <button
+                  type="button"
+                  className={`admin-filter-pill ${logModality === 'arbitro' ? 'active' : ''}`}
+                  onClick={() => setLogModality('arbitro')}
+                >
+                  ⚖️ Árbitro ({rawExams.filter((e) => e.modality === 'arbitro' || e.modality === 'referee').length})
                 </button>
               </div>
             </div>
@@ -749,8 +760,18 @@ export default function AdminPage() {
                             <td className="user-email-cell">{ex.userEmail}</td>
 
                             <td>
-                              <span className={`badge-modality ${ex.modality}`}>
-                                {ex.modality === 'kata' ? '🥋 Kata' : '🥊 Kumite'}
+                              <span
+                                className={`badge-modality ${
+                                  ex.modality === 'arbitro' || ex.modality === 'referee'
+                                    ? 'arbitro'
+                                    : ex.modality
+                                }`}
+                              >
+                                {ex.modality === 'kata'
+                                  ? '🥋 Kata'
+                                  : ex.modality === 'arbitro' || ex.modality === 'referee'
+                                  ? '⚖️ Árbitro'
+                                  : '🥊 Kumite'}
                               </span>
                             </td>
 
@@ -837,7 +858,13 @@ export default function AdminPage() {
             <div className="admin-modal-header">
               <div>
                 <h2 id="modal-exam-title" className="admin-modal-title">
-                  Desglose de Examen ({selectedExamModal.modality?.toUpperCase()})
+                  Desglose de Examen (
+                  {selectedExamModal.modality === 'kata'
+                    ? '🥋 KATA'
+                    : selectedExamModal.modality === 'arbitro' || selectedExamModal.modality === 'referee'
+                    ? '⚖️ ÁRBITROS WKF'
+                    : '🥊 KUMITE'}
+                  )
                 </h2>
                 <p className="admin-modal-subtitle">
                   Alumno: <strong>{selectedExamModal.userName}</strong> ({selectedExamModal.userEmail})
@@ -892,6 +919,19 @@ export default function AdminPage() {
                     </div>
 
                     <p className="modal-q-text">{ans.questionText || `Pregunta WKF #${ans.questionId}`}</p>
+                    {ans.questionTextEn && (
+                      <p
+                        className="modal-q-text-en"
+                        style={{
+                          fontStyle: 'italic',
+                          color: '#64748b',
+                          fontSize: '0.85rem',
+                          marginTop: '4px',
+                        }}
+                      >
+                        <span className="flag-icon">🇬🇧</span> {ans.questionTextEn}
+                      </p>
+                    )}
 
                     <div className="modal-q-answers-row">
                       <span>

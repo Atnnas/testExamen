@@ -2704,6 +2704,13 @@ body {
   border: 1px solid #fca5a5;
 }
 
+.badge-modality.arbitro,
+.badge-modality.referee {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #93c5fd;
+}
+
 .badge-qid {
   display: inline-block;
   background-color: #f1f5f9;

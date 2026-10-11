@@ -410,7 +410,7 @@ export default function Home() {
                 <div className="role-icon-box">🥋</div>
                 <h2 className="role-title">Examen de Coach</h2>
                 <p className="role-description">
-                  Banco completo de 230 preguntas para Entrenadores WKF en Kata y Kumite, con práctica interactiva y explicaciones oficiales.
+                  Banco completo de 235 preguntas oficiales para Entrenadores WKF en Kata (115) y Kumite (120), con práctica interactiva y explicaciones oficiales.
                 </p>
                 <span className="role-action-label role-action-coach">
                   Ingresar a examen ➔
@@ -468,7 +468,7 @@ export default function Home() {
                 </button>
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  {selectedRole === 'referee' ? (
+                  {selectedRole === 'referee' || modality === 'reglamento' ? (
                     <RefereeMascot state={mascotState} />
                   ) : (
                     <KaratecaMascot state={mascotState} modality={modality} />
