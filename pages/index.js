@@ -36,6 +36,7 @@ export default function Home() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null); // true, false, null
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showTheory, setShowTheory] = useState(false);
   const [score, setScore] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentAttemptId, setCurrentAttemptId] = useState(null);
@@ -133,6 +134,7 @@ export default function Home() {
       setTimeout(() => setTimeoutToast(''), 2500);
       setSelectedAnswer(null);
       setIsSubmitted(false);
+      setShowTheory(false);
       setTimeLeft(30);
       setCurrentQuestionIndex((prev) => prev + 1);
       setMascotState('thinking');
@@ -211,6 +213,7 @@ export default function Home() {
     setCurrentAttemptId(null);
     setSelectedAnswer(null);
     setIsSubmitted(false);
+    setShowTheory(false);
     setTimeLeft(30);
     setTimeoutToast('');
     setGameState('quiz');
@@ -247,6 +250,7 @@ export default function Home() {
         setCurrentQuestionIndex(foundIdx);
         setSelectedAnswer(null);
         setIsSubmitted(false);
+        setShowTheory(false);
         setTimeLeft(30);
         setTimeoutToast('');
         setMascotState('thinking');
@@ -270,6 +274,8 @@ export default function Home() {
 
   const submitAnswer = () => {
     if (selectedAnswer === null || isSubmitted) return;
+
+    setShowTheory(false);
 
     const currentQuestion = activeQuestions[currentQuestionIndex];
     const isCorrect = selectedAnswer === currentQuestion.answer;
@@ -337,6 +343,7 @@ export default function Home() {
     } else {
       setSelectedAnswer(null);
       setIsSubmitted(false);
+      setShowTheory(false);
       setTimeLeft(30);
       setCurrentQuestionIndex(prev => prev + 1);
       setMascotState('thinking');
@@ -995,29 +1002,69 @@ export default function Home() {
 
       {/* Slide up feedback footer inside Quiz mode when answer is submitted */}
       {gameState === 'quiz' && isSubmitted && (
-        <div className={`feedback-footer visible ${isSelectedCorrect ? 'correct' : 'incorrect'}`}>
+        <div className={`feedback-footer visible ${isSelectedCorrect ? 'correct' : 'incorrect'} ${showTheory ? 'theory-open' : 'compact-mode'}`}>
           <div className="feedback-footer-inner">
-            <div className="feedback-header">
-              <div className="feedback-icon">
-                {isSelectedCorrect ? '✓' : '✕'}
+            <div className="feedback-main-bar">
+              <div className="feedback-header">
+                <div className="feedback-icon">
+                  {isSelectedCorrect ? '✓' : '✕'}
+                </div>
+                <h3 className="feedback-title">
+                  {isSelectedCorrect ? '¡Excelente!' : 'Respuesta incorrecta'}
+                </h3>
               </div>
-              <h3 className="feedback-title">
-                {isSelectedCorrect ? '¡Excelente!' : 'Respuesta incorrecta'}
-              </h3>
+
+              <div className="feedback-actions">
+                <button
+                  type="button"
+                  className={`btn-theory-glow ${showTheory ? 'active' : ''}`}
+                  onClick={() => setShowTheory(prev => !prev)}
+                  title="Ver explicación y fundamento reglamentario oficial"
+                >
+                  <span className="theory-sparkle">✨</span>
+                  <span className="theory-btn-text">Fundamento Teórico</span>
+                  <span className="theory-caret">{showTheory ? '▲' : '▼'}</span>
+                </button>
+
+                <button
+                  type="button"
+                  className={`btn-3d ${isSelectedCorrect ? 'btn-green' : 'btn-red'} btn-continue-quiz`}
+                  onClick={nextQuestion}
+                >
+                  Continuar →
+                </button>
+              </div>
             </div>
 
-            <div className="feedback-message">
-              <div className="feedback-message-title">Explicación Oficial:</div>
-              {currentQuestion.justification}
-              <span className="feedback-ref">{currentQuestion.ref}</span>
-            </div>
+            {/* Panel desplegable con el fundamento teórico para no tapar la animación de la mascota */}
+            {showTheory && (
+              <div className="theory-panel-content">
+                <div className="theory-panel-header">
+                  <div className="theory-panel-badge">
+                    📖 Justificación y Fundamento Oficial
+                  </div>
+                  <button
+                    type="button"
+                    className="btn-theory-close"
+                    onClick={() => setShowTheory(false)}
+                    title="Cerrar fundamento"
+                  >
+                    ✕ Cerrar
+                  </button>
+                </div>
 
-            <button
-              className={`btn-3d ${isSelectedCorrect ? 'btn-green' : 'btn-red'}`}
-              onClick={nextQuestion}
-            >
-              Continuar
-            </button>
+                <div className="feedback-message">
+                  <div className="feedback-message-body">
+                    {currentQuestion.justification}
+                  </div>
+                  {currentQuestion.ref && (
+                    <span className="feedback-ref">
+                      <strong>Referencia:</strong> {currentQuestion.ref}
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
