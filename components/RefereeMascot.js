@@ -53,6 +53,21 @@ export default function RefereeMascot({
         className="referee-svg"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <defs>
+          {/* Degradados para el cabello amarillo castaño / rubio miel de la árbitra */}
+          <linearGradient id="ponytailHairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#f5c258" />
+            <stop offset="30%" stopColor="#d99842" />
+            <stop offset="70%" stopColor="#b47833" />
+            <stop offset="100%" stopColor="#8a531f" />
+          </linearGradient>
+          <linearGradient id="ponytailTailGrad" x1="0%" y1="0%" x2="60%" y2="100%">
+            <stop offset="0%" stopColor="#f7cc6a" />
+            <stop offset="35%" stopColor="#cf903c" />
+            <stop offset="75%" stopColor="#ab6d2a" />
+            <stop offset="100%" stopColor="#874e1a" />
+          </linearGradient>
+        </defs>
         {/* ==============================================================
             MODO INDIVIDUAL (IDLE / THINKING)
             ============================================================== */}
@@ -1099,27 +1114,42 @@ export default function RefereeMascot({
 
                 {activeVariant === 'woman_ponytail' && (
                   <>
-                    {/* Cabello de fondo que envuelve la cabeza */}
-                    <circle cx="265" cy="68" r="39" fill="#1e1e24" />
+                    {/* Cabello de fondo que envuelve la cabeza en tono amarillo castaño */}
+                    <circle cx="265" cy="68" r="39" fill="url(#ponytailHairGrad)" stroke="#6b3e14" strokeWidth="2" />
 
                     {/* Cola de caballo larga que cae hacia el lado derecho con gracia */}
                     <g className="referee-hair-ponytail">
-                      {/* Coletero / lazo rojo oficial elegante */}
+                      {/* Coletero / lazo rojo oficial elegante WKF */}
                       <ellipse cx="298" cy="46" rx="6" ry="7" fill="#dc2626" stroke="#991b1b" strokeWidth="1.5" />
-                      {/* Caída larga y estilizada de la cola */}
+                      <circle cx="298" cy="46" r="2.2" fill="#f59e0b" />
+                      {/* Caída larga y estilizada de la cola en amarillo castaño */}
                       <path
                         d="M 298,44 C 316,40 330,56 328,78 C 326,98 316,116 312,126 C 308,126 312,108 315,92 C 318,74 308,58 296,50 Z"
-                        fill="#1e1e24"
-                        stroke="#111115"
+                        fill="url(#ponytailTailGrad)"
+                        stroke="#6b3e14"
                         strokeWidth="2.5"
                         strokeLinejoin="round"
                       />
-                      {/* Reflejo sedoso en la cola */}
+                      {/* Reflejos luminosos sedosos en amarillo castaño */}
                       <path
-                        d="M 306,56 Q 318,72 316,92"
+                        d="M 304,52 Q 320,68 318,88"
                         fill="none"
-                        stroke="#4b5563"
-                        strokeWidth="2"
+                        stroke="#fef08a"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M 308,60 Q 322,78 315,102"
+                        fill="none"
+                        stroke="#fde047"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M 314,92 Q 315,108 312,120"
+                        fill="none"
+                        stroke="#fef08a"
+                        strokeWidth="1.5"
                         strokeLinecap="round"
                       />
                     </g>
@@ -1134,16 +1164,24 @@ export default function RefereeMascot({
                       strokeWidth="3.5"
                     />
 
-                    {/* Cabello frontal: peinado femenino limpio recogido hacia atrás */}
+                    {/* Cabello frontal: peinado femenino limpio recogido hacia atrás en amarillo castaño */}
                     <path
                       d="M 229,66 C 229,40 248,32 268,32 C 288,32 301,42 301,66 C 295,50 282,46 266,48 C 248,50 238,56 229,66 Z"
-                      fill="#1e1e24"
-                      stroke="#111115"
+                      fill="url(#ponytailHairGrad)"
+                      stroke="#6b3e14"
                       strokeWidth="2"
                     />
+                    {/* Brillo frontal sedoso en el flequillo / tupé */}
+                    <path
+                      d="M 242,48 Q 266,42 288,50"
+                      fill="none"
+                      stroke="#fef08a"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
                     {/* Mechoncitos sutiles junto a las orejas */}
-                    <path d="M 229,64 Q 231,76 235,84 L 234,70 Z" fill="#1e1e24" />
-                    <path d="M 301,64 Q 299,76 295,84 L 296,70 Z" fill="#1e1e24" />
+                    <path d="M 229,64 Q 231,76 235,84 L 234,70 Z" fill="#b47833" stroke="#6b3e14" strokeWidth="1.2" />
+                    <path d="M 301,64 Q 299,76 295,84 L 296,70 Z" fill="#b47833" stroke="#6b3e14" strokeWidth="1.2" />
                   </>
                 )}
 
@@ -1236,14 +1274,14 @@ export default function RefereeMascot({
                     <path
                       d={isCurly || isWomanBob ? "M 245,58 Q 251,55 256,59" : "M 244,61 Q 252,57 258,62"}
                       fill="none"
-                      stroke={isCurly || isWomanBob ? "#4a3525" : reviewerStroke}
+                      stroke={isWomanPonytail ? "#78471c" : (isCurly || isWomanBob ? "#4a3525" : reviewerStroke)}
                       strokeWidth={isWoman ? "1.6" : isCurly ? "1.8" : "2.2"}
                       strokeLinecap="round"
                     />
                     <path
                       d={isCurly || isWomanBob ? "M 285,58 Q 279,55 274,59" : "M 288,61 Q 280,57 274,62"}
                       fill="none"
-                      stroke={isCurly || isWomanBob ? "#4a3525" : reviewerStroke}
+                      stroke={isWomanPonytail ? "#78471c" : (isCurly || isWomanBob ? "#4a3525" : reviewerStroke)}
                       strokeWidth={isWoman ? "1.6" : isCurly ? "1.8" : "2.2"}
                       strokeLinecap="round"
                     />
@@ -1277,13 +1315,13 @@ export default function RefereeMascot({
                     {/* Cejas fruncidas de regaño severo */}
                     <path
                       d={isCurly || isWomanBob ? "M 245,59 L 256,64" : "M 243,62 L 256,68"}
-                      stroke={isCurly || isWomanBob ? "#4a3525" : "#0f172a"}
+                      stroke={isWomanPonytail ? "#78471c" : (isCurly || isWomanBob ? "#4a3525" : "#0f172a")}
                       strokeWidth={isWoman ? "1.8" : isCurly ? "1.8" : "2.6"}
                       strokeLinecap="round"
                     />
                     <path
                       d={isCurly || isWomanBob ? "M 285,59 L 274,64" : "M 287,62 L 274,68"}
-                      stroke={isCurly || isWomanBob ? "#4a3525" : "#0f172a"}
+                      stroke={isWomanPonytail ? "#78471c" : (isCurly || isWomanBob ? "#4a3525" : "#0f172a")}
                       strokeWidth={isWoman ? "1.8" : isCurly ? "1.8" : "2.6"}
                       strokeLinecap="round"
                     />
