@@ -1,6 +1,10 @@
+import { requireAdmin } from '../../lib/guard';
 import dbConnect from '../../lib/mongodb';
 
 export default async function handler(req, res) {
+  const auth = await requireAdmin(req, res);
+  if (!auth) return;
+
   try {
     const mongoose = await dbConnect();
     const readyState = mongoose.connection.readyState;
