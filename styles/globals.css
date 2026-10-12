@@ -1317,6 +1317,61 @@ body {
   color: var(--color-black);
 }
 
+.theory-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-theory-lang-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.btn-theory-lang-flag:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-theory-lang-flag:active {
+  transform: translateY(0);
+}
+
+.theory-flag-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.theory-flag-label {
+  font-size: 0.8rem;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .theory-panel-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .btn-theory-lang-flag {
+    padding: 3px 10px;
+    font-size: 0.78rem;
+  }
+}
+
 .feedback-message-body {
   font-size: 1.02rem;
   line-height: 1.5;

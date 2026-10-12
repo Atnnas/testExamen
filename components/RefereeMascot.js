@@ -3,31 +3,43 @@ import React, { useState, useEffect } from 'react';
 export default function RefereeMascot({
   state = 'idle',
   size = 'normal',
-  forcedVariant = null, // 'classic' | 'curly_glasses'
+  forcedVariant = null, // 'classic' | 'curly_glasses' | 'woman_ponytail' | 'woman_bob_morena'
 }) {
   const isDual = state === 'success' || state === 'failure';
   // viewBox ampliado a 360 de ancho para dar mucha más separación entre los dos árbitros
   const viewBox = isDual ? '0 0 360 220' : '0 0 220 220';
 
-  // Selección al azar entre:
-  // 1. 'classic': Sensei con cabellera completa (sin cola)
-  // 2. 'curly_glasses': Sensei de tez morena suave (no tan morena) con pelo colocho y lentes
-  const [randomVariant, setRandomVariant] = useState(() =>
-    Math.random() < 0.5 ? 'classic' : 'curly_glasses'
-  );
+  // Banco de 4 árbitros evaluadores al azar:
+  // 1. 'classic': Sensei piel clara con cabellera completa (sin cola)
+  // 2. 'curly_glasses': Sensei de tez morena suave con pelo colocho parejo y lentes
+  // 3. 'woman_ponytail': Árbitra de tez blanca con cabello largo en cola
+  // 4. 'woman_bob_morena': Árbitra de tez morena con corte de cabello a las mejillas
+  const VARIANTS = ['classic', 'curly_glasses', 'woman_ponytail', 'woman_bob_morena'];
+
+  const getRandomReviewer = () => {
+    const idx = Math.floor(Math.random() * VARIANTS.length);
+    return VARIANTS[idx];
+  };
+
+  const [randomVariant, setRandomVariant] = useState(getRandomReviewer);
 
   useEffect(() => {
     if (state === 'success' || state === 'failure') {
-      setRandomVariant(Math.random() < 0.5 ? 'classic' : 'curly_glasses');
+      setRandomVariant(getRandomReviewer());
     }
   }, [state]);
 
   const activeVariant = forcedVariant || randomVariant;
   const isCurly = activeVariant === 'curly_glasses';
+  const isWomanPonytail = activeVariant === 'woman_ponytail';
+  const isWomanBob = activeVariant === 'woman_bob_morena';
+  const isWoman = isWomanPonytail || isWomanBob;
 
-  // Tez morena pero suave (no tan oscura)
-  const reviewerSkin = isCurly ? '#cda077' : '#fcd5b4';
-  const reviewerStroke = isCurly ? '#332211' : '#333333';
+  // Tonos de piel y delineados adaptados:
+  // - Árbitro/a moreno/a: '#cda077'
+  // - Árbitro/a blanco/a: '#fcd5b4'
+  const reviewerSkin = (isCurly || isWomanBob) ? '#cda077' : '#fcd5b4';
+  const reviewerStroke = (isCurly || isWomanBob) ? '#332211' : '#333333';
 
   return (
     <div
@@ -1005,10 +1017,13 @@ export default function RefereeMascot({
               {/* Cabeza Chibi del Árbitro Evaluador */}
               <g className="ponytail-referee-head">
                 {/* ----------------------------------------------------
-                    CABELLERA COMPLETA SEGÚN VARIANTE
+                    CABELLERA Y PEINADO SEGÚN LA VARIANTE
+                    1. 'classic': Sensei piel clara, cabello natural completo
+                    2. 'curly_glasses': Sensei moreno, cabello rizado parejo y uniforme (sin huecos pelones)
+                    3. 'woman_ponytail': Árbitra de piel clara con cabello largo en cola de caballo
+                    4. 'woman_bob_morena': Árbitra de piel morena con corte bob elegante a las mejillas
                     ---------------------------------------------------- */}
-                {!isCurly ? (
-                  /* VARIANTE 1: Sensei con cabellera completa SIN COLA */
+                {activeVariant === 'classic' && (
                   <>
                     {/* Cabello de fondo que cubre completamente la cabeza */}
                     <path
@@ -1024,31 +1039,33 @@ export default function RefereeMascot({
                       stroke={reviewerStroke}
                       strokeWidth="3.5"
                     />
-                    {/* Cabello frontal completo con peinado limpio (SIN COLA) */}
+                    {/* Cabello frontal completo con peinado limpio */}
                     <path
                       d="M 229,66 C 229,42 247,32 267,32 C 290,32 303,42 303,66 C 296,54 285,50 268,50 C 252,50 240,56 229,66 Z"
                       fill="#1e293b"
                     />
-                    {/* Mechones laterales que enmarcan la cara con naturalidad */}
-                    <path
-                      d="M 229,62 Q 231,76 235,82 L 235,70 Z"
-                      fill="#1e293b"
-                    />
-                    <path
-                      d="M 303,62 Q 301,76 297,82 L 297,70 Z"
-                      fill="#1e293b"
-                    />
+                    {/* Mechones laterales */}
+                    <path d="M 229,62 Q 231,76 235,82 L 235,70 Z" fill="#1e293b" />
+                    <path d="M 303,62 Q 301,76 297,82 L 297,70 Z" fill="#1e293b" />
                   </>
-                ) : (
-                  /* VARIANTE 2: Sensei de tez morena suave con PELO COLOCHO (rizado) y LENTES */
+                )}
+
+                {activeVariant === 'curly_glasses' && (
                   <>
-                    {/* Cabello rizado / colocho abundante cubriendo toda la cabeza */}
-                    <path
-                      d="M 226,72 C 222,60 226,46 235,40 C 232,30 244,24 256,26 C 266,20 280,22 288,30 C 298,26 308,36 306,48 C 314,56 310,70 304,76 C 307,86 300,95 290,95 C 288,80 294,65 282,58 C 270,52 250,54 238,65 C 230,72 228,72 226,72 Z"
-                      fill="#171717"
-                      stroke="#0a0a0a"
-                      strokeWidth="2"
-                    />
+                    {/* Cabello rizado / afro parejo y tupido (sin calvicie ni zonas pelonas) */}
+                    {/* Base densa y uniforme que cubre todo el cráneo */}
+                    <circle cx="265" cy="62" r="41" fill="#141414" stroke="#0a0a0a" strokeWidth="2.5" />
+                    {/* Rizos perimetrales continuos y simétricos */}
+                    <circle cx="230" cy="50" r="14" fill="#141414" />
+                    <circle cx="236" cy="36" r="14" fill="#141414" />
+                    <circle cx="250" cy="26" r="14" fill="#141414" />
+                    <circle cx="265" cy="23" r="15" fill="#141414" />
+                    <circle cx="280" cy="26" r="14" fill="#141414" />
+                    <circle cx="294" cy="36" r="14" fill="#141414" />
+                    <circle cx="300" cy="50" r="14" fill="#141414" />
+                    <circle cx="298" cy="66" r="13" fill="#141414" />
+                    <circle cx="232" cy="66" r="13" fill="#141414" />
+
                     {/* Rostro de tez morena suave */}
                     <circle
                       cx="265"
@@ -1058,42 +1075,116 @@ export default function RefereeMascot({
                       stroke={reviewerStroke}
                       strokeWidth="3.5"
                     />
-                    {/* Rizos / colochos en la frente (elevados para despejar frente y cejas) */}
+
+                    {/* Línea frontal de rizos en la frente: pareja y definida, sin dejar calvicie */}
                     <path
-                      d="M 231,58 Q 237,48 245,53 Q 254,44 265,50 Q 275,44 284,50 Q 292,47 299,57"
-                      fill="#171717"
-                      stroke="#171717"
-                      strokeWidth="2"
-                    />
-                    {/* Espirales y definición de pelo colocho */}
-                    <path
-                      d="M 247,36 Q 255,32 261,38"
-                      fill="none"
-                      stroke="#333333"
-                      strokeWidth="2"
+                      d="M 233,58 Q 241,50 249,54 Q 257,48 265,52 Q 273,48 281,54 Q 289,50 297,58"
+                      fill="#141414"
+                      stroke="#141414"
+                      strokeWidth="4"
                       strokeLinecap="round"
                     />
-                    <path
-                      d="M 271,32 Q 279,30 283,36"
-                      fill="none"
-                      stroke="#333333"
-                      strokeWidth="2"
-                      strokeLinecap="round"
+                    {/* Patillas rizadas ordenadas */}
+                    <circle cx="233" cy="66" r="5" fill="#141414" />
+                    <circle cx="297" cy="66" r="5" fill="#141414" />
+
+                    {/* Espirales y definición interna de textura rizada pareja */}
+                    <path d="M 245,35 Q 252,30 258,36" fill="none" stroke="#383838" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M 270,30 Q 277,27 282,33" fill="none" stroke="#383838" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M 255,44 Q 262,40 268,45" fill="none" stroke="#383838" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M 278,44 Q 285,41 289,47" fill="none" stroke="#383838" strokeWidth="2" strokeLinecap="round" />
+                  </>
+                )}
+
+                {activeVariant === 'woman_ponytail' && (
+                  <>
+                    {/* Cabello de fondo que envuelve la cabeza */}
+                    <circle cx="265" cy="68" r="39" fill="#1e1e24" />
+
+                    {/* Cola de caballo larga que cae hacia el lado derecho con gracia */}
+                    <g className="referee-hair-ponytail">
+                      {/* Coletero / lazo rojo oficial elegante */}
+                      <ellipse cx="298" cy="46" rx="6" ry="7" fill="#dc2626" stroke="#991b1b" strokeWidth="1.5" />
+                      {/* Caída larga y estilizada de la cola */}
+                      <path
+                        d="M 298,44 C 316,40 330,56 328,78 C 326,98 316,116 312,126 C 308,126 312,108 315,92 C 318,74 308,58 296,50 Z"
+                        fill="#1e1e24"
+                        stroke="#111115"
+                        strokeWidth="2.5"
+                        strokeLinejoin="round"
+                      />
+                      {/* Reflejo sedoso en la cola */}
+                      <path
+                        d="M 306,56 Q 318,72 316,92"
+                        fill="none"
+                        stroke="#4b5563"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                    </g>
+
+                    {/* Rostro femenino de tez blanca */}
+                    <circle
+                      cx="265"
+                      cy="72"
+                      r="36"
+                      fill={reviewerSkin}
+                      stroke={reviewerStroke}
+                      strokeWidth="3.5"
                     />
+
+                    {/* Cabello frontal: peinado femenino limpio recogido hacia atrás */}
                     <path
-                      d="M 257,46 Q 265,42 271,48"
-                      fill="none"
-                      stroke="#333333"
+                      d="M 229,66 C 229,40 248,32 268,32 C 288,32 301,42 301,66 C 295,50 282,46 266,48 C 248,50 238,56 229,66 Z"
+                      fill="#1e1e24"
+                      stroke="#111115"
                       strokeWidth="2"
-                      strokeLinecap="round"
                     />
+                    {/* Mechoncitos sutiles junto a las orejas */}
+                    <path d="M 229,64 Q 231,76 235,84 L 234,70 Z" fill="#1e1e24" />
+                    <path d="M 301,64 Q 299,76 295,84 L 296,70 Z" fill="#1e1e24" />
+                  </>
+                )}
+
+                {activeVariant === 'woman_bob_morena' && (
+                  <>
+                    {/* Cabello de fondo que envuelve la cabeza */}
+                    <circle cx="265" cy="68" r="39" fill="#18181b" />
+
+                    {/* Rostro femenino de tez morena suave */}
+                    <circle
+                      cx="265"
+                      cy="72"
+                      r="36"
+                      fill={reviewerSkin}
+                      stroke={reviewerStroke}
+                      strokeWidth="3.5"
+                    />
+
+                    {/* CORTE BOB A LAS MEJILLAS: enmarca el rostro con corte limpio y moderno */}
+                    {/* Cobertura superior y flequillo elegante */}
                     <path
-                      d="M 286,48 Q 294,46 297,54"
-                      fill="none"
-                      stroke="#333333"
+                      d="M 227,66 C 226,38 245,30 265,30 C 285,30 303,38 303,66 C 296,50 282,46 265,46 C 248,46 234,50 227,66 Z"
+                      fill="#18181b"
+                      stroke="#0a0a0a"
                       strokeWidth="2"
-                      strokeLinecap="round"
                     />
+                    {/* Lateral izquierdo bajando hasta las mejillas y curvando suave hacia adentro */}
+                    <path
+                      d="M 228,60 C 226,72 228,84 233,90 C 238,92 242,88 240,82 C 236,76 235,66 235,60 Z"
+                      fill="#18181b"
+                      stroke="#0a0a0a"
+                      strokeWidth="2"
+                    />
+                    {/* Lateral derecho bajando hasta las mejillas y curvando suave hacia adentro */}
+                    <path
+                      d="M 302,60 C 304,72 302,84 297,90 C 292,92 288,88 290,82 C 294,76 295,66 295,60 Z"
+                      fill="#18181b"
+                      stroke="#0a0a0a"
+                      strokeWidth="2"
+                    />
+                    {/* Reflejos de luz sedosa en el corte bob */}
+                    <path d="M 245,38 Q 265,34 285,38" fill="none" stroke="#3f3f46" strokeWidth="2" strokeLinecap="round" />
                   </>
                 )}
 
@@ -1113,7 +1204,7 @@ export default function RefereeMascot({
                   strokeWidth="1.5"
                 />
 
-                {/* Expresión facial del Árbitro Evaluador */}
+                {/* Expresión facial del Árbitro/a Evaluador/a */}
                 {state === 'success' ? (
                   <>
                     {/* Ojos felices sonrientes (^ ^) */}
@@ -1131,21 +1222,31 @@ export default function RefereeMascot({
                       strokeWidth="3.5"
                       strokeLinecap="round"
                     />
-                    {/* Cejas amables aprobando (más finas y estéticas en el árbitro moreno) */}
+
+                    {/* Pestañitas delicadas si es árbitra mujer */}
+                    {isWoman && (
+                      <>
+                        <path d="M 245,71 L 241,68" stroke={reviewerStroke} strokeWidth="1.8" strokeLinecap="round" />
+                        <path d="M 287,71 L 291,68" stroke={reviewerStroke} strokeWidth="1.8" strokeLinecap="round" />
+                      </>
+                    )}
+
+                    {/* Cejas amables aprobando */}
                     <path
-                      d={isCurly ? "M 245,58 Q 251,55 256,59" : "M 244,61 Q 252,57 258,62"}
+                      d={isCurly || isWomanBob ? "M 245,58 Q 251,55 256,59" : "M 244,61 Q 252,57 258,62"}
                       fill="none"
-                      stroke={isCurly ? "#4a3525" : reviewerStroke}
-                      strokeWidth={isCurly ? "1.8" : "2.2"}
+                      stroke={isCurly || isWomanBob ? "#4a3525" : reviewerStroke}
+                      strokeWidth={isWoman ? "1.6" : isCurly ? "1.8" : "2.2"}
                       strokeLinecap="round"
                     />
                     <path
-                      d={isCurly ? "M 285,58 Q 279,55 274,59" : "M 288,61 Q 280,57 274,62"}
+                      d={isCurly || isWomanBob ? "M 285,58 Q 279,55 274,59" : "M 288,61 Q 280,57 274,62"}
                       fill="none"
-                      stroke={isCurly ? "#4a3525" : reviewerStroke}
-                      strokeWidth={isCurly ? "1.8" : "2.2"}
+                      stroke={isCurly || isWomanBob ? "#4a3525" : reviewerStroke}
+                      strokeWidth={isWoman ? "1.6" : isCurly ? "1.8" : "2.2"}
                       strokeLinecap="round"
                     />
+
                     {/* Sonrisa cálida de felicitación */}
                     <path
                       d="M 257,84 Q 265,94 273,84 Z"
@@ -1153,42 +1254,52 @@ export default function RefereeMascot({
                       stroke={reviewerStroke}
                       strokeWidth="2"
                     />
+
                     {/* Sonrojo */}
                     <ellipse
                       cx="243"
                       cy="82"
                       rx="5"
                       ry="3.5"
-                      fill={isCurly ? 'rgba(168,85,24,0.35)' : 'rgba(244,164,96,0.5)'}
+                      fill={isCurly || isWomanBob ? 'rgba(168,85,24,0.35)' : 'rgba(244,164,96,0.5)'}
                     />
                     <ellipse
                       cx="287"
                       cy="82"
                       rx="5"
                       ry="3.5"
-                      fill={isCurly ? 'rgba(168,85,24,0.35)' : 'rgba(244,164,96,0.5)'}
+                      fill={isCurly || isWomanBob ? 'rgba(168,85,24,0.35)' : 'rgba(244,164,96,0.5)'}
                     />
                   </>
                 ) : (
                   <>
-                    {/* Cejas fruncidas de regaño severo (delicadas y no prominentes para el árbitro moreno) */}
+                    {/* Cejas fruncidas de regaño severo */}
                     <path
-                      d={isCurly ? "M 245,59 L 256,64" : "M 243,62 L 256,68"}
-                      stroke={isCurly ? "#4a3525" : "#0f172a"}
-                      strokeWidth={isCurly ? "1.8" : "2.6"}
+                      d={isCurly || isWomanBob ? "M 245,59 L 256,64" : "M 243,62 L 256,68"}
+                      stroke={isCurly || isWomanBob ? "#4a3525" : "#0f172a"}
+                      strokeWidth={isWoman ? "1.8" : isCurly ? "1.8" : "2.6"}
                       strokeLinecap="round"
                     />
                     <path
-                      d={isCurly ? "M 285,59 L 274,64" : "M 287,62 L 274,68"}
-                      stroke={isCurly ? "#4a3525" : "#0f172a"}
-                      strokeWidth={isCurly ? "1.8" : "2.6"}
+                      d={isCurly || isWomanBob ? "M 285,59 L 274,64" : "M 287,62 L 274,68"}
+                      stroke={isCurly || isWomanBob ? "#4a3525" : "#0f172a"}
+                      strokeWidth={isWoman ? "1.8" : isCurly ? "1.8" : "2.6"}
                       strokeLinecap="round"
                     />
+
                     {/* Ojos mirando severos */}
                     <circle cx="251" cy="74" r="4.2" fill="#0f172a" />
                     <circle cx="279" cy="74" r="4.2" fill="#0f172a" />
                     <circle cx="249.5" cy="72.5" r="1.3" fill="#ffffff" />
                     <circle cx="277.5" cy="72.5" r="1.3" fill="#ffffff" />
+
+                    {/* Pestañitas en la mirada de regaño si es árbitra mujer */}
+                    {isWoman && (
+                      <>
+                        <path d="M 247,71 L 243,68" stroke="#0f172a" strokeWidth="1.8" strokeLinecap="round" />
+                        <path d="M 283,71 L 287,68" stroke="#0f172a" strokeWidth="1.8" strokeLinecap="round" />
+                      </>
+                    )}
 
                     {/* Boca abierta regañando como señora enojada */}
                     <path

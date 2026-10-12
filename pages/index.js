@@ -37,6 +37,7 @@ export default function Home() {
   const [selectedAnswer, setSelectedAnswer] = useState(null); // true, false, null
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showTheory, setShowTheory] = useState(false);
+  const [theoryLang, setTheoryLang] = useState('en'); // 'en' (default inglés) o 'es' (traducción al español)
   const [score, setScore] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentAttemptId, setCurrentAttemptId] = useState(null);
@@ -135,6 +136,7 @@ export default function Home() {
       setSelectedAnswer(null);
       setIsSubmitted(false);
       setShowTheory(false);
+      setTheoryLang('en');
       setTimeLeft(30);
       setCurrentQuestionIndex((prev) => prev + 1);
       setMascotState('thinking');
@@ -214,6 +216,7 @@ export default function Home() {
     setSelectedAnswer(null);
     setIsSubmitted(false);
     setShowTheory(false);
+    setTheoryLang('en');
     setTimeLeft(30);
     setTimeoutToast('');
     setGameState('quiz');
@@ -251,6 +254,7 @@ export default function Home() {
         setSelectedAnswer(null);
         setIsSubmitted(false);
         setShowTheory(false);
+        setTheoryLang('en');
         setTimeLeft(30);
         setTimeoutToast('');
         setMascotState('thinking');
@@ -276,6 +280,7 @@ export default function Home() {
     if (selectedAnswer === null || isSubmitted) return;
 
     setShowTheory(false);
+    setTheoryLang('en');
 
     const currentQuestion = activeQuestions[currentQuestionIndex];
     const isCorrect = selectedAnswer === currentQuestion.answer;
@@ -344,6 +349,7 @@ export default function Home() {
       setSelectedAnswer(null);
       setIsSubmitted(false);
       setShowTheory(false);
+      setTheoryLang('en');
       setTimeLeft(30);
       setCurrentQuestionIndex(prev => prev + 1);
       setMascotState('thinking');
@@ -1053,19 +1059,43 @@ export default function Home() {
                   <div className="theory-panel-badge">
                     📖 Justificación y Fundamento Oficial
                   </div>
-                  <button
-                    type="button"
-                    className="btn-theory-close"
-                    onClick={() => setShowTheory(false)}
-                    title="Cerrar fundamento"
-                  >
-                    ✕ Cerrar
-                  </button>
+
+                  <div className="theory-header-actions">
+                    <button
+                      type="button"
+                      className="btn-theory-lang-flag"
+                      onClick={() => setTheoryLang(prev => (prev === 'en' ? 'es' : 'en'))}
+                      title={theoryLang === 'en' ? 'Traducir fundamento al español' : 'Ver original en inglés'}
+                    >
+                      {theoryLang === 'en' ? (
+                        <>
+                          <span className="theory-flag-icon">🇪🇸</span>
+                          <span className="theory-flag-label">Traducir a Español</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="theory-flag-icon">🇬🇧</span>
+                          <span className="theory-flag-label">Original en Inglés</span>
+                        </>
+                      )}
+                    </button>
+
+                    <button
+                      type="button"
+                      className="btn-theory-close"
+                      onClick={() => setShowTheory(false)}
+                      title="Cerrar fundamento"
+                    >
+                      ✕ Cerrar
+                    </button>
+                  </div>
                 </div>
 
                 <div className="feedback-message">
                   <div className="feedback-message-body">
-                    {currentQuestion.justification}
+                    {theoryLang === 'en'
+                      ? (currentQuestion.justification_en || currentQuestion.justification)
+                      : (currentQuestion.justification_es || currentQuestion.justification)}
                   </div>
                   {currentQuestion.ref && (
                     <span className="feedback-ref">
