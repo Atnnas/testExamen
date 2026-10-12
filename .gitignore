@@ -11,3 +11,4 @@ scratch_*.js
 *.txt
 client_secret*.json
 credentials*.json
+scratch/

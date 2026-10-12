@@ -84,6 +84,9 @@ export const authOptions = {
           if (token.email.toLowerCase() === ADMIN_EMAIL) {
             token.role = 'admin';
             token.status = 'aprobado';
+          } else {
+            token.role = 'visitante';
+            token.status = 'pendiente';
           }
         }
       }
@@ -93,8 +96,9 @@ export const authOptions = {
     async session({ session, token }) {
       if (session?.user) {
         session.user.id = token.id;
-        session.user.role = token.role || (session.user.email?.toLowerCase() === ADMIN_EMAIL ? 'admin' : 'visitante');
-        session.user.status = token.status || (session.user.email?.toLowerCase() === ADMIN_EMAIL ? 'aprobado' : 'pendiente');
+        const isSuperAdmin = session.user.email?.toLowerCase() === ADMIN_EMAIL;
+        session.user.role = isSuperAdmin ? 'admin' : (token.role || 'visitante');
+        session.user.status = isSuperAdmin ? 'aprobado' : (token.status || 'pendiente');
       }
       return session;
     },

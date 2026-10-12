@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import { kataQuestions, kumiteQuestions, refereeQuestions } from '../data/questions';
 import KaratecaMascot from '../components/KaratecaMascot';
 import RefereeMascot from '../components/RefereeMascot';
 import ProgressBar from '../components/ProgressBar';
@@ -21,11 +20,22 @@ export default function Home() {
   const [selectedRole, setSelectedRole] = useState(null); // null (selección de examen), 'coach', 'referee'
   const [gameState, setGameState] = useState('welcome'); // welcome, quiz, results
 
+  // Control de Acceso por Lista Blanca Estricta
   const isSuperAdmin = session?.user?.email?.toLowerCase() === 'david.artavia.rodriguez@gmail.com';
   const isAdmin = isSuperAdmin || session?.user?.role === 'admin';
   const isApproved = isAdmin || session?.user?.status === 'aprobado';
-  const isPending = session && !isAdmin && session?.user?.status === 'pendiente';
   const isBlocked = session && !isAdmin && session?.user?.status === 'bloqueado';
+  const isPending = session && !isAdmin && !isApproved && !isBlocked;
+
+  // Estado del Banco de Preguntas cargado de forma segura desde el backend
+  const [questionsData, setQuestionsData] = useState({
+    kata: [],
+    kumite: [],
+    referee: [],
+  });
+  const [loadingQuestions, setLoadingQuestions] = useState(false);
+  const [questionsLoadError, setQuestionsLoadError] = useState('');
+
   const [modality, setModality] = useState('kata'); // kata or kumite
   const [questionLimit, setQuestionLimit] = useState(10);
   const [orderMode, setOrderMode] = useState('random'); // 'random' (aleatorio) or 'asc' (orden ascendente)
@@ -47,6 +57,46 @@ export default function Home() {
   const [timeLeft, setTimeLeft] = useState(30);
   const [timeoutToast, setTimeoutToast] = useState('');
 
+  // Carga segura del banco oficial desde la API protegida cuando el usuario está aprobado
+  useEffect(() => {
+    let isMounted = true;
+    if (isApproved && (!questionsData.referee.length || !questionsData.kata.length)) {
+      setLoadingQuestions(true);
+      setQuestionsLoadError('');
+      fetch('/api/exams/questions')
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(res.status === 403 ? 'Acceso denegado por el servidor: cuenta no aprobada' : 'Error al cargar preguntas');
+          }
+          return res.json();
+        })
+        .then((data) => {
+          if (isMounted) {
+            if (data.success && data.questions) {
+              setQuestionsData({
+                kata: data.questions.kata || [],
+                kumite: data.questions.kumite || [],
+                referee: data.questions.referee || [],
+              });
+            } else {
+              setQuestionsLoadError(data.error || 'No fue posible obtener el banco de preguntas');
+            }
+            setLoadingQuestions(false);
+          }
+        })
+        .catch((err) => {
+          if (isMounted) {
+            console.error('Error al consultar /api/exams/questions:', err);
+            setQuestionsLoadError('Error de conexión o permisos al cargar preguntas del servidor.');
+            setLoadingQuestions(false);
+          }
+        });
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [isApproved]);
+
   // Referencias mutables para evitar cierres obsoletos (stale closures) dentro del temporizador
   const selectedAnswerRef = useRef(selectedAnswer);
   selectedAnswerRef.current = selectedAnswer;
@@ -67,8 +117,8 @@ export default function Home() {
   timerEnabledRef.current = timerEnabled;
 
   const currentPool = selectedRole === 'referee'
-    ? refereeQuestions
-    : (modality === 'kata' ? kataQuestions : modality === 'kumite' ? kumiteQuestions : refereeQuestions);
+    ? (questionsData.referee || [])
+    : (modality === 'kata' ? (questionsData.kata || []) : (questionsData.kumite || []));
 
   // Manejo de expiración de tiempo (30 segundos por pregunta)
   const handleTimeExpired = () => {
@@ -181,9 +231,11 @@ export default function Home() {
   };
 
   const startQuiz = (limit = questionLimit, targetId = null, selectedOrder = orderMode) => {
-    const pool = selectedRole === 'referee'
-      ? refereeQuestions
-      : (modality === 'kata' ? kataQuestions : modality === 'kumite' ? kumiteQuestions : refereeQuestions);
+    const pool = currentPool;
+    if (!pool || pool.length === 0) {
+      alert('El banco oficial de preguntas aún se está sincronizando de forma segura. Por favor espera unos segundos.');
+      return;
+    }
     let orderedPool = [...pool];
 
     const effectiveOrder = targetId !== null ? 'asc' : selectedOrder;
@@ -225,9 +277,11 @@ export default function Home() {
   };
 
   const handleJumpToId = (idToFind) => {
-    const pool = selectedRole === 'referee'
-      ? refereeQuestions
-      : (modality === 'kata' ? kataQuestions : modality === 'kumite' ? kumiteQuestions : refereeQuestions);
+    const pool = currentPool;
+    if (!pool || pool.length === 0) {
+      setJumpError('El banco de preguntas aún se está sincronizando de forma segura.');
+      return false;
+    }
     const num = parseInt(idToFind, 10);
 
     if (isNaN(num) || num <= 0) {
@@ -495,8 +549,27 @@ export default function Home() {
               </button>
             </div>
           </div>
-        ) : isPending ? (
-          /* ================= PANTALLA: CUENTA PENDIENTE DE APROBACIÓN ================= */
+        ) : isBlocked ? (
+          /* ================= PANTALLA: CUENTA SUSPENDIDA ================= */
+          <div className="pending-card">
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <KaratecaMascot state="failure" modality="kumite" />
+            </div>
+            <span className="pending-badge" style={{ backgroundColor: '#fee2e2', color: '#b91c1c', borderColor: '#fca5a5' }}>
+              ✕ Acceso Suspendido
+            </span>
+            <h1 className="pending-title">Acceso Temporalmente Bloqueado</h1>
+            <p className="pending-subtitle">
+              El administrador ha pausado el acceso para la cuenta <strong>{session?.user?.email}</strong>.
+            </p>
+            <div style={{ marginTop: '20px' }}>
+              <button type="button" className="btn-3d btn-white" onClick={() => signOut()}>
+                Cerrar sesión
+              </button>
+            </div>
+          </div>
+        ) : !isApproved ? (
+          /* ================= PANTALLA: CUENTA PENDIENTE DE APROBACIÓN (FAIL-CLOSED) ================= */
           <div className="pending-card">
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <KaratecaMascot state="thinking" modality="kata" />
@@ -543,24 +616,38 @@ export default function Home() {
               </button>
             </div>
           </div>
-        ) : isBlocked ? (
-          /* ================= PANTALLA: CUENTA SUSPENDIDA ================= */
-          <div className="pending-card">
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+        ) : loadingQuestions && (!questionsData.referee.length || !questionsData.kata.length) ? (
+          /* ================= SINCRONIZACIÓN SEGURA DEL BANCO ================= */
+          <div className="portal-card" style={{ textAlign: 'center', padding: '48px 24px', maxWidth: '520px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+              <KaratecaMascot state="thinking" modality="kata" />
+            </div>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1e293b', marginBottom: '10px' }}>
+              Sincronizando Banco Oficial WKF 2026...
+            </h2>
+            <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6' }}>
+              Validando credenciales federativas y descargando el banco oficial autorizado de forma cifrada y segura.
+            </p>
+          </div>
+        ) : questionsLoadError ? (
+          /* ================= ERROR AL CARGAR BANCO DE PREGUNTAS ================= */
+          <div className="portal-card" style={{ textAlign: 'center', padding: '48px 24px', maxWidth: '520px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
               <KaratecaMascot state="failure" modality="kumite" />
             </div>
-            <span className="pending-badge" style={{ backgroundColor: '#fee2e2', color: '#b91c1c', borderColor: '#fca5a5' }}>
-              ✕ Acceso Suspendido
-            </span>
-            <h1 className="pending-title">Acceso Temporalmente Bloqueado</h1>
-            <p className="pending-subtitle">
-              El administrador ha pausado el acceso para la cuenta <strong>{session?.user?.email}</strong>.
+            <h2 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#dc2626', marginBottom: '10px' }}>
+              {questionsLoadError}
+            </h2>
+            <p style={{ color: '#64748b', fontSize: '0.95rem', marginBottom: '20px' }}>
+              No se pudo sincronizar el banco oficial con el servidor. Verifica tu conexión o intenta nuevamente.
             </p>
-            <div style={{ marginTop: '20px' }}>
-              <button type="button" className="btn-3d btn-white" onClick={() => signOut()}>
-                Cerrar sesión
-              </button>
-            </div>
+            <button
+              type="button"
+              className="btn-3d btn-primary"
+              onClick={() => window.location.reload()}
+            >
+              🔄 Reintentar
+            </button>
           </div>
         ) : selectedRole === null ? (
           /* ================= PORTAL PRINCIPAL: SELECCIÓN DE EXAMEN ================= */
