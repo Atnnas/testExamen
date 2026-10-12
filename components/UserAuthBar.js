@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import PWAInstallButton from './PWAInstallButton';
 
 export default function UserAuthBar() {
   const { data: session, status } = useSession();
@@ -24,8 +23,6 @@ export default function UserAuthBar() {
   if (session?.user) {
     return (
       <div className="auth-bar-container">
-        <PWAInstallButton />
-
         {isAdmin && (
           <Link href="/admin" className="auth-admin-badge-btn" title="Ir al panel de administración">
             🛡️ Panel Admin

@@ -6,6 +6,7 @@ import KaratecaMascot from '../components/KaratecaMascot';
 import RefereeMascot from '../components/RefereeMascot';
 import ProgressBar from '../components/ProgressBar';
 import UserAuthBar from '../components/UserAuthBar';
+import PWAInstallButton from '../components/PWAInstallButton';
 
 // =========================================================================
 // MODO MANTENIMIENTO / OFFLINE
@@ -583,6 +584,11 @@ export default function Home() {
         <div className="auth-bar-wrapper">
           <UserAuthBar />
         </div>
+      )}
+
+      {/* Botón de Instalación PWA (Centrado destacado para móviles y escritorio) */}
+      {!MAINTENANCE_MODE && gameState !== 'quiz' && (
+        <PWAInstallButton />
       )}
 
       {/* Header bar only if in Quiz Mode and not in maintenance mode */}

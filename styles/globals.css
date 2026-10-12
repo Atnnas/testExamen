@@ -1641,6 +1641,30 @@ body {
     width: 100%;
     justify-content: flex-start;
   }
+
+  .auth-bar-wrapper {
+    justify-content: center;
+    padding: 8px 12px 0 12px;
+  }
+
+  .auth-bar-container {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pwa-install-wrapper {
+    margin: 8px auto 10px auto;
+    padding: 0 12px;
+    justify-content: center;
+  }
+
+  .pwa-install-badge-btn {
+    width: 100%;
+    max-width: 310px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
 }
 
 /* Teléfonos Inteligentes (<= 480px) */
@@ -4102,32 +4126,66 @@ body {
 }
 
 /* =========================================================================
-   PWA BOTÓN Y MODAL DE INSTALACIÓN
+   PWA BOTÓN Y MODAL DE INSTALACIÓN (CENTRADO ELEGANTE)
    ========================================================================= */
+.pwa-install-wrapper {
+  width: 100%;
+  max-width: 650px;
+  margin: 12px auto 8px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
 .pwa-install-badge-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #1d4ed8 100%);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 5px 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  padding: 10px 24px;
   border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.94rem;
+  font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  animation: pwa-badge-pulse 3s infinite ease-in-out;
+}
+
+@keyframes pwa-badge-pulse {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
 }
 
 .pwa-install-badge-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.55);
   background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
 }
 
+.pwa-install-badge-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+}
+
 .pwa-install-icon {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
+  line-height: 1;
 }
 
 .pwa-ios-modal-overlay {
