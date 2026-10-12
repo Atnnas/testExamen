@@ -401,6 +401,7 @@ export default function Home() {
         </title>
         <meta name="description" content="Practica con el banco de preguntas oficial de la WKF 2026. ¡Aprende con animaciones y justificaciones en español!" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
 
       {/* Barra de perfil y autenticación con Google (solo cuando está autenticado) */}

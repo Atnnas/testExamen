@@ -13,6 +13,7 @@ export default function Document() {
         />
         <meta name="theme-color" content="#1cb0f6" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
       <body>
         <Main />
