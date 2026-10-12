@@ -5,7 +5,10 @@ const STATIC_PRECACHE = [
   '/',
   '/favicon.ico',
   '/favicon.svg',
-  '/manifest.json'
+  '/manifest.json',
+  '/icon-192.png',
+  '/icon-512.png',
+  '/app-icon.png'
 ];
 
 // Instalación: precachear App Shell y tomar control inmediato

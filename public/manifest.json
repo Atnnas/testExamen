@@ -1,8 +1,10 @@
 {
+  "id": "/",
   "name": "Examen Oficial WKF 2026 - Árbitros y Coaches",
   "short_name": "Examen WKF",
   "description": "Simulador oficial y banco de preguntas del Reglamento WKF 2026 para Árbitros, Jueces y Coaches de Karate.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#1e3a8a",
@@ -10,21 +12,29 @@
   "categories": ["education", "sports"],
   "icons": [
     {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "/app-icon.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     },
     {
       "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/favicon.ico",
-      "sizes": "48x48 32x32 16x16",
-      "type": "image/x-icon"
+      "purpose": "any"
     }
-  ]
+  ],
+  "prefer_related_applications": false
 }

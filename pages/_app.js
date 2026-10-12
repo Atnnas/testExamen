@@ -6,17 +6,24 @@ import { SessionProvider } from 'next-auth/react';
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   useEffect(() => {
     // Registro del Service Worker para soporte PWA y modo Offline
-    if (typeof window !== 'undefined' && 'serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-      window.addEventListener('load', () => {
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+      const registerSW = () => {
         navigator.serviceWorker
           .register('/sw.js')
           .then((reg) => {
             console.log('✓ Service Worker PWA registrado con éxito:', reg.scope);
           })
           .catch((err) => {
-            console.warn('Registro de Service Worker omitido:', err);
+            console.warn('Registro de Service Worker:', err);
           });
-      });
+      };
+
+      if (document.readyState === 'complete') {
+        registerSW();
+      } else {
+        window.addEventListener('load', registerSW);
+        return () => window.removeEventListener('load', registerSW);
+      }
     }
   }, []);
 
