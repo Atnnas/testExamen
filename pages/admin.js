@@ -373,10 +373,16 @@ export default function AdminPage() {
 
           <div className="admin-user-pill">
             {session.user.image && (
-              <img src={session.user.image} alt={session.user.name} className="admin-avatar" />
+              <img
+                src={session.user.image}
+                alt={session.user.name || 'Avatar del administrador'}
+                width={36}
+                height={36}
+                className="admin-avatar"
+              />
             )}
             <span>{session.user.email}</span>
-            <button type="button" onClick={() => signOut()} className="admin-logout-btn">
+            <button type="button" onClick={() => signOut()} className="admin-logout-btn" aria-label="Cerrar sesión">
               Salir
             </button>
           </div>
@@ -406,7 +412,7 @@ export default function AdminPage() {
 
       <main className="admin-content">
         {/* Toast Notificación */}
-        {toastMessage && <div className="admin-toast">{toastMessage}</div>}
+        {toastMessage && <div className="admin-toast" role="status" aria-live="polite">{toastMessage}</div>}
 
         {/* ========================================================================= */}
         {/* TAB 1: GESTIÓN DE USUARIOS                                               */}
@@ -440,8 +446,11 @@ export default function AdminPage() {
             <div className="admin-toolbar">
               <div className="admin-search-box">
                 <input
-                  type="text"
-                  placeholder="Buscar por nombre o correo..."
+                  type="search"
+                  placeholder="Buscar por nombre o correo…"
+                  aria-label="Buscar usuarios por nombre o correo"
+                  autoComplete="off"
+                  spellCheck={false}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="admin-search-input"
@@ -512,9 +521,16 @@ export default function AdminPage() {
                             <td>
                               <div className="user-profile-cell">
                                 {u.image ? (
-                                  <img src={u.image} alt={u.name} className="user-table-avatar" />
+                                  <img
+                                    src={u.image}
+                                    alt={u.name || 'Avatar'}
+                                    width={36}
+                                    height={36}
+                                    loading="lazy"
+                                    className="user-table-avatar"
+                                  />
                                 ) : (
-                                  <div className="user-table-avatar-placeholder">
+                                  <div className="user-table-avatar-placeholder" aria-hidden="true">
                                     {(u.name || 'U').charAt(0).toUpperCase()}
                                   </div>
                                 )}
@@ -651,8 +667,11 @@ export default function AdminPage() {
             <div className="admin-toolbar admin-toolbar-split">
               <div className="admin-search-box">
                 <input
-                  type="text"
-                  placeholder="Buscar por alumno o correo..."
+                  type="search"
+                  placeholder="Buscar por alumno o correo…"
+                  aria-label="Buscar exámenes por alumno o correo"
+                  autoComplete="off"
+                  spellCheck={false}
                   value={logSearch}
                   onChange={(e) => setLogSearch(e.target.value)}
                   className="admin-search-input"
@@ -774,9 +793,16 @@ export default function AdminPage() {
                             <td>
                               <div className="user-profile-cell">
                                 {ex.userImage ? (
-                                  <img src={ex.userImage} alt={ex.userName} className="user-table-avatar" />
+                                  <img
+                                    src={ex.userImage}
+                                    alt={ex.userName || 'Avatar'}
+                                    width={36}
+                                    height={36}
+                                    loading="lazy"
+                                    className="user-table-avatar"
+                                  />
                                 ) : (
-                                  <div className="user-table-avatar-placeholder">
+                                  <div className="user-table-avatar-placeholder" aria-hidden="true">
                                     {(ex.userName || 'U').charAt(0).toUpperCase()}
                                   </div>
                                 )}

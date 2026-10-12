@@ -36,7 +36,14 @@ export default function ProgressBar({
         </button>
       )}
       
-      <div className="progress-bar-wrapper">
+      <div
+        className="progress-bar-wrapper"
+        role="progressbar"
+        aria-valuenow={current}
+        aria-valuemin={1}
+        aria-valuemax={total}
+        aria-label={`Progreso del examen: pregunta ${current} de ${total}`}
+      >
         <div 
           className="progress-bar-fill" 
           style={{ width: `${percentage}%` }}
@@ -53,8 +60,9 @@ export default function ProgressBar({
         <div
           className={`quiz-timer-pill ${timeLeft <= 5 ? 'urgent' : timeLeft <= 10 ? 'warning' : ''}`}
           title="Tiempo restante para responder esta pregunta"
+          aria-label={`Tiempo restante: ${timeLeft} segundos`}
         >
-          <span className="quiz-timer-icon">⏱️</span>
+          <span className="quiz-timer-icon" aria-hidden="true">⏱️</span>
           <span className="quiz-timer-seconds">
             {isSubmitted ? 'Pausado' : `${timeLeft}s`}
           </span>
@@ -63,9 +71,13 @@ export default function ProgressBar({
 
       {onJumpToId && (
         <form onSubmit={handleJumpSubmit} className="quiz-header-jump-form">
-          <span className="quiz-header-jump-label">Ir a #</span>
+          <span className="quiz-header-jump-label" aria-hidden="true">Ir a #</span>
           <input
             type="number"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            autoComplete="off"
+            spellCheck={false}
             min="1"
             max={maxId}
             value={jumpInput}
@@ -74,10 +86,11 @@ export default function ProgressBar({
               setHasError(false);
             }}
             placeholder="ID"
+            aria-label={`Ir a pregunta por ID del 1 al ${maxId || ''}`}
             className={`quiz-header-jump-input ${hasError ? 'error' : ''}`}
             title={`Ingresa el ID de la pregunta (1 - ${maxId || ''})`}
           />
-          <button type="submit" className="quiz-header-jump-btn" title="Ir a la pregunta">
+          <button type="submit" className="quiz-header-jump-btn" aria-label="Ir a la pregunta" title="Ir a la pregunta">
             ➔
           </button>
         </form>

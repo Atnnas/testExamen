@@ -13,7 +13,7 @@ export default function UserAuthBar() {
   if (!mounted || status === 'loading') {
     return (
       <div className="auth-bar-container">
-        <span className="auth-loading-text">Cargando perfil...</span>
+        <span className="auth-loading-text">Cargando perfil…</span>
       </div>
     );
   }
@@ -33,11 +33,13 @@ export default function UserAuthBar() {
           {session.user.image ? (
             <img
               src={session.user.image}
-              alt={session.user.name || 'Usuario'}
+              alt={session.user.name || 'Avatar del usuario'}
+              width={34}
+              height={34}
               className="auth-user-avatar"
             />
           ) : (
-            <div className="auth-user-avatar-placeholder">
+            <div className="auth-user-avatar-placeholder" aria-hidden="true">
               {(session.user.name || 'U').charAt(0).toUpperCase()}
             </div>
           )}
@@ -56,6 +58,7 @@ export default function UserAuthBar() {
           type="button"
           onClick={() => signOut()}
           className="auth-signout-btn"
+          aria-label="Cerrar sesión"
           title="Cerrar sesión"
         >
           Salir
@@ -71,7 +74,7 @@ export default function UserAuthBar() {
         onClick={() => signIn('google')}
         className="google-signin-btn"
       >
-        <svg className="google-icon" viewBox="0 0 24 24" width="20" height="20">
+        <svg className="google-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
           <path
             fill="#4285F4"
             d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"

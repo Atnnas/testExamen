@@ -1350,7 +1350,7 @@ body {
   border-radius: 24px;
   padding: 40px 25px;
   width: 100%;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
   animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -1922,10 +1922,12 @@ body {
   align-items: center;
   text-align: center;
   cursor: pointer;
-  box-shadow: var(--shadow-thick) var(--color-border);
-  transition: transform 0.15s, box-shadow 0.15s, border-color 0.2s, background-color 0.2s;
+  box-shadow: var(--shadow-thick) var(--color-border), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.2s ease, background-color 0.2s ease;
   position: relative;
   font-family: inherit;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .role-card-btn:active {
@@ -3927,7 +3929,23 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Reduced Motion Support (Web Guidelines & Accessibility) */
+/* Sleek custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+/* Reduced Motion Support (Web Interface Guidelines compliance) */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
