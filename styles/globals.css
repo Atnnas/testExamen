@@ -43,6 +43,28 @@
   padding: 0;
 }
 
+/* Focus States (Web Interface Guidelines compliance) */
+:focus-visible {
+  outline: 3px solid var(--color-blue) !important;
+  outline-offset: 2px !important;
+}
+
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Touch Action & Target Handling */
+button,
+input,
+select,
+.btn-3d,
+.quantity-option,
+.order-option {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   font-family: var(--font-family);
   background-color: var(--color-bg);
@@ -56,6 +78,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .main-content {
@@ -76,6 +99,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 48px;
   padding: 14px 28px;
   font-size: 1.1rem;
   font-weight: 800;
@@ -84,7 +108,7 @@ body {
   border-radius: 16px;
   border: 2px solid;
   cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
   user-select: none;
   width: 100%;
 }
@@ -947,7 +971,8 @@ body {
   border-radius: 20px;
   padding: 20px;
   position: relative;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Speech bubble triangle pointing left */
@@ -981,6 +1006,9 @@ body {
   font-weight: 600;
   line-height: 1.5;
   color: var(--color-black);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .question-text-en {
@@ -1023,6 +1051,7 @@ body {
   left: 0;
   right: 0;
   padding: 16px 20px;
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
   z-index: 100;
   box-shadow: 0 -6px 25px rgba(0,0,0,0.1);
   transform: translateY(100%);
@@ -3886,6 +3915,33 @@ body {
   font-size: 0.82rem;
   font-weight: 800;
   margin-top: 6px;
+}
+
+/* Tabular Numbers for Time Counters & Numbers */
+.question-timer-bar-wrapper,
+.question-timer-badge,
+.score-badge,
+.stat-value,
+.quiz-progress-text,
+.timeout-toast-banner {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Reduced Motion Support (Web Guidelines & Accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .shake,
+  .btn-theory-glow::after,
+  .theory-sparkle {
+    animation: none !important;
+  }
 }
 
 

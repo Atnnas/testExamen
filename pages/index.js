@@ -779,12 +779,17 @@ export default function Home() {
                     </h3>
                     <form onSubmit={handleJumpFormSubmit} className="jump-id-form">
                       <div className="jump-id-input-group">
-                        <span className="jump-id-hashtag">#</span>
+                        <span className="jump-id-hashtag" aria-hidden="true">#</span>
                         <input
                           type="number"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          autoComplete="off"
+                          spellCheck={false}
                           min="1"
                           max={currentPool.length}
-                          placeholder={`ID (1 - ${currentPool.length})`}
+                          placeholder={`Ej: 1… (hasta ${currentPool.length})`}
+                          aria-label={`Número de pregunta a buscar del 1 al ${currentPool.length}`}
                           value={jumpIdInput}
                           onChange={(e) => {
                             setJumpIdInput(e.target.value);
@@ -797,7 +802,7 @@ export default function Home() {
                         Ir a pregunta
                       </button>
                     </form>
-                    {jumpError && <div className="jump-id-error-msg">{jumpError}</div>}
+                    {jumpError && <div className="jump-id-error-msg" role="alert">{jumpError}</div>}
                   </div>
                 </div>
               </div>
@@ -821,7 +826,7 @@ export default function Home() {
 
                 {/* Aviso visual cuando la pregunta anterior pasó por tiempo agotado */}
                 {timeoutToast && (
-                  <div className="timeout-toast-banner">
+                  <div className="timeout-toast-banner" role="status" aria-live="polite">
                     {timeoutToast}
                   </div>
                 )}
@@ -849,6 +854,8 @@ export default function Home() {
                 {/* Answer Options */}
                 <div className="answer-choices">
                   <button
+                    type="button"
+                    aria-pressed={selectedAnswer === true}
                     className={`btn-3d ${
                       selectedAnswer === true
                         ? 'btn-blue'
@@ -866,6 +873,8 @@ export default function Home() {
                   </button>
                   
                   <button
+                    type="button"
+                    aria-pressed={selectedAnswer === false}
                     className={`btn-3d ${
                       selectedAnswer === false
                         ? 'btn-red'
@@ -886,6 +895,7 @@ export default function Home() {
                 {/* If not submitted, show checking button at the bottom */}
                 {!isSubmitted && (
                   <button
+                    type="button"
                     className={`btn-3d ${selectedAnswer !== null ? 'btn-green' : 'btn-white'}`}
                     disabled={selectedAnswer === null}
                     style={{
