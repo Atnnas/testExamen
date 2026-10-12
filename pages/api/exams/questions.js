@@ -1,10 +1,16 @@
 import { requireApprovedUser } from '../../../lib/guard';
+import { checkRateLimit } from '../../../lib/rate-limit';
 import { kataQuestions, kumiteQuestions, refereeQuestions } from '../../../data/questions';
 
 export default async function handler(req, res) {
   // Solo permitir solicitudes GET
   if (req.method !== 'GET') {
     return res.status(405).json({ success: false, error: 'Método no permitido' });
+  }
+
+  // Rate limiting anti-scraping: Máximo 30 solicitudes por minuto por cliente
+  if (!checkRateLimit(req, res, { limit: 30, windowMs: 60000, prefix: 'questions' })) {
+    return;
   }
 
   // Deshabilitar almacenamiento en caché para datos confidenciales

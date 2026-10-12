@@ -1,8 +1,13 @@
 import { requireAdmin, ADMIN_EMAIL } from '../../../lib/guard';
+import { checkRateLimit } from '../../../lib/rate-limit';
 import dbConnect from '../../../lib/mongodb';
 import User from '../../../models/User';
 
 export default async function handler(req, res) {
+  if (!checkRateLimit(req, res, { limit: 40, windowMs: 60000, prefix: 'admin-users' })) {
+    return;
+  }
+
   const auth = await requireAdmin(req, res);
   if (!auth) return;
 

@@ -1,9 +1,15 @@
 import { requireApprovedUser } from '../../../lib/guard';
+import { checkRateLimit } from '../../../lib/rate-limit';
 import ExamResult from '../../../models/ExamResult';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ success: false, error: 'Método no permitido' });
+  }
+
+  // Rate limiting anti-inundación: Máximo 15 registros por minuto por cliente
+  if (!checkRateLimit(req, res, { limit: 15, windowMs: 60000, prefix: 'record' })) {
+    return;
   }
 
   try {

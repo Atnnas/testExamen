@@ -56,6 +56,62 @@ export default function Home() {
   const [timerEnabled, setTimerEnabled] = useState(false); // false = Sin límite, true = 30s Contrarreloj
   const [timeLeft, setTimeLeft] = useState(30);
   const [timeoutToast, setTimeoutToast] = useState('');
+  const [isOffline, setIsOffline] = useState(false);
+  const [syncToast, setSyncToast] = useState('');
+
+  // Detección de conectividad Offline / Online y sincronización en segundo plano (PWA)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    setIsOffline(!navigator.onLine);
+
+    const syncPendingAttempts = async () => {
+      try {
+        const raw = localStorage.getItem('wkf_pending_offline_attempts');
+        if (!raw) return;
+        const pending = JSON.parse(raw);
+        if (Array.isArray(pending) && pending.length > 0) {
+          let syncedCount = 0;
+          for (const payload of pending) {
+            const res = await fetch('/api/exams/record', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            if (res.ok) syncedCount++;
+          }
+          localStorage.removeItem('wkf_pending_offline_attempts');
+          if (syncedCount > 0) {
+            setSyncToast(`✓ ${syncedCount} examen(es) completado(s) offline sincronizado(s) con tu perfil`);
+            setTimeout(() => setSyncToast(''), 4500);
+          }
+        }
+      } catch (e) {
+        console.warn('Error al sincronizar intentos offline:', e);
+      }
+    };
+
+    const handleOnline = () => {
+      setIsOffline(false);
+      syncPendingAttempts();
+    };
+
+    const handleOffline = () => {
+      setIsOffline(true);
+    };
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    if (navigator.onLine) {
+      syncPendingAttempts();
+    }
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
 
   // Carga segura del banco oficial desde la API protegida cuando el usuario está aprobado
   useEffect(() => {
@@ -162,24 +218,34 @@ export default function Home() {
 
       setMascotState(isPassed ? 'success' : 'failure');
 
+      const examPayload = {
+        role: selectedRole || 'coach',
+        modality: selectedRole === 'referee' || modality === 'reglamento' ? 'arbitro' : modality,
+        totalQuestions: totalQ,
+        orderMode,
+        timerMode: '30s',
+        userAnswers: updatedAnswers,
+        finalScore: correctCount,
+        percentage: correctPct,
+        correctPercentage: correctPct,
+        incorrectPercentage: incorrectPct,
+        passed: isPassed,
+        isFinished: true,
+      };
+
       fetch('/api/exams/record', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          role: selectedRole || 'coach',
-          modality: selectedRole === 'referee' || modality === 'reglamento' ? 'arbitro' : modality,
-          totalQuestions: totalQ,
-          orderMode,
-          timerMode: '30s',
-          userAnswers: updatedAnswers,
-          finalScore: correctCount,
-          percentage: correctPct,
-          correctPercentage: correctPct,
-          incorrectPercentage: incorrectPct,
-          passed: isPassed,
-          isFinished: true,
-        }),
-      }).catch((err) => console.error('Error al guardar nota final en base de datos:', err));
+        body: JSON.stringify(examPayload),
+      }).catch((err) => {
+        console.warn('Conexión no disponible al guardar examen. Guardando localmente para sincronización posterior:', err);
+        try {
+          const raw = localStorage.getItem('wkf_pending_offline_attempts') || '[]';
+          const list = JSON.parse(raw);
+          list.push(examPayload);
+          localStorage.setItem('wkf_pending_offline_attempts', JSON.stringify(list));
+        } catch (_) {}
+      });
     } else {
       setTimeoutToast('⏱️ ¡Tiempo agotado (30s)! Pregunta registrada automáticamente.');
       setTimeout(() => setTimeoutToast(''), 2500);
@@ -380,25 +446,35 @@ export default function Home() {
 
       setMascotState(isPassed ? 'success' : 'failure');
 
-      // Guardar una única línea por intento de examen completado en MongoDB
+      // Guardar intento de examen en MongoDB (o respaldar localmente si está offline)
+      const examPayload = {
+        role: selectedRole || 'coach',
+        modality: selectedRole === 'referee' || modality === 'reglamento' ? 'arbitro' : modality,
+        totalQuestions: totalQ,
+        orderMode,
+        timerMode: timerEnabled ? '30s' : 'off',
+        userAnswers: allAnswers,
+        finalScore: correctCount,
+        percentage: correctPct,
+        correctPercentage: correctPct,
+        incorrectPercentage: incorrectPct,
+        passed: isPassed,
+        isFinished: true,
+      };
+
       fetch('/api/exams/record', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          role: selectedRole || 'coach',
-          modality: selectedRole === 'referee' || modality === 'reglamento' ? 'arbitro' : modality,
-          totalQuestions: totalQ,
-          orderMode,
-          timerMode: timerEnabled ? '30s' : 'off',
-          userAnswers: allAnswers,
-          finalScore: correctCount,
-          percentage: correctPct,
-          correctPercentage: correctPct,
-          incorrectPercentage: incorrectPct,
-          passed: isPassed,
-          isFinished: true,
-        }),
-      }).catch((err) => console.error('Error al guardar nota final en base de datos:', err));
+        body: JSON.stringify(examPayload),
+      }).catch((err) => {
+        console.warn('Conexión no disponible al guardar examen. Guardando localmente para sincronización posterior:', err);
+        try {
+          const raw = localStorage.getItem('wkf_pending_offline_attempts') || '[]';
+          const list = JSON.parse(raw);
+          list.push(examPayload);
+          localStorage.setItem('wkf_pending_offline_attempts', JSON.stringify(list));
+        } catch (_) {}
+      });
     } else {
       setSelectedAnswer(null);
       setIsSubmitted(false);
@@ -524,6 +600,20 @@ export default function Home() {
       )}
 
       <main className="main-content">
+        {/* Banner de Estado Offline y Sincronización en Segundo Plano (PWA) */}
+        {!MAINTENANCE_MODE && isOffline && (
+          <div className="offline-status-banner" role="status">
+            <span className="offline-status-icon">📡</span>
+            <span>Modo Sin Conexión (Offline Activo) • Puedes practicar normalmente sin internet.</span>
+          </div>
+        )}
+
+        {!MAINTENANCE_MODE && syncToast && (
+          <div className="sync-toast-banner" role="status">
+            <span>{syncToast}</span>
+          </div>
+        )}
+
         {/* ================= PANTALLA DE MANTENIMIENTO / OFFLINE ================= */}
         {MAINTENANCE_MODE ? (
           <div className="maintenance-card">
