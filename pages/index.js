@@ -1095,10 +1095,10 @@ export default function Home() {
                 <div className="feedback-message">
                   <div className="feedback-message-body">
                     {theoryLang === 'en'
-                      ? (currentQuestion.justification_en || currentQuestion.justification)
-                      : (currentQuestion.justification_es || currentQuestion.justification)}
+                      ? (currentQuestion?.justification_en || currentQuestion?.justification)
+                      : (currentQuestion?.justification_es || currentQuestion?.justification)}
                   </div>
-                  {currentQuestion.ref && (
+                  {currentQuestion?.ref && (
                     <span className="feedback-ref">
                       <strong>Referencia:</strong> {currentQuestion.ref}
                     </span>

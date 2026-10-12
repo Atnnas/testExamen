@@ -21,7 +21,8 @@ export default function RefereeMascot({
     return VARIANTS[idx];
   };
 
-  const [randomVariant, setRandomVariant] = useState(getRandomReviewer);
+  // Estado determinista ('classic') en SSR y primera hidratación para evitar errores de mismatch
+  const [randomVariant, setRandomVariant] = useState('classic');
 
   useEffect(() => {
     if (state === 'success' || state === 'failure') {
