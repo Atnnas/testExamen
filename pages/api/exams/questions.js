@@ -1,10 +1,5 @@
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../auth/[...nextauth]';
-import dbConnect from '../../../lib/mongodb';
-import User from '../../../models/User';
+import { requireApprovedUser } from '../../../lib/guard';
 import { kataQuestions, kumiteQuestions, refereeQuestions } from '../../../data/questions';
-
-const ADMIN_EMAIL = 'david.artavia.rodriguez@gmail.com'.toLowerCase();
 
 export default async function handler(req, res) {
   // Solo permitir solicitudes GET
@@ -18,36 +13,11 @@ export default async function handler(req, res) {
   res.setHeader('Expires', '0');
 
   try {
-    // 1. Verificar sesión activa de NextAuth (Google)
-    const session = await getServerSession(req, res, authOptions);
+    // Verificar autorización estricta en tiempo real (Fail-closed)
+    const auth = await requireApprovedUser(req, res);
+    if (!auth) return;
 
-    if (!session?.user?.email) {
-      return res.status(401).json({
-        success: false,
-        error: 'No autenticado: Es obligatorio iniciar sesión con Google para acceder al banco de preguntas.',
-      });
-    }
-
-    const userEmail = session.user.email.toLowerCase().trim();
-    const isSuperAdmin = userEmail === ADMIN_EMAIL;
-
-    // 2. Conectar a MongoDB y verificar en tiempo real el estado del usuario en la base de datos
-    await dbConnect();
-    const dbUser = await User.findOne({ email: userEmail }).lean();
-
-    const isAdmin = isSuperAdmin || dbUser?.role === 'admin';
-    const isApproved = isAdmin || dbUser?.status === 'aprobado';
-
-    // 3. Regla de lista blanca estricta: Si no está aprobado ni es admin, se bloquea rotundamente
-    if (!isApproved) {
-      return res.status(403).json({
-        success: false,
-        error: 'Acceso denegado: Tu cuenta se encuentra en revisión o no ha sido activada en la base de datos.',
-        status: dbUser?.status || 'pendiente',
-      });
-    }
-
-    // 4. Si el usuario está aprobado o es admin, servir el banco de preguntas según el filtro o completo
+    // Servir el banco de preguntas según el filtro o completo
     const { role, modality } = req.query;
 
     if (role === 'referee') {

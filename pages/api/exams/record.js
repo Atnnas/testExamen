@@ -1,8 +1,5 @@
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../auth/[...nextauth]';
-import dbConnect from '../../../lib/mongodb';
+import { requireApprovedUser } from '../../../lib/guard';
 import ExamResult from '../../../models/ExamResult';
-import User from '../../../models/User';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -10,8 +7,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    await dbConnect();
-    const session = await getServerSession(req, res, authOptions);
+    const auth = await requireApprovedUser(req, res);
+    if (!auth) return;
 
     const {
       attemptId,
@@ -28,35 +25,10 @@ export default async function handler(req, res) {
       passed,
     } = req.body;
 
-    // Validación indispensable: Requiere sesión activa de Google
-    if (!session?.user?.email) {
-      return res.status(401).json({
-        success: false,
-        error: 'Acceso denegado: Es indispensable iniciar sesión con Google para acceder o registrar exámenes.',
-      });
-    }
-
-    const userEmail = session.user.email.toLowerCase();
-    let userName = session.user.name || 'Usuario Registrado';
-    let userImage = session.user.image || '';
-    let userId = null;
-
-    const isSuperAdmin = userEmail === 'david.artavia.rodriguez@gmail.com';
-    const userDoc = await User.findOne({ email: userEmail });
-
-    if (userDoc) {
-      userId = userDoc._id;
-      userName = userDoc.name || userName;
-      userImage = userDoc.image || userImage;
-    }
-
-    const isAuthorized = isSuperAdmin || userDoc?.role === 'admin' || userDoc?.status === 'aprobado';
-    if (!isAuthorized) {
-      return res.status(403).json({
-        success: false,
-        error: 'Acceso pendiente: Tu cuenta requiere aprobación del administrador para registrar exámenes.',
-      });
-    }
+    const userEmail = auth.email;
+    const userName = auth.user?.name || auth.session.user.name || 'Usuario Registrado';
+    const userImage = auth.user?.image || auth.session.user.image || '';
+    const userId = auth.user?._id || null;
 
     let examDoc;
 

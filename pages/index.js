@@ -420,6 +420,50 @@ export default function Home() {
     setGameState('welcome');
   };
 
+  // Atajos de teclado para práctica ágil y accesibilidad (Best Practice a11y & Fast Practice)
+  useEffect(() => {
+    if (gameState !== 'quiz') return;
+
+    const handleKeyDown = (e) => {
+      // Ignorar si el usuario está escribiendo en un campo de texto o formulario
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) {
+        return;
+      }
+
+      const key = e.key.toLowerCase();
+
+      if (!isSubmitted) {
+        if (key === 'v' || key === '1') {
+          e.preventDefault();
+          handleAnswerSelect(true);
+        } else if (key === 'f' || key === '2') {
+          e.preventDefault();
+          handleAnswerSelect(false);
+        } else if (key === 'enter' || key === ' ') {
+          if (selectedAnswer !== null) {
+            e.preventDefault();
+            submitAnswer();
+          }
+        }
+      } else {
+        // Modo retroalimentación post-respuesta
+        if (key === 'enter' || key === ' ' || key === 'arrowright') {
+          e.preventDefault();
+          nextQuestion();
+        } else if (key === 't') {
+          e.preventDefault();
+          setShowTheory((prev) => !prev);
+        } else if (key === 'l' || key === 'e') {
+          e.preventDefault();
+          setTheoryLang((prev) => (prev === 'en' ? 'es' : 'en'));
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [gameState, isSubmitted, selectedAnswer]);
+
   const currentQuestion = activeQuestions[currentQuestionIndex];
   const isSelectedCorrect = isSubmitted && selectedAnswer === currentQuestion?.answer;
 
@@ -950,6 +994,7 @@ export default function Home() {
                   <button
                     type="button"
                     aria-pressed={selectedAnswer === true}
+                    aria-keyshortcuts="V"
                     className={`btn-3d ${
                       selectedAnswer === true
                         ? 'btn-blue'
@@ -963,12 +1008,14 @@ export default function Home() {
                     }}
                     onClick={() => handleAnswerSelect(true)}
                   >
-                    Verdadero
+                    <span>Verdadero</span>
+                    <span className="kbd-shortcut-hint" aria-hidden="true">V</span>
                   </button>
                   
                   <button
                     type="button"
                     aria-pressed={selectedAnswer === false}
+                    aria-keyshortcuts="F"
                     className={`btn-3d ${
                       selectedAnswer === false
                         ? 'btn-red'
@@ -982,7 +1029,8 @@ export default function Home() {
                     }}
                     onClick={() => handleAnswerSelect(false)}
                   >
-                    Falso
+                    <span>Falso</span>
+                    <span className="kbd-shortcut-hint" aria-hidden="true">F</span>
                   </button>
                 </div>
 
@@ -990,6 +1038,7 @@ export default function Home() {
                 {!isSubmitted && (
                   <button
                     type="button"
+                    aria-keyshortcuts="Enter"
                     className={`btn-3d ${selectedAnswer !== null ? 'btn-green' : 'btn-white'}`}
                     disabled={selectedAnswer === null}
                     style={{
@@ -998,7 +1047,10 @@ export default function Home() {
                     }}
                     onClick={submitAnswer}
                   >
-                    Comprobar
+                    <span>Comprobar</span>
+                    {selectedAnswer !== null && (
+                      <span className="kbd-shortcut-hint" aria-hidden="true">↵</span>
+                    )}
                   </button>
                 )}
               </div>
@@ -1121,21 +1173,25 @@ export default function Home() {
               <div className="feedback-actions">
                 <button
                   type="button"
+                  aria-keyshortcuts="T"
                   className={`btn-theory-glow ${showTheory ? 'active' : ''}`}
                   onClick={() => setShowTheory(prev => !prev)}
-                  title="Ver explicación y fundamento reglamentario oficial"
+                  title="Ver explicación y fundamento reglamentario oficial (Tecla T)"
                 >
                   <span className="theory-sparkle">✨</span>
                   <span className="theory-btn-text">Fundamento Teórico</span>
+                  <span className="kbd-shortcut-hint kbd-dark" aria-hidden="true">T</span>
                   <span className="theory-caret">{showTheory ? '▲' : '▼'}</span>
                 </button>
 
                 <button
                   type="button"
+                  aria-keyshortcuts="Enter"
                   className={`btn-3d ${isSelectedCorrect ? 'btn-green' : 'btn-red'} btn-continue-quiz`}
                   onClick={nextQuestion}
                 >
-                  Continuar →
+                  <span>Continuar →</span>
+                  <span className="kbd-shortcut-hint" aria-hidden="true">↵</span>
                 </button>
               </div>
             </div>

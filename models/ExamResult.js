@@ -135,5 +135,8 @@ const ExamResultSchema = new mongoose.Schema(
 
 ExamResultSchema.index({ createdAt: -1 });
 ExamResultSchema.index({ userEmail: 1, createdAt: -1 });
+ExamResultSchema.index({ userEmail: 1, modality: 1, createdAt: -1 });
+ExamResultSchema.index({ modality: 1, passed: 1 });
 
 export default mongoose.models.ExamResult || mongoose.model('ExamResult', ExamResultSchema);
+

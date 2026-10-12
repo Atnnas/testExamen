@@ -1,11 +1,7 @@
 import mongoose from 'mongoose';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../auth/[...nextauth]';
+import { requireAdmin } from '../../../lib/guard';
 import dbConnect from '../../../lib/mongodb';
 import ExamResult from '../../../models/ExamResult';
-import User from '../../../models/User';
-
-const ADMIN_EMAIL = 'david.artavia.rodriguez@gmail.com'.toLowerCase();
 
 export default async function handler(req, res) {
   if (req.method !== 'GET' && req.method !== 'DELETE' && req.method !== 'POST') {
@@ -13,28 +9,10 @@ export default async function handler(req, res) {
   }
 
   try {
-    const session = await getServerSession(req, res, authOptions);
-
-    if (!session?.user) {
-      return res.status(401).json({ success: false, error: 'No autenticado' });
-    }
+    const auth = await requireAdmin(req, res);
+    if (!auth) return;
 
     await dbConnect();
-
-    const userEmail = (session.user.email || '').toLowerCase().trim();
-    const isSuperAdmin = userEmail === ADMIN_EMAIL;
-    let userIsAdmin = isSuperAdmin || session.user.role === 'admin';
-
-    if (!userIsAdmin && userEmail) {
-      const dbUser = await User.findOne({ email: userEmail });
-      if (dbUser?.role === 'admin') {
-        userIsAdmin = true;
-      }
-    }
-
-    if (!userIsAdmin) {
-      return res.status(403).json({ success: false, error: 'Acceso denegado: Se requiere rol de administrador' });
-    }
 
     // Parse body safely
     let parsedBody = {};

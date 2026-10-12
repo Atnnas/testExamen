@@ -1,21 +1,10 @@
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../auth/[...nextauth]';
+import { requireAdmin, ADMIN_EMAIL } from '../../../lib/guard';
 import dbConnect from '../../../lib/mongodb';
 import User from '../../../models/User';
 
-const ADMIN_EMAIL = 'david.artavia.rodriguez@gmail.com'.toLowerCase();
-
 export default async function handler(req, res) {
-  const session = await getServerSession(req, res, authOptions);
-
-  if (!session?.user) {
-    return res.status(401).json({ success: false, error: 'No autenticado' });
-  }
-
-  const isSuperAdmin = session.user.email?.toLowerCase() === ADMIN_EMAIL;
-  if (!isSuperAdmin && session.user.role !== 'admin') {
-    return res.status(403).json({ success: false, error: 'Acceso denegado: Se requiere rol de administrador' });
-  }
+  const auth = await requireAdmin(req, res);
+  if (!auth) return;
 
   await dbConnect();
 

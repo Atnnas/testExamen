@@ -4017,4 +4017,50 @@ body {
   }
 }
 
+/* =========================================================================
+   ATAJOS DE TECLADO ELEGANTES Y DISCRETOS (a11y & Fast Practice)
+   ========================================================================= */
+.kbd-shortcut-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  margin-left: 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.btn-3d.btn-blue .kbd-shortcut-hint,
+.btn-3d.btn-red .kbd-shortcut-hint,
+.btn-3d.btn-green .kbd-shortcut-hint {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.btn-theory-glow .kbd-shortcut-hint.kbd-dark {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #1e293b;
+}
+
+@media (max-width: 640px) {
+  /* En pantallas móviles táctiles, ocultar el atajo para mantener limpio el botón */
+  .kbd-shortcut-hint {
+    display: none !important;
+  }
+}
+
+
 

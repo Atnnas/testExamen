@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function ProgressBar({
+function ProgressBar({
   current,
   total,
   onExit,
@@ -98,4 +98,7 @@ export default function ProgressBar({
     </div>
   );
 }
+
+export default React.memo(ProgressBar);
+
 
