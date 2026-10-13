@@ -6,7 +6,9 @@ export const kataQuestions = [
     "text_en": "The minimum certification required to perform as coach in all Karate 1 events (Premier League, Series A and Youth League) is Accredited Coach certification.",
     "answer": false,
     "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\"), Sección 1 y 2 (Pág. 9-10) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).",
-    "justification": "La licencia de Entrenador Acreditado (ACRC) solo autoriza a dirigir en los eventos de Karate 1 - Series A y Karate 1 - Youth League. El circuito Karate 1 también incluye los eventos de la Premier League, los cuales exigen obligatoriamente la certificación de Entrenador Certificado de Kata o Kumite (KUM/KAT) o Entrenador de Karate Certificado (KAR). Por lo tanto, la acreditación básica no es suficiente para \"todos\" los eventos de Karate 1."
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\"), Sección 1 y 2 (Pág. 9-10) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).): Interpretación técnica: La licencia de Entrenador Acreditado (ACRC) solo autoriza a dirigir en los eventos de Karate 1 - Series A y Karate 1 - Youth League. El circuito Karate 1 también incluye los eventos de la Premier League, los cuales exigen obligatoriamente la certificación de Entrenador Certificado de Kata o Kumite (KUM/KAT) o Entrenador de Karate Certificado (KAR). Por lo tanto, la acreditación básica no es suficiente para \"todos\" los eventos de Karate 1.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\"), Sección 1 y 2 (Pág. 9-10) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).): Technical Analysis: The Accredited Coach license (ACRC) only authorizes coaching in Karate 1 - Series A and Karate 1 - Youth League events. The Karate 1 circuit also includes Premier League events, which require certification as a Certified Kata or Kumite Coach (KUM/KAT) or Certified Karate Coach (KAR). Therefore, basic accreditation is not sufficient for \"all\" Karate 1 events.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\"), Sección 1 y 2 (Pág. 9-10) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).): Interpretación técnica: La licencia de Entrenador Acreditado (ACRC) solo autoriza a dirigir en los eventos de Karate 1 - Series A y Karate 1 - Youth League. El circuito Karate 1 también incluye los eventos de la Premier League, los cuales exigen obligatoriamente la certificación de Entrenador Certificado de Kata o Kumite (KUM/KAT) o Entrenador de Karate Certificado (KAR). Por lo tanto, la acreditación básica no es suficiente para \"todos\" los eventos de Karate 1."
   },
   {
     "id": 2,
@@ -15,7 +17,9 @@ export const kataQuestions = [
     "text_en": "The minimum certification required to perform as coach in Premier League events, and World Championships, is the Kumite or Kata Coach certification.",
     "answer": true,
     "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\"), Sección 2 (Pág. 10) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).",
-    "justification": "Para eventos de élite como la Premier League, Campeonatos Mundiales (Individuales o por Equipos/World Cup) y Juegos Multideportivos, se establece expresamente que la certificación mínima requerida es la de Entrenador Certificado de la modalidad correspondiente (Kata o Kumite)."
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\"), Sección 2 (Pág. 10) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).): Interpretación técnica: Para eventos de élite como la Premier League, Campeonatos Mundiales (Individuales o por Equipos/World Cup) y Juegos Multideportivos, se establece expresamente que la certificación mínima requerida es la de Entrenador Certificado de la modalidad correspondiente (Kata o Kumite).",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\"), Sección 2 (Pág. 10) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).): Technical Analysis: For elite events such as the Premier League, World Championships (Individual or Team/World Cup) and Multi-Sport Games, it is expressly established that the minimum certification required is that of a Certified Coach of the corresponding modality (Kata or Kumite).",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\"), Sección 2 (Pág. 10) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).): Interpretación técnica: Para eventos de élite como la Premier League, Campeonatos Mundiales (Individuales o por Equipos/World Cup) y Juegos Multideportivos, se establece expresamente que la certificación mínima requerida es la de Entrenador Certificado de la modalidad correspondiente (Kata o Kumite)."
   },
   {
     "id": 3,
@@ -24,7 +28,9 @@ export const kataQuestions = [
     "text_en": "During the Round-Robin rounds, the coach does not have to wear a tracksuit.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 7-8).",
-    "justification": "El reglamento exige de manera obligatoria que los entrenadores lleven puesto el chándal (traje deportivo) oficial de su Federación Nacional en todo momento durante el torneo. La única excepción a esta regla son los encuentros por medallas (finales y bronces) de eventos oficiales de la WKF, donde deben vestir traje oscuro formal. Durante las rondas eliminatorias de todos contra todos (Round-Robin), el chándal sigue siendo obligatorio. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 4 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 7-8).): Interpretación técnica: El reglamento exige de manera obligatoria que los entrenadores lleven puesto el chándal (traje deportivo) oficial de su Federación Nacional en todo momento durante el torneo. La única excepción a esta regla son los encuentros por medallas (finales y bronces) de eventos oficiales de la WKF, donde deben vestir traje oscuro formal. Durante las rondas eliminatorias de todos contra todos (Round-Robin), el chándal sigue siendo obligatorio.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 7-8).): Technical Analysis: The regulations require coaches to wear the official tracksuit (sports suit) of their National Federation at all times during the tournament. The only exception to this rule is the medal matches (finals and bronzes) of official WKF events, where they must wear a formal dark suit. During the round-robin elimination rounds, tracksuits are still mandatory.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 7-8).): Interpretación técnica: El reglamento exige de manera obligatoria que los entrenadores lleven puesto el chándal (traje deportivo) oficial de su Federación Nacional en todo momento durante el torneo. La única excepción a esta regla son los encuentros por medallas (finales y bronces) de eventos oficiales de la WKF, donde deben vestir traje oscuro formal. Durante las rondas eliminatorias de todos contra todos (Round-Robin), el chándal sigue siendo obligatorio."
   },
   {
     "id": 4,
@@ -33,7 +39,9 @@ export const kataQuestions = [
     "text_en": "The coach must know and understand the Anti-Doping rules.",
     "answer": true,
     "ref": "ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 4 y N° 5 (Pág. 15) / WKF_GENERAL_REGULATIONS_vf.pdf, Anexo 2.",
-    "justification": "Al firmar el acuerdo obligatorio de acreditación para entrenadores, el técnico se compromete bajo firma a cumplir y hacer cumplir a sus atletas las normas antidopaje de la WKF y el Código de la AMA (WADA), siendo un deber ineludible mantenerse actualizado respecto a estas regulaciones."
+    "justification": "Reglamento Oficial WKF (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 4 y N° 5 (Pág. 15) / WKF_GENERAL_REGULATIONS_vf.pdf, Anexo 2.): Interpretación técnica: Al firmar el acuerdo obligatorio de acreditación para entrenadores, el técnico se compromete bajo firma a cumplir y hacer cumplir a sus atletas las normas antidopaje de la WKF y el Código de la AMA (WADA), siendo un deber ineludible mantenerse actualizado respecto a estas regulaciones.",
+    "justification_en": "Official WKF Rules (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 4 y N° 5 (Pág. 15) / WKF_GENERAL_REGULATIONS_vf.pdf, Anexo 2.): Technical Analysis: By signing the mandatory accreditation agreement for coaches, the coach undertakes under signature to comply with and ensure that his athletes comply with the WKF anti-doping rules and the WADA Code (WADA), and it is an unavoidable duty to keep up to date with these regulations.",
+    "justification_es": "Reglamento Oficial WKF (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 4 y N° 5 (Pág. 15) / WKF_GENERAL_REGULATIONS_vf.pdf, Anexo 2.): Interpretación técnica: Al firmar el acuerdo obligatorio de acreditación para entrenadores, el técnico se compromete bajo firma a cumplir y hacer cumplir a sus atletas las normas antidopaje de la WKF y el Código de la AMA (WADA), siendo un deber ineludible mantenerse actualizado respecto a estas regulaciones."
   },
   {
     "id": 5,
@@ -42,7 +50,9 @@ export const kataQuestions = [
     "text_en": "It is permitted for the coach to take pictures while coaching.",
     "answer": false,
     "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Sección de Conducta y Disciplina / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf.",
-    "justification": "En la cabina de entrenadores (Coach Box) está estrictamente prohibido el uso de teléfonos móviles, cámaras o cualquier dispositivo de captura de imágenes o comunicación. El entrenador debe dedicarse exclusivamente a su labor de dirección técnica y conductual."
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Sección de Conducta y Disciplina / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf.): Interpretación técnica: En la cabina de entrenadores (Coach Box) está estrictamente prohibido el uso de teléfonos móviles, cámaras o cualquier dispositivo de captura de imágenes o comunicación. El entrenador debe dedicarse exclusivamente a su labor de dirección técnica y conductual.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf, Sección de Conducta y Disciplina / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf.): Technical Analysis: The use of mobile phones, cameras or any image capturing or communication device is strictly prohibited in the Coach Box. The coach must dedicate himself exclusively to his work of technical and behavioral direction.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Sección de Conducta y Disciplina / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf.): Interpretación técnica: En la cabina de entrenadores (Coach Box) está estrictamente prohibido el uso de teléfonos móviles, cámaras o cualquier dispositivo de captura de imágenes o comunicación. El entrenador debe dedicarse exclusivamente a su labor de dirección técnica y conductual."
   },
   {
     "id": 6,
@@ -51,7 +61,9 @@ export const kataQuestions = [
     "text_en": "During the match, the coach does not have to seat in the box provided.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 1.4 (Pág. 3) y Artículo 2.3.1 (Pág. 7-8).",
-    "justification": "El entrenador debe sentarse en la silla y el box provisto fuera del área de seguridad a los lados del Tatami y permanecer allí durante toda la ejecución de sus atletas. No se permite permanecer de pie o fuera del área designada mientras la competición está en curso."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 1.4 (Pág. 3) y Artículo 2.3.1 (Pág. 7-8).): Interpretación técnica: El entrenador debe sentarse en la silla y el box provisto fuera del área de seguridad a los lados del Tatami y permanecer allí durante toda la ejecución de sus atletas. No se permite permanecer de pie o fuera del área designada mientras la competición está en curso.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 1.4 (Pág. 3) y Artículo 2.3.1 (Pág. 7-8).): Technical Analysis: The coach must sit in the chair and box provided outside the safety area on the sides of the Tatami and remain there throughout the entire performance of his athletes. Standing or standing outside the designated area while the competition is in progress is not permitted.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 1.4 (Pág. 3) y Artículo 2.3.1 (Pág. 7-8).): Interpretación técnica: El entrenador debe sentarse en la silla y el box provisto fuera del área de seguridad a los lados del Tatami y permanecer allí durante toda la ejecución de sus atletas. No se permite permanecer de pie o fuera del área designada mientras la competición está en curso."
   },
   {
     "id": 7,
@@ -70,8 +82,10 @@ export const kataQuestions = [
     "text": "Cualquier comportamiento descortés de un entrenador puede causar la descalificación de un competidor, de todo el equipo o de la delegación del torneo.",
     "text_en": "Any discourteous behavior from a coach can cause the disqualification of a competitor, the entire team, or delegation from the tournament.",
     "answer": true,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Sección 1 \"Preamble\" y Sección 2 \"Definitions\", Págs. 4-5) / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf (Mandato N° 2, Pág. 15) / WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8 (Inciso 11, Pág. 18) y WKF Disciplinary and Ethics Code.",
-    "justification": "Aunque el árbitro de tatami solo sanciona en el área de competencia, ante un comportamiento descortés grave de un entrenador se viola el Acuerdo de Acreditación (Mandato Nº 2) y el Código de Ética de la WKF. Esto faculta a la Comisión Disciplinaria de la WKF o al Comité Ejecutivo (según el Artículo 10.3.3 de Kumite y las Regulaciones Generales) a aplicar sanciones institucionales mayores, incluyendo la expulsión y descalificación de la delegación nacional completa del torneo."
+    "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 11 (Pág. 18) y WKF_GENERAL_REGULATIONS_vf.pdf (Sección de Disciplina).",
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 11 (Pág. 18) y WKF_GENERAL_REGULATIONS_vf.pdf (Sección de Disciplina).): Interpretación técnica: La conducta indisciplinada o descortés de un entrenador es catalogada como mala conducta (misconduct) y faculta al árbitro principal o Tatami Manager, previa consulta (Shugo), a aplicar la sanción de descalificación por SHIKKAKU al atleta o al equipo completo, pudiendo elevarse el caso a la Comisión Disciplinaria de la WKF para sanciones mayores a la delegación nacional.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 11 (Pág. 18) y WKF_GENERAL_REGULATIONS_vf.pdf (Sección de Disciplina).): Technical Analysis: The undisciplined or discourteous behavior of a coach is classified as misconduct (misconduct) and authorizes the main referee or Tatami Manager, after consultation (Shugo), to apply the sanction of disqualification by SHIKKAKU to the athlete or the entire team, and the case may be raised to the WKF Disciplinary Commission for greater sanctions to the national delegation.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 11 (Pág. 18) y WKF_GENERAL_REGULATIONS_vf.pdf (Sección de Disciplina).): Interpretación técnica: La conducta indisciplinada o descortés de un entrenador es catalogada como mala conducta (misconduct) y faculta al árbitro principal o Tatami Manager, previa consulta (Shugo), a aplicar la sanción de descalificación por SHIKKAKU al atleta o al equipo completo, pudiendo elevarse el caso a la Comisión Disciplinaria de la WKF para sanciones mayores a la delegación nacional."
   },
   {
     "id": 9,
@@ -80,7 +94,9 @@ export const kataQuestions = [
     "text_en": "During medal bouts, female coaches can wear a tracksuit.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).",
-    "justification": "Al igual que los hombres, las entrenadoras tienen prohibido usar chándal en los encuentros por medallas. El reglamento especifica que deben vestir formalmente: \"Female Coaches may choose to wear a dress, pantsuit, or a combination of jacket and skirt in dark colours and shoes.\""
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).): Interpretación técnica: Al igual que los hombres, las entrenadoras tienen prohibido usar chándal en los encuentros por medallas. El reglamento especifica que deben vestir formalmente: \"Female Coaches may choose to wear a dress, pantsuit, or a combination of jacket and skirt in dark colours and shoes.\"",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).): Technical Analysis: Like men, female coaches are prohibited from wearing tracksuits in medal matches. The regulations specify that they must dress formally: \"Female Coaches may choose to wear a dress, pantsuit, or a combination of jacket and skirt in dark colors and shoes.\"",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).): Interpretación técnica: Al igual que los hombres, las entrenadoras tienen prohibido usar chándal en los encuentros por medallas. El reglamento especifica que deben vestir formalmente: \"Female Coaches may choose to wear a dress, pantsuit, or a combination of jacket and skirt in dark colours and shoes.\""
   },
   {
     "id": 10,
@@ -89,7 +105,9 @@ export const kataQuestions = [
     "text_en": "The red and blue belts must be without any personal embroideries or markings.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso e) (Pág. 5).",
-    "justification": "El reglamento indica expresamente que los cinturones rojo (AKA) y azul (AO) aprobados por la WKF no deben contener ningún tipo de bordado personal, publicidad o marcas que no sean la etiqueta del fabricante homologado por la WKF."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso e) (Pág. 5).): Interpretación técnica: El reglamento indica expresamente que los cinturones rojo (AKA) y azul (AO) aprobados por la WKF no deben contener ningún tipo de bordado personal, publicidad o marcas que no sean la etiqueta del fabricante homologado por la WKF.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso e) (Pág. 5).): Technical Analysis: The regulation expressly indicates that red (AKA) and blue (AO) belts approved by the WKF must not contain any type of personal embroidery, advertising or markings other than the label of the manufacturer approved by the WKF.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso e) (Pág. 5).): Interpretación técnica: El reglamento indica expresamente que los cinturones rojo (AKA) y azul (AO) aprobados por la WKF no deben contener ningún tipo de bordado personal, publicidad o marcas que no sean la etiqueta del fabricante homologado por la WKF."
   },
   {
     "id": 11,
@@ -98,7 +116,9 @@ export const kataQuestions = [
     "text_en": "The competitor´s fair play manners are not the responsibility of the coach.",
     "answer": false,
     "ref": "ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 2 (Pág. 15).",
-    "justification": "El entrenador asume la responsabilidad contractual directa por el comportamiento disciplinado y cortés de sus atletas asignados por su Federación Nacional, tanto dentro como fuera del área de competición."
+    "justification": "Reglamento Oficial WKF (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 2 (Pág. 15).): Interpretación técnica: El entrenador asume la responsabilidad contractual directa por el comportamiento disciplinado y cortés de sus atletas asignados por su Federación Nacional, tanto dentro como fuera del área de competición.",
+    "justification_en": "Official WKF Rules (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 2 (Pág. 15).): Technical Analysis: The coach assumes direct contractual responsibility for the disciplined and courteous behavior of his athletes assigned by his National Federation, both inside and outside the competition area.",
+    "justification_es": "Reglamento Oficial WKF (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 2 (Pág. 15).): Interpretación técnica: El entrenador asume la responsabilidad contractual directa por el comportamiento disciplinado y cortés de sus atletas asignados por su Federación Nacional, tanto dentro como fuera del área de competición."
   },
   {
     "id": 12,
@@ -107,7 +127,9 @@ export const kataQuestions = [
     "text_en": "It is permitted for the coach to wear a hat or sunglasses while coaching.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).",
-    "justification": "El reglamento prohíbe explícitamente el uso de gafas de sol (\"Sunglasses are not allowed\"), y los sombreros o gorras no forman parte de la indumentaria oficial (chándal o traje) permitida para dirigir."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).): Interpretación técnica: El reglamento prohíbe explícitamente el uso de gafas de sol (\"Sunglasses are not allowed\"), y los sombreros o gorras no forman parte de la indumentaria oficial (chándal o traje) permitida para dirigir.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).): Technical Analysis: The regulations explicitly prohibit the use of sunglasses (\"Sunglasses are not allowed\"), and hats or caps are not part of the official clothing (tracksuit or suit) permitted for directing.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).): Interpretación técnica: El reglamento prohíbe explícitamente el uso de gafas de sol (\"Sunglasses are not allowed\"), y los sombreros o gorras no forman parte de la indumentaria oficial (chándal o traje) permitida para dirigir."
   },
   {
     "id": 13,
@@ -116,7 +138,9 @@ export const kataQuestions = [
     "text_en": "It is Okay to sit as coach wearing a Karate-gi.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 7-8).",
-    "justification": "El entrenador debe vestir estrictamente el uniforme deportivo oficial de su Federación o el traje de gala formal en los encuentros por medalla. Bajo ninguna circunstancia está permitido dirigir vistiendo un Karate-gi. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 6 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 7-8).): Interpretación técnica: El entrenador debe vestir estrictamente el uniforme deportivo oficial de su Federación o el traje de gala formal en los encuentros por medalla. Bajo ninguna circunstancia está permitido dirigir vistiendo un Karate-gi.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 7-8).): Technical Analysis: The coach must strictly wear the official sports uniform of his Federation or the formal dress suit in medal matches. Under no circumstances is it permitted to direct while wearing a Karate-gi.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 7-8).): Interpretación técnica: El entrenador debe vestir estrictamente el uniforme deportivo oficial de su Federación o el traje de gala formal en los encuentros por medalla. Bajo ninguna circunstancia está permitido dirigir vistiendo un Karate-gi."
   },
   {
     "id": 14,
@@ -125,7 +149,9 @@ export const kataQuestions = [
     "text_en": "The coach must know and understand the rules of competition.",
     "answer": true,
     "ref": "ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 5 (Pág. 15).",
-    "justification": "Es un requisito obligatorio firmado por el entrenador para la obtención y mantenimiento de cualquier nivel de licencia de la WKF."
+    "justification": "Reglamento Oficial WKF (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 5 (Pág. 15).): Interpretación técnica: Es un requisito obligatorio firmado por el entrenador para la obtención y mantenimiento de cualquier nivel de licencia de la WKF.",
+    "justification_en": "Official WKF Rules (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 5 (Pág. 15).): Technical Analysis: It is a mandatory requirement signed by the coach for obtaining and maintaining any level of WKF license.",
+    "justification_es": "Reglamento Oficial WKF (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 5 (Pág. 15).): Interpretación técnica: Es un requisito obligatorio firmado por el entrenador para la obtención y mantenimiento de cualquier nivel de licencia de la WKF."
   },
   {
     "id": 15,
@@ -133,8 +159,10 @@ export const kataQuestions = [
     "text": "No es aceptable que el entrenador tenga un bloc de notas y un lápiz mientras dirige.",
     "text_en": "It is not acceptable for the coach to have a note pad and a pencil while coaching.",
     "answer": false,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Directrices para Entrenadores).,",
-    "justification": "A diferencia de los dispositivos electrónicos de comunicación que están estrictamente prohibidos para evitar asistencia externa externa no autorizada, portar papel y lápiz para tomar anotaciones puramente técnicas y de registro del desempeño es una práctica tradicional aceptada."
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Directrices para Entrenadores).",
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Directrices para Entrenadores).): Interpretación técnica: A diferencia de los dispositivos electrónicos de comunicación que están estrictamente prohibidos para evitar asistencia externa externa no autorizada, portar papel y lápiz para tomar anotaciones puramente técnicas y de registro del desempeño es una práctica tradicional aceptada.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf (Directrices para Entrenadores).): Technical Analysis: Unlike electronic communication devices which are strictly prohibited to prevent unauthorized external assistance, carrying paper and pencil for taking purely technical notes and recording performance is an accepted traditional practice.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Directrices para Entrenadores).): Interpretación técnica: A diferencia de los dispositivos electrónicos de comunicación que están estrictamente prohibidos para evitar asistencia externa externa no autorizada, portar papel y lápiz para tomar anotaciones puramente técnicas y de registro del desempeño es una práctica tradicional aceptada."
   },
   {
     "id": 16,
@@ -143,7 +171,9 @@ export const kataQuestions = [
     "text_en": "Coaches must show respect for other coaches, competitors, and officials.",
     "answer": true,
     "ref": "ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 2 (Pág. 15) / Código de Ética de la WKF.",
-    "justification": "Forma parte de los principios éticos obligatorios que rigen la conducta de los acreditados por la WKF."
+    "justification": "Reglamento Oficial WKF (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 2 (Pág. 15) / Código de Ética de la WKF.): Interpretación técnica: Forma parte de los principios éticos obligatorios que rigen la conducta de los acreditados por la WKF.",
+    "justification_en": "Official WKF Rules (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 2 (Pág. 15) / Código de Ética de la WKF.): Technical Analysis: It is part of the mandatory ethical principles that govern the conduct of those accredited by the WKF.",
+    "justification_es": "Reglamento Oficial WKF (ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 2 (Pág. 15) / Código de Ética de la WKF.): Interpretación técnica: Forma parte de los principios éticos obligatorios que rigen la conducta de los acreditados por la WKF."
   },
   {
     "id": 17,
@@ -152,7 +182,9 @@ export const kataQuestions = [
     "text_en": "Coaches can interfere in the match at any time.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 11 (Pág. 18) y WKF_GENERAL_REGULATIONS_vf.pdf.",
-    "justification": "Cualquier tipo de interferencia física o verbal desmedida del entrenador es penalizada de forma estricta. El entrenador debe mantenerse en silencio y no emitir comentarios que busquen cuestionar o desestabilizar la labor arbitral."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 11 (Pág. 18) y WKF_GENERAL_REGULATIONS_vf.pdf.): Interpretación técnica: Cualquier tipo de interferencia física o verbal desmedida del entrenador es penalizada de forma estricta. El entrenador debe mantenerse en silencio y no emitir comentarios que busquen cuestionar o desestabilizar la labor arbitral.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 11 (Pág. 18) y WKF_GENERAL_REGULATIONS_vf.pdf.): Technical Analysis: Any type of excessive physical or verbal interference from the coach is strictly penalized. The coach must remain silent and not make comments that seek to question or destabilize the referee's work.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 11 (Pág. 18) y WKF_GENERAL_REGULATIONS_vf.pdf.): Interpretación técnica: Cualquier tipo de interferencia física o verbal desmedida del entrenador es penalizada de forma estricta. El entrenador debe mantenerse en silencio y no emitir comentarios que busquen cuestionar o desestabilizar la labor arbitral."
   },
   {
     "id": 18,
@@ -160,8 +192,10 @@ export const kataQuestions = [
     "text": "El competidor debe usar chándal (traje deportivo) o karate-gi en la ceremonia de premiación.",
     "text_en": "The competitor must wear tracksuit or karate-gi at the prize ceremony.",
     "answer": true,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11 (\"General Specifications\"), Sección 2 (Pág. 12) / Enmienda de Protocolo Congresillo Técnico WKF 2026.",
-    "justification": "Aunque el texto original de la WKF_GENERAL_REGULATIONS_vf.pdf limita formalmente la premiación al uso del chándal oficial, en el reciente Congresillo Técnico de la WKF se oficializó una enmienda de flexibilidad de protocolo para las ceremonias de medallas. Bajo esta resolución, se autoriza y considera válido que los competidores suban al podio portando tanto el chándal oficial de su delegación como el Karategi de competición reglamentario. Por consiguiente, la afirmación se establece formalmente como VERDADERA en el examen."
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11 (\"General Specifications\"), Sección 2 (Pág. 12).",
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11 (\"General Specifications\"), Sección 2 (Pág. 12).): Interpretación técnica: En las ceremonias oficiales de entrega de medallas (podio), los atletas deben vestir únicamente el chándal oficial de su Federación Nacional. No está permitido subir al podio vistiendo el Karate-gi ni prendas civiles informales.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11 (\"General Specifications\"), Sección 2 (Pág. 12).): Technical Analysis: At official medal ceremonies (podium), athletes must wear only the official tracksuit of their National Federation. It is not allowed to go up to the podium wearing the Karate-gi or informal civilian clothes.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11 (\"General Specifications\"), Sección 2 (Pág. 12).): Interpretación técnica: En las ceremonias oficiales de entrega de medallas (podio), los atletas deben vestir únicamente el chándal oficial de su Federación Nacional. No está permitido subir al podio vistiendo el Karate-gi ni prendas civiles informales."
   },
   {
     "id": 19,
@@ -170,7 +204,9 @@ export const kataQuestions = [
     "text_en": "According to the Olympic Charter all kind of political, religious or racial propaganda are not permitted in any Olympic sites, venues or other areas.",
     "answer": true,
     "ref": "Carta Olímpica, Regla 50 / WKF_GENERAL_REGULATIONS_vf.pdf.",
-    "justification": "La WKF, como federación reconocida por el COI, se adhiere y aplica plenamente la prohibición absoluta de toda manifestación o propaganda política, religiosa o racial en áreas de competencia y ceremoniales oficiales."
+    "justification": "Reglamento Oficial WKF (Carta Olímpica, Regla 50 / WKF_GENERAL_REGULATIONS_vf.pdf.): Interpretación técnica: La WKF, como federación reconocida por el COI, se adhiere y aplica plenamente la prohibición absoluta de toda manifestación o propaganda política, religiosa o racial en áreas de competencia y ceremoniales oficiales.",
+    "justification_en": "Official WKF Rules (Carta Olímpica, Regla 50 / WKF_GENERAL_REGULATIONS_vf.pdf.): Technical Analysis: The WKF, as a federation recognized by the IOC, adheres to and fully implements the absolute prohibition of all political, religious or racial demonstrations or propaganda in official competition and ceremonial areas.",
+    "justification_es": "Reglamento Oficial WKF (Carta Olímpica, Regla 50 / WKF_GENERAL_REGULATIONS_vf.pdf.): Interpretación técnica: La WKF, como federación reconocida por el COI, se adhiere y aplica plenamente la prohibición absoluta de toda manifestación o propaganda política, religiosa o racial en áreas de competencia y ceremoniales oficiales."
   },
   {
     "id": 20,
@@ -179,7 +215,9 @@ export const kataQuestions = [
     "text_en": "Jackets without ties may be used.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso i) (Pág. 6).",
-    "justification": "El reglamento oficial de Kata establece explícitamente en el Artículo 2.2.1 (Inciso i) que las chaquetas sin cintas o amarras de sujeción (jackets without ties) no pueden ser utilizadas. Estas amarras (cordones de sujeción de la chaqueta del Karategi) son obligatorias para mantener la prenda en su sitio y deben estar debidamente atadas al inicio de la presentación, haciendo que el enunciado sea Falso."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso i) (Pág. 6).): Interpretación técnica: La regla señala de manera clara que: \"Jackets without ties cannot be used.\" (No se pueden usar chaquetas sin amarras o cintas de sujeción). Las amarras laterales de la chaqueta del Karategi deben estar correctamente atadas al inicio de la presentación para mantener la prenda fija en su sitio.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso i) (Pág. 6).): Technical Analysis: The rule clearly states that: \"Jackets without ties cannot be used.\" (Jackets cannot be worn without ties or fastening straps). The side ties of the Karategi jacket must be correctly tied at the beginning of the performance to keep the garment fixed in place.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso i) (Pág. 6).): Interpretación técnica: La regla señala de manera clara que: \"Jackets without ties cannot be used.\" (No se pueden usar chaquetas sin amarras o cintas de sujeción). Las amarras laterales de la chaqueta del Karategi deben estar correctamente atadas al inicio de la presentación para mantener la prenda fija en su sitio."
   },
   {
     "id": 21,
@@ -188,7 +226,9 @@ export const kataQuestions = [
     "text_en": "The only religiously mandated attire that can be used by competitors is the WKF homologated black headscarf.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.3 (Pág. 6).",
-    "justification": "El pañuelo liso de color negro que cubre el cabello (pero no el cuello ni la garganta) y que ha sido debidamente homologado por la WKF, es la única prenda de vestir por elección religiosa autorizada en la vestimenta de los competidores."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.3 (Pág. 6).): Interpretación técnica: El pañuelo liso de color negro que cubre el cabello (pero no el cuello ni la garganta) y que ha sido debidamente homologado por la WKF, es la única prenda de vestir por elección religiosa autorizada en la vestimenta de los competidores.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.3 (Pág. 6).): Technical Analysis: The plain black scarf that covers the hair (but not the neck or throat) and which has been duly approved by the WKF, is the only item of religious clothing authorized in the competitors' clothing.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.3 (Pág. 6).): Interpretación técnica: El pañuelo liso de color negro que cubre el cabello (pero no el cuello ni la garganta) y que ha sido debidamente homologado por la WKF, es la única prenda de vestir por elección religiosa autorizada en la vestimenta de los competidores."
   },
   {
     "id": 22,
@@ -197,7 +237,9 @@ export const kataQuestions = [
     "text_en": "The competitor can wear jeans and t-shirt at the prize ceremony.",
     "answer": false,
     "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11.2 (Pág. 12).",
-    "justification": "El protocolo de la WKF exige de manera estricta el uso del chándal oficial de la Federación Nacional, prohibiendo vaqueros u otra vestimenta casual en la ceremonia."
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11.2 (Pág. 12).): Interpretación técnica: El protocolo de la WKF exige de manera estricta el uso del chándal oficial de la Federación Nacional, prohibiendo vaqueros u otra vestimenta casual en la ceremonia.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11.2 (Pág. 12).): Technical Analysis: WKF protocol strictly requires the use of the official National Federation tracksuit, prohibiting jeans or other casual clothing at the ceremony.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 11.2 (Pág. 12).): Interpretación técnica: El protocolo de la WKF exige de manera estricta el uso del chándal oficial de la Federación Nacional, prohibiendo vaqueros u otra vestimenta casual en la ceremonia."
   },
   {
     "id": 23,
@@ -206,7 +248,9 @@ export const kataQuestions = [
     "text_en": "The WKF adheres to the principles of the Olympic Charter.",
     "answer": true,
     "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Introducción.",
-    "justification": "La WKF está formalmente comprometida con los valores y la Carta del Movimiento Olímpico Internacional. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 8 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Introducción.): Interpretación técnica: La WKF está formalmente comprometida con los valores y la Carta del Movimiento Olímpico Internacional.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf, Introducción.): Technical Analysis: The WKF is formally committed to the values ​​and Charter of the International Olympic Movement.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Introducción.): Interpretación técnica: La WKF está formalmente comprometida con los valores y la Carta del Movimiento Olímpico Internacional."
   },
   {
     "id": 24,
@@ -215,7 +259,9 @@ export const kataQuestions = [
     "text_en": "If a competitor arrives at the Tatami with unregulated equipment or Karate-Gi, he/she is given five (5) minutes to correct matters.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).",
-    "justification": "En caso de indumentaria o protecciones no reglamentarias detectadas en el Tatami, el competidor dispone de únicamente un (1) minuto (no 5 minutos) para corregir su vestimenta, o de lo contrario será descalificado (KIKEN)."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Interpretación técnica: En caso de indumentaria o protecciones no reglamentarias detectadas en el Tatami, el competidor dispone de únicamente un (1) minuto (no 5 minutos) para corregir su vestimenta, o de lo contrario será descalificado (KIKEN).",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Technical Analysis: In case of non-regulatory clothing or protections detected on the Tatami, the competitor has only one (1) minute (not 5 minutes) to correct their clothing, or else they will be disqualified (KIKEN).",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Interpretación técnica: En caso de indumentaria o protecciones no reglamentarias detectadas en el Tatami, el competidor dispone de únicamente un (1) minuto (no 5 minutos) para corregir su vestimenta, o de lo contrario será descalificado (KIKEN)."
   },
   {
     "id": 25,
@@ -224,7 +270,9 @@ export const kataQuestions = [
     "text_en": "It is not the responsibility of the coach if the athlete´s Karate-gi is not according to the rules.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).",
-    "justification": "Es responsabilidad absoluta del entrenador asegurarse de que su atleta entre al área de competencia con el equipo y Karate-gi reglamentarios. Si el atleta se presenta con equipo irregular, además de su posible descalificación, el entrenador se expone a la suspensión de su licencia de dirección por un período de hasta 6 meses tras el informe del Árbitro Principal. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 9 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Interpretación técnica: Es responsabilidad absoluta del entrenador asegurarse de que su atleta entre al área de competencia con el equipo y Karate-gi reglamentarios. Si el atleta se presenta con equipo irregular, además de su posible descalificación, el entrenador se expone a la suspensión de su licencia de dirección por un período de hasta 6 meses tras el informe del Árbitro Principal.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Technical Analysis: It is the coach's absolute responsibility to ensure that his athlete enters the competition area with the regulation equipment and Karate-gi. If the athlete appears with irregular equipment, in addition to his possible disqualification, the coach is exposed to the suspension of his management license for a period of up to 6 months following the report of the Main Referee.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Interpretación técnica: Es responsabilidad absoluta del entrenador asegurarse de que su atleta entre al área de competencia con el equipo y Karate-gi reglamentarios. Si el atleta se presenta con equipo irregular, además de su posible descalificación, el entrenador se expone a la suspensión de su licencia de dirección por un período de hasta 6 meses tras el informe del Árbitro Principal."
   },
   {
     "id": 26,
@@ -233,7 +281,9 @@ export const kataQuestions = [
     "text_en": "The WKF homologated black head scarf cannot cover the neck or the throat area.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.3 (Pág. 6).",
-    "justification": "El reglamento define el uso del pañuelo religioso aprobado de la siguiente forma: \"...covering the hair, but not the neck or throat area.\" (debe cubrir el cabello, pero no la zona del cuello o la garganta)."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.3 (Pág. 6).): Interpretación técnica: El reglamento define el uso del pañuelo religioso aprobado de la siguiente forma: \"...covering the hair, but not the neck or throat area.\" (debe cubrir el cabello, pero no la zona del cuello o la garganta).",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.3 (Pág. 6).): Technical Analysis: The regulation defines the use of the approved religious headscarf as follows: \"...covering the hair, but not the neck or throat area.\" (should cover hair, but not neck or throat area).",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.3 (Pág. 6).): Interpretación técnica: El reglamento define el uso del pañuelo religioso aprobado de la siguiente forma: \"...covering the hair, but not the neck or throat area.\" (debe cubrir el cabello, pero no la zona del cuello o la garganta)."
   },
   {
     "id": 27,
@@ -242,7 +292,9 @@ export const kataQuestions = [
     "text_en": "A Kumite coach can direct a Kata competitor from the box.",
     "answer": false,
     "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Sección 2 \"DEFINITIONS\" y Sección 3 \"LICENSE LEVELS\", Pág. 6-7) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).",
-    "justification": "Las licencias oficiales de la WKF son específicas por modalidad. Un entrenador con la licencia de Kumite Certified Coach es únicamente elegible para actuar como entrenador en competiciones de Kumite, mientras que en competiciones de Kata se requiere de forma obligatoria poseer la licencia de Kata Certified Coach (o la licencia de nivel superior de Karate Certified Coach que abarca ambas). Por lo tanto, un entrenador con certificación exclusiva de Kumite no está autorizado para dirigir a un atleta de Kata desde el box de entrenadores."
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Sección 2 \"DEFINITIONS\" y Sección 3 \"LICENSE LEVELS\", Pág. 6-7) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).): Interpretación técnica: Las licencias oficiales de la WKF son específicas por modalidad. Un entrenador con la licencia de Kumite Certified Coach es únicamente elegible para actuar como entrenador en competiciones de Kumite, mientras que en competiciones de Kata se requiere de forma obligatoria poseer la licencia de Kata Certified Coach (o la licencia de nivel superior de Karate Certified Coach que abarca ambas). Por lo tanto, un entrenador con certificación exclusiva de Kumite no está autorizado para dirigir a un atleta de Kata desde el box de entrenadores.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf (Sección 2 \"DEFINITIONS\" y Sección 3 \"LICENSE LEVELS\", Pág. 6-7) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).): Technical Analysis: The official WKF licenses are specific by modality. A coach with the Kumite Certified Coach license is only eligible to act as a coach in Kumite competitions, while in Kata competitions it is mandatory to possess the Kata Certified Coach license (or the higher level Karate Certified Coach license that covers both). Therefore, a coach with Kumite-only certification is not authorized to direct a Kata athlete from the coaching box.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Sección 2 \"DEFINITIONS\" y Sección 3 \"LICENSE LEVELS\", Pág. 6-7) / Summary WKF Coach Course Programme.pdf (Pág. 1-2).): Interpretación técnica: Las licencias oficiales de la WKF son específicas por modalidad. Un entrenador con la licencia de Kumite Certified Coach es únicamente elegible para actuar como entrenador en competiciones de Kumite, mientras que en competiciones de Kata se requiere de forma obligatoria poseer la licencia de Kata Certified Coach (o la licencia de nivel superior de Karate Certified Coach que abarca ambas). Por lo tanto, un entrenador con certificación exclusiva de Kumite no está autorizado para dirigir a un atleta de Kata desde el box de entrenadores."
   },
   {
     "id": 28,
@@ -251,7 +303,9 @@ export const kataQuestions = [
     "text_en": "If there are any discrepancy between the number and the name of the KATA registered, the number of the KATA in the official WKF KATA list will prevail.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.3 (Pág. 19) y Apéndice 1.",
-    "justification": "La norma establece con total claridad que ante diferencias entre el nombre deletreado y el número del Kata registrado en la lista oficial de la mesa, el número oficial provisto en el Apéndice 1 de la WKF prevalecerá sobre el nombre. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 18 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.3 (Pág. 19) y Apéndice 1.): Interpretación técnica: La norma establece con total claridad que ante diferencias entre el nombre deletreado y el número del Kata registrado en la lista oficial de la mesa, el número oficial provisto en el Apéndice 1 de la WKF prevalecerá sobre el nombre.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.3 (Pág. 19) y Apéndice 1.): Technical Analysis: The rule establishes with complete clarity that in the event of differences between the spelled name and the number of the Kata registered in the official list of the table, the official number provided in Appendix 1 of the WKF will prevail over the name.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.3 (Pág. 19) y Apéndice 1.): Interpretación técnica: La norma establece con total claridad que ante diferencias entre el nombre deletreado y el número del Kata registrado en la lista oficial de la mesa, el número oficial provisto en el Apéndice 1 de la WKF prevalecerá sobre el nombre."
   },
   {
     "id": 29,
@@ -260,7 +314,9 @@ export const kataQuestions = [
     "text_en": "The use of karate-gi with embroidery brands on the shoulders in red and blue is mandatory in all the WKF Official competitions.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 4-5).",
-    "justification": "Para eventos de carácter oficial de la WKF (Campeonatos Mundiales y eventos de Karate 1: Premier League, Series A y Youth League), el uso de marcas bordadas en los hombros en color rojo o azul (según el sorteo) es de carácter obligatorio."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 4-5).): Interpretación técnica: Para eventos de carácter oficial de la WKF (Campeonatos Mundiales y eventos de Karate 1: Premier League, Series A y Youth League), el uso de marcas bordadas en los hombros en color rojo o azul (según el sorteo) es de carácter obligatorio.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 4-5).): Technical Analysis: For official WKF events (World Championships and Karate 1 events: Premier League, Series A and Youth League), the use of embroidered marks on the shoulders in red or blue (depending on the draw) is mandatory.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 4-5).): Interpretación técnica: Para eventos de carácter oficial de la WKF (Campeonatos Mundiales y eventos de Karate 1: Premier League, Series A y Youth League), el uso de marcas bordadas en los hombros en color rojo o azul (según el sorteo) es de carácter obligatorio."
   },
   {
     "id": 30,
@@ -269,7 +325,9 @@ export const kataQuestions = [
     "text_en": "The behavior of the athletes is very important, and is part of the values and spirit of the sport of Karate, as well as the reputation of their NF and the WKF.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2 / Código de Ética de la WKF.",
-    "justification": "El comportamiento ético, el saludo tradicional y el respeto en el tatami son nucleares para preservar la reputación deportiva y los valores tradicionales de este arte marcial. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 10 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2 / Código de Ética de la WKF.): Interpretación técnica: El comportamiento ético, el saludo tradicional y el respeto en el tatami son nucleares para preservar la reputación deportiva y los valores tradicionales de este arte marcial.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2 / Código de Ética de la WKF.): Technical Analysis: Ethical behavior, traditional greetings and respect on the tatami are essential to preserve the sporting reputation and traditional values ​​of this martial art.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2 / Código de Ética de la WKF.): Interpretación técnica: El comportamiento ético, el saludo tradicional y el respeto en el tatami son nucleares para preservar la reputación deportiva y los valores tradicionales de este arte marcial."
   },
   {
     "id": 31,
@@ -278,7 +336,9 @@ export const kataQuestions = [
     "text_en": "The wearing of bandages, padding, or supports because of injury must be approved by the referee and done or approved by the tournament doctor.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.8 (Pág. 6).",
-    "justification": "La aplicación de cintas (taping), soportes o vendajes médicos debe contar de forma previa con la aprobación conjunta del Árbitro (Referee) del encuentro y ser supervisado o aplicado directamente por el personal médico oficial del torneo."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.8 (Pág. 6).): Interpretación técnica: La aplicación de cintas (taping), soportes o vendajes médicos debe contar de forma previa con la aprobación conjunta del Árbitro (Referee) del encuentro y ser supervisado o aplicado directamente por el personal médico oficial del torneo.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.8 (Pág. 6).): Technical Analysis: The application of taping, supports or medical bandages must have prior joint approval from the match Referee and be supervised or applied directly by the official tournament medical staff.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.8 (Pág. 6).): Interpretación técnica: La aplicación de cintas (taping), soportes o vendajes médicos debe contar de forma previa con la aprobación conjunta del Árbitro (Referee) del encuentro y ser supervisado o aplicado directamente por el personal médico oficial del torneo."
   },
   {
     "id": 32,
@@ -287,7 +347,9 @@ export const kataQuestions = [
     "text_en": "Ribbons, beads and other decorations are allowed.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.6 (Pág. 6).",
-    "justification": "El reglamento determina categóricamente que: \"Ribbons, beads and other decorations are prohibited.\" (Las cintas de adorno, cuentas y otras decoraciones están prohibidas en el cabello). Únicamente se permite una o dos gomas elásticas discretas de color negro o neutral para sujetar una sola coleta de cabello."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.6 (Pág. 6).): Interpretación técnica: El reglamento determina categóricamente que: \"Ribbons, beads and other decorations are prohibited.\" (Las cintas de adorno, cuentas y otras decoraciones están prohibidas en el cabello). Únicamente se permite una o dos gomas elásticas discretas de color negro o neutral para sujetar una sola coleta de cabello.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.6 (Pág. 6).): Technical Analysis: The regulations categorically determine that: \"Ribbons, beads and other decorations are prohibited.\" (Ribbons, beads and other decorations are prohibited in hair.) Only one or two discreet black or neutral colored elastic bands are permitted to secure a single ponytail of hair.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.6 (Pág. 6).): Interpretación técnica: El reglamento determina categóricamente que: \"Ribbons, beads and other decorations are prohibited.\" (Las cintas de adorno, cuentas y otras decoraciones están prohibidas en el cabello). Únicamente se permite una o dos gomas elásticas discretas de color negro o neutral para sujetar una sola coleta de cabello."
   },
   {
     "id": 33,
@@ -295,8 +357,10 @@ export const kataQuestions = [
     "text": "La ETC (Encefalopatía Traumática Crónica) es una enfermedad degenerativa progresiva del cerebro que se encuentra en atletas con antecedentes de trauma cerebral repetitivo y otros impactos fuertes en la cabeza. Generalmente, sus efectos aparecen en pacientes de 70 y 80 años.",
     "text_en": "CTE (Chronic Traumatic Encephalopathy) is a progressive degenerative disease of the brain found in athletes with a history of repetitive brain trauma and other strong hits to the head. Generally, its effects appear in patients in their 70´s and 80´s.",
     "answer": false,
-    "ref": "WKF Medical Commission_Concussion Protocol.pdf (\"Understanding Concussion\") / WKFMedical_Commission_Rules_2026.pdf.,",
-    "justification": "La Encefalopatía Traumática Crónica (CTE) se origina por traumas repetidos y conmociones deportivas continuas. Los efectos, trastornos conductuales e incapacidades neurológicas de la CTE suelen manifestarse clínicamente de forma mucho más temprana (en los 30s, 40s o 50s del atleta), no típicamente a los 70 u 80 años. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 24 v5.0 - Español"
+    "ref": "WKF Medical Commission_Concussion Protocol.pdf (\"Understanding Concussion\") / WKFMedical_Commission_Rules_2026.pdf.",
+    "justification": "Reglamento Oficial WKF (WKF Medical Commission_Concussion Protocol.pdf (\"Understanding Concussion\") / WKFMedical_Commission_Rules_2026.pdf.): Interpretación técnica: La Encefalopatía Traumática Crónica (CTE) se origina por traumas repetidos y conmociones deportivas continuas. Los efectos, trastornos conductuales e incapacidades neurológicas de la CTE suelen manifestarse clínicamente de forma mucho más temprana (en los 30s, 40s o 50s del atleta), no típicamente a los 70 u 80 años.",
+    "justification_en": "Official WKF Rules (WKF Medical Commission_Concussion Protocol.pdf (\"Understanding Concussion\") / WKFMedical_Commission_Rules_2026.pdf.): Technical Analysis: Chronic Traumatic Encephalopathy (CTE) is caused by repeated trauma and continuous sports concussions. The effects, behavioral disorders and neurological disabilities of CTE usually manifest clinically much earlier (in the athlete's 30s, 40s or 50s), not typically in their 70s or 80s.",
+    "justification_es": "Reglamento Oficial WKF (WKF Medical Commission_Concussion Protocol.pdf (\"Understanding Concussion\") / WKFMedical_Commission_Rules_2026.pdf.): Interpretación técnica: La Encefalopatía Traumática Crónica (CTE) se origina por traumas repetidos y conmociones deportivas continuas. Los efectos, trastornos conductuales e incapacidades neurológicas de la CTE suelen manifestarse clínicamente de forma mucho más temprana (en los 30s, 40s o 50s del atleta), no típicamente a los 70 u 80 años."
   },
   {
     "id": 34,
@@ -304,8 +368,10 @@ export const kataQuestions = [
     "text": "La WKF sigue el programa y las regulaciones antidopaje de la AMA (WADA).",
     "text_en": "WKF follows the WADA Anti-Doping program and regulations.",
     "answer": true,
-    "ref": "WKF Anti Doping Rules 2021_Updated Dec25.pdf.,",
-    "justification": "Las normas de la WKF están plenamente armonizadas con el Código Mundial Antidopaje y las directrices de la AMA."
+    "ref": "WKF Anti Doping Rules 2021_Updated Dec25.pdf.",
+    "justification": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf.): Interpretación técnica: Las normas de la WKF están plenamente armonizadas con el Código Mundial Antidopaje y las directrices de la AMA.",
+    "justification_en": "Official WKF Rules (WKF Anti Doping Rules 2021_Updated Dec25.pdf.): Technical Analysis: WKF rules are fully harmonized with the World Anti-Doping Code and WADA guidelines.",
+    "justification_es": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf.): Interpretación técnica: Las normas de la WKF están plenamente armonizadas con el Código Mundial Antidopaje y las directrices de la AMA."
   },
   {
     "id": 35,
@@ -313,8 +379,10 @@ export const kataQuestions = [
     "text": "La AMA (WADA) tiene un sitio de aprendizaje electrónico (e-learning) sobre Antidopaje que brinda educación y recursos en múltiples idiomas dirigidos a diferentes públicos llamado ADel.",
     "text_en": "WADA has an Anti-Doping e-learning site that provides education and resources in multiple languages targeted at different audiences called ADel.",
     "answer": true,
-    "ref": "WKF Anti Doping Rules 2021_Updated Dec25.pdf / Summary WKF Coach Course Programme.pdf.,",
-    "justification": "La plataforma ADel (Anti-Doping Education and Learning) es la herramienta educativa oficial de WADA para educar de manera global."
+    "ref": "WKF Anti Doping Rules 2021_Updated Dec25.pdf / Summary WKF Coach Course Programme.pdf.",
+    "justification": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf / Summary WKF Coach Course Programme.pdf.): Interpretación técnica: La plataforma ADel (Anti-Doping Education and Learning) es la herramienta educativa oficial de WADA para educar de manera global.",
+    "justification_en": "Official WKF Rules (WKF Anti Doping Rules 2021_Updated Dec25.pdf / Summary WKF Coach Course Programme.pdf.): Technical Analysis: The ADel (Anti-Doping Education and Learning) platform is WADA's official educational tool to educate globally.",
+    "justification_es": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf / Summary WKF Coach Course Programme.pdf.): Interpretación técnica: La plataforma ADel (Anti-Doping Education and Learning) es la herramienta educativa oficial de WADA para educar de manera global."
   },
   {
     "id": 36,
@@ -323,7 +391,9 @@ export const kataQuestions = [
     "text_en": "Coaches should cooperate with athlete testing programs only if it is convenient for them.",
     "answer": false,
     "ref": "WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 21.5 (Pág. 55 / 140).",
-    "justification": "La cooperación obligatoria con los oficiales de control de dopaje y pruebas en todo momento es ineludible. La falta de cooperación constituye una violación del Código de Ética y Disciplina de la WKF."
+    "justification": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 21.5 (Pág. 55 / 140).): Interpretación técnica: La cooperación obligatoria con los oficiales de control de dopaje y pruebas en todo momento es ineludible. La falta de cooperación constituye una violación del Código de Ética y Disciplina de la WKF.",
+    "justification_en": "Official WKF Rules (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 21.5 (Pág. 55 / 140).): Technical Analysis: Mandatory cooperation with doping control and testing officials at all times is unavoidable. Failure to cooperate constitutes a violation of the WKF Code of Ethics and Discipline.",
+    "justification_es": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 21.5 (Pág. 55 / 140).): Interpretación técnica: La cooperación obligatoria con los oficiales de control de dopaje y pruebas en todo momento es ineludible. La falta de cooperación constituye una violación del Código de Ética y Disciplina de la WKF."
   },
   {
     "id": 37,
@@ -332,7 +402,9 @@ export const kataQuestions = [
     "text_en": "The list of prohibited substances only mentions substances that are prohibited out of competition.",
     "answer": false,
     "ref": "WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.1 / Prohibited List (WADA).",
-    "justification": "La lista clasifica de forma estricta las sustancias en aquellas prohibidas siempre (tanto dentro como fuera de competencia), prohibidas únicamente en periodo competitivo y prohibidas en deportes específicos. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 26 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.1 / Prohibited List (WADA).): Interpretación técnica: La lista clasifica de forma estricta las sustancias en aquellas prohibidas siempre (tanto dentro como fuera de competencia), prohibidas únicamente en periodo competitivo y prohibidas en deportes específicos.",
+    "justification_en": "Official WKF Rules (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.1 / Prohibited List (WADA).): Technical Analysis: The list strictly classifies substances into those that are always prohibited (both in and out of competition), prohibited only during competitive periods, and prohibited in specific sports.",
+    "justification_es": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.1 / Prohibited List (WADA).): Interpretación técnica: La lista clasifica de forma estricta las sustancias en aquellas prohibidas siempre (tanto dentro como fuera de competencia), prohibidas únicamente en periodo competitivo y prohibidas en deportes específicos."
   },
   {
     "id": 38,
@@ -341,7 +413,9 @@ export const kataQuestions = [
     "text_en": "TUEs (Therapeutic Use Exemptions) ensure that you can obtain treatment for a legitimate medical condition— even if that treatment requires a prohibited substance or method.",
     "answer": true,
     "ref": "WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.4 (\"Therapeutic Use Exemptions\").",
-    "justification": "Las AUT (TUE) amparan el uso de medicamentos necesarios por salud, impidiendo sanciones por la detección de dicha sustancia prohibida."
+    "justification": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.4 (\"Therapeutic Use Exemptions\").): Interpretación técnica: Las AUT (TUE) amparan el uso de medicamentos necesarios por salud, impidiendo sanciones por la detección de dicha sustancia prohibida.",
+    "justification_en": "Official WKF Rules (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.4 (\"Therapeutic Use Exemptions\").): Technical Analysis: The TUEs (TUE) protect the use of medications necessary for health, preventing sanctions for the detection of said prohibited substance.",
+    "justification_es": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.4 (\"Therapeutic Use Exemptions\").): Interpretación técnica: Las AUT (TUE) amparan el uso de medicamentos necesarios por salud, impidiendo sanciones por la detección de dicha sustancia prohibida."
   },
   {
     "id": 39,
@@ -350,7 +424,9 @@ export const kataQuestions = [
     "text_en": "A TUE (Therapeutic Use Exemption) application must be made at least 30 days before taking part in an event.",
     "answer": true,
     "ref": "WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.4.",
-    "justification": "Salvo situaciones médicas de urgencia o tratamiento agudo, las solicitudes ordinarias de AUT deben presentarse por el atleta con al menos 30 días de antelación al inicio del campeonato. --- 10. REGLAMENTO DE PARA-KARATE 10. REGLAMENTO DE PARA-KARATE"
+    "justification": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.4.): Interpretación técnica: Salvo situaciones médicas de urgencia o tratamiento agudo, las solicitudes ordinarias de AUT deben presentarse por el atleta con al menos 30 días de antelación al inicio del campeonato. --- 10. REGLAMENTO DE PARA-KARATE",
+    "justification_en": "Official WKF Rules (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.4.): Technical Analysis: Except for emergency medical situations or acute treatment, ordinary TUE requests must be submitted by the athlete at least 30 days before the start of the championship. --- 10. PARA-KARATE REGULATIONS",
+    "justification_es": "Reglamento Oficial WKF (WKF Anti Doping Rules 2021_Updated Dec25.pdf, Artículo 4.4.): Interpretación técnica: Salvo situaciones médicas de urgencia o tratamiento agudo, las solicitudes ordinarias de AUT deben presentarse por el atleta con al menos 30 días de antelación al inicio del campeonato. --- 10. REGLAMENTO DE PARA-KARATE"
   },
   {
     "id": 40,
@@ -369,8 +445,10 @@ export const kataQuestions = [
     "text": "En la Política de Safe Sport, las 5 categorías de cualquier violencia no accidental que serán toleradas son el abuso psicológico, físico, sexual, el acoso sexual y la negligencia.",
     "text_en": "In Safe Sport Policy, the 5 categories of any non-accidental violence that will be tolerated is Psychological, physical, sexual abuse, sexual harassment and neglect.",
     "answer": false,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).,",
-    "justification": "El enunciado de la pregunta contiene una sutil trampa de traducción/redacción: estas conductas son consideradas violencia grave e inaceptable y bajo ningún concepto serán toleradas (\"will NOT be tolerated\"). WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 23 v5.0 - Español"
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).",
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Interpretación técnica: El enunciado de la pregunta contiene una sutil trampa de traducción/redacción: estas conductas son consideradas violencia grave e inaceptable y bajo ningún concepto serán toleradas (\"will NOT be tolerated\").",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Technical Analysis: The wording of the question contains a subtle translation/writing trap: these behaviors are considered serious and unacceptable violence and under no circumstances will they be tolerated (\"will NOT be tolerated\").",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Interpretación técnica: El enunciado de la pregunta contiene una sutil trampa de traducción/redacción: estas conductas son consideradas violencia grave e inaceptable y bajo ningún concepto serán toleradas (\"will NOT be tolerated\")."
   },
   {
     "id": 42,
@@ -378,8 +456,10 @@ export const kataQuestions = [
     "text": "Las rutinas de iniciación humillantes están bien si unen al equipo.",
     "text_en": "Humiliating initiation routines are okay if it brings the team together.",
     "answer": false,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).,",
-    "justification": "Las novatadas e iniciaciones humillantes (hazing) están explícitamente prohibidas y son consideradas formas de abuso físico o psicológico incompatibles con el entorno Safe Sport."
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).",
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Interpretación técnica: Las novatadas e iniciaciones humillantes (hazing) están explícitamente prohibidas y son consideradas formas de abuso físico o psicológico incompatibles con el entorno Safe Sport.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Technical Analysis: Hazing and hazing are explicitly prohibited and are considered forms of physical or psychological abuse incompatible with the Safe Sport environment.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Interpretación técnica: Las novatadas e iniciaciones humillantes (hazing) están explícitamente prohibidas y son consideradas formas de abuso físico o psicológico incompatibles con el entorno Safe Sport."
   },
   {
     "id": 43,
@@ -387,8 +467,10 @@ export const kataQuestions = [
     "text": "Los entrenadores tienen el deber de diligencia (duty of care) de crear el entorno deportivo más seguro posible. Esto significa comprender tanto sus propias responsabilidades como las de sus atletas en el marco de Safe Sport.",
     "text_en": "Coaches have a duty of care to create the safest possible sport environment. This means understanding both their own and their athletes’ responsibilities in the Safe Sport framework.",
     "answer": true,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).,",
-    "justification": "Es la premisa y obligación fundamental del deber de cuidado (duty of care) que asumen los entrenadores."
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).",
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Interpretación técnica: Es la premisa y obligación fundamental del deber de cuidado (duty of care) que asumen los entrenadores.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Technical Analysis: It is the premise and fundamental obligation of the duty of care that coaches assume.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Interpretación técnica: Es la premisa y obligación fundamental del deber de cuidado (duty of care) que asumen los entrenadores."
   },
   {
     "id": 44,
@@ -396,8 +478,10 @@ export const kataQuestions = [
     "text": "La política de Safe Sport de la WKF protege a sus miembros del acoso, el abuso y las acusaciones falsas tanto dentro como fuera de la competición, manteniendo al mismo tiempo una sticta confidencialidad.",
     "text_en": "WKF safe sport policy protects its members from harassment, abuse and false allegations both in and out of competition while maintaining strict confidentiality.",
     "answer": true,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).,",
-    "justification": "El marco de protección de la WKF ampara a todos sus miembros y atletas garantizando siempre el principio de estricta confidencialidad durante la sustanciación de los casos. --- 8. REGLAMENTO MÉDICO Y PROTOCOLO DE CONMOCIÓN CEREBRAL 8. REGLAMENTO MÉDICO Y PROTOCOLO DE CONMOCIÓN CEREBRAL"
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).",
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Interpretación técnica: El marco de protección de la WKF ampara a todos sus miembros y atletas garantizando siempre el principio de estricta confidencialidad durante la sustanciación de los casos. --- 8. REGLAMENTO MÉDICO Y PROTOCOLO DE CONMOCIÓN CEREBRAL",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Technical Analysis: The WKF protection framework protects all its members and athletes, always guaranteeing the principle of strict confidentiality during the processing of cases. --- 8. MEDICAL REGULATIONS AND CONCUSSION PROTOCOL",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).): Interpretación técnica: El marco de protección de la WKF ampara a todos sus miembros y atletas garantizando siempre el principio de estricta confidencialidad durante la sustanciación de los casos. --- 8. REGLAMENTO MÉDICO Y PROTOCOLO DE CONMOCIÓN CEREBRAL"
   },
   {
     "id": 45,
@@ -406,7 +490,9 @@ export const kataQuestions = [
     "text_en": "The back number is mandatory for Karate 1 – Premier League, Karate World Championships and Karate World Cup.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso d) (Pág. 5).",
-    "justification": "El reglamento de Kata de la WKF exige de manera obligatoria portar el dorsal oficial expedido por el Comité Organizador en la espalda en los tres eventos más importantes de la federación: eventos de Karate 1 - Premier League, Campeonatos Mundiales de Karate (World Championships) y la Copa Mundial de Karate (World Cup)."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso d) (Pág. 5).): Interpretación técnica: El reglamento de Kata de la WKF exige obligatoriamente que todos los competidores porten en la espalda el número dorsal oficial provisto por el Comité Organizador de la competencia. Esto es de carácter mandatorio para los torneos de máxima categoría: eventos de Karate 1 - Premier League, Campeonatos Mundiales de Karate (World Championships) y la Copa Mundial de Karate (World Cup).",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso d) (Pág. 5).): Technical Analysis: The WKF Kata regulations require that all competitors wear the official dorsal number provided by the Competition Organizing Committee on their back. This is mandatory for top category tournaments: Karate 1 - Premier League events, World Karate Championships and the World Cup.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso d) (Pág. 5).): Interpretación técnica: El reglamento de Kata de la WKF exige obligatoriamente que todos los competidores porten en la espalda el número dorsal oficial provisto por el Comité Organizador de la competencia. Esto es de carácter mandatorio para los torneos de máxima categoría: eventos de Karate 1 - Premier League, Campeonatos Mundiales de Karate (World Championships) y la Copa Mundial de Karate (World Cup)."
   },
   {
     "id": 46,
@@ -414,8 +500,10 @@ export const kataQuestions = [
     "text": "Una conmoción cerebral no es grave porque no se puede ver en una herramienta de diagnóstico por imagen clínica como una resonancia magnética (RMN).",
     "text_en": "A concussion is not serious because you cannot see it on a clinical imaging tool like an MRI.",
     "answer": false,
-    "ref": "WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.,",
-    "justification": "Una conmoción cerebral es una alteración funcional y metabólica transitoria de la función cerebral, por lo que las neuroimágenes estructurales de diagnóstico (como TAC o RMN) suelen salir normales. No obstante, sigue siendo una lesión cerebral traumática de alta gravedad."
+    "ref": "WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.",
+    "justification": "Reglamento Oficial WKF (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Interpretación técnica: Una conmoción cerebral es una alteración funcional y metabólica transitoria de la función cerebral, por lo que las neuroimágenes estructurales de diagnóstico (como TAC o RMN) suelen salir normales. No obstante, sigue siendo una lesión cerebral traumática de alta gravedad.",
+    "justification_en": "Official WKF Rules (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Technical Analysis: A concussion is a transient functional and metabolic alteration of brain function, which is why diagnostic structural neuroimaging (such as CT or MRI) is usually normal. However, it is still a highly serious traumatic brain injury.",
+    "justification_es": "Reglamento Oficial WKF (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Interpretación técnica: Una conmoción cerebral es una alteración funcional y metabólica transitoria de la función cerebral, por lo que las neuroimágenes estructurales de diagnóstico (como TAC o RMN) suelen salir normales. No obstante, sigue siendo una lesión cerebral traumática de alta gravedad."
   },
   {
     "id": 47,
@@ -423,8 +511,10 @@ export const kataQuestions = [
     "text": "Si un atleta sufre una conmoción cerebral, debe ser identificado y abandonar la competición, ya que pueden ocurrir conmociones repetidas incluso con golpes menos graves y existe el riesgo de sufrir el síndrome del segundo impacto, que tiene una tasa de mortalidad del 50%.",
     "text_en": "If an athlete suffers a concussion, he/she needs to be identified and leave the competition as repeated concussion can occur even with less severe blows and the potential of suffering from second impact syndrome, which has a death rate of 50%.",
     "answer": true,
-    "ref": "WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.,",
-    "justification": "Es la premisa médica del protocolo WKF: retirar de inmediato al atleta sospechoso de conmoción para evitar una segunda conmoción acumulativa catastrófica o Síndrome de Segundo Impacto (que tiene una mortalidad estimada del 50%)."
+    "ref": "WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.",
+    "justification": "Reglamento Oficial WKF (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Interpretación técnica: Es la premisa médica del protocolo WKF: retirar de inmediato al atleta sospechoso de conmoción para evitar una segunda conmoción acumulativa catastrófica o Síndrome de Segundo Impacto (que tiene una mortalidad estimada del 50%).",
+    "justification_en": "Official WKF Rules (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Technical Analysis: It is the medical premise of the WKF protocol: immediately remove the athlete suspected of concussion to avoid a second catastrophic cumulative concussion or Second Impact Syndrome (which has an estimated mortality of 50%).",
+    "justification_es": "Reglamento Oficial WKF (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Interpretación técnica: Es la premisa médica del protocolo WKF: retirar de inmediato al atleta sospechoso de conmoción para evitar una segunda conmoción acumulativa catastrófica o Síndrome de Segundo Impacto (que tiene una mortalidad estimada del 50%)."
   },
   {
     "id": 48,
@@ -432,8 +522,10 @@ export const kataQuestions = [
     "text": "Si el atleta no pierde el conocimiento, no se trata de una conmoción cerebral.",
     "text_en": "If the athlete does not lose consciousness, it is not a concussion.",
     "answer": false,
-    "ref": "WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.,",
-    "justification": "Menos del 10% de las conmociones cerebrales conllevan pérdida clínica del conocimiento. Se puede sufrir una conmoción severa manteniéndose consciente."
+    "ref": "WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.",
+    "justification": "Reglamento Oficial WKF (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Interpretación técnica: Menos del 10% de las conmociones cerebrales conllevan pérdida clínica del conocimiento. Se puede sufrir una conmoción severa manteniéndose consciente.",
+    "justification_en": "Official WKF Rules (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Technical Analysis: Less than 10% of concussions lead to clinical loss of consciousness. You can suffer a severe shock while remaining conscious.",
+    "justification_es": "Reglamento Oficial WKF (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Interpretación técnica: Menos del 10% de las conmociones cerebrales conllevan pérdida clínica del conocimiento. Se puede sufrir una conmoción severa manteniéndose consciente."
   },
   {
     "id": 49,
@@ -441,8 +533,10 @@ export const kataQuestions = [
     "text": "Después de una conmoción cerebral, se recomienda aplicar un protocolo de retorno gradual al juego (RTP), donde el atleta pasará progresivamente por diferentes etapas mientras se mantiene asintomático.",
     "text_en": "After a concussion, it is recommended to apply a gradual return to play (RTP) protocol where the athlete will progressively go through different stages while remaining asymptomatic.",
     "answer": true,
-    "ref": "WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.,",
-    "justification": "El retorno a la actividad física e impactos debe realizarse estrictamente a través de un programa protocolizado de progresión por fases supervisado médicamente (Return-to-Play, RTP). --- 9. NORMATIVA ANTIDOPAJE (REGLAS AMA / WADA) WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 25 v5.0 - Español 9. NORMATIVA ANTIDOPAJE (REGLAS AMA / WADA)"
+    "ref": "WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.",
+    "justification": "Reglamento Oficial WKF (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Interpretación técnica: El retorno a la actividad física e impactos debe realizarse estrictamente a través de un programa protocolizado de progresión por fases supervisado médicamente (Return-to-Play, RTP). --- 9. NORMATIVA ANTIDOPAJE (REGLAS AMA / WADA)",
+    "justification_en": "Official WKF Rules (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Technical Analysis: Return to physical activity and impacts must be strictly carried out through a protocolized medically supervised phased progression program (Return-to-Play, RTP). --- 9. ANTI-DOPING REGULATIONS (AMA / WADA RULES)",
+    "justification_es": "Reglamento Oficial WKF (WKF Medical Commission_Concussion Protocol.pdf / WKFMedical_Commission_Rules_2026.pdf.): Interpretación técnica: El retorno a la actividad física e impactos debe realizarse estrictamente a través de un programa protocolizado de progresión por fases supervisado médicamente (Return-to-Play, RTP). --- 9. NORMATIVA ANTIDOPAJE (REGLAS AMA / WADA)"
   },
   {
     "id": 50,
@@ -451,7 +545,9 @@ export const kataQuestions = [
     "text_en": "Performing a scissor takedown technique to the neck area is allowed only in the (Bunkai) in the final bout.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.9 (Pág. 9) y Artículo 5.8, Inciso 10 (Pág. 18).",
-    "justification": "Los derribos de tijera al cuello (Kani Basami) están categorizados como una técnica prohibida y peligrosa de alto riesgo en cualquier instancia. Su ejecución en el Bunkai es motivo de descalificación inmediata (disqualification) en cualquier ronda del torneo, incluida la final. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 16 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.9 (Pág. 9) y Artículo 5.8, Inciso 10 (Pág. 18).): Interpretación técnica: Los derribos de tijera al cuello (Kani Basami) están categorizados como una técnica prohibida y peligrosa de alto riesgo en cualquier instancia. Su ejecución en el Bunkai es motivo de descalificación inmediata (disqualification) en cualquier ronda del torneo, incluida la final.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.9 (Pág. 9) y Artículo 5.8, Inciso 10 (Pág. 18).): Technical Analysis: Scissors takedowns to the neck (Kani Basami) are categorized as a prohibited and dangerous high-risk technique in any instance. Its execution in the Bunkai is grounds for immediate disqualification (disqualification) in any round of the tournament, including the final.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.9 (Pág. 9) y Artículo 5.8, Inciso 10 (Pág. 18).): Interpretación técnica: Los derribos de tijera al cuello (Kani Basami) están categorizados como una técnica prohibida y peligrosa de alto riesgo en cualquier instancia. Su ejecución en el Bunkai es motivo de descalificación inmediata (disqualification) en cualquier ronda del torneo, incluida la final."
   },
   {
     "id": 51,
@@ -460,7 +556,9 @@ export const kataQuestions = [
     "text_en": "In Bunkai performance, transitional movements and control are part of the performance.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).",
-    "justification": "Las transiciones fluidas de los movimientos aplicados y el control absoluto del contacto de golpeo al oponente son pilares evaluados con alta rigurosidad dentro de los criterios de Bunkai."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Interpretación técnica: Las transiciones fluidas de los movimientos aplicados y el control absoluto del contacto de golpeo al oponente son pilares evaluados con alta rigurosidad dentro de los criterios de Bunkai.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Technical Analysis: The fluid transitions of the movements applied and the absolute control of the striking contact with the opponent are pillars evaluated with high rigor within the Bunkai criteria.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Interpretación técnica: Las transiciones fluidas de los movimientos aplicados y el control absoluto del contacto de golpeo al oponente son pilares evaluados con alta rigurosidad dentro de los criterios de Bunkai."
   },
   {
     "id": 52,
@@ -469,7 +567,9 @@ export const kataQuestions = [
     "text_en": "In Bunkai performance; balance, timing and speed are not part of the performance.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).",
-    "justification": "La velocidad de aplicación, la sincronización entre atacante y defensor, y el mantenimiento perfecto del equilibrio son criterios técnicos nucleares que forman parte obligatoria de la evaluación de Bunkai."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Interpretación técnica: La velocidad de aplicación, la sincronización entre atacante y defensor, y el mantenimiento perfecto del equilibrio son criterios técnicos nucleares que forman parte obligatoria de la evaluación de Bunkai.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Technical Analysis: The speed of application, the synchronization between attacker and defender, and the perfect maintenance of balance are core technical criteria that form a mandatory part of the Bunkai evaluation.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Interpretación técnica: La velocidad de aplicación, la sincronización entre atacante y defensor, y el mantenimiento perfecto del equilibrio son criterios técnicos nucleares que forman parte obligatoria de la evaluación de Bunkai."
   },
   {
     "id": 53,
@@ -478,7 +578,9 @@ export const kataQuestions = [
     "text_en": "Bunkai is to be given equal importance as the Kata itself.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.4.3 (Pág. 15).",
-    "justification": "El reglamento establece taxativamente que para la obtención de la puntuación en finales de equipos, la aplicación práctica (Bunkai) debe recibir exactamente la misma relevancia e importancia técnica en el análisis de los jueces que la ejecución del Kata de forma aislada."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.4.3 (Pág. 15).): Interpretación técnica: El reglamento establece taxativamente que para la obtención de la puntuación en finales de equipos, la aplicación práctica (Bunkai) debe recibir exactamente la misma relevancia e importancia técnica en el análisis de los jueces que la ejecución del Kata de forma aislada.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.4.3 (Pág. 15).): Technical Analysis: The regulations strictly establish that to obtain the score in team finals, the practical application (Bunkai) must receive exactly the same relevance and technical importance in the judges' analysis as the execution of the Kata in isolation.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.4.3 (Pág. 15).): Interpretación técnica: El reglamento establece taxativamente que para la obtención de la puntuación en finales de equipos, la aplicación práctica (Bunkai) debe recibir exactamente la misma relevancia e importancia técnica en el análisis de los jueces que la ejecución del Kata de forma aislada."
   },
   {
     "id": 54,
@@ -487,7 +589,9 @@ export const kataQuestions = [
     "text_en": "Strength, speed, balance and focus are part of the Kata performance.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).",
-    "justification": "Todos estos aspectos forman parte de los criterios técnicos y atléticos detallados bajo los cuales los jueces realizan la evaluación cualitativa de la presentación de Kata."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Interpretación técnica: Todos estos aspectos forman parte de los criterios técnicos y atléticos detallados bajo los cuales los jueces realizan la evaluación cualitativa de la presentación de Kata.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Technical Analysis: All these aspects are part of the detailed technical and athletic criteria under which the judges carry out the qualitative evaluation of the Kata presentation.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Interpretación técnica: Todos estos aspectos forman parte de los criterios técnicos y atléticos detallados bajo los cuales los jueces realizan la evaluación cualitativa de la presentación de Kata."
   },
   {
     "id": 55,
@@ -496,7 +600,9 @@ export const kataQuestions = [
     "text_en": "If the competitor’s belt falls off during the performance of Kata the competitor will be disqualified.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 8 (Pág. 17).",
-    "justification": "El desprendimiento total y la caída del cinturón de la cintura del atleta durante la ejecución del Kata está tipificado expresamente como motivo directo de descalificación automática del competidor o del equipo: \"An Athlete or a Team of Athletes may be disqualified for... 8. Belt falling off during the performance.\" WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 13 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 8 (Pág. 17).): Interpretación técnica: El desprendimiento total y la caída del cinturón de la cintura del atleta durante la ejecución del Kata está tipificado expresamente como motivo directo de descalificación automática del competidor o del equipo: \"An Athlete or a Team of Athletes may be disqualified for... 8. Belt falling off during the performance.\"",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 8 (Pág. 17).): Technical Analysis: The total detachment and fall of the belt from the athlete's waist during the execution of the Kata is expressly classified as a direct reason for automatic disqualification of the competitor or the team: \"An Athlete or a Team of Athletes may be disqualified for... 8. Belt falling off during the performance.\"",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 8 (Pág. 17).): Interpretación técnica: El desprendimiento total y la caída del cinturón de la cintura del atleta durante la ejecución del Kata está tipificado expresamente como motivo directo de descalificación automática del competidor o del equipo: \"An Athlete or a Team of Athletes may be disqualified for... 8. Belt falling off during the performance.\""
   },
   {
     "id": 56,
@@ -505,7 +611,9 @@ export const kataQuestions = [
     "text_en": "Causing injury by lack of controlled technique during Bunkai is not considered a foul.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 10 (Pág. 17).",
-    "justification": "Cualquier acción técnica de golpeo o derribo en el Bunkai que cause una lesión física real a un compañero de equipo debido a una falta notable de control técnico es considerada una falta muy grave (foul) por los jueces."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 10 (Pág. 17).): Interpretación técnica: Cualquier acción técnica de golpeo o derribo en el Bunkai que cause una lesión física real a un compañero de equipo debido a una falta notable de control técnico es considerada una falta muy grave (foul) por los jueces.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 10 (Pág. 17).): Technical Analysis: Any technical hitting or takedown action in Bunkai that causes actual physical injury to a teammate due to a notable lack of technical control is considered a very serious foul by the judges.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 10 (Pág. 17).): Interpretación técnica: Cualquier acción técnica de golpeo o derribo en el Bunkai que cause una lesión física real a un compañero de equipo debido a una falta notable de control técnico es considerada una falta muy grave (foul) por los jueces."
   },
   {
     "id": 57,
@@ -514,7 +622,9 @@ export const kataQuestions = [
     "text_en": "Time wasting, including prolonged marching, excessive bowing or prolonged pause before starting the performance is considered a foul.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 9 (Pág. 17).",
-    "justification": "El reglamento penaliza la pérdida deliberada de tiempo. El competidor dispone de un máximo de 35 segundos desde que se anuncia su nombre en la pantalla hasta que realiza su primer movimiento técnico tras el saludo; de lo contrario, se computará como una falta de pérdida de tiempo."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 9 (Pág. 17).): Interpretación técnica: El reglamento penaliza la pérdida deliberada de tiempo. El competidor dispone de un máximo de 35 segundos desde que se anuncia su nombre en la pantalla hasta que realiza su primer movimiento técnico tras el saludo; de lo contrario, se computará como una falta de pérdida de tiempo.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 9 (Pág. 17).): Technical Analysis: The regulation penalizes deliberate loss of time. The competitor has a maximum of 35 seconds from when his name is announced on the screen until he makes his first technical movement after the salute; Otherwise, it will be counted as a time-loss foul.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 9 (Pág. 17).): Interpretación técnica: El reglamento penaliza la pérdida deliberada de tiempo. El competidor dispone de un máximo de 35 segundos desde que se anuncia su nombre en la pantalla hasta que realiza su primer movimiento técnico tras el saludo; de lo contrario, se computará como una falta de pérdida de tiempo."
   },
   {
     "id": 58,
@@ -523,7 +633,9 @@ export const kataQuestions = [
     "text_en": "The Karate-gi must not be altered or manipulated to change its shape.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso m) (Pág. 6).",
-    "justification": "Está estrictamente prohibido manipular, alterar de forma artificial o añadir almidones/placas al Karate-gi para modificar de forma no natural su forma o incrementar sonoridades. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 11 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso m) (Pág. 6).): Interpretación técnica: Está estrictamente prohibido manipular, alterar de forma artificial o añadir almidones/placas al Karate-gi para modificar de forma no natural su forma o incrementar sonoridades.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso m) (Pág. 6).): Technical Analysis: It is strictly prohibited to manipulate, artificially alter or add starches/plates to the Karate-gi to unnaturally modify its shape or increase sounds.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso m) (Pág. 6).): Interpretación técnica: Está estrictamente prohibido manipular, alterar de forma artificial o añadir almidones/placas al Karate-gi para modificar de forma no natural su forma o incrementar sonoridades."
   },
   {
     "id": 59,
@@ -532,7 +644,9 @@ export const kataQuestions = [
     "text_en": "Stamping the feet, slapping the chest, arms or karate-gi, are audible cues.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 5 y 6 (Pág. 16-17).",
-    "justification": "El reglamento de Kata de la WKF diferencia con precisión meridiana estas dos faltas en el Artículo 5.7: el Inciso 5 define las 'Indicaciones Audibles' (audible cues) como señales de ritmo provenientes de una persona externa (entrenador, compañeros de equipo); mientras que el Inciso 6 clasifica dar pisotones, golpearse el pecho, los brazos o el Karategi como 'Teatralidades' (theatrics) de carácter interno hechas por el propio competidor, considerándose faltas muy graves al mismo nivel que una pérdida mayor de equilibrio. Por lo tanto, agrupar las teatralidades dentro de las 'audible cues' es conceptual y reglamentariamente Falso."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 5 y 6 (Pág. 16-17).): Interpretación técnica: El reglamento de Kata de la WKF diferencia con precisión meridiana estas dos faltas en el Artículo 5.7: el Inciso 5 define las 'Indicaciones Audibles' (audible cues) como señales de ritmo provenientes de una persona externa (entrenador, compañeros de equipo); mientras que el Inciso 6 clasifica dar pisotones, golpearse el pecho, los brazos o el Karategi como 'Teatralidades' (theatrics) de carácter interno hechas por el propio competidor, considerándose faltas muy graves al mismo nivel que una pérdida mayor de equilibrio. Por lo tanto, agrupar las teatralidades dentro de las 'audible cues' es conceptual y reglamentariamente Falso.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 5 y 6 (Pág. 16-17).): Technical Analysis: The WKF Kata regulations clearly differentiate these two faults in Article 5.7: Section 5 defines 'Audible Cues' as rhythm signals coming from an external person (coach, teammates); while Section 6 classifies stomping, hitting the chest, arms or Karategi as 'Theatrics' of an internal nature done by the competitor himself, considered very serious faults at the same level as a greater loss of balance. Therefore, grouping theatrics within the 'audible cues' is conceptually and regulatory False.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 5 y 6 (Pág. 16-17).): Interpretación técnica: El reglamento de Kata de la WKF diferencia con precisión meridiana estas dos faltas en el Artículo 5.7: el Inciso 5 define las 'Indicaciones Audibles' (audible cues) como señales de ritmo provenientes de una persona externa (entrenador, compañeros de equipo); mientras que el Inciso 6 clasifica dar pisotones, golpearse el pecho, los brazos o el Karategi como 'Teatralidades' (theatrics) de carácter interno hechas por el propio competidor, considerándose faltas muy graves al mismo nivel que una pérdida mayor de equilibrio. Por lo tanto, agrupar las teatralidades dentro de las 'audible cues' es conceptual y reglamentariamente Falso."
   },
   {
     "id": 60,
@@ -541,7 +655,9 @@ export const kataQuestions = [
     "text_en": "It is the responsibility of the President of the National Federation to ensure that the Kata as notified to the score table is appropriate for that particular round.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.2 (Pág. 19).",
-    "justification": "Es responsabilidad única y exclusiva del entrenador (Coach) de la delegación o, en su defecto, del competidor/equipo, garantizar que el Kata notificado al anotador de mesa (Runner) sea el correcto y el reglamentario para esa ronda específica. El Presidente de la NF no tiene esa responsabilidad operativa."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.2 (Pág. 19).): Interpretación técnica: Es responsabilidad única y exclusiva del entrenador (Coach) de la delegación o, en su defecto, del competidor/equipo, garantizar que el Kata notificado al anotador de mesa (Runner) sea el correcto y el reglamentario para esa ronda específica. El Presidente de la NF no tiene esa responsabilidad operativa.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.2 (Pág. 19).): Technical Analysis: It is the sole and exclusive responsibility of the coach (Coach) of the delegation or, failing that, of the competitor/team, to ensure that the Kata notified to the table scorer (Runner) is correct and the regulations for that specific round. The President of the NF does not have that operational responsibility.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.2 (Pág. 19).): Interpretación técnica: Es responsabilidad única y exclusiva del entrenador (Coach) de la delegación o, en su defecto, del competidor/equipo, garantizar que el Kata notificado al anotador de mesa (Runner) sea el correcto y el reglamentario para esa ronda específica. El Presidente de la NF no tiene esa responsabilidad operativa."
   },
   {
     "id": 61,
@@ -550,7 +666,9 @@ export const kataQuestions = [
     "text_en": "Kata performance must demonstrate strength, power, and speed, as well as grace, rhythm, and balance.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.1.1 (Pág. 8).",
-    "justification": "Es la definición literal y conceptual exigida por la WKF para la presentación tradicional del Kata deportivo de alto nivel."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.1.1 (Pág. 8).): Interpretación técnica: Es la definición literal y conceptual exigida por la WKF para la presentación tradicional del Kata deportivo de alto nivel.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.1.1 (Pág. 8).): Technical Analysis: It is the literal and conceptual definition required by the WKF for the traditional presentation of high-level sports Kata.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.1.1 (Pág. 8).): Interpretación técnica: Es la definición literal y conceptual exigida por la WKF para la presentación tradicional del Kata deportivo de alto nivel."
   },
   {
     "id": 62,
@@ -559,7 +677,9 @@ export const kataQuestions = [
     "text_en": "In the bouts for medals in team Kata competition, teams will perform a demonstration of the meaning of the Kata (Bunkai).",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.4 (Pág. 9).",
-    "justification": "En los encuentros por medalla de bronce y de oro de equipos, es obligatorio realizar la aplicación técnica (Bunkai) inmediatamente después de finalizar la ejecución del Kata, dentro del límite de tiempo oficial. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 17 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.4 (Pág. 9).): Interpretación técnica: En los encuentros por medalla de bronce y de oro de equipos, es obligatorio realizar la aplicación técnica (Bunkai) inmediatamente después de finalizar la ejecución del Kata, dentro del límite de tiempo oficial.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.4 (Pág. 9).): Technical Analysis: In team bronze and gold medal matches, it is mandatory to perform the technical application (Bunkai) immediately after completing the Kata execution, within the official time limit.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.4 (Pág. 9).): Interpretación técnica: En los encuentros por medalla de bronce y de oro de equipos, es obligatorio realizar la aplicación técnica (Bunkai) inmediatamente después de finalizar la ejecución del Kata, dentro del límite de tiempo oficial."
   },
   {
     "id": 63,
@@ -568,7 +688,9 @@ export const kataQuestions = [
     "text_en": "The three major criteria are: conformance, technical performance and athletic performance.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).",
-    "justification": "En el reglamento vigente de 2026, se eliminó la antigua estructura de ponderación dividida por porcentajes fijos entre rendimiento técnico y atlético. En su lugar, se evalúa la presentación sobre una lista unificada de 10 criterios específicos detallados que el panel de jueces valora para determinar su puntuación técnica global."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Interpretación técnica: En el reglamento vigente de 2026, se eliminó la antigua estructura de ponderación dividida por porcentajes fijos entre rendimiento técnico y atlético. En su lugar, se evalúa la presentación sobre una lista unificada de 10 criterios específicos detallados que el panel de jueces valora para determinar su puntuación técnica global.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Technical Analysis: In the current 2026 regulations, the old weighting structure divided by fixed percentages between technical and athletic performance was eliminated. Instead, the submission is evaluated on a unified list of 10 detailed specific criteria that the panel of judges evaluates to determine its overall technical score.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Interpretación técnica: En el reglamento vigente de 2026, se eliminó la antigua estructura de ponderación dividida por porcentajes fijos entre rendimiento técnico y atlético. En su lugar, se evalúa la presentación sobre una lista unificada de 10 criterios específicos detallados que el panel de jueces valora para determinar su puntuación técnica global."
   },
   {
     "id": 64,
@@ -577,7 +699,9 @@ export const kataQuestions = [
     "text_en": "The competitors can select any Kata from the official Kata list.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.1.1 (Pág. 13) y Apéndice 1.",
-    "justification": "Los atletas tienen total libertad de elegir el Kata que deseen realizar en cada ronda de competencia, siempre y cuando dicho Kata pertenezca a la lista oficial consolidada de 102 Katas homologados de la WKF. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 14 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.1.1 (Pág. 13) y Apéndice 1.): Interpretación técnica: Los atletas tienen total libertad de elegir el Kata que deseen realizar en cada ronda de competencia, siempre y cuando dicho Kata pertenezca a la lista oficial consolidada de 102 Katas homologados de la WKF.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.1.1 (Pág. 13) y Apéndice 1.): Technical Analysis: Athletes have complete freedom to choose the Kata they wish to perform in each round of competition, as long as said Kata belongs to the official consolidated list of 102 approved Katas of the WKF.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.1.1 (Pág. 13) y Apéndice 1.): Interpretación técnica: Los atletas tienen total libertad de elegir el Kata que deseen realizar en cada ronda de competencia, siempre y cuando dicho Kata pertenezca a la lista oficial consolidada de 102 Katas homologados de la WKF."
   },
   {
     "id": 65,
@@ -586,7 +710,9 @@ export const kataQuestions = [
     "text_en": "Coin toss is the last criteria to resolve the tie at the end of round robin in individual competition.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.11 (Pág. 18).",
-    "justification": "En los sorteos y desempates de la WKF no existe el criterio del lanzamiento de moneda. El último criterio absoluto para resolver un empate persistente en la fase de Round-Robin individual es la realización de un Kata extra (adicional) por los competidores implicados."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.11 (Pág. 18).): Interpretación técnica: En los sorteos y desempates de la WKF no existe el criterio del lanzamiento de moneda. El último criterio absoluto para resolver un empate persistente en la fase de Round-Robin individual es la realización de un Kata extra (adicional) por los competidores implicados.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.11 (Pág. 18).): Technical Analysis: There is no coin toss criterion in WKF draws and tiebreakers. The absolute last criterion to resolve a persistent tie in the individual Round-Robin phase is the performance of an extra (additional) Kata by the competitors involved.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.11 (Pág. 18).): Interpretación técnica: En los sorteos y desempates de la WKF no existe el criterio del lanzamiento de moneda. El último criterio absoluto para resolver un empate persistente en la fase de Round-Robin individual es la realización de un Kata extra (adicional) por los competidores implicados."
   },
   {
     "id": 66,
@@ -595,7 +721,9 @@ export const kataQuestions = [
     "text_en": "In World Championships, it is permitted for Kata coaches who are part of a National Federation delegation to coach their Competitors bouts without having the required Coach Certification level.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.10.1 (Pág. 13).",
-    "justification": "Los entrenadores de la delegación oficial deben poseer de forma rigurosa y vigente el nivel de certificación de Entrenador de Kata requerido para Campeonatos Mundiales (Certified Kata Coach); de lo contrario, no se les permitirá ingresar al Tatami para dirigir."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.10.1 (Pág. 13).): Interpretación técnica: Los entrenadores de la delegación oficial deben poseer de forma rigurosa y vigente el nivel de certificación de Entrenador de Kata requerido para Campeonatos Mundiales (Certified Kata Coach); de lo contrario, no se les permitirá ingresar al Tatami para dirigir.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.10.1 (Pág. 13).): Technical Analysis: The coaches of the official delegation must rigorously and current possess the level of Kata Coach certification required for World Championships (Certified Kata Coach); Otherwise, they will not be allowed to enter the Tatami to conduct.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.10.1 (Pág. 13).): Interpretación técnica: Los entrenadores de la delegación oficial deben poseer de forma rigurosa y vigente el nivel de certificación de Entrenador de Kata requerido para Campeonatos Mundiales (Certified Kata Coach); de lo contrario, no se les permitirá ingresar al Tatami para dirigir."
   },
   {
     "id": 67,
@@ -604,7 +732,9 @@ export const kataQuestions = [
     "text_en": "Not announcing the KATA name is just a foul.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 1 (Pág. 17).",
-    "justification": "Omitir el anuncio verbal del nombre del Kata antes de su inicio, o ejecutar un Kata diferente al previamente registrado en la mesa oficial, no constituye una simple falta (foul), sino que es causa directa de descalificación inmediata (disqualification)."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 1 (Pág. 17).): Interpretación técnica: Omitir el anuncio verbal del nombre del Kata antes de su inicio, o ejecutar un Kata diferente al previamente registrado en la mesa oficial, no constituye una simple falta (foul), sino que es causa directa de descalificación inmediata (disqualification).",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 1 (Pág. 17).): Technical Analysis: Omitting the verbal announcement of the name of the Kata before its start, or executing a Kata different from the one previously registered at the official table, does not constitute a simple foul (foul), but is a direct cause of immediate disqualification (disqualification).",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 1 (Pág. 17).): Interpretación técnica: Omitir el anuncio verbal del nombre del Kata antes de su inicio, o ejecutar un Kata diferente al previamente registrado en la mesa oficial, no constituye una simple falta (foul), sino que es causa directa de descalificación inmediata (disqualification)."
   },
   {
     "id": 68,
@@ -613,7 +743,9 @@ export const kataQuestions = [
     "text_en": "For medal bouts in team Kata, a Time Keeper will keep track of the maximum performance time.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 4.5 (Pág. 13-14).",
-    "justification": "Un cronometrador oficial asiste al panel para asegurar que el tiempo total de la ejecución del Kata de equipo y su Bunkai no exceda el límite máximo reglamentario de 5 minutos. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 19 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 4.5 (Pág. 13-14).): Interpretación técnica: Un cronometrador oficial asiste al panel para asegurar que el tiempo total de la ejecución del Kata de equipo y su Bunkai no exceda el límite máximo reglamentario de 5 minutos.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 4.5 (Pág. 13-14).): Technical Analysis: An official timekeeper attends the panel to ensure that the total time for the execution of the team Kata and its Bunkai does not exceed the maximum regulatory limit of 5 minutes.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 4.5 (Pág. 13-14).): Interpretación técnica: Un cronometrador oficial asiste al panel para asegurar que el tiempo total de la ejecución del Kata de equipo y su Bunkai no exceda el límite máximo reglamentario de 5 minutos."
   },
   {
     "id": 69,
@@ -622,7 +754,9 @@ export const kataQuestions = [
     "text_en": "A Kata can only be repeated when it is used as tiebreaker.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.1 (Pág. 13-14).",
-    "justification": "La repetición de Kata está regida por directrices generales aplicables a todo el evento: no se puede ejecutar el mismo Kata dos veces consecutivas, y ningún Kata puede repetirse más de dos veces en total durante el torneo. Cumpliendo estos límites, un Kata puede repetirse en rondas ordinarias y no solo en desempates."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.1 (Pág. 13-14).): Interpretación técnica: La repetición de Kata está regida por directrices generales aplicables a todo el evento: no se puede ejecutar el mismo Kata dos veces consecutivas, y ningún Kata puede repetirse más de dos veces en total durante el torneo. Cumpliendo estos límites, un Kata puede repetirse en rondas ordinarias y no solo en desempates.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.1 (Pág. 13-14).): Technical Analysis: Kata repetition is governed by general guidelines applicable to the entire event: the same Kata cannot be performed twice consecutively, and no Kata can be repeated more than twice in total during the tournament. By complying with these limits, a Kata can be repeated in ordinary rounds and not only in tiebreakers.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.1 (Pág. 13-14).): Interpretación técnica: La repetición de Kata está regida por directrices generales aplicables a todo el evento: no se puede ejecutar el mismo Kata dos veces consecutivas, y ningún Kata puede repetirse más de dos veces en total durante el torneo. Cumpliendo estos límites, un Kata puede repetirse en rondas ordinarias y no solo en desempates."
   },
   {
     "id": 70,
@@ -631,7 +765,9 @@ export const kataQuestions = [
     "text_en": "In Bunkai performance: strength, timing and techniques are part of the performance.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).",
-    "justification": "Estos elementos forman parte integral del desglose oficial de evaluación de Bunkai que realizan los 7 jueces."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Interpretación técnica: Estos elementos forman parte integral del desglose oficial de evaluación de Bunkai que realizan los 7 jueces.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Technical Analysis: These elements form an integral part of the official Bunkai judging breakdown by the 7 judges.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.6 (Pág. 15).): Interpretación técnica: Estos elementos forman parte integral del desglose oficial de evaluación de Bunkai que realizan los 7 jueces."
   },
   {
     "id": 71,
@@ -651,7 +787,9 @@ export const kataQuestions = [
     "text_en": "Persistent and obvious repetition of theatrics such as Stamping the Feet or Slapping the Chest is reason for disqualification.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 6 (Pág. 17).",
-    "justification": "Las teatralidades persistentes están catalogadas como motivo directo de descalificación tanto en el reglamento tradicional como en las adaptaciones de Para-Karate. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 27 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 6 (Pág. 17).): Interpretación técnica: Las teatralidades persistentes están catalogadas como motivo directo de descalificación tanto en el reglamento tradicional como en las adaptaciones de Para-Karate.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 6 (Pág. 17).): Technical Analysis: Persistent theatrics are listed as a direct reason for disqualification in both the traditional regulations and in the adaptations of Para-Karate.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 6 (Pág. 17).): Interpretación técnica: Las teatralidades persistentes están catalogadas como motivo directo de descalificación tanto en el reglamento tradicional como en las adaptaciones de Para-Karate."
   },
   {
     "id": 73,
@@ -660,7 +798,9 @@ export const kataQuestions = [
     "text_en": "At World Championships in Para-Karate, coaches need to have at least the WKF Certified Kata Coach License.",
     "answer": true,
     "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\") y 122225_parakarate_commission.pdf.",
-    "justification": "Para ejercer funciones de dirección técnica en los Campeonatos Mundiales oficiales de Para-Karate de la WKF se exige contar con la licencia superior de Kata Certified Coach."
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\") y 122225_parakarate_commission.pdf.): Interpretación técnica: Para ejercer funciones de dirección técnica en los Campeonatos Mundiales oficiales de Para-Karate de la WKF se exige contar con la licencia superior de Kata Certified Coach.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\") y 122225_parakarate_commission.pdf.): Technical Analysis: To carry out technical direction functions in the official WKF Para-Karate World Championships, it is required to have the higher Kata Certified Coach license.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Artículo 3 (\"License Levels\") y 122225_parakarate_commission.pdf.): Interpretación técnica: Para ejercer funciones de dirección técnica en los Campeonatos Mundiales oficiales de Para-Karate de la WKF se exige contar con la licencia superior de Kata Certified Coach."
   },
   {
     "id": 74,
@@ -668,8 +808,10 @@ export const kataQuestions = [
     "text": "En las sillas de ruedas, durante la competición de Para-Karate no se puede colocar publicidad en el respaldo.",
     "text_en": "In wheelchairs, during Para-Karate competition advertising cannot be placed on the backrest.",
     "answer": true,
-    "ref": "122225_parakarate_commission.pdf (Reglas de Silla de Ruedas / Reglamento de Para-Karate de la WKF).",
-    "justification": "De acuerdo con las normas de equipamiento de Para-Karate de la WKF (Clase K30 de Silla de Ruedas), la silla de ruedas se considera parte del equipamiento de competición oficial del atleta. Al igual que el Karate-gi, está estrictamente prohibido colocar cualquier tipo de publicidad comercial, logotipos de patrocinadores personales o parches promocionales en el respaldo de la silla de ruedas durante el torneo. Únicamente se permiten las identificaciones estándar del fabricante dentro de las medidas reglamentadas por la WKF y el Comité Paralímpico Internacional (IPC)."
+    "ref": "122225_parakarate_commission.pdf (Reglas de Silla de Ruedas).",
+    "justification": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Reglas de Silla de Ruedas).): Interpretación técnica: El reglamento de Para-Karate de la WKF sí permite colocar parches publicitarios de los patrocinadores en el respaldo de la silla de ruedas, sujeto a la previa verificación de medidas y logos aprobados.",
+    "justification_en": "Official WKF Rules (122225_parakarate_commission.pdf (Reglas de Silla de Ruedas).): Technical Analysis: The WKF Para-Karate regulations do allow sponsors' advertising patches to be placed on the back of the wheelchair, subject to prior verification of approved measurements and logos.",
+    "justification_es": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Reglas de Silla de Ruedas).): Interpretación técnica: El reglamento de Para-Karate de la WKF sí permite colocar parches publicitarios de los patrocinadores en el respaldo de la silla de ruedas, sujeto a la previa verificación de medidas y logos aprobados."
   },
   {
     "id": 75,
@@ -677,8 +819,10 @@ export const kataQuestions = [
     "text": "En caso de evacuación de emergencia durante las competiciones de Para-Karate, los entrenadores nacionales son directamente responsables del desalojo seguro de los atletas.",
     "text_en": "In case of emergency evacuation during Para-Karate competitions, the national coaches are directly responsible for the safe removal of the Athletes.",
     "answer": true,
-    "ref": "122225_parakarate_commission.pdf (Deberes de Seguridad).,",
-    "justification": "Los entrenadores asumen de forma prioritaria el deber de cuidado y resguardo (duty of care) para asistir de inmediato y evacuar de manera segura a los Para-atletas a su cargo."
+    "ref": "122225_parakarate_commission.pdf (Deberes de Seguridad).",
+    "justification": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Deberes de Seguridad).): Interpretación técnica: Los entrenadores asumen de forma prioritaria el deber de cuidado y resguardo (duty of care) para asistir de inmediato y evacuar de manera segura a los Para-atletas a su cargo.",
+    "justification_en": "Official WKF Rules (122225_parakarate_commission.pdf (Deberes de Seguridad).): Technical Analysis: Coaches assume as a priority the duty of care to immediately assist and safely evacuate the Para-athletes in their charge.",
+    "justification_es": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Deberes de Seguridad).): Interpretación técnica: Los entrenadores asumen de forma prioritaria el deber de cuidado y resguardo (duty of care) para asistir de inmediato y evacuar de manera segura a los Para-atletas a su cargo."
   },
   {
     "id": 76,
@@ -686,8 +830,10 @@ export const kataQuestions = [
     "text": "Durante la sesión de clasificación en Para-Karate, el entrenador del competidor no tiene que estar presente con el atleta en todo momento.",
     "text_en": "During the Classification Session in Para-Karate, the competitor’s coach doesn’t have to be present with the Athlete at all times.",
     "answer": false,
-    "ref": "122225_parakarate_commission.pdf (Procedimientos de Clasificación).,",
-    "justification": "Durante todo el examen médico y funcional de Clasificación para Para-Karate es un requerimiento ineludible que el entrenador nacional o representante esté presente para dar soporte técnico y validar la transparencia del proceso. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 28 v5.0 - Español"
+    "ref": "122225_parakarate_commission.pdf (Procedimientos de Clasificación).",
+    "justification": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Procedimientos de Clasificación).): Interpretación técnica: Durante todo el examen médico y funcional de Clasificación para Para-Karate es un requerimiento ineludible que el entrenador nacional o representante esté presente para dar soporte técnico y validar la transparencia del proceso.",
+    "justification_en": "Official WKF Rules (122225_parakarate_commission.pdf (Procedimientos de Clasificación).): Technical Analysis: During the entire medical and functional examination for Para-Karate Classification, it is an unavoidable requirement that the national coach or representative be present to provide technical support and validate the transparency of the process.",
+    "justification_es": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Procedimientos de Clasificación).): Interpretación técnica: Durante todo el examen médico y funcional de Clasificación para Para-Karate es un requerimiento ineludible que el entrenador nacional o representante esté presente para dar soporte técnico y validar la transparencia del proceso."
   },
   {
     "id": 77,
@@ -696,7 +842,9 @@ export const kataQuestions = [
     "text_en": "In Team competition, the total time allowed for Kata and Bunkai is five (5) minutes.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.6 (Pág. 9) y Artículo 5.8, Inciso 9 (Pág. 17).",
-    "justification": "El tiempo total acumulado para el Kata de equipo y su Bunkai es de un máximo de 5 minutos. Exceder este tiempo límite de duración conlleva la descalificación del equipo."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.6 (Pág. 9) y Artículo 5.8, Inciso 9 (Pág. 17).): Interpretación técnica: El tiempo total acumulado para el Kata de equipo y su Bunkai es de un máximo de 5 minutos. Exceder este tiempo límite de duración conlleva la descalificación del equipo.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.6 (Pág. 9) y Artículo 5.8, Inciso 9 (Pág. 17).): Technical Analysis: The total accumulated time for the team Kata and its Bunkai is a maximum of 5 minutes. Exceeding this time limit entails disqualification of the team.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.6 (Pág. 9) y Artículo 5.8, Inciso 9 (Pág. 17).): Interpretación técnica: El tiempo total acumulado para el Kata de equipo y su Bunkai es de un máximo de 5 minutos. Exceder este tiempo límite de duración conlleva la descalificación del equipo."
   },
   {
     "id": 78,
@@ -705,7 +853,9 @@ export const kataQuestions = [
     "text_en": "In case of a protest, the coach should ask a referee for help.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.1 y 7.1.5 (Pág. 20-21).",
-    "justification": "Los entrenadores tienen estrictamente prohibido dirigirse a los miembros del panel de jueces o árbitros para protestar por un fallo técnico o juicio. El protocolo oficial exige solicitar de inmediato el formulario de protesta por escrito al Tatami Manager del Tatami correspondiente."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.1 y 7.1.5 (Pág. 20-21).): Interpretación técnica: Los entrenadores tienen estrictamente prohibido dirigirse a los miembros del panel de jueces o árbitros para protestar por un fallo técnico o juicio. El protocolo oficial exige solicitar de inmediato el formulario de protesta por escrito al Tatami Manager del Tatami correspondiente.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.1 y 7.1.5 (Pág. 20-21).): Technical Analysis: Coaches are strictly prohibited from addressing members of the judging panel or referees to protest a technical ruling or judgement. Official protocol requires you to immediately request the written protest form from the Tatami Manager of the corresponding Tatami.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.1 y 7.1.5 (Pág. 20-21).): Interpretación técnica: Los entrenadores tienen estrictamente prohibido dirigirse a los miembros del panel de jueces o árbitros para protestar por un fallo técnico o juicio. El protocolo oficial exige solicitar de inmediato el formulario de protesta por escrito al Tatami Manager del Tatami correspondiente."
   },
   {
     "id": 79,
@@ -714,7 +864,9 @@ export const kataQuestions = [
     "text_en": "The judges cannot explain the outcome of a bout to a coach or competitor.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.1 (Pág. 20) / directrices de jueces.",
-    "justification": "Para mantener la neutralidad e independencia del arbitraje, los jueces no están autorizados a discutir, justificar o explicar sus valoraciones técnicas de forma verbal con entrenadores o competidores."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.1 (Pág. 20) / directrices de jueces.): Interpretación técnica: Para mantener la neutralidad e independencia del arbitraje, los jueces no están autorizados a discutir, justificar o explicar sus valoraciones técnicas de forma verbal con entrenadores o competidores.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.1 (Pág. 20) / directrices de jueces.): Technical Analysis: To maintain the neutrality and independence of refereeing, judges are not authorized to discuss, justify or explain their technical assessments verbally with coaches or competitors.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.1 (Pág. 20) / directrices de jueces.): Interpretación técnica: Para mantener la neutralidad e independencia del arbitraje, los jueces no están autorizados a discutir, justificar o explicar sus valoraciones técnicas de forma verbal con entrenadores o competidores."
   },
   {
     "id": 80,
@@ -723,7 +875,9 @@ export const kataQuestions = [
     "text_en": "Video review applies also for Kata Competition.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5 (\"Evaluation\") (Págs. 14-18) / Artículo 7 (\"Official Protest\") (Pág. 20-22).",
-    "justification": "El sistema de evaluación para Kata se basa estrictamente en puntuaciones electrónicas que introducen los 7 jueces en sus dispositivos tras la finalización de cada ejecución. A diferencia de Kumite (donde existe un sistema de apelación por tarjeta de Video Review para que el entrenador solicite revisar un punto), en Kata no existe la revisión de video (Video Review) ni se otorgan tarjetas para este propósito."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5 (\"Evaluation\") (Págs. 14-18) / Artículo 7 (\"Official Protest\") (Pág. 20-22).): Interpretación técnica: El sistema de evaluación para Kata se basa estrictamente en puntuaciones electrónicas que introducen los 7 jueces en sus dispositivos tras la finalización de cada ejecución. A diferencia de Kumite (donde existe un sistema de apelación por tarjeta de Video Review para que el entrenador solicite revisar un punto), en Kata no existe la revisión de video (Video Review) ni se otorgan tarjetas para este propósito.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5 (\"Evaluation\") (Págs. 14-18) / Artículo 7 (\"Official Protest\") (Pág. 20-22).): Technical Analysis: The evaluation system for Kata is strictly based on electronic scores that the 7 judges enter into their devices after the completion of each execution. Unlike Kumite (where there is a Video Review card appeal system for the coach to request a review of a point), in Kata there is no Video Review nor are cards awarded for this purpose.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5 (\"Evaluation\") (Págs. 14-18) / Artículo 7 (\"Official Protest\") (Pág. 20-22).): Interpretación técnica: El sistema de evaluación para Kata se basa estrictamente en puntuaciones electrónicas que introducen los 7 jueces en sus dispositivos tras la finalización de cada ejecución. A diferencia de Kumite (donde existe un sistema de apelación por tarjeta de Video Review para que el entrenador solicite revisar un punto), en Kata no existe la revisión de video (Video Review) ni se otorgan tarjetas para este propósito."
   },
   {
     "id": 81,
@@ -732,7 +886,9 @@ export const kataQuestions = [
     "text_en": "If there is an administrative malfunction, the Coach can notify the Tatami Manager directly.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.9 (Pág. 21).",
-    "justification": "En caso de fallos de índole puramente administrativa durante el desarrollo de una ronda (por ejemplo, errores de registro en el marcador electrónico, nombres cruzados, etc.), el entrenador puede y debe notificar de inmediato al Tatami Manager para subsanar el error de forma directa y ágil. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 22 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.9 (Pág. 21).): Interpretación técnica: En caso de fallos de índole puramente administrativa durante el desarrollo de una ronda (por ejemplo, errores de registro en el marcador electrónico, nombres cruzados, etc.), el entrenador puede y debe notificar de inmediato al Tatami Manager para subsanar el error de forma directa y ágil.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.9 (Pág. 21).): Technical Analysis: In the event of errors of a purely administrative nature during the development of a round (for example, registration errors in the electronic scoreboard, crossed names, etc.), the coach can and must immediately notify the Tatami Manager to correct the error directly and quickly.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.9 (Pág. 21).): Interpretación técnica: En caso de fallos de índole puramente administrativa durante el desarrollo de una ronda (por ejemplo, errores de registro en el marcador electrónico, nombres cruzados, etc.), el entrenador puede y debe notificar de inmediato al Tatami Manager para subsanar el error de forma directa y ágil."
   },
   {
     "id": 82,
@@ -741,7 +897,9 @@ export const kataQuestions = [
     "text_en": "The Tatami Manager can recommend the coach to write a protest.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1 (Pág. 20-21).",
-    "justification": "El Tatami Manager actúa como oficial neutral encargado de recibir y canalizar la protesta oficial, pero no puede incitar, sugerir ni recomendar activamente a un entrenador que formule o redacte una protesta formal."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1 (Pág. 20-21).): Interpretación técnica: El Tatami Manager actúa como oficial neutral encargado de recibir y canalizar la protesta oficial, pero no puede incitar, sugerir ni recomendar activamente a un entrenador que formule o redacte una protesta formal.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1 (Pág. 20-21).): Technical Analysis: The Tatami Manager acts as a neutral official in charge of receiving and channeling the official protest, but cannot actively incite, suggest or recommend that a coach formulate or draft a formal protest.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1 (Pág. 20-21).): Interpretación técnica: El Tatami Manager actúa como oficial neutral encargado de recibir y canalizar la protesta oficial, pero no puede incitar, sugerir ni recomendar activamente a un entrenador que formule o redacte una protesta formal."
   },
   {
     "id": 83,
@@ -750,7 +908,9 @@ export const kataQuestions = [
     "text_en": "If a refereeing procedure appears to contravene the rules, the Competitor’s Coach is not allowed to make a written protest in KATA Competitions.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.2 (Pág. 20-21).",
-    "justification": "El entrenador del competidor (o representante oficial de la delegación) es la única persona autorizada para realizar una protesta formal por escrito si considera que el procedimiento de arbitraje ha contravenido o violado directamente las reglas técnicas de competencia. --- 7. REGLAMENTO SAFE SPORT DE LA WKF"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.2 (Pág. 20-21).): Interpretación técnica: El entrenador del competidor (o representante oficial de la delegación) es la única persona autorizada para realizar una protesta formal por escrito si considera que el procedimiento de arbitraje ha contravenido o violado directamente las reglas técnicas de competencia. --- 7. REGLAMENTO SAFE SPORT DE LA WKF",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.2 (Pág. 20-21).): Technical Analysis: The competitor's coach (or official representative of the delegation) is the only person authorized to make a formal written protest if he or she considers that the refereeing procedure has contravened or directly violated the technical competition rules. --- 7. WKF SAFE SPORT REGULATIONS",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 7.1.2 (Pág. 20-21).): Interpretación técnica: El entrenador del competidor (o representante oficial de la delegación) es la única persona autorizada para realizar una protesta formal por escrito si considera que el procedimiento de arbitraje ha contravenido o violado directamente las reglas técnicas de competencia. --- 7. REGLAMENTO SAFE SPORT DE LA WKF"
   },
   {
     "id": 84,
@@ -759,7 +919,9 @@ export const kataQuestions = [
     "text_en": "The competitors have to follow the instructions of the controllers regarding the Karate-gi and the belt.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7) y Artículo 3.1.4 (Pág. 8).",
-    "justification": "Es un deber ineludible de los competidores seguir al pie de la letra las instrucciones de los controladores de la WKF respecto a las especificaciones reglamentarias del Karate-gi y los cinturones AKA y AO. Los controladores validan estas indumentarias en la zona de pre-entrada, y cualquier irregularidad no corregida puede acarrear la descalificación inmediata del atleta. 7. REGLAMENTO SAFE SPORT DE LA WKF"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7) y Artículo 3.1.4 (Pág. 8).): Interpretación técnica: Es un deber ineludible de los competidores seguir al pie de la letra las instrucciones de los controladores de la WKF respecto a las especificaciones reglamentarias del Karate-gi y los cinturones AKA y AO. Los controladores validan estas indumentarias en la zona de pre-entrada, y cualquier irregularidad no corregida puede acarrear la descalificación inmediata del atleta.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7) y Artículo 3.1.4 (Pág. 8).): Technical Analysis: It is an unavoidable duty of competitors to follow to the letter the instructions of the WKF controllers regarding the regulatory specifications of the Karate-gi and the AKA and AO belts. The controllers validate these clothing in the pre-entry area, and any uncorrected irregularity may lead to the immediate disqualification of the athlete.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7) y Artículo 3.1.4 (Pág. 8).): Interpretación técnica: Es un deber ineludible de los competidores seguir al pie de la letra las instrucciones de los controladores de la WKF respecto a las especificaciones reglamentarias del Karate-gi y los cinturones AKA y AO. Los controladores validan estas indumentarias en la zona de pre-entrada, y cualquier irregularidad no corregida puede acarrear la descalificación inmediata del atleta."
   },
   {
     "id": 85,
@@ -768,7 +930,9 @@ export const kataQuestions = [
     "text_en": "For categories under 14 years of age only four KATA is required.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.2 (Pág. 14).",
-    "justification": "Los atletas menores de 14 años disponen de una excepción de repetición simplificada que requiere un máximo de 4 Katas diferentes para completar todo el campeonato."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.2 (Pág. 14).): Interpretación técnica: Los atletas menores de 14 años disponen de una excepción de repetición simplificada que requiere un máximo de 4 Katas diferentes para completar todo el campeonato.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.2 (Pág. 14).): Technical Analysis: Athletes under 14 years of age have a simplified repetition exception that requires a maximum of 4 different Katas to complete the entire championship.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.2 (Pág. 14).): Interpretación técnica: Los atletas menores de 14 años disponen de una excepción de repetición simplificada que requiere un máximo de 4 Katas diferentes para completar todo el campeonato."
   },
   {
     "id": 86,
@@ -777,7 +941,9 @@ export const kataQuestions = [
     "text_en": "The accreditation of a Kata athlete as they do not need to pass the weighing control, they can be collected without showing their passport.",
     "answer": false,
     "ref": "WKF_GENERAL_REGULATIONS_vf.pdf, Sección de Registro y Acreditación de Atletas (Pág. 9).",
-    "justification": "Todo competidor, sin importar la modalidad (Kata o Kumite), debe personarse en el proceso oficial de acreditación y validación de identidad presentando su pasaporte físico original para certificar su nacionalidad, edad y elegibilidad. No se puede emitir la acreditación sin este paso."
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Sección de Registro y Acreditación de Atletas (Pág. 9).): Interpretación técnica: Todo competidor, sin importar la modalidad (Kata o Kumite), debe personarse en el proceso oficial de acreditación y validación de identidad presentando su pasaporte físico original para certificar su nacionalidad, edad y elegibilidad. No se puede emitir la acreditación sin este paso.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf, Sección de Registro y Acreditación de Atletas (Pág. 9).): Technical Analysis: Every competitor, regardless of the modality (Kata or Kumite), must appear in the official accreditation and identity validation process, presenting their original physical passport to certify their nationality, age and eligibility. Accreditation cannot be issued without this step.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf, Sección de Registro y Acreditación de Atletas (Pág. 9).): Interpretación técnica: Todo competidor, sin importar la modalidad (Kata o Kumite), debe personarse en el proceso oficial de acreditación y validación de identidad presentando su pasaporte físico original para certificar su nacionalidad, edad y elegibilidad. No se puede emitir la acreditación sin este paso."
   },
   {
     "id": 87,
@@ -786,7 +952,9 @@ export const kataQuestions = [
     "text_en": "In senior world championships, Kata can be repeated after performing five different kata but cannot be repeated twice in a row.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.1 (Pág. 13-14).",
-    "justification": "El reglamento autoriza la repetición de Katas tras haber completado cinco ejecuciones diferentes previas (hasta llegar a las rondas de medallas), siempre que se respete la condición ineludible de no repetir el mismo Kata dos veces de forma consecutiva y no superarlo más de dos veces en total. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 20 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.1 (Pág. 13-14).): Interpretación técnica: El reglamento autoriza la repetición de Katas tras haber completado cinco ejecuciones diferentes previas (hasta llegar a las rondas de medallas), siempre que se respete la condición ineludible de no repetir el mismo Kata dos veces de forma consecutiva y no superarlo más de dos veces en total.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.1 (Pág. 13-14).): Technical Analysis: The regulations authorize the repetition of Katas after having completed five different previous executions (until reaching the medal rounds), as long as the unavoidable condition of not repeating the same Kata twice consecutively and not passing it more than two times in total is respected.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.2.1 (Pág. 13-14).): Interpretación técnica: El reglamento autoriza la repetición de Katas tras haber completado cinco ejecuciones diferentes previas (hasta llegar a las rondas de medallas), siempre que se respete la condición ineludible de no repetir el mismo Kata dos veces de forma consecutiva y no superarlo más de dos veces en total."
   },
   {
     "id": 88,
@@ -795,7 +963,9 @@ export const kataQuestions = [
     "text_en": "Excessive celebration after winning the medal bout is permitted.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.9.1 (Pág. 18).",
-    "justification": "Cualquier tipo de manifestación desmedida o celebración excesiva (arrodillarse, gesticular de forma teatral, etc.) tras finalizar la competencia es considerada una falta disciplinaria y está estrictamente prohibida."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.9.1 (Pág. 18).): Interpretación técnica: Cualquier tipo de manifestación desmedida o celebración excesiva (arrodillarse, gesticular de forma teatral, etc.) tras finalizar la competencia es considerada una falta disciplinaria y está estrictamente prohibida.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.9.1 (Pág. 18).): Technical Analysis: Any type of excessive demonstration or excessive celebration (kneeling, gesticulating in a theatrical manner, etc.) after finishing the competition is considered a disciplinary offense and is strictly prohibited.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.9.1 (Pág. 18).): Interpretación técnica: Cualquier tipo de manifestación desmedida o celebración excesiva (arrodillarse, gesticular de forma teatral, etc.) tras finalizar la competencia es considerada una falta disciplinaria y está estrictamente prohibida."
   },
   {
     "id": 89,
@@ -804,7 +974,9 @@ export const kataQuestions = [
     "text_en": "Kata Team members must all wear the same brand mark on the shoulders.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 5).",
-    "justification": "La norma establece textualmente que: \"There is no WKF requirement for the Team members wearing the same brand of Karategi.\" (No existe requisito WKF de que los miembros de un equipo vistan la misma marca comercial de Karategi). Deben vestir Karategis de corte idéntico y con el color del bordado de los hombros correcto, pero no necesariamente de la misma marca comercial."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 5).): Interpretación técnica: La norma establece textualmente que: \"There is no WKF requirement for the Team members wearing the same brand of Karategi.\" (No existe requisito WKF de que los miembros de un equipo vistan la misma marca comercial de Karategi). Deben vestir Karategis de corte idéntico y con el color del bordado de los hombros correcto, pero no necesariamente de la misma marca comercial.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 5).): Technical Analysis: The standard establishes verbatim that: \"There is no WKF requirement for the Team members wearing the same brand of Karategi.\" (There is no WKF requirement that members of a team wear the same Karategi trademark.) They must wear Karategis of identical cut and with the correct color of the shoulder embroidery, but not necessarily of the same commercial brand.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 5).): Interpretación técnica: La norma establece textualmente que: \"There is no WKF requirement for the Team members wearing the same brand of Karategi.\" (No existe requisito WKF de que los miembros de un equipo vistan la misma marca comercial de Karategi). Deben vestir Karategis de corte idéntico y con el color del bordado de los hombros correcto, pero no necesariamente de la misma marca comercial."
   },
   {
     "id": 90,
@@ -813,7 +985,9 @@ export const kataQuestions = [
     "text_en": "If a competitor arrives at the Tatami with unregulated equipment or Karate-gi, he/she is given two (2) minutes to correct matters.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).",
-    "justification": "Se le concede un (1) minuto para realizar cualquier cambio de indumentaria o equipo no autorizado, no dos minutos."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Interpretación técnica: Se le concede un (1) minuto para realizar cualquier cambio de indumentaria o equipo no autorizado, no dos minutos.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Technical Analysis: You are allowed one (1) minute to make any unauthorized change of clothing or equipment, not two minutes.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Interpretación técnica: Se le concede un (1) minuto para realizar cualquier cambio de indumentaria o equipo no autorizado, no dos minutos."
   },
   {
     "id": 91,
@@ -822,7 +996,9 @@ export const kataQuestions = [
     "text_en": "Performance of an extra Kata is the last criteria to resolve the tie in individual round robin.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.11, Criterio 5 (Pág. 18).",
-    "justification": "En caso de empate absoluto de puntos de victoria y votos totales acumulados de los jueces en la fase de grupos (Round-Robin), el último paso establecido para desempatar y decidir la clasificación a la siguiente ronda es la ejecución de un Kata adicional (extra) por los atletas empatados."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.11, Criterio 5 (Pág. 18).): Interpretación técnica: En caso de empate absoluto de puntos de victoria y votos totales acumulados de los jueces en la fase de grupos (Round-Robin), el último paso establecido para desempatar y decidir la clasificación a la siguiente ronda es la ejecución de un Kata adicional (extra) por los atletas empatados.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.11, Criterio 5 (Pág. 18).): Technical Analysis: In case of absolute tie of victory points and total votes accumulated by the judges in the group stage (Round-Robin), the last step established to break the tie and decide the classification to the next round is the execution of an additional (extra) Kata by the tied athletes.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.11, Criterio 5 (Pág. 18).): Interpretación técnica: En caso de empate absoluto de puntos de victoria y votos totales acumulados de los jueces en la fase de grupos (Round-Robin), el último paso establecido para desempatar y decidir la clasificación a la siguiente ronda es la ejecución de un Kata adicional (extra) por los atletas empatados."
   },
   {
     "id": 92,
@@ -831,7 +1007,9 @@ export const kataQuestions = [
     "text_en": "Simulated unconsciousness is not considered a foul in case of good BUNKAI performance.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.8 (Pág. 9) y Artículo 5.7, Inciso 11 (Pág. 17).",
-    "justification": "Fingir o simular estar inconsciente en el tatami tras un derribo en el Bunkai está expresamente clasificado como inapropiado y constituye una falta (foul). El reglamento obliga a que tras ser proyectado o derribado, el atleta deba reincorporarse (arrodillado o de pie) en un lapso máximo de 2 segundos. Permanecer tirado simulando inconsciencia por más tiempo es penalizado."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.8 (Pág. 9) y Artículo 5.7, Inciso 11 (Pág. 17).): Interpretación técnica: Fingir o simular estar inconsciente en el tatami tras un derribo en el Bunkai está expresamente clasificado como inapropiado y constituye una falta (foul). El reglamento obliga a que tras ser proyectado o derribado, el atleta deba reincorporarse (arrodillado o de pie) en un lapso máximo de 2 segundos. Permanecer tirado simulando inconsciencia por más tiempo es penalizado.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.8 (Pág. 9) y Artículo 5.7, Inciso 11 (Pág. 17).): Technical Analysis: Faking or simulating being unconscious on the tatami after a takedown in the Bunkai is expressly classified as inappropriate and constitutes a foul. The regulations require that after being thrown or knocked down, the athlete must get back up (kneeling or standing) within a maximum period of 2 seconds. Remaining lying simulating unconsciousness for longer is penalized.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.8 (Pág. 9) y Artículo 5.7, Inciso 11 (Pág. 17).): Interpretación técnica: Fingir o simular estar inconsciente en el tatami tras un derribo en el Bunkai está expresamente clasificado como inapropiado y constituye una falta (foul). El reglamento obliga a que tras ser proyectado o derribado, el atleta deba reincorporarse (arrodillado o de pie) en un lapso máximo de 2 segundos. Permanecer tirado simulando inconsciencia por más tiempo es penalizado."
   },
   {
     "id": 93,
@@ -840,7 +1018,9 @@ export const kataQuestions = [
     "text_en": "It is the responsibility of the head of delegation to ensure that the kata being notified to the runner is the appropriate kata for that particular round.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.2 (Pág. 19).",
-    "justification": "Nuevamente, el reglamento deposita de forma exclusiva esta responsabilidad en el entrenador (Coach) o en el propio atleta en caso de ausencia de este, no en el Jefe de Delegación."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.2 (Pág. 19).): Interpretación técnica: Nuevamente, el reglamento deposita de forma exclusiva esta responsabilidad en el entrenador (Coach) o en el propio atleta en caso de ausencia de este, no en el Jefe de Delegación.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.2 (Pág. 19).): Technical Analysis: Once again, the regulations place this responsibility exclusively on the coach (Coach) or on the athlete himself in case of his absence, not on the Head of Delegation.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 6.2 (Pág. 19).): Interpretación técnica: Nuevamente, el reglamento deposita de forma exclusiva esta responsabilidad en el entrenador (Coach) o en el propio atleta en caso de ausencia de este, no en el Jefe de Delegación."
   },
   {
     "id": 94,
@@ -849,7 +1029,9 @@ export const kataQuestions = [
     "text_en": "Having to take a corrective step to recover from a total loss of balance or have a fall is a foul.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 7 (Pág. 17).",
-    "justification": "Perder totalmente el equilibrio hasta el punto de requerir un paso correctivo de recuperación para evitar colapsar, o sufrir una caída en el tatami, no se clasifica como una falta simple (foul). Es tipificado directamente como un motivo de descalificación (disqualification)."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 7 (Pág. 17).): Interpretación técnica: Perder totalmente el equilibrio hasta el punto de requerir un paso correctivo de recuperación para evitar colapsar, o sufrir una caída en el tatami, no se clasifica como una falta simple (foul). Es tipificado directamente como un motivo de descalificación (disqualification).",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 7 (Pág. 17).): Technical Analysis: Completely losing balance to the point of requiring a corrective recovery step to avoid collapsing, or suffering a fall on the mat, is not classified as a foul. It is directly classified as a reason for disqualification.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 7 (Pág. 17).): Interpretación técnica: Perder totalmente el equilibrio hasta el punto de requerir un paso correctivo de recuperación para evitar colapsar, o sufrir una caída en el tatami, no se clasifica como una falta simple (foul). Es tipificado directamente como un motivo de descalificación (disqualification)."
   },
   {
     "id": 95,
@@ -857,8 +1039,10 @@ export const kataQuestions = [
     "text": "En las competiciones de Para-Karate, los atletas de la Clase de Discapacidad Visual (K10) deben usar antifaces que bloqueen completamente la visión, incluyendo los antifaces opacos aprobados por la Federación Internacional de Deportes para Ciegos (IBSA) para deportes de personas ciegas.",
     "text_en": "In Para-Karate Competitions, Athletes of the Visually Impaired Class (K10) are required to wear blindfolds that fully block vision including International Blind Sports Federation (IBSA) approved black-out blindfolds for blind sports.",
     "answer": true,
-    "ref": "122225_parakarate_commission.pdf (Clase K10).,",
-    "justification": "El uso de antifaces opacos que bloqueen al 100% la luz es obligatorio en la clase K10 para garantizar condiciones de competencia justas y homogéneas."
+    "ref": "122225_parakarate_commission.pdf (Clase K10).",
+    "justification": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Clase K10).): Interpretación técnica: El uso de antifaces opacos que bloqueen al 100% la luz es obligatorio en la clase K10 para garantizar condiciones de competencia justas y homogéneas.",
+    "justification_en": "Official WKF Rules (122225_parakarate_commission.pdf (Clase K10).): Technical Analysis: The use of opaque masks that block 100% light is mandatory in the K10 class to guarantee fair and homogeneous competition conditions.",
+    "justification_es": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Clase K10).): Interpretación técnica: El uso de antifaces opacos que bloqueen al 100% la luz es obligatorio en la clase K10 para garantizar condiciones de competencia justas y homogéneas."
   },
   {
     "id": 96,
@@ -866,8 +1050,10 @@ export const kataQuestions = [
     "text": "En las competiciones de Para-Karate, se permitirá a los atletas con más de un tipo de discapacidad competir en más de una clase deportiva durante los campeonatos.",
     "text_en": "In Para-Karate Competitions, Athletes with more than one type of impairment will be allowed to compete in more than one sport class during the championships.",
     "answer": false,
-    "ref": "122225_parakarate_commission.pdf (Clasificación).,",
-    "justification": "Un Para-atleta solo puede ser evaluado, clasificado y autorizado para competir en una sola clase deportiva durante la celebración de un evento."
+    "ref": "122225_parakarate_commission.pdf (Clasificación).",
+    "justification": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Clasificación).): Interpretación técnica: Un Para-atleta solo puede ser evaluado, clasificado y autorizado para competir en una sola clase deportiva durante la celebración de un evento.",
+    "justification_en": "Official WKF Rules (122225_parakarate_commission.pdf (Clasificación).): Technical Analysis: A Para-athlete can only be evaluated, classified and authorized to compete in a single sport class during the celebration of an event.",
+    "justification_es": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Clasificación).): Interpretación técnica: Un Para-atleta solo puede ser evaluado, clasificado y autorizado para competir en una sola clase deportiva durante la celebración de un evento."
   },
   {
     "id": 97,
@@ -875,8 +1061,10 @@ export const kataQuestions = [
     "text": "En las competiciones de Para-Karate, los competidores de la categoría de Discapacidad Intelectual (Clases Deportivas K21 y K22) pueden realizar el mismo Kata en cada ronda.",
     "text_en": "In Para-Karate Competitions, Competitors from the Intellectually Impaired category (Sport Classes K21 and K22) may perform the same Kata in each round.",
     "answer": true,
-    "ref": "122225_parakarate_commission.pdf (Adaptación de reglas).,",
-    "justification": "Se les otorga de manera expresa el derecho de repetir el mismo Kata en todas las rondas de competencia a los atletas con discapacidades intelectuales para facilitar su participación."
+    "ref": "122225_parakarate_commission.pdf (Adaptación de reglas).",
+    "justification": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Adaptación de reglas).): Interpretación técnica: Se les otorga de manera expresa el derecho de repetir el mismo Kata en todas las rondas de competencia a los atletas con discapacidades intelectuales para facilitar su participación.",
+    "justification_en": "Official WKF Rules (122225_parakarate_commission.pdf (Adaptación de reglas).): Technical Analysis: Athletes with intellectual disabilities are expressly granted the right to repeat the same Kata in all rounds of competition to facilitate their participation.",
+    "justification_es": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Adaptación de reglas).): Interpretación técnica: Se les otorga de manera expresa el derecho de repetir el mismo Kata en todas las rondas de competencia a los atletas con discapacidades intelectuales para facilitar su participación."
   },
   {
     "id": 98,
@@ -884,8 +1072,10 @@ export const kataQuestions = [
     "text": "En los Campeonatos Mundiales de Para-Karate, los entrenadores deben formar parte de la delegación de una Federación Nacional y poseer la licencia de Kata requerida.",
     "text_en": "In Para-Karate World Championships, coaches need to be part of a National Federation delegation and have the required Kata license.",
     "answer": true,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf / 122225_parakarate_commission.pdf.,",
-    "justification": "No se permiten entrenadores independientes sin adscripción oficial federativa ni sin la licencia WKF habilitada. WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 29 v5.0 - Español"
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf / 122225_parakarate_commission.pdf.",
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf / 122225_parakarate_commission.pdf.): Interpretación técnica: No se permiten entrenadores independientes sin adscripción oficial federativa ni sin la licencia WKF habilitada.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf / 122225_parakarate_commission.pdf.): Technical Analysis: Independent coaches are not allowed without official federation affiliation or without the WKF license enabled.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf / 122225_parakarate_commission.pdf.): Interpretación técnica: No se permiten entrenadores independientes sin adscripción oficial federativa ni sin la licencia WKF habilitada."
   },
   {
     "id": 99,
@@ -893,8 +1083,10 @@ export const kataQuestions = [
     "text": "En Para-Karate, las instrucciones del entrenador o la guía externa deliberada durante la ejecución del kata, como indicaciones habladas o señales visibles después del inicio de la presentación, son motivo de descalificación.",
     "text_en": "In Para-Karate, Coach instructions or deliberate external guidance during the kata performance, such as spoken directions or visible signals after the start of the performance, is reason for disqualification.",
     "answer": true,
-    "ref": "122225_parakarate_commission.pdf (Reglas de Competición).,",
-    "justification": "Toda ayuda externa una vez que se inicia la ejecución está estrictamente prohibida. Esto incluye dar indicaciones de dirección habladas, silbidos o gestos técnicos desde el Coach box, resultando en la descalificación inmediata."
+    "ref": "122225_parakarate_commission.pdf (Reglas de Competición).",
+    "justification": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Reglas de Competición).): Interpretación técnica: Toda ayuda externa una vez que se inicia la ejecución está estrictamente prohibida. Esto incluye dar indicaciones de dirección habladas, silbidos o gestos técnicos desde el Coach box, resultando en la descalificación inmediata.",
+    "justification_en": "Official WKF Rules (122225_parakarate_commission.pdf (Reglas de Competición).): Technical Analysis: Any outside help once the execution begins is strictly prohibited. This includes giving spoken direction cues, whistles or technical gestures from the Coach box, resulting in immediate disqualification.",
+    "justification_es": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Reglas de Competición).): Interpretación técnica: Toda ayuda externa una vez que se inicia la ejecución está estrictamente prohibida. Esto incluye dar indicaciones de dirección habladas, silbidos o gestos técnicos desde el Coach box, resultando en la descalificación inmediata."
   },
   {
     "id": 100,
@@ -903,7 +1095,9 @@ export const kataQuestions = [
     "text_en": "A Karate-gi is considered \"WKF approved\" if its brand is published in the WKF official website.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1 y Artículo 2.2.10 (Pág. 7).",
-    "justification": "El Jefe de Árbitros de la FECOKA está en lo correcto al señalar esta crucial distinción. Es FALSO porque la homologación oficial de la WKF no se concede de manera genérica a la marca para toda su línea de productos. Un fabricante aprobado comercializa tanto modelos específicos que poseen la certificación, etiquetado y sello holográfico físico de \"WKF Approved\" (los cuales cumplen con las especificaciones de corte, peso y costuras requeridas para alta competición), como también modelos estándar de entrenamiento que NO están aprobados. Por lo tanto, el hecho de que una marca aparezca listada en el portal web de la WKF no convierte a todos sus Karategis en aprobados de forma automática; cada uniforme debe portar físicamente su sello holográfico de homologación de fábrica."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1 y Artículo 2.2.10 (Pág. 7).): Interpretación técnica: La homologación oficial \"WKF Approved\" para los uniformes (Karategis) se concede formalmente a marcas comerciales autorizadas por el Comité Ejecutivo de la WKF. La federación mantiene y publica de manera permanente la lista oficial de estas marcas aprobadas y vigentes directamente en su portal web oficial, siendo este el único catálogo legal y válido de referencia.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1 y Artículo 2.2.10 (Pág. 7).): Technical Analysis: The official \"WKF Approved\" approval for uniforms (Karategis) is formally granted to trademarks authorized by the WKF Executive Committee. The federation permanently maintains and publishes the official list of these approved and current brands directly on its official web portal, this being the only legal and valid reference catalogue.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1 y Artículo 2.2.10 (Pág. 7).): Interpretación técnica: La homologación oficial \"WKF Approved\" para los uniformes (Karategis) se concede formalmente a marcas comerciales autorizadas por el Comité Ejecutivo de la WKF. La federación mantiene y publica de manera permanente la lista oficial de estas marcas aprobadas y vigentes directamente en su portal web oficial, siendo este el único catálogo legal y válido de referencia."
   },
   {
     "id": 101,
@@ -912,7 +1106,9 @@ export const kataQuestions = [
     "text_en": "The use of karate-gi with embroidery brands on the shoulders in white is allowed in all the WKF Official competitions.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 4-5).",
-    "justification": "En los eventos oficiales de rango WKF es obligatorio que las marcas de los hombros estén bordadas en rojo o azul (o dorado en el caso específico de campeones vigentes) según corresponda al sorteo. El bordado blanco no está permitido para la competencia oficial WKF."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 4-5).): Interpretación técnica: En los eventos oficiales de rango WKF es obligatorio que las marcas de los hombros estén bordadas en rojo o azul (o dorado en el caso específico de campeones vigentes) según corresponda al sorteo. El bordado blanco no está permitido para la competencia oficial WKF.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 4-5).): Technical Analysis: In official WKF rank events it is mandatory that the shoulder marks be embroidered in red or blue (or gold in the specific case of current champions) as appropriate to the draw. White embroidery is not allowed for official WKF competition.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.1, Inciso a) (Pág. 4-5).): Interpretación técnica: En los eventos oficiales de rango WKF es obligatorio que las marcas de los hombros estén bordadas en rojo o azul (o dorado en el caso específico de campeones vigentes) según corresponda al sorteo. El bordado blanco no está permitido para la competencia oficial WKF."
   },
   {
     "id": 102,
@@ -920,8 +1116,10 @@ export const kataQuestions = [
     "text": "Está permitido que el entrenador tenga dispositivos de comunicación electrónica mientras dirige.",
     "text_en": "It is permitted for the coach to have electronic communication devices while coaching.",
     "answer": false,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf.,",
-    "justification": "Al igual que los oficiales del panel arbitral, los entrenadores tienen estrictamente prohibido portar teléfonos móviles, smartwatches, audífonos o cualquier otro dispositivo electrónico de transmisión de datos o comunicación mientras estén ejerciendo la dirección en el Tatami."
+    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf.",
+    "justification": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf.): Interpretación técnica: Al igual que los oficiales del panel arbitral, los entrenadores tienen estrictamente prohibido portar teléfonos móviles, smartwatches, audífonos o cualquier otro dispositivo electrónico de transmisión de datos o comunicación mientras estén ejerciendo la dirección en el Tatami.",
+    "justification_en": "Official WKF Rules (WKF_GENERAL_REGULATIONS_vf.pdf / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf.): Technical Analysis: Like the referee panel officials, coaches are strictly prohibited from carrying mobile phones, smartwatches, headphones or any other electronic data transmission or communication device while directing on the Tatami.",
+    "justification_es": "Reglamento Oficial WKF (WKF_GENERAL_REGULATIONS_vf.pdf / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf.): Interpretación técnica: Al igual que los oficiales del panel arbitral, los entrenadores tienen estrictamente prohibido portar teléfonos móviles, smartwatches, audífonos o cualquier otro dispositivo electrónico de transmisión de datos o comunicación mientras estén ejerciendo la dirección en el Tatami."
   },
   {
     "id": 103,
@@ -930,7 +1128,9 @@ export const kataQuestions = [
     "text_en": "It is permitted for the coach to wear Sandals, or any other open-toe shoe while coaching medal bouts.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).",
-    "justification": "El reglamento prohíbe de forma directa este calzado para los entrenadores: \"Sandals, or any other open-toe shoes, are prohibited.\" Se exige calzado cerrado que cubra el pie por completo. --- 2. EQUIPAMIENTO DEL ATLETA, KARATEGI Y CINTURONES 2. EQUIPAMIENTO DEL ATLETA, KARATEGI Y CINTURONES"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).): Interpretación técnica: El reglamento prohíbe de forma directa este calzado para los entrenadores: \"Sandals, or any other open-toe shoes, are prohibited.\" Se exige calzado cerrado que cubra el pie por completo. --- 2. EQUIPAMIENTO DEL ATLETA, KARATEGI Y CINTURONES",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).): Technical Analysis: The regulations directly prohibit this footwear for coaches: \"Sandals, or any other open-toe shoes, are prohibited.\" Closed footwear that covers the foot completely is required. --- 2. ATHLETE EQUIPMENT, KARATEGI AND BELTS",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).): Interpretación técnica: El reglamento prohíbe de forma directa este calzado para los entrenadores: \"Sandals, or any other open-toe shoes, are prohibited.\" Se exige calzado cerrado que cubra el pie por completo. --- 2. EQUIPAMIENTO DEL ATLETA, KARATEGI Y CINTURONES"
   },
   {
     "id": 104,
@@ -939,7 +1139,9 @@ export const kataQuestions = [
     "text_en": "A coach may subject to have his/her coaching license suspended for a period up to 6 months if his Competitor appear at the competition area with unauthorized equipment or irregular Karate-gi.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).",
-    "justification": "Como sanción de responsabilidad directa, la WKF faculta a suspender temporalmente la licencia de dirección del entrenador por un período de hasta 6 meses por negligencia en la presentación del uniforme de su atleta."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Interpretación técnica: Como sanción de responsabilidad directa, la WKF faculta a suspender temporalmente la licencia de dirección del entrenador por un período de hasta 6 meses por negligencia en la presentación del uniforme de su atleta.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Technical Analysis: As a sanction of direct liability, the WKF empowers to temporarily suspend the coach's management license for a period of up to 6 months for negligence in the presentation of his athlete's uniform.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.10 (Pág. 7).): Interpretación técnica: Como sanción de responsabilidad directa, la WKF faculta a suspender temporalmente la licencia de dirección del entrenador por un período de hasta 6 meses por negligencia en la presentación del uniforme de su atleta."
   },
   {
     "id": 105,
@@ -948,7 +1150,9 @@ export const kataQuestions = [
     "text_en": "For WKF World Individual Championships - Phase 2, and Karate 1 - Premier League, the eight highest ranked Competitors present at the competition are seeded.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.4.1 (Pág. 8).",
-    "justification": "En estas competiciones de élite, se siembra de manera estricta únicamente a los cuatro (4) competidores mejor clasificados presentes según el Ranking Mundial de la WKF del día anterior a la competencia, no a los ocho. --- 6. PROTESTAS, FALLOS ADMINISTRATIVOS Y REVISIÓN DE VIDEO (VIDEO REVIEW) WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 21 v5.0 - Español 6. PROTESTAS, FALLOS ADMINISTRATIVOS Y REVISIÓN DE VIDEO"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.4.1 (Pág. 8).): Interpretación técnica: En estas competiciones de élite, se siembra de manera estricta únicamente a los cuatro (4) competidores mejor clasificados presentes según el Ranking Mundial de la WKF del día anterior a la competencia, no a los ocho. --- 6. PROTESTAS, FALLOS ADMINISTRATIVOS Y REVISIÓN DE VIDEO (VIDEO REVIEW)",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.4.1 (Pág. 8).): Technical Analysis: In these elite competitions, only the four (4) highest ranked competitors present based on the WKF World Rankings from the day prior to the competition are strictly seeded, not all eight. --- 6. PROTESTS, ADMINISTRATIVE FAILURES AND VIDEO REVIEW",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.4.1 (Pág. 8).): Interpretación técnica: En estas competiciones de élite, se siembra de manera estricta únicamente a los cuatro (4) competidores mejor clasificados presentes según el Ranking Mundial de la WKF del día anterior a la competencia, no a los ocho. --- 6. PROTESTAS, FALLOS ADMINISTRATIVOS Y REVISIÓN DE VIDEO (VIDEO REVIEW)"
   },
   {
     "id": 106,
@@ -957,7 +1161,9 @@ export const kataQuestions = [
     "text_en": "A scissor takedown to the body or legs is permitted.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.9 (Pág. 9).",
-    "justification": "A diferencia de las tijeras al cuello (prohibidas), la norma autoriza explícitamente realizar derribos de tijera dirigidos al torso o a las piernas del oponente: \"...a scissor takedown to the body or legs is permitted.\" --- 5. ORGANIZACIÓN, SORTEOS Y CATEGORÍAS 5. ORGANIZACIÓN, SORTEOS Y CATEGORÍAS"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.9 (Pág. 9).): Interpretación técnica: A diferencia de las tijeras al cuello (prohibidas), la norma autoriza explícitamente realizar derribos de tijera dirigidos al torso o a las piernas del oponente: \"...a scissor takedown to the body or legs is permitted.\" --- 5. ORGANIZACIÓN, SORTEOS Y CATEGORÍAS",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.9 (Pág. 9).): Technical Analysis: Unlike neck scissors (prohibited), the rule explicitly authorizes scissor takedowns aimed at the opponent's torso or legs: \"...a scissor takedown to the body or legs is permitted.\" --- 5. ORGANIZATION, DRAWINGS AND CATEGORIES",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 3.5.9 (Pág. 9).): Interpretación técnica: A diferencia de las tijeras al cuello (prohibidas), la norma autoriza explícitamente realizar derribos de tijera dirigidos al torso o a las piernas del oponente: \"...a scissor takedown to the body or legs is permitted.\" --- 5. ORGANIZACIÓN, SORTEOS Y CATEGORÍAS"
   },
   {
     "id": 107,
@@ -966,7 +1172,9 @@ export const kataQuestions = [
     "text_en": "Minor loss of balance is considered a disqualification.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 2 (Pág. 16).",
-    "justification": "A diferencia de la pérdida total del equilibrio o caída, una oscilación o pérdida de balance de carácter leve (minor loss of balance) se considera y penaliza estrictamente como una falta (foul) que reduce la puntuación, pero no descalifica al competidor."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 2 (Pág. 16).): Interpretación técnica: A diferencia de la pérdida total del equilibrio o caída, una oscilación o pérdida de balance de carácter leve (minor loss of balance) se considera y penaliza estrictamente como una falta (foul) que reduce la puntuación, pero no descalifica al competidor.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 2 (Pág. 16).): Technical Analysis: Unlike a total loss of balance or fall, a minor loss of balance is considered and penalized strictly as a foul that reduces the score, but does not disqualify the competitor.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 2 (Pág. 16).): Interpretación técnica: A diferencia de la pérdida total del equilibrio o caída, una oscilación o pérdida de balance de carácter leve (minor loss of balance) se considera y penaliza estrictamente como una falta (foul) que reduce la puntuación, pero no descalifica al competidor."
   },
   {
     "id": 108,
@@ -975,7 +1183,9 @@ export const kataQuestions = [
     "text_en": "Omitting or adding movements is allowed in medal bouts.",
     "answer": false,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 5 (Pág. 17).",
-    "justification": "Omitir, alterar o añadir movimientos que modifiquen de forma sustancial la forma tradicional de un Kata de la lista WKF está totalmente prohibido en cualquier ronda, incluyendo los encuentros por medalla, siendo una causa de descalificación (disqualification). WKF KATA COACH LICENSE 2026 GUÍA OFICIAL DE ESTUDIO Federación Mundial de Karate (WKF) Página 15 v5.0 - Español"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 5 (Pág. 17).): Interpretación técnica: Omitir, alterar o añadir movimientos que modifiquen de forma sustancial la forma tradicional de un Kata de la lista WKF está totalmente prohibido en cualquier ronda, incluyendo los encuentros por medalla, siendo una causa de descalificación (disqualification).",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 5 (Pág. 17).): Technical Analysis: Omitting, altering or adding movements that substantially modify the traditional form of a Kata from the WKF list is totally prohibited in any round, including medal matches, and is a cause for disqualification.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.8, Inciso 5 (Pág. 17).): Interpretación técnica: Omitir, alterar o añadir movimientos que modifiquen de forma sustancial la forma tradicional de un Kata de la lista WKF está totalmente prohibido en cualquier ronda, incluyendo los encuentros por medalla, siendo una causa de descalificación (disqualification)."
   },
   {
     "id": 109,
@@ -983,8 +1193,10 @@ export const kataQuestions = [
     "text": "Que los antifaces se muevan de su posición correcta, de modo que descubran parcial o totalmente uno o ambos ojos durante la presentación, es motivo de descalificación.",
     "text_en": "Blindfolds moving out of the correct position, so that they partially or fully uncover one or both eyes during the performance is reason for disqualification.",
     "answer": true,
-    "ref": "122225_parakarate_commission.pdf (Reglas de Discapacidad Visual K10).,",
-    "justification": "Si por el movimiento técnico el antifaz o la venda protectora ocular resbala y descubre parcial o totalmente los ojos del atleta K10 durante la presentación, se asume rotura de la equidad de visión y es motivo directo de descalificación."
+    "ref": "122225_parakarate_commission.pdf (Reglas de Discapacidad Visual K10).",
+    "justification": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Reglas de Discapacidad Visual K10).): Interpretación técnica: Si por el movimiento técnico el antifaz o la venda protectora ocular resbala y descubre parcial o totalmente los ojos del atleta K10 durante la presentación, se asume rotura de la equidad de visión y es motivo directo de descalificación.",
+    "justification_en": "Official WKF Rules (122225_parakarate_commission.pdf (Reglas de Discapacidad Visual K10).): Technical Analysis: If, due to the technical movement, the mask or eye protection bandage slips and partially or completely uncovers the eyes of the K10 athlete during the presentation, it is assumed that there is a breach of equal vision and is a direct reason for disqualification.",
+    "justification_es": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Reglas de Discapacidad Visual K10).): Interpretación técnica: Si por el movimiento técnico el antifaz o la venda protectora ocular resbala y descubre parcial o totalmente los ojos del atleta K10 durante la presentación, se asume rotura de la equidad de visión y es motivo directo de descalificación."
   },
   {
     "id": 110,
@@ -992,8 +1204,10 @@ export const kataQuestions = [
     "text": "Las correas utilizadas durante la competición deben ser del mismo tipo y configuración que las utilizadas en la Sesión de Clasificación.",
     "text_en": "Straps used during competition must be the same type and configuration as those used in the Classification Session",
     "answer": true,
-    "ref": "122225_parakarate_commission.pdf (Soportes y ayudas técnicas).,",
-    "justification": "Todo el equipamiento adaptado o de amarre utilizado por el Para-atleta en el Tatami debe guardar exacta consistencia con las correas validadas y aprobadas médicamente durante la sesión de clasificación oficial previa."
+    "ref": "122225_parakarate_commission.pdf (Soportes y ayudas técnicas).",
+    "justification": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Soportes y ayudas técnicas).): Interpretación técnica: Todo el equipamiento adaptado o de amarre utilizado por el Para-atleta en el Tatami debe guardar exacta consistencia con las correas validadas y aprobadas médicamente durante la sesión de clasificación oficial previa.",
+    "justification_en": "Official WKF Rules (122225_parakarate_commission.pdf (Soportes y ayudas técnicas).): Technical Analysis: All adapted or tie-down equipment used by the Para-athlete on the Tatami must be exactly consistent with the straps validated and medically approved during the previous official classification session.",
+    "justification_es": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Soportes y ayudas técnicas).): Interpretación técnica: Todo el equipamiento adaptado o de amarre utilizado por el Para-atleta en el Tatami debe guardar exacta consistencia con las correas validadas y aprobadas médicamente durante la sesión de clasificación oficial previa."
   },
   {
     "id": 111,
@@ -1002,7 +1216,9 @@ export const kataQuestions = [
     "text_en": "Belt coming loose to the extent that it is coming off the hips during the performance is a foul.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 8 (Pág. 17).",
-    "justification": "Si el cinturón se afloja de forma extrema y resbala por las caderas, interrumpiendo o desluciendo el uniforme sin llegar a caer al suelo, se considera una falta (foul) que afectará directamente a la evaluación cualitativa de los jueces."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 8 (Pág. 17).): Interpretación técnica: Si el cinturón se afloja de forma extrema y resbala por las caderas, interrumpiendo o desluciendo el uniforme sin llegar a caer al suelo, se considera una falta (foul) que afectará directamente a la evaluación cualitativa de los jueces.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 8 (Pág. 17).): Technical Analysis: If the belt becomes extremely loose and slides down the hips, interrupting or tarnishing the uniform without falling to the ground, it is considered a foul that will directly affect the judges' qualitative evaluation.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 8 (Pág. 17).): Interpretación técnica: Si el cinturón se afloja de forma extrema y resbala por las caderas, interrumpiendo o desluciendo el uniforme sin llegar a caer al suelo, se considera una falta (foul) que afectará directamente a la evaluación cualitativa de los jueces."
   },
   {
     "id": 112,
@@ -1010,8 +1226,10 @@ export const kataQuestions = [
     "text": "La tergiversación intencionada de una discapacidad no es motivo de descalificación.",
     "text_en": "Intentional misrepresentation of impairment is not a reason for disqualification.",
     "answer": false,
-    "ref": "122225_parakarate_commission.pdf (Código de Clasificación).,",
-    "justification": "La tergiversación deliberada o simulación exagerada de una discapacidad (Intentional Misrepresentation) es catalogada como una infracción gravísima de la ética deportiva que conlleva la descalificación inmediata del Para-atleta del evento y la remisión al Tribunal Disciplinario de la WKF. --- CONCLUSIÓN Y CONSEJOS PARA EL EXAMEN"
+    "ref": "122225_parakarate_commission.pdf (Código de Clasificación).",
+    "justification": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Código de Clasificación).): Interpretación técnica: La tergiversación deliberada o simulación exagerada de una discapacidad (Intentional Misrepresentation) es catalogada como una infracción gravísima de la ética deportiva que conlleva la descalificación inmediata del Para-atleta del evento y la remisión al Tribunal Disciplinario de la WKF. --- CONCLUSIÓN Y CONSEJOS PARA EL EXAMEN",
+    "justification_en": "Official WKF Rules (122225_parakarate_commission.pdf (Código de Clasificación).): Technical Analysis: Deliberate misrepresentation or exaggerated simulation of a disability (Intentional Misrepresentation) is classified as a very serious infraction of sporting ethics that entails the immediate disqualification of the Para-athlete from the event and referral to the WKF Disciplinary Tribunal. --- CONCLUSION AND TIPS FOR THE EXAM",
+    "justification_es": "Reglamento Oficial WKF (122225_parakarate_commission.pdf (Código de Clasificación).): Interpretación técnica: La tergiversación deliberada o simulación exagerada de una discapacidad (Intentional Misrepresentation) es catalogada como una infracción gravísima de la ética deportiva que conlleva la descalificación inmediata del Para-atleta del evento y la remisión al Tribunal Disciplinario de la WKF. --- CONCLUSIÓN Y CONSEJOS PARA EL EXAMEN"
   },
   {
     "id": 113,
@@ -1020,7 +1238,9 @@ export const kataQuestions = [
     "text_en": "To decide the winner of kata bout, Decision is based on the majority of votes by the judges.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.5.1 (Pág. 15).",
-    "justification": "El sistema de votación determina que el vencedor de cada encuentro es aquel atleta o equipo que reciba el voto a favor de la mayoría del panel oficial de los 7 jueces."
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.5.1 (Pág. 15).): Interpretación técnica: El sistema de votación determina que el vencedor de cada encuentro es aquel atleta o equipo que reciba el voto a favor de la mayoría del panel oficial de los 7 jueces.",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.5.1 (Pág. 15).): Technical Analysis: The voting system determines that the winner of each match is that athlete or team that receives the vote in favor of the majority of the official panel of 7 judges.",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.5.1 (Pág. 15).): Interpretación técnica: El sistema de votación determina que el vencedor de cada encuentro es aquel atleta o equipo que reciba el voto a favor de la mayoría del panel oficial de los 7 jueces."
   },
   {
     "id": 114,
@@ -1029,7 +1249,9 @@ export const kataQuestions = [
     "text_en": "KIAI must be short, concentrated and simultaneously with the technique, otherwise it will be considered as foul.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 7 (Pág. 17).",
-    "justification": "Un Kiai incorrecto (excesivamente prolongado, ruidoso de forma inapropiada o ejecutado de forma desfasada con la técnica de impacto) está tipificado formalmente como una falta (foul). --- 4. EJECUCIÓN Y REGLAS DE BUNKAI 4. EJECUCIÓN Y REGLAS DE BUNKAI"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 7 (Pág. 17).): Interpretación técnica: Un Kiai incorrecto (excesivamente prolongado, ruidoso de forma inapropiada o ejecutado de forma desfasada con la técnica de impacto) está tipificado formalmente como una falta (foul). --- 4. EJECUCIÓN Y REGLAS DE BUNKAI",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 7 (Pág. 17).): Technical Analysis: An incorrect Kiai (excessively prolonged, inappropriately loud or executed out of sync with the impact technique) is formally classified as a foul. --- 4. EXECUTION AND BUNKAI RULES",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 5.7, Inciso 7 (Pág. 17).): Interpretación técnica: Un Kiai incorrecto (excesivamente prolongado, ruidoso de forma inapropiada o ejecutado de forma desfasada con la técnica de impacto) está tipificado formalmente como una falta (foul). --- 4. EJECUCIÓN Y REGLAS DE BUNKAI"
   },
   {
     "id": 115,
@@ -1038,6 +1260,8 @@ export const kataQuestions = [
     "text_en": "Prescription sport-glasses soft contact lenses can be worn at the athlete's own risk.",
     "answer": true,
     "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.4 (Pág. 6).",
-    "justification": "El uso de gafas convencionales está prohibido por seguridad, pero se permite de manera expresa que los atletas usen gafas deportivas graduadas especiales o lentes de contacto blandas bajo su propia responsabilidad: \"Glasses are forbidden. Prescription sport-glasses or soft contact lenses can be worn at the Athlete's own risk.\" --- 3. REGLAS DE EJECUCIÓN DE KATA Y CRITERIOS DE EVALUACIÓN 3. REGLAS DE EJECUCIÓN DE KATA Y CRITERIOS DE EVALUACIÓN"
+    "justification": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.4 (Pág. 6).): Interpretación técnica: El uso de gafas convencionales está prohibido por seguridad, pero se permite de manera expresa que los atletas usen gafas deportivas graduadas especiales o lentes de contacto blandas bajo su propia responsabilidad: \"Glasses are forbidden. Prescription sport-glasses or soft contact lenses can be worn at the Athlete's own risk.\" --- 3. REGLAS DE EJECUCIÓN DE KATA Y CRITERIOS DE EVALUACIÓN",
+    "justification_en": "Official WKF Rules (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.4 (Pág. 6).): Technical Analysis: The use of conventional glasses is prohibited for safety, but athletes are expressly permitted to use special prescription sports glasses or soft contact lenses at their own risk: \"Glasses are prohibited. Prescription sport-glasses or soft contact lenses can be worn at the Athlete's own risk.\" --- 3. KATA EXECUTION RULES AND EVALUATION CRITERIA",
+    "justification_es": "Reglamento Oficial WKF (WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.2.4 (Pág. 6).): Interpretación técnica: El uso de gafas convencionales está prohibido por seguridad, pero se permite de manera expresa que los atletas usen gafas deportivas graduadas especiales o lentes de contacto blandas bajo su propia responsabilidad: \"Glasses are forbidden. Prescription sport-glasses or soft contact lenses can be worn at the Athlete's own risk.\" --- 3. REGLAS DE EJECUCIÓN DE KATA Y CRITERIOS DE EVALUACIÓN"
   }
 ];

@@ -1,5 +1,5 @@
-const CACHE_NAME = 'wkf-app-shell-v6';
-const QUESTIONS_CACHE = 'wkf-offline-questions-v6';
+const CACHE_NAME = 'wkf-app-shell-v7';
+const QUESTIONS_CACHE = 'wkf-offline-questions-v7';
 const AUTH_CACHE = 'wkf-offline-auth-v2';
 
 const STATIC_PRECACHE = [
