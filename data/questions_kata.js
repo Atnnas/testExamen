@@ -357,9 +357,11 @@ export const kataQuestions = [
     "section": "Sección 7: Reglamento Safe Sport de la WKF",
     "text": "Puedes reportar incidentes y sospechas de Safe Sport (Deporte Seguro) a través de 2 métodos: el formulario oficial de quejas de la WKF, o en competiciones de la WKF, puedes hablar directamente con el oficial de salvaguarda (safeguarding officer) del evento.",
     "text_en": "You can report Safe Sport incidents and suspicions via 2 methods: the official WKF complaint form, or at WKF competitions, you can speak directly to the event safeguarding officer.",
-    "answer": true,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport).,",
-    "justification": "Son los dos mecanismos reglamentarios de denuncia habilitados para procesar quejas de acoso, abuso o falta de protección."
+    "answer": false,
+    "ref": "WKF Safe Sport Policy & Guía Oficial Kata 2026.",
+    "justification": "Es FALSA porque no son solo 2 vías: la WKF Safe Sport Policy enumera \"the Event Safeguarding Officer\", \"the Athletes' and Athletes' Entourage Commissions' stand\", \"the WKF Athletes' Entourage Commission members\", \"the Medical Commission members\" y \"the WKF Official Complaint Form\", y la Guía oficial añade \"Chief Referee at venue, Entourage, Technical, Referee, Disciplinary & Legal Commission\".",
+    "justification_en": "It is FALSE because there are NOT only 2 methods: the WKF Safe Sport Policy lists \"the Event Safeguarding Officer\", \"the Athletes' and Athletes' Entourage Commissions' stand\", \"the WKF Athletes' Entourage Commission members\", \"the Medical Commission members\", and \"the WKF Official Complaint Form\", and the official Guide adds \"Chief Referee at venue, Entourage, Technical, Referee, Disciplinary & Legal Commission\".",
+    "justification_es": "Es FALSA porque no son solo 2 vías: la WKF Safe Sport Policy enumera \"the Event Safeguarding Officer\", \"the Athletes' and Athletes' Entourage Commissions' stand\", \"the WKF Athletes' Entourage Commission members\", \"the Medical Commission members\" y \"the WKF Official Complaint Form\", y la Guía oficial añade \"Chief Referee at venue, Entourage, Technical, Referee, Disciplinary & Legal Commission\"."
   },
   {
     "id": 41,

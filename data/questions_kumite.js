@@ -359,9 +359,11 @@ export const kumiteQuestions = [
     "section": "Sección 8: Reglamento Médico y Conmoción Cerebral",
     "text": "Se pueden reportar incidentes y sospechas de Safe Sport a través de 2 métodos: el formulario de quejas oficial de la WKF o, en las competiciones de la WKF, hablando directamente con el oficial de salvaguardia del evento.",
     "text_en": "You can report Safe Sport incidents and suspicions via 2 methods: the official WKF complaint form, or at WKF competitions, you can speak directly to the event safeguarding officer.",
-    "answer": true,
-    "ref": "WKF_GENERAL_REGULATIONS_vf.pdf (Safe Sport Rules) / ACCREDITATION AGREEMENT FOR WKF COACHES.pdf, Mandato N° 7 (Pág. 15).",
-    "justification": "El protocolo de salvaguardia de la WKF (Safe Sport) establece que las denuncias de acoso, abuso o cualquier forma de violencia no accidental se pueden realizar por dos canales oficiales: enviando el formulario electrónico de quejas de la WKF o dirigiéndose físicamente de manera privada al Oficial de Salvaguardia designado para el evento en el tatami."
+    "answer": false,
+    "ref": "WKF Safe Sport Policy & Guía Oficial Kumite 2026.",
+    "justification": "Es FALSA porque no son solo 2 vías: la WKF Safe Sport Policy enumera \"the Event Safeguarding Officer\", \"the Athletes' and Athletes' Entourage Commissions' stand\", \"the WKF Athletes' Entourage Commission members\", \"the Medical Commission members\" y \"the WKF Official Complaint Form\", y la Guía Kumite 2026 añade \"Chief Referee at venue, Entourage, Technical, Referee, Disciplinary & Legal Commission\".",
+    "justification_en": "It is FALSE because there are NOT only 2 methods: the WKF Safe Sport Policy lists \"the Event Safeguarding Officer\", \"the Athletes' and Athletes' Entourage Commissions' stand\", \"the WKF Athletes' Entourage Commission members\", \"the Medical Commission members\", and \"the WKF Official Complaint Form\", and the 2026 Guide adds \"Chief Referee at venue, Entourage, Technical, Referee, Disciplinary & Legal Commission\".",
+    "justification_es": "Es FALSA porque no son solo 2 vías: la WKF Safe Sport Policy enumera \"the Event Safeguarding Officer\", \"the Athletes' and Athletes' Entourage Commissions' stand\", \"the WKF Athletes' Entourage Commission members\", \"the Medical Commission members\" y \"the WKF Official Complaint Form\", y la Guía Kumite 2026 añade \"Chief Referee at venue, Entourage, Technical, Referee, Disciplinary & Legal Commission\"."
   },
   {
     "id": 41,
