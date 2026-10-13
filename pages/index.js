@@ -14,19 +14,56 @@ import PWAInstallButton from '../components/PWAInstallButton';
 // Set to `true` to show the maintenance/offline card in production.
 // Set to `false` to put the app back online instantly!
 const MAINTENANCE_MODE = false;
-// =========================================================================
-
 export default function Home() {
   const { data: session, status: authStatus } = useSession();
+  const [isOffline, setIsOffline] = useState(false);
+  const [offlineSession, setOfflineSession] = useState(null);
   const [selectedRole, setSelectedRole] = useState(null); // null (selección de examen), 'coach', 'referee'
   const [gameState, setGameState] = useState('welcome'); // welcome, quiz, results
 
+  // Cargar sesión offline respaldada previamente en este dispositivo
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const stored = localStorage.getItem('wkf_offline_session');
+      if (stored) {
+        setOfflineSession(JSON.parse(stored));
+      }
+    } catch (_) {}
+  }, []);
+
+  // Mantener actualizado el respaldo de sesión en localStorage cuando hay internet
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (session?.user && (session?.user?.status === 'aprobado' || session?.user?.role === 'admin')) {
+      localStorage.setItem('wkf_offline_session', JSON.stringify(session));
+    } else if (authStatus === 'unauthenticated' && navigator.onLine) {
+      localStorage.removeItem('wkf_offline_session');
+    }
+  }, [session, authStatus]);
+
+  // Manejo de cierre de sesión con purga completa de datos offline
+  const handleSignOut = async () => {
+    try {
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('wkf_offline_session');
+        if ('caches' in window) {
+          await caches.delete('wkf-offline-auth-v2');
+        }
+      }
+    } catch (_) {}
+    signOut();
+  };
+
+  // Sesión efectiva: NextAuth en vivo, o respaldo offline autorizado si estamos sin internet
+  const activeSession = session || (isOffline ? offlineSession : null);
+
   // Control de Acceso por Lista Blanca Estricta
-  const isSuperAdmin = session?.user?.email?.toLowerCase() === 'david.artavia.rodriguez@gmail.com';
-  const isAdmin = isSuperAdmin || session?.user?.role === 'admin';
-  const isApproved = isAdmin || session?.user?.status === 'aprobado';
-  const isBlocked = session && !isAdmin && session?.user?.status === 'bloqueado';
-  const isPending = session && !isAdmin && !isApproved && !isBlocked;
+  const isSuperAdmin = activeSession?.user?.email?.toLowerCase() === 'david.artavia.rodriguez@gmail.com';
+  const isAdmin = isSuperAdmin || activeSession?.user?.role === 'admin';
+  const isApproved = isAdmin || activeSession?.user?.status === 'aprobado';
+  const isBlocked = activeSession && !isAdmin && activeSession?.user?.status === 'bloqueado';
+  const isPending = activeSession && !isAdmin && !isApproved && !isBlocked;
 
   // Estado del Banco de Preguntas cargado de forma segura desde el backend
   const [questionsData, setQuestionsData] = useState({
@@ -57,7 +94,6 @@ export default function Home() {
   const [timerEnabled, setTimerEnabled] = useState(false); // false = Sin límite, true = 30s Contrarreloj
   const [timeLeft, setTimeLeft] = useState(30);
   const [timeoutToast, setTimeoutToast] = useState('');
-  const [isOffline, setIsOffline] = useState(false);
   const [syncToast, setSyncToast] = useState('');
 
   // Detección de conectividad Offline / Online y sincronización en segundo plano (PWA)
@@ -544,7 +580,7 @@ export default function Home() {
   const currentQuestion = activeQuestions[currentQuestionIndex];
   const isSelectedCorrect = isSubmitted && selectedAnswer === currentQuestion?.answer;
 
-  if (authStatus === 'loading') {
+  if (authStatus === 'loading' && !activeSession) {
     return (
       <div className="app-container">
         <Head>
@@ -580,9 +616,9 @@ export default function Home() {
       </Head>
 
       {/* Barra de perfil y autenticación con Google (solo cuando está autenticado) */}
-      {!MAINTENANCE_MODE && gameState !== 'quiz' && session && (
+      {!MAINTENANCE_MODE && gameState !== 'quiz' && activeSession && (
         <div className="auth-bar-wrapper">
-          <UserAuthBar />
+          <UserAuthBar offlineUser={activeSession?.user} />
         </div>
       )}
 
@@ -638,7 +674,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        ) : !session ? (
+        ) : !activeSession ? (
           /* ================= PANTALLA: INICIO DE SESIÓN CON GOOGLE INDISPENSABLE ================= */
           <div className="pending-card" style={{ maxWidth: '520px' }}>
             <div className="portal-mascots-duo">
@@ -647,12 +683,14 @@ export default function Home() {
             </div>
 
             <span className="pending-badge" style={{ backgroundColor: '#eff6ff', color: '#1d4ed8', borderColor: '#bfdbfe' }}>
-              🔒 Identificación Obligatoria
+              {isOffline ? '📡 Sin Conexión - Requiere Conexión Inicial' : '🔒 Identificación Obligatoria'}
             </span>
 
             <h1 className="pending-title">Exámenes Oficiales WKF 2026</h1>
             <p className="pending-subtitle">
-              Para ingresar y realizar las evaluaciones oficiales de <strong>Coach</strong> y <strong>Árbitro WKF</strong>, es indispensable iniciar sesión con tu cuenta de Google.
+              {isOffline
+                ? 'Para tu primera sesión es necesario contar con conexión a internet para autenticarte con Google y sincronizar las preguntas oficiales. Una vez hecho esto, podrás practicar sin conexión en cualquier momento.'
+                : 'Para ingresar y realizar las evaluaciones oficiales de Coach y Árbitro WKF, es indispensable iniciar sesión con tu cuenta de Google.'}
             </p>
 
             <div className="pending-info-box">
@@ -700,10 +738,10 @@ export default function Home() {
             </span>
             <h1 className="pending-title">Acceso Temporalmente Bloqueado</h1>
             <p className="pending-subtitle">
-              El administrador ha pausado el acceso para la cuenta <strong>{session?.user?.email}</strong>.
+              El administrador ha pausado el acceso para la cuenta <strong>{activeSession?.user?.email}</strong>.
             </p>
             <div style={{ marginTop: '20px' }}>
-              <button type="button" className="btn-3d btn-white" onClick={() => signOut()}>
+              <button type="button" className="btn-3d btn-white" onClick={handleSignOut}>
                 Cerrar sesión
               </button>
             </div>
@@ -717,9 +755,9 @@ export default function Home() {
 
             <span className="pending-badge">⏳ Acceso Pendiente de Aprobación</span>
 
-            <h1 className="pending-title">¡Hola, {session?.user?.name || 'Sensei'}!</h1>
+            <h1 className="pending-title">¡Hola, {activeSession?.user?.name || 'Sensei'}!</h1>
             <p className="pending-subtitle">
-              Tu cuenta de Google (<strong>{session?.user?.email}</strong>) ha sido registrada exitosamente con rol de <strong>Visitante</strong>.
+              Tu cuenta de Google (<strong>{activeSession?.user?.email}</strong>) ha sido registrada exitosamente con rol de <strong>Visitante</strong>.
             </p>
 
             <div className="pending-info-box">
@@ -750,7 +788,7 @@ export default function Home() {
               <button
                 type="button"
                 className="btn-3d btn-white"
-                onClick={() => signOut()}
+                onClick={handleSignOut}
               >
                 Cerrar sesión
               </button>

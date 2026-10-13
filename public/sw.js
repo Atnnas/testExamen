@@ -1,5 +1,6 @@
-const CACHE_NAME = 'wkf-app-shell-v1';
-const QUESTIONS_CACHE = 'wkf-offline-questions-v1';
+const CACHE_NAME = 'wkf-app-shell-v2';
+const QUESTIONS_CACHE = 'wkf-offline-questions-v2';
+const AUTH_CACHE = 'wkf-offline-auth-v2';
 
 const STATIC_PRECACHE = [
   '/',
@@ -26,7 +27,7 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((key) => {
-          if (key !== CACHE_NAME && key !== QUESTIONS_CACHE) {
+          if (key !== CACHE_NAME && key !== QUESTIONS_CACHE && key !== AUTH_CACHE) {
             return caches.delete(key);
           }
         })
@@ -56,7 +57,8 @@ self.addEventListener('fetch', (event) => {
         })
         .catch(async () => {
           // En caso de estar sin internet (avión, dojo sin cobertura), servir preguntas cacheadas
-          const cachedResponse = await caches.match(request);
+          const questionsCache = await caches.open(QUESTIONS_CACHE);
+          const cachedResponse = await questionsCache.match(request);
           if (cachedResponse) {
             return cachedResponse;
           }
@@ -72,7 +74,55 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. Rutas que NUNCA deben cachearse por seguridad
+  // 2. Sesión Activa de NextAuth: Network-First con Fallback a Sesión Offline Guardada
+  if (url.pathname === '/api/auth/session' && request.method === 'GET') {
+    event.respondWith(
+      fetch(request)
+        .then(async (networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            try {
+              const copy = networkResponse.clone();
+              const sessionData = await copy.json();
+              const authCache = await caches.open(AUTH_CACHE);
+              // Si la sesión contiene un usuario válido activo, guardarla offline
+              if (sessionData && sessionData.user) {
+                await authCache.put(request, networkResponse.clone());
+              } else {
+                // Si la sesión está vacía (usuario no autenticado), limpiar caché
+                await authCache.delete(request);
+              }
+            } catch (err) {
+              console.warn('Error al procesar caché de sesión:', err);
+            }
+          }
+          return networkResponse;
+        })
+        .catch(async () => {
+          // Si no hay red (offline), servir la última sesión guardada autorizada
+          const authCache = await caches.open(AUTH_CACHE);
+          const cachedSession = await authCache.match(request);
+          if (cachedSession) {
+            return cachedSession;
+          }
+          // Si nunca hubo sesión previa, responder con objeto vacío para que NextAuth no rompa
+          return new Response(JSON.stringify({}), {
+            headers: { 'Content-Type': 'application/json' },
+            status: 200,
+          });
+        })
+    );
+    return;
+  }
+
+  // 3. Cierre de sesión (Signout): Eliminar caché de autenticación offline inmediatamente
+  if (url.pathname.startsWith('/api/auth/signout')) {
+    event.waitUntil(
+      caches.delete(AUTH_CACHE)
+    );
+    return;
+  }
+
+  // 4. Otras rutas de autenticación y panel admin: NUNCA cachear por seguridad
   if (
     url.pathname.startsWith('/api/auth') ||
     url.pathname.startsWith('/api/admin')
@@ -80,7 +130,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 3. Documentos HTML y recursos estáticos: Network-First con Fallback a Caché
+  // 5. Documentos HTML y recursos estáticos: Network-First con Fallback a Caché
   if (request.method === 'GET') {
     event.respondWith(
       fetch(request)

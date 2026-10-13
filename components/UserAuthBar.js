@@ -2,15 +2,30 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
 
-export default function UserAuthBar() {
+export default function UserAuthBar({ offlineUser }) {
   const { data: session, status } = useSession();
   const [mounted, setMounted] = useState(false);
+  const [avatarError, setAvatarError] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted || status === 'loading') {
+  const currentUser = session?.user || offlineUser;
+
+  const handleSignOut = async () => {
+    try {
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('wkf_offline_session');
+        if ('caches' in window) {
+          await caches.delete('wkf-offline-auth-v2');
+        }
+      }
+    } catch (_) {}
+    signOut();
+  };
+
+  if (!mounted || (status === 'loading' && !currentUser)) {
     return (
       <div className="auth-bar-container">
         <span className="auth-loading-text">Cargando perfil…</span>
@@ -18,9 +33,9 @@ export default function UserAuthBar() {
     );
   }
 
-  const isAdmin = session?.user?.role === 'admin' || session?.user?.email?.toLowerCase() === 'david.artavia.rodriguez@gmail.com';
+  const isAdmin = currentUser?.role === 'admin' || currentUser?.email?.toLowerCase() === 'david.artavia.rodriguez@gmail.com';
 
-  if (session?.user) {
+  if (currentUser) {
     return (
       <div className="auth-bar-container">
         {isAdmin && (
@@ -30,33 +45,34 @@ export default function UserAuthBar() {
         )}
 
         <div className="auth-user-info">
-          {session.user.image ? (
+          {currentUser.image && !avatarError ? (
             <img
-              src={session.user.image}
-              alt={session.user.name || 'Avatar del usuario'}
+              src={currentUser.image}
+              alt={currentUser.name || 'Avatar del usuario'}
               width={34}
               height={34}
               className="auth-user-avatar"
+              onError={() => setAvatarError(true)}
             />
           ) : (
             <div className="auth-user-avatar-placeholder" aria-hidden="true">
-              {(session.user.name || 'U').charAt(0).toUpperCase()}
+              {(currentUser.name || 'U').charAt(0).toUpperCase()}
             </div>
           )}
           <div className="auth-user-details">
             <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-              <span className="auth-user-name">{session.user.name || 'Sensei'}</span>
-              <span className={`auth-role-tag role-tag-${session.user.role || 'visitante'}`}>
-                {session.user.role === 'admin' ? 'Admin' : session.user.role === 'editor' ? 'Editor' : 'Visitante'}
+              <span className="auth-user-name">{currentUser.name || 'Sensei'}</span>
+              <span className={`auth-role-tag role-tag-${currentUser.role || 'visitante'}`}>
+                {currentUser.role === 'admin' ? 'Admin' : currentUser.role === 'editor' ? 'Editor' : 'Visitante'}
               </span>
             </div>
-            <span className="auth-user-email">{session.user.email}</span>
+            <span className="auth-user-email">{currentUser.email}</span>
           </div>
         </div>
 
         <button
           type="button"
-          onClick={() => signOut()}
+          onClick={handleSignOut}
           className="auth-signout-btn"
           aria-label="Cerrar sesión"
           title="Cerrar sesión"
