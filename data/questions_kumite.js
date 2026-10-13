@@ -238,9 +238,11 @@ export const kumiteQuestions = [
     "section": "Sección 2: Equipamiento del Atleta, Karategi y Cinturones",
     "text": "El protector de pecho infantil y el casco protector son obligatorios en las categorías menores de 14 años (Under 14).",
     "text_en": "The children’s chest protector and the protective helmet are compulsory in the Under 14 categories.",
-    "answer": true,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 2.2.7 g) y h) (Pág. 7).",
-    "justification": "Para los atletas de categorías Sub-14 (Under 14), el uso de casco protector (helmet) homologado, protector corporal externo y el protector de pecho para las niñas son totalmente obligatorios para garantizar la integridad física de los competidores infantiles."
+    "answer": false,
+    "ref": "WKF 2026 Kumite Competition Rules (KuR), Art. 2.2.7 g) (Pág. 7-8) y Guía de Entrenadores WKF Sub-14.",
+    "justification": "Es FALSA porque el KuR 2.2.7 g) dice: \"For Athletes under 14 years of age, the use of a WKF Approved helmet and external body protector is compulsory\" y la Guía: \"U-14: EXTERNAL BODY PROTECTOR + HELMET + for females INTERNAL CHEST PROTECTOR\". No dice \"children's chest protector\".",
+    "justification_en": "It is FALSE because KuR 2.2.7 g) states: \"For Athletes under 14 years of age, the use of a WKF Approved helmet and external body protector is compulsory\" and the Guide states: \"U-14: EXTERNAL BODY PROTECTOR + HELMET + for females INTERNAL CHEST PROTECTOR\". It does NOT say \"children's chest protector\".",
+    "justification_es": "Es FALSA porque el KuR 2.2.7 g) dice: \"For Athletes under 14 years of age, the use of a WKF Approved helmet and external body protector is compulsory\" y la Guía: \"U-14: EXTERNAL BODY PROTECTOR + HELMET + for females INTERNAL CHEST PROTECTOR\". No dice \"children's chest protector\" (protector de pecho infantil)."
   },
   {
     "id": 28,

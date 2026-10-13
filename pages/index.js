@@ -236,6 +236,8 @@ export default function Home() {
       correctAnswer: currentQ.answer,
       isCorrect,
       justification: currentQ.justification,
+      justification_en: currentQ.justification_en,
+      justification_es: currentQ.justification_es,
       ref: currentQ.ref,
       section: currentQ.section,
     };
@@ -460,6 +462,8 @@ export default function Home() {
       correctAnswer: currentQuestion.answer,
       isCorrect,
       justification: currentQuestion.justification,
+      justification_en: currentQuestion.justification_en,
+      justification_es: currentQuestion.justification_es,
       ref: currentQuestion.ref,
       section: currentQuestion.section,
     };
