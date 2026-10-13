@@ -58,9 +58,11 @@ export const kumiteQuestions = [
     "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "Durante los combates por medallas, los entrenadores masculinos deben usar un traje oscuro, camisa y corbata.",
     "text_en": "During medal bouts, male coaches must wear a dark suit, shirt and tie.",
-    "answer": true,
-    "ref": "WKF 2026 Kumite Competition Rules MASTER COPY_V11.pdf, Artículo 2.3.1 (Pág. 8).",
-    "justification": "El reglamento de indumentaria para entrenadores de la WKF exige de forma obligatoria el traje oscuro de etiqueta formal, con camisa y corbata, exclusivamente para los entrenadores masculinos en las fases de finales por medallas."
+    "answer": false,
+    "ref": "WKF 2026 Kumite Competition Rules (KuR), Art. 2.3.1 (Pág. 8) y Guía Kumite 2026.",
+    "justification": "Es FALSA porque el enunciado está incompleto: el KuR 2.3.1 dice \"male Coaches are required to wear a dark suit, shoes covering the feet, shirt and tie\" y la Guía Kumite 2026 dice \"DARK SUIT, SHIRT & TIE, SHOES\". Omite los zapatos.",
+    "justification_en": "It is FALSE because the statement is incomplete: KuR 2.3.1 states \"male Coaches are required to wear a dark suit, shoes covering the feet, shirt and tie\" and the Kumite 2026 Guide states \"DARK SUIT, SHIRT & TIE, SHOES\". It omits the shoes.",
+    "justification_es": "Es FALSA porque el enunciado está incompleto: el KuR 2.3.1 dice \"male Coaches are required to wear a dark suit, shoes covering the feet, shirt and tie\" y la Guía Kumite 2026 dice \"DARK SUIT, SHIRT & TIE, SHOES\". Omite los zapatos."
   },
   {
     "id": 8,

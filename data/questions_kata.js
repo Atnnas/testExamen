@@ -58,9 +58,11 @@ export const kataQuestions = [
     "section": "Sección 1: Reglamento General de Entrenadores y Uniformes",
     "text": "Durante los combates por medallas, los entrenadores masculinos deben usar un traje oscuro, camisa y corbata.",
     "text_en": "During medal bouts, male coaches must wear a dark suit, shirt and tie.",
-    "answer": true,
-    "ref": "WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf, Artículo 2.3.1 (Pág. 8).",
-    "justification": "El texto normativo cita textualmente: \"...the exception is bouts/matches for medals in official WKF events, where male Coaches are required to wear a dark suit, shoes covering the feet, shirt and tie.\""
+    "answer": false,
+    "ref": "WKF Kata Competition Rules 2026, Art. 2.3.1 (Pág. 8) y Guía Kata 2026.",
+    "justification": "Es FALSA porque el enunciado está incompleto: el Art. 2.3.1 dice \"male Coaches are required to wear a dark suit, shoes covering the feet, shirt and tie\" y la Guía oficial dice \"DARK SUIT, SHIRT & TIE, SHOES\". Omite los zapatos.",
+    "justification_en": "It is FALSE because the statement is incomplete: Art. 2.3.1 states \"male Coaches are required to wear a dark suit, shoes covering the feet, shirt and tie\" and the official Guide states \"DARK SUIT, SHIRT & TIE, SHOES\". It omits the shoes.",
+    "justification_es": "Es FALSA porque el enunciado está incompleto: el Art. 2.3.1 dice \"male Coaches are required to wear a dark suit, shoes covering the feet, shirt and tie\" y la Guía oficial dice \"DARK SUIT, SHIRT & TIE, SHOES\". Omite los zapatos."
   },
   {
     "id": 8,
