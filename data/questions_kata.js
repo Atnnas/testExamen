@@ -638,9 +638,11 @@ export const kataQuestions = [
     "section": "Sección 10: Reglamento de Para-Karate",
     "text": "Existen tres categorías generales en las competiciones de Para-Karate: Discapacidad Visual, Discapacidad Intelectual y Usuarios de Silla de Ruedas.",
     "text_en": "There are three general Categories in Para-Karate competitions: Visually Impaired, Intellectually Impaired and Wheelchair Users.",
-    "answer": true,
-    "ref": "122225_parakarate_commission.pdf / WKF Kata Competition Rules 2026 MASTER COPY_V2.pdf (Sección Para-Karate).,",
-    "justification": "Son los tres grandes grupos clasificatorios funcionales e intelectuales en los que compiten internacionalmente los Para-atletas."
+    "answer": false,
+    "ref": "Reglamento de Para-Karate WKF (PR), Art. 2.1.1 y Guía Oficial WKF 2026.",
+    "justification": "Es FALSA porque el Reglamento de Para Karate (PR) 2.1.1 dice que las categorías son: \"a. Visual Impairment – K10, b. Intellectual Impairment – K21 and K22, c. Physical Impairment – K30\". \"Wheelchair Users\" no es una categoría.",
+    "justification_en": "It is FALSE because Para-Karate Rules (PR) 2.1.1 states that the categories are: \"a. Visual Impairment – K10, b. Intellectual Impairment – K21 and K22, c. Physical Impairment – K30\". \"Wheelchair Users\" is NOT a category.",
+    "justification_es": "Es FALSA porque el Reglamento de Para Karate (PR) 2.1.1 dice que las categorías son: \"a. Visual Impairment – K10, b. Intellectual Impairment – K21 and K22, c. Physical Impairment – K30\". \"Wheelchair Users\" no es una categoría."
   },
   {
     "id": 72,
